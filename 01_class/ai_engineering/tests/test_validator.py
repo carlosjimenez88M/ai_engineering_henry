@@ -92,12 +92,12 @@ class TestValidateContextLength:
     @pytest.mark.unit
     def test_custom_max_tokens(self):
         """Test validation with custom max_tokens."""
-        context = "x" * 1000
-        validate_context_length(context, max_tokens=100)  # Should not raise
+        context = "x" * 300
+        validate_context_length(context, max_tokens=100)  # 75 tokens, should pass
 
         context = "x" * 1000
         with pytest.raises(ValueError):
-            validate_context_length(context, max_tokens=200)  # 250 estimated tokens
+            validate_context_length(context, max_tokens=200)  # 250 estimated tokens, should fail
 
 
 class TestValidateOutputPath:

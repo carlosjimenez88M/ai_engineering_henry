@@ -85,7 +85,7 @@ class TestGenerateBrief:
     def test_generate_brief_returns_string(
         self, monkeypatch: pytest.MonkeyPatch, mock_openai_client: Any
     ):
-        """Test that generate_brief returns a non-empty string."""
+        """Test that generate_brief returns a tuple with brief and metrics."""
         # Mock load_settings
         mock_settings = Mock()
         mock_settings.openai_api_key = "sk-test"
@@ -95,11 +95,13 @@ class TestGenerateBrief:
         monkeypatch.setattr("main.load_settings", lambda: mock_settings)
         monkeypatch.setattr("main.OpenAI", lambda api_key: mock_openai_client)
 
-        result = generate_brief(context="", temperature=0.2)
+        brief, metrics = generate_brief(context="", temperature=0.2)
 
-        assert isinstance(result, str)
-        assert len(result) > 0
-        assert "Software Engineering" in result
+        assert isinstance(brief, str)
+        assert len(brief) > 0
+        assert "Software Engineering" in brief
+        assert metrics.total_tokens == 1500
+        assert metrics.estimated_cost_usd > 0
 
     @pytest.mark.unit
     def test_generate_brief_uses_temperature(
@@ -113,11 +115,12 @@ class TestGenerateBrief:
         monkeypatch.setattr("main.load_settings", lambda: mock_settings)
         monkeypatch.setattr("main.OpenAI", lambda api_key: mock_openai_client)
 
-        generate_brief(context="", temperature=0.7)
+        brief, metrics = generate_brief(context="", temperature=0.7)
 
         # Verify temperature was passed
         call_args = mock_openai_client.chat.completions.create.call_args
         assert call_args.kwargs["temperature"] == 0.7
+        assert metrics.temperature == 0.7
 
     @pytest.mark.unit
     def test_generate_brief_uses_model(
@@ -131,11 +134,12 @@ class TestGenerateBrief:
         monkeypatch.setattr("main.load_settings", lambda: mock_settings)
         monkeypatch.setattr("main.OpenAI", lambda api_key: mock_openai_client)
 
-        generate_brief(context="", temperature=0.2)
+        brief, metrics = generate_brief(context="", temperature=0.2)
 
         # Verify model was passed
         call_args = mock_openai_client.chat.completions.create.call_args
         assert call_args.kwargs["model"] == "gpt-4o"
+        assert metrics.model == "gpt-4o"
 
     @pytest.mark.unit
     def test_generate_brief_includes_context(
@@ -149,19 +153,22 @@ class TestGenerateBrief:
         monkeypatch.setattr("main.load_settings", lambda: mock_settings)
         monkeypatch.setattr("main.OpenAI", lambda api_key: mock_openai_client)
 
-        generate_brief(context="B2B SaaS", temperature=0.2)
+        brief, metrics = generate_brief(context="B2B SaaS", temperature=0.2)
 
         # Verify context was included in messages
         call_args = mock_openai_client.chat.completions.create.call_args
         messages = call_args.kwargs["messages"]
         user_message = messages[1]["content"]
         assert "B2B SaaS" in user_message
+        assert metrics.context == "B2B SaaS"
 
     @pytest.mark.unit
     def test_generate_brief_empty_response_raises(
         self, monkeypatch: pytest.MonkeyPatch
     ):
-        """Test that empty API response raises RuntimeError."""
+        """Test that empty API response raises APIError."""
+        from exceptions import APIError
+
         mock_settings = Mock()
         mock_settings.openai_api_key = "sk-test"
         mock_settings.openai_model = "gpt-4o-mini"
@@ -174,12 +181,17 @@ class TestGenerateBrief:
         mock_message.content = None  # Empty response
         mock_choice.message = mock_message
         mock_response.choices = [mock_choice]
+        mock_usage = Mock()
+        mock_usage.prompt_tokens = 100
+        mock_usage.completion_tokens = 0
+        mock_usage.total_tokens = 100
+        mock_response.usage = mock_usage
         mock_client.chat.completions.create.return_value = mock_response
 
         monkeypatch.setattr("main.load_settings", lambda: mock_settings)
         monkeypatch.setattr("main.OpenAI", lambda api_key: mock_client)
 
-        with pytest.raises(RuntimeError) as exc_info:
+        with pytest.raises(APIError) as exc_info:
             generate_brief(context="", temperature=0.2)
 
         assert "vacia" in str(exc_info.value)
@@ -266,8 +278,8 @@ class TestEndToEndIntegration:
         output_path = tmp_path / "brief.md"
 
         # Execute
-        brief = generate_brief(context="Test context", temperature=0.2)
-        result_path = save_output(brief, output_path)
+        brief, metrics = generate_brief(context="Test context", temperature=0.2)
+        result_path = save_output(brief, output_path, metrics)
 
         # Verify
         assert result_path == output_path
@@ -276,3 +288,7 @@ class TestEndToEndIntegration:
         assert "Software Engineering" in content
         assert "Resumen Ejecutivo" in content
         assert "Matriz Comparativa" in content
+
+        # Verify metrics file was created
+        metrics_path = tmp_path / "brief.metrics.json"
+        assert metrics_path.exists()
