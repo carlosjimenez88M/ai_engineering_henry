@@ -7,10 +7,29 @@ dependencies = [
   "openai>=1.60.0",
   "python-dotenv>=1.0.1",
   "pytest>=8.3.0",
+  "pytest-mock>=3.12.0",
+  "pytest-cov>=4.1.0",
 ]
 
 [tool.uv]
 package = false
+
+[tool.pytest.ini_options]
+testpaths = ["01_class/ai_engineering/tests", "01_class/python_software_engineering/tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--cov=01_class",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+markers = [
+    "integration: integration tests that may call external APIs",
+    "unit: fast unit tests",
+]
 
 [build-system]
 requires = ["setuptools>=68.0.0", "wheel"]

@@ -1,9 +1,38 @@
+"""Prompt templates for brief generation.
+
+This module contains the system and user prompts that define the structure
+and quality expectations for the generated briefs. Prompts are versioned
+through git to ensure reproducibility.
+
+Following "AI Engineering" by Chip Huyen, we:
+1. Keep prompts in version control for reproducibility
+2. Make requirements explicit and measurable
+3. Provide clear output format specifications
+4. Include quality criteria and anti-patterns to avoid
+"""
+
 from __future__ import annotations
 
 from datetime import date
 
 
 def system_prompt() -> str:
+    """Returns the system prompt that defines the AI's role and perspective.
+
+    The system prompt establishes:
+    - Role: AI Engineering Lead with traditional SE background
+    - Mindset: Systems thinking, trade-offs, production operations
+    - Style: Critical, concrete, actionable (no fluff)
+    - Inspiration: Chip Huyen's ML systems design principles
+
+    Returns:
+        System prompt string for LLM.
+
+    Examples:
+        >>> prompt = system_prompt()
+        >>> "trade-offs" in prompt
+        True
+    """
     return (
         "Eres un AI Engineering Lead con experiencia en Software Engineering tradicional. "
         "Piensas con mentalidad de sistemas, trade-offs y operacion en produccion. "
@@ -15,6 +44,29 @@ def system_prompt() -> str:
 
 
 def user_prompt(extra_context: str | None = None) -> str:
+    """Constructs the user prompt with task requirements and format.
+
+    This prompt specifies:
+    - Task: Create comparative brief on SE vs AI Engineering
+    - Quality requirements: Concrete, business-focused, risk-aware
+    - Output format: Structured markdown with specific sections
+    - Style guidelines: Direct, precise, no emojis or fluff
+
+    Args:
+        extra_context: Optional additional context to customize the brief
+            (e.g., "Startup B2B", "Fintech company", "Healthcare domain").
+
+    Returns:
+        Complete user prompt string with requirements and format.
+
+    Examples:
+        >>> prompt = user_prompt()
+        >>> "Matriz comparativa" in prompt
+        True
+        >>> prompt_custom = user_prompt(extra_context="Fintech startup")
+        >>> "Fintech startup" in prompt_custom
+        True
+    """
     today = date.today().isoformat()
     base = f"""
 Construye un brief en espanol sobre la diferencia entre Software Engineering y AI Engineering.
