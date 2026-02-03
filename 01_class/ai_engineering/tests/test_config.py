@@ -93,8 +93,10 @@ def test_load_settings_strips_whitespace(monkeypatch: pytest.MonkeyPatch):
 
 
 @pytest.mark.unit
-def test_load_settings_missing_api_key(monkeypatch: pytest.MonkeyPatch):
+def test_load_settings_missing_api_key(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):
     """Test that RuntimeError is raised when OPENAI_API_KEY is missing."""
+    # Change to temp directory to avoid loading any .env file
+    monkeypatch.chdir(tmp_path)
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
 
     with pytest.raises(RuntimeError) as exc_info:

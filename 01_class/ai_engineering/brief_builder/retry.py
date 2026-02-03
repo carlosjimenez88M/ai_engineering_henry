@@ -19,7 +19,10 @@ from typing import TypeVar
 from openai import APIError as OpenAIAPIError
 from openai import RateLimitError
 
-from .exceptions import APIError
+try:
+    from .exceptions import APIError
+except ImportError:
+    from exceptions import APIError
 
 logger = logging.getLogger(__name__)
 
