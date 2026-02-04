@@ -1,0 +1,12 @@
+{
+  "model": "gpt-4o-mini",
+  "temperature": 0.2,
+  "prompt_tokens": 530,
+  "completion_tokens": 1392,
+  "total_tokens": 1922,
+  "estimated_cost_usd": 0.0009147,
+  "latency_seconds": 27.101673416000267,
+  "timestamp": "2026-02-03T19:35:49.047654",
+  "context": "Startup B2B, 24/7",
+  "output_path": "01_class/ai_engineering/briefs/software_vs_ai_engineering.md"
+}
