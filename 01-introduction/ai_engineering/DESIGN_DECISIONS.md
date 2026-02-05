@@ -46,8 +46,8 @@ Chip Huyen (AI Engineering, Capítulo 5: "Resilient Systems"):
 
 ### Alternativas Consideradas
 
-1. **Sin retry** → ❌ Descartado: Demasiado frágil
-2. **Retry simple (fixed delay)** → ❌ Descartado: Puede empeorar rate limiting
+1. **Sin retry** →  Descartado: Demasiado frágil
+2. **Retry simple (fixed delay)** →  Descartado: Puede empeorar rate limiting
 3. **Circuit breaker** → 🔮 Futuro: Útil cuando se escale a múltiples clientes
 
 ### Referencias
@@ -118,9 +118,9 @@ if not structure_checks["is_complete"]:
 
 ### Alternativas Consideradas
 
-1. **Sin validación** → ❌ Descartado: Costos impredecibles, calidad baja
-2. **Validación solo en inputs** → ❌ Insuficiente: No garantiza output útil
-3. **Validación estricta que falla** → ⚠️ Parcial: Warning en lugar de error si brief útil pero incompleto
+1. **Sin validación** →  Descartado: Costos impredecibles, calidad baja
+2. **Validación solo en inputs** →  Insuficiente: No garantiza output útil
+3. **Validación estricta que falla** →  Parcial: Warning en lugar de error si brief útil pero incompleto
 
 ### Referencias
 
@@ -186,8 +186,8 @@ Chip Huyen (AI Engineering, Capítulo 7: "Monitoring and Observability"):
 
 ### Alternativas Consideradas
 
-1. **Sin tracking** → ❌ Descartado: Imposible gestionar costos
-2. **Solo loggear en consola** → ❌ Insuficiente: Se pierde el historial
+1. **Sin tracking** →  Descartado: Imposible gestionar costos
+2. **Solo loggear en consola** →  Insuficiente: Se pierde el historial
 3. **Enviar a servicio externo** → 🔮 Futuro: Útil para agregación multi-usuario
 
 ### Referencias
@@ -257,9 +257,9 @@ except APIError as e:
 
 ### Alternativas Consideradas
 
-1. **Solo `Exception`** → ❌ Dificulta debugging
-2. **Códigos de error numéricos** → ❌ Menos pythonic
-3. **Excepciones muy granulares** → ⚠️ Over-engineering para este scope
+1. **Solo `Exception`** →  Dificulta debugging
+2. **Códigos de error numéricos** →  Menos pythonic
+3. **Excepciones muy granulares** →  Over-engineering para este scope
 
 ### Referencias
 
@@ -317,8 +317,8 @@ feat(prompts): agregar sección de anti-patrones
 ### Alternativas Consideradas
 
 1. **Prompts en base de datos** → 🔮 Futuro: Útil para A/B testing
-2. **Hardcoded strings** → ❌ Sin versionado, difícil de revisar
-3. **Archivos .txt separados** → ⚠️ Posible, pero menos ergonómico
+2. **Hardcoded strings** →  Sin versionado, difícil de revisar
+3. **Archivos .txt separados** →  Posible, pero menos ergonómico
 
 ### Referencias
 

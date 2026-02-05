@@ -1,0 +1,17 @@
+[
+  {
+    "id": "T-1001",
+    "score": 75,
+    "priority": "P0"
+  },
+  {
+    "id": "T-1002",
+    "score": 20,
+    "priority": "P2"
+  },
+  {
+    "id": "T-1003",
+    "score": 15,
+    "priority": "P2"
+  }
+]

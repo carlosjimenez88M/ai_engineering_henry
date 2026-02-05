@@ -18,7 +18,7 @@ Este curso te prepara para construir sistemas AI que escalan en producción, no 
 
 El curso se divide en 4 clases progresivas:
 
-### **Clase 1: Software vs AI Engineering** ✅
+### **Clase 1: Software vs AI Engineering** 
 **Estado:** Completa y lista para usar
 
 Contenido:
@@ -29,16 +29,18 @@ Contenido:
 
 **Ubicación:** `01_class/`
 
-### **Clase 2: Fundamentos de Prompting y LLM APIs** 🚧
-**Estado:** Próximamente
+### **Clase 2: Prompting aplicado (CoT + ReAct)** 
+**Estado:** Completa y lista para usar
 
-Temas planeados:
-- Prompt engineering: system/user prompts, few-shot learning
-- Temperature, top-p y otros parámetros del modelo
-- Streaming vs batch responses
-- Manejo de contexto y tokens
+Contenido:
+- Estrategias Chain of Thought: Zero-shot y Few-shot
+- Estrategias ReAct: razonamiento + acción con herramientas
+- Feedback loop y auto-crítica con rúbrica
+- Notebooks ejecutables con OpenAI API
 
-### **Clase 3: Evaluación y Monitoreo de Sistemas AI** 🚧
+**Ubicación:** `02-prompting/`
+
+### **Clase 3: Evaluación y Monitoreo de Sistemas AI** 
 **Estado:** Próximamente
 
 Temas planeados:
@@ -47,7 +49,7 @@ Temas planeados:
 - Monitoreo en producción (data drift, model drift)
 - A/B testing para sistemas AI
 
-### **Clase 4: Deployment y Producción** 🚧
+### **Clase 4: Deployment y Producción** 
 **Estado:** Próximamente
 
 Temas planeados:
@@ -100,7 +102,7 @@ Temas planeados:
    make test-se
    ```
 
-   Si ves tests pasando, ¡estás listo! ✅
+   Si ves tests pasando, ¡estás listo! 
 
 ### Primer Comando
 
@@ -152,6 +154,164 @@ Este curso sigue los principios de **Chip Huyen** sobre sistemas AI en producci�
 - Logs de tokens y USD por operación
 - Alertas cuando se exceden thresholds
 
+## Fundamentos de Prompt Engineering
+
+### Premisa Central: Los Agentes Dependen del Contexto
+
+**Principio fundamental**: La calidad del razonamiento de un agente es directamente proporcional a la claridad y completitud del contexto que recibe.
+
+- **Agente** = Sistema LLM + Herramientas + Contexto + Ciclo de retroalimentación
+- **Buen contexto** = comportamiento consistente, predecible, eficiente en costos
+- **Contexto vago** = alucinaciones, inconsistencia, explosión de costos
+
+**Ejemplo:**
+-  Contexto débil: "Aquí hay info del usuario"
+-  Contexto fuerte: "Usuario: 28 años, preferencias: [jazz, fotografía], estilo conversacional: inteligente y ligero, contexto: primer mensaje tras match"
+
+### Anatomía de un Prompt de Producción
+
+Todo prompt efectivo sigue esta estructura de 5 capas:
+
+**1. ROLE (Quién es el agente)**
+```
+"Eres un coach conversacional elegante, respetuoso y práctico."
+```
+- Define identidad, expertise, valores
+- Establece tono y límites éticos
+- Siempre explícito, nunca implícito
+
+**2. TASK (Qué debe hacer)**
+```
+"Diseña una recomendación de conversación personalizada basada en el perfil del usuario."
+```
+- Objetivo específico y medible
+- Sin ambigüedad en el alcance
+- Descomponer tareas complejas en subtareas
+
+**3. OUTPUT FORMAT (Estructura requerida)**
+```json
+{
+  "opener": "mensaje inicial",
+  "follow_up": "pregunta de seguimiento",
+  "tone_notes": ["observación 1", "observación 2"]
+}
+```
+- JSON schema o Pydantic BaseModel
+- Valida automáticamente
+- Facilita integración downstream
+
+**4. EXAMPLES (Comportamiento esperado - opcional)**
+```
+"Ejemplo de buen opener: '¿Qué cafés de Palermo recomendarías para...?'"
+```
+- Few-shot learning: 1-3 ejemplos de calidad
+- Trade-off: +consistencia, +tokens/costo
+- Usar cuando calidad > costo
+
+**5. CONTEXT (Información específica)**
+```python
+profile = {
+  "tipo_persona": "arquitecta apasionada por fotografía urbana",
+  "gustos": ["cafés tranquilos", "jazz", "viajes cortos"],
+  "contexto": "match reciente, primera interacción"
+}
+```
+- Datos estructurados, no narrativos
+- Incluir meta-información (fuente, confianza)
+- Filtrar ruido, priorizar señales
+
+**Aplicación en este curso:**
+- **Clase 1**: brief_builder usa ROLE + TASK + FORMAT implícitamente
+- **Clase 2**: COT añade razonamiento explícito; ReAct añade herramientas y ciclos
+- **Clase 3-4**: Evaluación y despliegue mantienen esta estructura
+
+### Mejores Prácticas de AI Engineering
+
+**1. Instrucciones Claras y No Ambiguas**
+- Usa lenguaje imperativo: "Devuelve", "Analiza", "Genera"
+- Evita lenguaje condicional vago: "tal vez", "podría"
+- Especifica límites: longitud máxima, formato exacto, restricciones
+
+**2. Siempre Define el Rol del Agente**
+- Sin rol = agente asume personalidad genérica
+- Rol explícito = comportamiento consistente
+- Incluye valores éticos en el rol (respeto, consentimiento)
+
+**3. Divide Tareas Complejas en Subtareas**
+- Una tarea = una responsabilidad
+- Cadena subtareas con estado explícito
+- Ejemplo: ANALIZAR → GENERAR → AUDITAR → RESPONDER
+
+**4. Especifica Formato de Salida Estrictamente**
+- JSON schema con campos requeridos
+- Pydantic BaseModel con validación (producción)
+- Incluye tipos de datos y rangos permitidos
+
+**5. Seguridad y Restricciones Éticas**
+- Restricciones upfront en ROLE y TASK
+- Auditoría automática de salidas (ver ReAct/audit)
+- Nunca asumas que el modelo "sabe" ética implícitamente
+
+**6. Proceso Iterativo con Evaluación**
+- Primera versión → Evaluación con rúbrica → Feedback → Regeneración
+- Métricas objetivas (ver rubrica.py)
+- Itera hasta alcanzar umbral de calidad
+
+### Errores Comunes y Diagnóstico
+
+**Error 1: Ambigüedad en Instrucciones**
+-  Problema: "Genera un mensaje simpático"
+-  Solución: "Genera un mensaje de 15-25 palabras que incluya una pregunta sobre [tema del perfil]"
+- **Impacto**: Inconsistencia, outputs impredecibles, debugging difícil
+
+**Error 2: Contradicciones en el Prompt**
+-  Problema: "Sé breve" + "Explica detalladamente"
+-  Solución: Prioriza explícitamente o separa en dos llamadas
+- **Impacto**: Modelo elige arbitrariamente, resultados varían por ejecución
+
+**Error 3: Asumir que el LLM "Lee la Mente"**
+-  Problema: "El usuario quiere algo interesante"
+-  Solución: Proporciona gustos explícitos del perfil como contexto estructurado
+- **Impacto**: Alucinaciones, outputs genéricos, baja personalización
+
+**Error 4: Falta de Validación de Salidas**
+-  Problema: Asumir que la API siempre devuelve formato correcto
+-  Solución: Valida con JSON schema o Pydantic antes de usar
+- **Impacto**: Errores en sistemas downstream, fallos silenciosos
+
+**Error 5: Prompt Injection**
+-  Problema: Concatenar input del usuario directamente en prompts
+-  Solución: Sanitiza inputs, usa delimitadores claros, valida antes de insertar
+- **Impacto**: Usuarios maliciosos pueden alterar comportamiento del agente
+
+**Error 6: Explosión de Contexto**
+-  Problema: Meter documentos completos sin procesar
+-  Solución: Resume, extrae hechos clave, estructura jerárquicamente
+- **Impacto**: Costos inmanejables, timeouts, degradación de calidad
+
+**Error 7: Temperatura Incorrecta**
+-  Problema: Usar temperature=1.5 para tareas determinísticas
+-  Solución: 0.1-0.3 para consistencia, 0.7+ para creatividad
+- **Impacto**: Variabilidad impredecible, costos más altos por reintentos
+
+**Error 8: No Estimar Costos Antes de Producción**
+-  Problema: Desplegar sin calcular tokens/request típico
+-  Solución: Calcula (input_tokens + output_tokens) × precio × volumen_esperado
+- **Impacto**: Sobrecostos, necesidad de rediseño de emergencia
+
+### Conexión con Clases del Curso
+
+Esta estructura se aplica progresivamente:
+
+- **Clase 1** (brief_builder): Prompt simple con ROLE + TASK + FORMAT
+- **Clase 2** (CoT/ReAct): Añade razonamiento explícito y herramientas
+  - COT: Descompone razonamiento en pasos visibles
+  - ReAct: Añade ciclo Thought → Action → Observation
+- **Clase 3** (Evaluación): Métricas para validar calidad de prompts
+- **Clase 4** (Producción): Optimización de costos y latencia
+
+Ver `02-prompting/` para aplicación práctica de estos conceptos.
+
 ## Distribución del Repositorio
 
 ```
@@ -186,9 +346,13 @@ ai_engineering_henry/
 ### Desarrollo
 ```bash
 make install        # Instalar dependencias
+make install-prompting  # Instalar entorno de Clase 02 con uv
 make run-ai         # Generar brief básico
 make run-ai-context CONTEXT="texto"  # Brief con contexto
 make run-se         # Ejecutar ejemplo de software clásico
+make run-cot        # Ejecutar ejemplos CoT
+make run-react      # Ejecutar ejemplos ReAct
+make run-notebooks  # Ejecutar notebooks de Clase 02
 ```
 
 ### Testing
@@ -221,17 +385,17 @@ make clean          # Limpiar artefactos
 ### Comunidad Henry
 - 💬 **Slack:** Canal #ai-engineering
 - 📧 **Email:** ai-support@soyhenry.com
-- 🎓 **Office Hours:** Consulta el calendario interno
+-  **Office Hours:** Consulta el calendario interno
 
 ## Notas de Seguridad
 
-### ⚠️ IMPORTANTE: Nunca subas secretos a Git
+###  IMPORTANTE: Nunca subas secretos a Git
 
 El `.gitignore` está configurado para prevenir:
-- ✅ Claves API (`.env`, archivos `secrets.*`)
-- ✅ Certificados y llaves privadas (`.pem`, `.key`)
-- ✅ Entornos virtuales (`.venv/`, `venv/`)
-- ✅ Artefactos de desarrollo (`__pycache__`, `.pytest_cache`)
+-  Claves API (`.env`, archivos `secrets.*`)
+-  Certificados y llaves privadas (`.pem`, `.key`)
+-  Entornos virtuales (`.venv/`, `venv/`)
+-  Artefactos de desarrollo (`__pycache__`, `.pytest_cache`)
 
 ### Buenas Prácticas
 
@@ -266,9 +430,9 @@ Este material es propiedad de Henry Academy y está disponible para estudiantes 
 
 ## Próximos Pasos
 
-1. ✅ Completa la **Clase 1** siguiendo `01_class/README.md`
+1.  Completa la **Clase 1** siguiendo `01_class/README.md`
 2. 🧪 Experimenta con diferentes valores de `temperature` y observa los resultados
-3. 📊 Revisa los archivos `.metrics.json` para entender costos
+3.  Revisa los archivos `.metrics.json` para entender costos
 4. 🧐 Lee el brief generado y compáralo con el prompt
 5. 🔍 Explora el código en `brief_builder/` para ver los patrones
 
