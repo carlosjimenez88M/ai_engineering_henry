@@ -1,8 +1,8 @@
 ![](https://www.soyhenry.com/_next/static/media/HenryLogo.bb57fd6f.svg)
 
-# AI Engineering - Henry Academy
+# AI Engineering - Henry 
 
-Bienvenido al curso de AI Engineering de Henry Academy. Este repositorio contiene material práctico diseñado para estudiantes que quieren entender las diferencias fundamentales entre Software Engineering tradicional y AI Engineering moderno, siguiendo los principios de **Chip Huyen** ("Designing Machine Learning Systems" y "AI Engineering").
+Bienvenido al curso de AI Engineering de Henry. Este repositorio contiene material práctico diseñado para estudiantes que quieren entender las diferencias fundamentales entre Software Engineering tradicional y AI Engineering moderno, siguiendo los principios de **Chip Huyen** ("Designing Machine Learning Systems" y "AI Engineering").
 
 ## ¿Por qué este curso?
 

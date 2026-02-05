@@ -1,8 +1,8 @@
 # Clase 02: Prompting Aplicado (CoT + ReAct)
 
-Esta clase está diseñada para llevarte de fundamentos a nivel medio-avanzado en prompting aplicado. El objetivo no es memorizar recetas, sino aprender a diseñar mecanismos reproducibles de razonamiento y decisión.
+Esta clase está diseñada para llevarte de fundamentos a nivel medio | avanzado en prompting aplicado. El objetivo no es memorizar recetas, sino aprender a diseñar mecanismos reproducibles de razonamiento y decisión.
 
-## Qué aprenderás
+## Qué aprenderás ?
 
 Al terminar esta clase deberías poder:
 
@@ -24,7 +24,7 @@ Todo lo que verás en esta clase sigue la estructura de 5 capas:
 4. **EXAMPLES** (opcional): Few-shot para mayor consistencia
 5. **CONTEXT**: Datos específicos del caso (perfil del usuario, etc.)
 
-Los ejemplos en COT/ y ReAct/ mapean explícitamente a esta estructura en comentarios.
+Los ejemplos en COT y ReAct mapean explícitamente a esta estructura en comentarios.
 
 ---
 
@@ -37,7 +37,7 @@ Chain of Thought (CoT) no es "pedirle al modelo que piense" de forma vaga. Es un
 ```
 Diagrama CoT:
 ┌─────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│   Input     │───│  Paso 1:     │───│  Paso 2:     │───│  Paso 3:     │
+│   Input     │───-│  Paso 1:     │───-│  Paso 2:     │───-│  Paso 3:     │
 │  Contexto   │    │  Analizar    │    │  Estrategia  │    │  Verificar   │
 └─────────────┘    │  señales     │    │  de apertura │    │  riesgos     │
                    └──────────────┘    └──────────────┘    └──────────────┘
@@ -134,13 +134,6 @@ profile = {
 Input:  200 tokens (prompt + contexto)
 Output: 300 tokens (4 pasos CoT + respuesta)
 Total:  500 tokens/request
-
-Costo (gpt-4o-mini):
-- Input:  200 × $0.15/1M = $0.00003
-- Output: 300 × $0.60/1M = $0.00018
-- Total: $0.00021/request
-
-100,000 requests/mes = $21/mes
 ```
 
 **Few-shot CoT:**
@@ -148,13 +141,6 @@ Costo (gpt-4o-mini):
 Input:  600 tokens (prompt + 3 ejemplos + contexto)
 Output: 300 tokens (mismo razonamiento)
 Total:  900 tokens/request
-
-Costo (gpt-4o-mini):
-- Input:  600 × $0.15/1M = $0.00009
-- Output: 300 × $0.60/1M = $0.00018
-- Total: $0.00027/request
-
-100,000 requests/mes = $27/mes
 ```
 
 **Trade-off matemático:**
@@ -225,7 +211,7 @@ ReAct separa cada iteración en tres piezas:
 ```
 Diagrama ReAct:
 ┌────────────┐    ┌────────────┐    ┌────────────┐    ┌────────────┐
-│  Objetivo  │───│  Thought:  │───│  Action:   │───│Observation:│
+│  Objetivo  │────│  Thought:  │────│  Action:   │────│Observation:│
 │  Usuario   │    │  "Necesito │    │  Ejecutar  │    │  Resultado │
 └────────────┘    │  analizar" │    │  tool"     │    │  parcial   │
                   └────────────┘    └────────────┘    └────────────┘
@@ -574,35 +560,7 @@ En contexto de LLM API call:
 
 ---
 
-## Estructura del directorio
 
-```text
-02-prompting/
-├── README.md                           # Este archivo
-├── COT/
-│   └── Notebooks/
-│       ├── 01_zero_shot_cot_recomendador.py       # JSON
-│       ├── 02_few_shot_cot_feedback_loop.py       # JSON
-│       ├── 03_zero_shot_cot_pydantic.py           # Pydantic
-│       ├── 04_few_shot_cot_pydantic.py            # Pydantic
-│       ├── cot_recomendador_aplicado.ipynb        # JSON
-│       └── cot_pydantic_aplicado.ipynb            # Pydantic
-├── ReAct/
-│   └── Notebooks/
-│       ├── 01_react_agente_coqueto.py             # JSON
-│       ├── 02_react_personas_feedback_loop.py     # JSON
-│       ├── 03_react_agente_pydantic.py            # Pydantic
-│       ├── 04_react_personas_pydantic.py          # Pydantic
-│       ├── react_agente_aplicado.ipynb            # JSON
-│       └── react_pydantic_aplicado.ipynb          # Pydantic
-├── common/
-│   ├── rubrica.py                  # Dict-based evaluation
-│   └── rubrica_pydantic.py         # Type-safe evaluation
-└── tools/
-    └── execute_notebooks.py
-```
-
----
 
 ## Entorno y ejecución
 
@@ -639,29 +597,6 @@ make run-notebooks
 **Artefactos generados:**
 - `02-prompting/COT/Notebooks/cot_recomendador_aplicado.executed.ipynb`
 - `02-prompting/ReAct/Notebooks/react_agente_aplicado.executed.ipynb`
-
----
-
-## Ruta sugerida de estudio
-
-### Semana 1: Fundamentos (JSON)
-1. Lee "Fundamentos de Prompt Engineering" en README principal (estructura de 5 capas)
-2. Ejecuta `01_zero_shot_cot_recomendador.py` y estudia mapeo a 5 capas
-3. Ejecuta `02_few_shot_cot_feedback_loop.py` y compara consistencia/costo vs zero-shot
-4. Estudia diferencias CoT vs ReAct en este README
-5. Ejecuta `01_react_agente_coqueto.py` y observa ciclo Thought → Action → Observation
-6. Ejecuta `02_react_personas_feedback_loop.py` con múltiples personas
-7. Ejecuta notebooks con `make run-notebooks` y revisa mejora por feedback loop
-
-### Semana 2: Producción (Pydantic - Opcional)
-1. Lee sección "Output Format Evolution: JSON vs Pydantic" en este README
-2. Compara `01_zero_shot_cot_recomendador.py` vs `03_zero_shot_cot_pydantic.py` lado a lado
-3. Ejecuta ejemplos Pydantic: `make run-cot-pydantic && make run-react-pydantic`
-4. Revisa notebooks Pydantic para ver validación en acción
-5. Experimenta provocando ValidationErrors intencionales
-6. Ajusta la rúbrica en `rubrica_pydantic.py` para tus propios criterios
-
-**Si completas esta secuencia, no solo entiendes prompting: entiendes diseño de sistemas de prompting robustos y producción-ready.**
 
 ---
 
