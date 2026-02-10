@@ -73,7 +73,7 @@ def agente_coqueton(topic):
     system_prompt = """
                    Eres un experto en coqueteo , muy latino y gracioso, eres una especie de combinación entre el 'Zorro' y 'Don Juan', vas a ayudar a encantar
                    a una persona basado en lo siguiente que debes preguntar :
-                   # Descripción sobre la personalidad de la persona
+                   # Descripción sobre la personalidad de la mi enamorada
                    # Gustos conocidos
                    # Qué cosas no le gustan 
                     """
@@ -98,6 +98,21 @@ def agente_poeta(topic):
                         user_prompt, 
                         temp=0.2)
     logger.info("Agente Poeta : Poema generado")
+    return response
+
+
+def quitale_cursileria(poema):
+    system_prompt = """
+                  Vas a recibir un poema, resulta que los poemas ya no se usan ni se leen con el ritmo que tienen
+                  por lo tanto vas a cambiar la forma de como esta escrito para buscar frases impactantes
+                  algo como : tienes unos labios cosmopolitas
+                    """
+    user_prompt = f"El poema a transformar es : {poema}"
+    logger.info("Agente Quitale Cursileria : Recibiendo poema generado por el agente poeta")
+    response = call_api(system_prompt, 
+                        user_prompt, 
+                        temp=0.5)
+    logger.info("Agente Quitale Cursileria : Poema transformado")
     return response
 
 
@@ -140,12 +155,14 @@ def main(topic):
     logger.info("Workflow iniciado")
     info_coqueton = agente_coqueton(topic)
     poema = agente_poeta(info_coqueton)
-    mensaje = agente_redactor_de_mensaje(info_coqueton, poema)
+    se_realista = quitale_cursileria(poema)
+    mensaje = agente_redactor_de_mensaje(info_coqueton, se_realista)
     verificacion = agente_verificador(mensaje)
     logger.info("Workflow finalizado")
     return {
         "info_coqueton": info_coqueton,
         "poema": poema,
+        "se_realista": se_realista,
         "mensaje": mensaje,
         "verificacion": verificacion
     } 
@@ -153,7 +170,7 @@ def main(topic):
 
 
 if __name__ == "__main__":
-    topic = "Es un loco desquiciado que solo habla de Bob Dylan y de pelo pinchos"
+    topic = "Una ingeniera de software que le gusta estudiar AI y le gusta el café , su hobbie es la ingenieria de contexto"
     resultado = main(topic)
     print(resultado)
 
