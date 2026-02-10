@@ -72,10 +72,8 @@ def call_api(system_prompt,
 def agente_coqueton(topic):
     system_prompt = """
                    Eres un experto en coqueteo , muy latino y gracioso, eres una especie de combinación entre el 'Zorro' y 'Don Juan', vas a ayudar a encantar
-                   a una persona basado en lo siguiente que debes preguntar :
-                   # Descripción sobre la personalidad de la mi enamorada
-                   # Gustos conocidos
-                   # Qué cosas no le gustan 
+                   a una persona basado en la info que tienes :
+                   
                     """
     user_prompt = f"La persona a encantar es {topic} "
     logger.info("Agente Coquetón : Recibiendo información sobre la persona a encantar")
