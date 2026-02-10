@@ -164,7 +164,7 @@ def node_zero_shot_cot(state: CoTState) -> CoTState:
 
     if state["verbose"]:
         print("\n[Zero-shot CoT]")
-        print(result.model_dump_json(indent=2, ensure_ascii=False))
+        print(result.model_dump_json(indent=2))
 
     return {**state, "zero_shot_result": result}
 
@@ -263,7 +263,7 @@ def node_few_shot_cot(state: CoTState) -> CoTState:
 
     if state["verbose"]:
         print("\n[Few-shot CoT]")
-        print(result.model_dump_json(indent=2, ensure_ascii=False))
+        print(result.model_dump_json(indent=2))
 
     return {**state, "few_shot_result": result}
 
@@ -318,7 +318,7 @@ def node_refine(state: CoTState) -> CoTState:
     refined = review_chain.invoke(
         {
             "profile": json.dumps(context_packet["profile"], ensure_ascii=False, indent=2),
-            "draft": few_shot_result.model_dump_json(indent=2, ensure_ascii=False),
+            "draft": few_shot_result.model_dump_json(indent=2),
             "gustos_obligatorios": ", ".join(context_packet["profile"]["gustos"]),
         }
     )
@@ -348,7 +348,7 @@ def node_refine(state: CoTState) -> CoTState:
         refined = strict_review_chain.invoke(
             {
                 "profile": json.dumps(context_packet["profile"], ensure_ascii=False, indent=2),
-                "draft": refined.model_dump_json(indent=2, ensure_ascii=False),
+                "draft": refined.model_dump_json(indent=2),
                 "gustos_obligatorios": ", ".join(context_packet["profile"]["gustos"]),
             }
         )
@@ -356,7 +356,7 @@ def node_refine(state: CoTState) -> CoTState:
 
     if state["verbose"]:
         print("\n[Refinamiento]")
-        print(refined.model_dump_json(indent=2, ensure_ascii=False))
+        print(refined.model_dump_json(indent=2))
         print("\nEvaluacion refinada:")
         print(json.dumps(refined_eval, indent=2, ensure_ascii=False))
 
@@ -390,7 +390,7 @@ def node_finalize(state: CoTState) -> CoTState:
 
     if state["verbose"]:
         print("\n[Version Final Seleccionada]")
-        print(final_result.model_dump_json(indent=2, ensure_ascii=False))
+        print(final_result.model_dump_json(indent=2))
         print("\nEvaluacion final:")
         print(json.dumps(final_eval, indent=2, ensure_ascii=False))
 

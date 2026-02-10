@@ -186,16 +186,16 @@ def run_prompt_chaining(profile: dict | None = None, verbose: bool = True) -> di
         return "improve"
 
     graph = StateGraph(ChainState)
-    graph.add_node("analyze", analyze_signals)
-    graph.add_node("draft", generate_draft)
-    graph.add_node("improve", improve_draft)
-    graph.add_node("finalize", finalize)
+    graph.add_node("analyze_node", analyze_signals)
+    graph.add_node("draft_node", generate_draft)
+    graph.add_node("improve_node", improve_draft)
+    graph.add_node("finalize_node", finalize)
 
-    graph.add_edge(START, "analyze")
-    graph.add_edge("analyze", "draft")
-    graph.add_conditional_edges("draft", quality_gate, {"improve": "improve", "finalize": "finalize"})
-    graph.add_edge("improve", "finalize")
-    graph.add_edge("finalize", END)
+    graph.add_edge(START, "analyze_node")
+    graph.add_edge("analyze_node", "draft_node")
+    graph.add_conditional_edges("draft_node", quality_gate, {"improve": "improve_node", "finalize": "finalize_node"})
+    graph.add_edge("improve_node", "finalize_node")
+    graph.add_edge("finalize_node", END)
 
     app = graph.compile()
     graph_mermaid = app.get_graph().draw_mermaid()

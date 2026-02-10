@@ -146,7 +146,7 @@ def run_cot_langchain(profile: dict[str, Any] | None = None, verbose: bool = Tru
 
     if verbose:
         print("\n[Zero-shot CoT]")
-        print(zero_shot_result.model_dump_json(indent=2, ensure_ascii=False))
+        print(zero_shot_result.model_dump_json(indent=2))
 
     few_shot_examples = [
         {
@@ -237,7 +237,7 @@ def run_cot_langchain(profile: dict[str, Any] | None = None, verbose: bool = Tru
 
     if verbose:
         print("\n[Few-shot CoT]")
-        print(few_shot_result.model_dump_json(indent=2, ensure_ascii=False))
+        print(few_shot_result.model_dump_json(indent=2))
 
     review_prompt = ChatPromptTemplate.from_messages(
         [
@@ -262,7 +262,7 @@ def run_cot_langchain(profile: dict[str, Any] | None = None, verbose: bool = Tru
     reviewed_result = review_chain.invoke(
         {
             "profile": json.dumps(context_packet["profile"], ensure_ascii=False, indent=2),
-            "draft": few_shot_result.model_dump_json(indent=2, ensure_ascii=False),
+            "draft": few_shot_result.model_dump_json(indent=2),
             "gustos_obligatorios": ", ".join(context_packet["profile"]["gustos"]),
         }
     )
@@ -292,7 +292,7 @@ def run_cot_langchain(profile: dict[str, Any] | None = None, verbose: bool = Tru
         reviewed_result = strict_review_chain.invoke(
             {
                 "profile": json.dumps(context_packet["profile"], ensure_ascii=False, indent=2),
-                "draft": reviewed_result.model_dump_json(indent=2, ensure_ascii=False),
+                "draft": reviewed_result.model_dump_json(indent=2),
                 "gustos_obligatorios": ", ".join(context_packet["profile"]["gustos"]),
             }
         )
@@ -334,7 +334,7 @@ def run_cot_langchain(profile: dict[str, Any] | None = None, verbose: bool = Tru
         print("\nEvaluacion refinada:")
         print(json.dumps(refined_eval, indent=2, ensure_ascii=False))
         print("\nVersion final seleccionada:")
-        print(selected_result.model_dump_json(indent=2, ensure_ascii=False))
+        print(selected_result.model_dump_json(indent=2))
         print("\nEvaluacion version final:")
         print(json.dumps(selected_eval, indent=2, ensure_ascii=False))
 

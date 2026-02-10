@@ -358,7 +358,7 @@ def run_react_langgraph(profile: dict[str, Any] | None = None, verbose: bool = T
 
     if verbose:
         print("\n[Final Answer]")
-        print(final_answer.model_dump_json(indent=2, ensure_ascii=False))
+        print(final_answer.model_dump_json(indent=2))
 
         print("\n[Trace Summary]")
         for i, step in enumerate(trace, 1):

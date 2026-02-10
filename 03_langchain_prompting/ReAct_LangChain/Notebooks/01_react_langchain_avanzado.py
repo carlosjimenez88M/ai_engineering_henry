@@ -265,7 +265,7 @@ def run_react_langchain(profile: dict | None = None, verbose: bool = True) -> di
         print(json.dumps(context_packet, ensure_ascii=False, indent=2))
 
         print("\nFinal answer:")
-        print(final_answer.model_dump_json(indent=2, ensure_ascii=False))
+        print(final_answer.model_dump_json(indent=2))
         print("\nTrace preview:")
         print(json.dumps(trace_preview, ensure_ascii=False, indent=2))
 
