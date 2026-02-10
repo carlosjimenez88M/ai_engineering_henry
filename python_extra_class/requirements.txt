@@ -1,0 +1,9 @@
+# Python Extra Class - Requirements
+# ===================================
+# Dependencias para ejecutar todos los ejemplos y tests
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Si necesitas otras dependencias en el futuro, agrégalas aquí

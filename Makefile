@@ -1,7 +1,7 @@
 UV ?= uv
 PYTHON ?= python3
 
-.PHONY: check-uv install install-prompting run-ai run-ai-context run-ai-model run-se test-se test-ai test-ai-cov test-all lint format check run-cot run-react run-cot-pydantic run-react-pydantic run-all-prompting run-notebooks verify-notebooks clean
+.PHONY: check-uv install install-prompting run-ai run-ai-context run-ai-model run-se test-se test-ai test-ai-cov test-all lint format check run-cot run-react run-cot-pydantic run-react-pydantic run-all-prompting run-notebooks verify-notebooks run-cot-langchain run-react-langchain run-notebooks-langchain verify-notebooks-langchain run-langgraph-architectures run-notebooks-langgraph verify-notebooks-langgraph clean
 
 check-uv:
 	@command -v $(UV) >/dev/null 2>&1 || (echo "uv no esta instalado. Instala uv y vuelve a ejecutar."; exit 1)
@@ -68,6 +68,35 @@ run-notebooks: check-uv
 	$(UV) run python 02-prompting/tools/execute_notebooks.py
 
 verify-notebooks: run-notebooks
+
+run-cot-langchain: check-uv
+	@echo " Running CoT LangChain examples..."
+	$(UV) run python 03_langchain_prompting/COT_LangChain/Notebooks/01_cot_langchain_avanzado.py
+
+run-react-langchain: check-uv
+	@echo " Running ReAct LangChain examples..."
+	$(UV) run python 03_langchain_prompting/ReAct_LangChain/Notebooks/01_react_langchain_avanzado.py
+
+run-notebooks-langchain: check-uv
+	@echo " Executing Class 03 notebooks..."
+	$(UV) run python 03_langchain_prompting/tools/execute_notebooks.py
+
+verify-notebooks-langchain: run-notebooks-langchain
+
+run-langgraph-architectures: check-uv
+	@echo " Running LangGraph architecture examples..."
+	$(UV) run python 04_langchain_langgraph/01_prompt_chaining/Notebooks/01_prompt_chaining_langgraph.py
+	$(UV) run python 04_langchain_langgraph/02_parallelization/Notebooks/01_parallelization_langgraph.py
+	$(UV) run python 04_langchain_langgraph/03_orchestrator_worker/Notebooks/01_orchestrator_worker_langgraph.py
+	$(UV) run python 04_langchain_langgraph/04_evaluator_optimizer/Notebooks/01_evaluator_optimizer_langgraph.py
+	$(UV) run python 04_langchain_langgraph/05_routing/Notebooks/01_routing_langgraph.py
+	$(UV) run python 04_langchain_langgraph/06_agent_feedback/Notebooks/01_agent_feedback_langgraph.py
+
+run-notebooks-langgraph: check-uv
+	@echo " Executing Class 04 notebooks..."
+	$(UV) run python 04_langchain_langgraph/tools/execute_notebooks.py
+
+verify-notebooks-langgraph: run-notebooks-langgraph
 
 test-se: check-uv
 	$(UV) run pytest 01_class/python_software_engineering/tests -q

@@ -40,23 +40,28 @@ Contenido:
 
 **Ubicación:** `02-prompting/`
 
-### **Clase 3: Evaluación y Monitoreo de Sistemas AI** 
-**Estado:** Próximamente
+### **Clase 3: LangChain Prompting Avanzado (CoT + ReAct + Context Engineering)** 
+**Estado:** Completa y lista para usar
 
-Temas planeados:
-- Eval sets y métricas de calidad
-- Human-in-the-loop evaluation
-- Monitoreo en producción (data drift, model drift)
-- A/B testing para sistemas AI
+Contenido:
+- Qué es LangChain y cuándo usarlo en problemas reales
+- Migración de técnicas de `02-prompting` a `ChatPromptTemplate`, `FewShot` y salida estructurada
+- ReAct con tools, guardrails y trazabilidad de estado
+- Context engineering aplicado para mejorar calidad/costo/latencia
+- Notebooks ejecutables con validación automática
 
-### **Clase 4: Deployment y Producción** 
-**Estado:** Próximamente
+**Ubicación:** `03_langchain_prompting/`
 
-Temas planeados:
-- Serving patterns (sync, async, batch)
-- Caching y optimización de costos
-- Rate limiting y fallbacks
-- CI/CD para sistemas AI
+### **Clase 4: LangGraph Workflows y Agents** 
+**Estado:** Completa y lista para usar
+
+Contenido:
+- Workflows oficiales de LangGraph aplicados: prompt chaining, parallelization, routing
+- Arquitecturas avanzadas: orchestrator-worker y evaluator-optimizer
+- Agent con tools y feedback loop de calidad
+- Notebooks ejecutables por arquitectura
+
+**Ubicación:** `04_langchain_langgraph/`
 
 ## Comenzando
 
@@ -223,7 +228,8 @@ profile = {
 **Aplicación en este curso:**
 - **Clase 1**: brief_builder usa ROLE + TASK + FORMAT implícitamente
 - **Clase 2**: COT añade razonamiento explícito; ReAct añade herramientas y ciclos
-- **Clase 3-4**: Evaluación y despliegue mantienen esta estructura
+- **Clase 3**: LangChain formaliza prompts, tools y salida estructurada
+- **Clase 4**: LangGraph lleva esta estructura a arquitecturas de orquestación
 
 ### Mejores Prácticas de AI Engineering
 
@@ -307,10 +313,10 @@ Esta estructura se aplica progresivamente:
 - **Clase 2** (CoT/ReAct): Añade razonamiento explícito y herramientas
   - COT: Descompone razonamiento en pasos visibles
   - ReAct: Añade ciclo Thought → Action → Observation
-- **Clase 3** (Evaluación): Métricas para validar calidad de prompts
-- **Clase 4** (Producción): Optimización de costos y latencia
+- **Clase 3** (LangChain): Orquestación con templates, tools y context engineering
+- **Clase 4** (LangGraph): Patrones de workflows y agents para sistemas compuestos
 
-Ver `02-prompting/` para aplicación práctica de estos conceptos.
+Ver `02-prompting/`, `03_langchain_prompting/` y `04_langchain_langgraph/` para aplicación práctica de estos conceptos.
 
 ## Distribución del Repositorio
 
