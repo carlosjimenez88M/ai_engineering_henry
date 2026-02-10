@@ -96,6 +96,8 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+*.executed.ipynb
+*_executed.ipynb
 
 # IPython
 profile_default/
@@ -235,3 +237,20 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Project specific - Notebooks and testing
+*.executed.ipynb
+test_notebooks.py
+test_all_notebooks.sh
+fix_notebooks.py
+/tmp/test*.ipynb
+/tmp/*test*.log
+notebook_test_*.log
+NOTEBOOKS_STATUS.txt
+
+# API Keys and sensitive data
+*_API_KEY*
+*api_key*
+*api-key*
+.openai
+openai_key*
