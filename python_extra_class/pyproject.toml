@@ -1,0 +1,13 @@
+[project]
+name = "python-extra-class"
+version = "0.1.0"
+description = "Material practico de Python para fundamentos y aplicacion en AI/ML"
+requires-python = ">=3.10"
+dependencies = [
+  "pytest>=8.0.0",
+  "pytest-cov>=4.0.0",
+  "pydantic>=2.8.0",
+]
+
+[tool.uv]
+package = false

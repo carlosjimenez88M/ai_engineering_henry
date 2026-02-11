@@ -403,37 +403,37 @@ def print_decision_table():
 
 EJEMPLOS:
 
-✅ print()
+ print()
    - Script que imprime resultados
    - CLI que muestra output al usuario
    - Respuesta de API (vía return, no print directo)
 
-✅ logging.debug()
+ logging.debug()
    - Valores de variables intermedias
    - Flujo de ejecución detallado
    - Query SQL generada
 
-✅ logging.info()
+ logging.info()
    - "Usuario 123 inició sesión"
    - "Procesados 1000 registros en 2.5s"
    - "Servidor escuchando en puerto 8000"
 
-✅ logging.warning()
+ logging.warning()
    - "API respondió lento: 3s"
    - "Cache miss, consultando BD"
    - "Parámetro obsoleto usado"
 
-✅ logging.error()
+ logging.error()
    - "No se pudo conectar a BD"
    - "Archivo no encontrado"
    - "Validación falló"
 
-✅ logging.critical()
+ logging.critical()
    - "Disco lleno"
    - "Memoria al 98%"
    - "BD principal inalcanzable"
 
-✅ raise Exception()
+ raise Exception()
    - Error que el caller DEBE manejar
    - Sistema no puede continuar
    - Después de logger.error() o logger.critical()
@@ -464,7 +464,7 @@ def main():
     print("RESUMEN")
     print("="*70)
     print("""
-✅ Has aprendido:
+ Has aprendido:
    1. Setup básico de logger con getLogger(__name__)
    2. Los 5 niveles: DEBUG, INFO, WARNING, ERROR, CRITICAL
    3. Múltiples handlers (consola + archivo)
@@ -473,14 +473,14 @@ def main():
    6. Lazy evaluation con % para performance
    7. Tabla de decisión para elegir nivel correcto
 
-📚 Próximo paso:
+ Próximo paso:
    - Ver ejemplo_05_logging_avanzado.py para:
      * RotatingFileHandler (evita archivos gigantes)
      * JSON logging (para ELK, Splunk)
      * Performance comparison (benchmarks)
      * Context managers para logging
 
-📖 Documentación:
+ Documentación:
    - Lee 11_logging_patterns.md para más patrones
     """)
 

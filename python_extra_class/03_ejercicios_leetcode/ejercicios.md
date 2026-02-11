@@ -84,9 +84,9 @@ def two_sum_sorted(nums, target):
 - Aplicabilidad: Hash map para no ordenado; dos punteros si ya está ordenado o espacio es crítico
 
 ### Errores comunes en entrevistas
-1. ❌ Usar dos bucles anidados (O(n²)) sin considerar optimización
-2. ❌ Olvidar verificar que los dos índices sean diferentes (cuando hay duplicados)
-3. ❌ No manejar casos límite (array vacío, sin solución)
+1.  Usar dos bucles anidados (O(n²)) sin considerar optimización
+2.  Olvidar verificar que los dos índices sean diferentes (cuando hay duplicados)
+3.  No manejar casos límite (array vacío, sin solución)
 
 ## Básico 2: Valid Palindrome
 Patrón: dos punteros.
@@ -159,9 +159,9 @@ def is_palindrome_preprocess(s):
 - Aplicabilidad: Dos punteros para espacio limitado; preprocesamiento si vas a verificar múltiples veces el mismo string
 
 ### Errores comunes en entrevistas
-1. ❌ Olvidar normalizar mayúsculas/minúsculas antes de comparar
-2. ❌ No saltar correctamente caracteres no alfanuméricos (comparar índices fuera de rango)
-3. ❌ Crear un nuevo string filtrado sin considerar el espacio O(n) que consumes
+1.  Olvidar normalizar mayúsculas/minúsculas antes de comparar
+2.  No saltar correctamente caracteres no alfanuméricos (comparar índices fuera de rango)
+3.  Crear un nuevo string filtrado sin considerar el espacio O(n) que consumes
 
 ## Básico 3: Reverse Linked List
 Patrón: iteración + reasignación de punteros.
@@ -246,9 +246,9 @@ def reverse_list_recursive(head):
 - Aplicabilidad: Iterativa siempre mejor para listas muy largas (evita stack overflow); recursiva más elegante pero menos práctica
 
 ### Errores comunes en entrevistas
-1. ❌ Perder la referencia al resto de la lista (olvidar guardar `nxt = cur.next`)
-2. ❌ No actualizar correctamente `prev` antes de avanzar `cur`
-3. ❌ Retornar `head` en vez de `prev` al final (la nueva cabeza es el último nodo procesado)
+1.  Perder la referencia al resto de la lista (olvidar guardar `nxt = cur.next`)
+2.  No actualizar correctamente `prev` antes de avanzar `cur`
+3.  Retornar `head` en vez de `prev` al final (la nueva cabeza es el último nodo procesado)
 
 ## Básico 4: Climbing Stairs
 Patrón: programación dinámica (DP) lineal.
@@ -320,9 +320,9 @@ def climb_stairs_memo(n, memo=None):
 - Aplicabilidad: Iterativa más eficiente; recursiva útil si tienes múltiples casos base complejos
 
 ### Errores comunes en entrevistas
-1. ❌ Intentar recursión sin memoización (O(2^n), demasiado lento)
-2. ❌ No reconocer el patrón de Fibonacci y complicar innecesariamente
-3. ❌ Olvidar los casos base (n=1, n=2) y causar errores de índice
+1.  Intentar recursión sin memoización (O(2^n), demasiado lento)
+2.  No reconocer el patrón de Fibonacci y complicar innecesariamente
+3.  Olvidar los casos base (n=1, n=2) y causar errores de índice
 
 ## Básico 5: Majority Element
 Patrón: Boyer-Moore voting.
@@ -394,9 +394,9 @@ def majority_element_hashmap(nums):
 - Aplicabilidad: Boyer-Moore óptimo cuando se garantiza mayoría; hash map más versátil (puede contar todas las frecuencias)
 
 ### Errores comunes en entrevistas
-1. ❌ Olvidar que Boyer-Moore asume que SÍ existe elemento mayoritario (no verifica)
-2. ❌ No entender por qué funciona (pregunta común de seguimiento)
-3. ❌ Usar sorting O(n log n) cuando existe O(n) con O(1) espacio
+1.  Olvidar que Boyer-Moore asume que SÍ existe elemento mayoritario (no verifica)
+2.  No entender por qué funciona (pregunta común de seguimiento)
+3.  Usar sorting O(n log n) cuando existe O(n) con O(1) espacio
 
 ## Básico 6: Intersection of Two Arrays II
 Patrón: conteo de frecuencias (hash map).
@@ -478,9 +478,9 @@ def intersect_sorted(nums1, nums2):
 - Aplicabilidad: Hash map general; dos punteros si ya ordenados o espacio crítico
 
 ### Errores comunes en entrevistas
-1. ❌ Usar sets (perdería información de frecuencias, solo contaría una vez)
-2. ❌ No decrementar el contador después de usar un elemento
-3. ❌ No considerar que el resultado puede tener duplicados válidos
+1.  Usar sets (perdería información de frecuencias, solo contaría una vez)
+2.  No decrementar el contador después de usar un elemento
+3.  No considerar que el resultado puede tener duplicados válidos
 
 ## Básico 7: Single Number
 Patrón: bit manipulation (XOR).
@@ -548,9 +548,9 @@ def single_number_set(nums):
 - Aplicabilidad: XOR óptimo y elegante; set más intuitivo pero menos eficiente en espacio
 
 ### Errores comunes en entrevistas
-1. ❌ No conocer la técnica de XOR (intentar hash map o sorting innecesariamente)
-2. ❌ Pensar que XOR no funciona con números negativos (sí funciona, opera a nivel de bits)
-3. ❌ Olvidar inicializar el acumulador en 0
+1.  No conocer la técnica de XOR (intentar hash map o sorting innecesariamente)
+2.  Pensar que XOR no funciona con números negativos (sí funciona, opera a nivel de bits)
+3.  Olvidar inicializar el acumulador en 0
 
 ## Básico 8: Move Zeroes
 Patrón: dos punteros (escritura compacta).
@@ -629,9 +629,9 @@ def move_zeroes_swap(nums):
 - Aplicabilidad: Primera solución más clara (dos pasadas); swap más eficiente (una pasada, menos escrituras)
 
 ### Errores comunes en entrevistas
-1. ❌ Crear un array nuevo en vez de modificar in-place (viola el requisito)
-2. ❌ Perder el orden relativo de los elementos no-cero
-3. ❌ Olvidar rellenar con ceros después de copiar los no-ceros
+1.  Crear un array nuevo en vez de modificar in-place (viola el requisito)
+2.  Perder el orden relativo de los elementos no-cero
+3.  Olvidar rellenar con ceros después de copiar los no-ceros
 
 ## Básico 9: Roman to Integer
 Patrón: recorrido lineal con lookahead.
@@ -710,9 +710,9 @@ def roman_to_int_reverse(s):
 - Aplicabilidad: Lookahead más intuitivo; reverse más elegante (sin chequear índices)
 
 ### Errores comunes en entrevistas
-1. ❌ Olvidar los casos especiales (IV, IX, XL, XC, CD, CM) y solo sumar valores
-2. ❌ No manejar correctamente el lookahead (acceder fuera de rango)
-3. ❌ Hardcodear casos especiales en vez de usar la regla general (menor antes de mayor = resta)
+1.  Olvidar los casos especiales (IV, IX, XL, XC, CD, CM) y solo sumar valores
+2.  No manejar correctamente el lookahead (acceder fuera de rango)
+3.  Hardcodear casos especiales en vez de usar la regla general (menor antes de mayor = resta)
 
 ## Básico 10: Binary Search
 Patrón: búsqueda binaria.
@@ -795,9 +795,9 @@ def binary_search_first(nums, target):
 - Aplicabilidad: Clásica para elementos únicos; variante para duplicados o búsqueda de rangos
 
 ### Errores comunes en entrevistas
-1. ❌ Usar `lo < hi` en vez de `lo <= hi` (pierde el caso cuando lo==hi)
-2. ❌ No actualizar correctamente lo/hi (usar `mid` en vez de `mid+1` o `mid-1` causa loops infinitos)
-3. ❌ Olvidar que el array debe estar ordenado (si no lo está, binary search no funciona)
+1.  Usar `lo < hi` en vez de `lo <= hi` (pierde el caso cuando lo==hi)
+2.  No actualizar correctamente lo/hi (usar `mid` en vez de `mid+1` o `mid-1` causa loops infinitos)
+3.  Olvidar que el array debe estar ordenado (si no lo está, binary search no funciona)
 
 ---
 
@@ -874,9 +874,9 @@ def group_anagrams_sorted(strs):
 - Aplicabilidad: Conteo mejor performance; sorting más simple y legible
 
 ### Errores comunes en entrevistas
-1. ❌ Intentar comparar strings directamente sin normalizar (no detecta anagramas)
-2. ❌ Olvidar que la clave del diccionario debe ser hashable (usar lista en vez de tupla)
-3. ❌ No considerar la complejidad del sorting al analizar el tiempo total
+1.  Intentar comparar strings directamente sin normalizar (no detecta anagramas)
+2.  Olvidar que la clave del diccionario debe ser hashable (usar lista en vez de tupla)
+3.  No considerar la complejidad del sorting al analizar el tiempo total
 
 ## Intermedio 2: Longest Substring Without Repeating Characters
 Patrón: ventana deslizante (sliding window) + mapa de última posición.
@@ -958,6 +958,6 @@ def length_of_longest_substring_set(s):
 - Aplicabilidad: Diccionario más eficiente (salto directo); set más intuitivo para principiantes
 
 ### Errores comunes en entrevistas
-1. ❌ No verificar `last[ch] >= left` (considerar caracteres fuera de la ventana actual)
-2. ❌ Intentar fuerza bruta O(n³) o O(n²) sin reconocer el patrón de ventana deslizante
-3. ❌ Olvidar actualizar `last[ch]` incluso cuando el carácter causa un ajuste de ventana
+1.  No verificar `last[ch] >= left` (considerar caracteres fuera de la ventana actual)
+2.  Intentar fuerza bruta O(n³) o O(n²) sin reconocer el patrón de ventana deslizante
+3.  Olvidar actualizar `last[ch]` incluso cuando el carácter causa un ajuste de ventana

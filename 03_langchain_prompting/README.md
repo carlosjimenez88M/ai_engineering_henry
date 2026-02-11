@@ -64,7 +64,7 @@ No es "poner más contexto". Es diseñar **contexto útil, mínimo y trazable**.
 
 ---
 
-## Estructura del módulo
+## Estructura del módulo (versión guiada)
 
 - `03_langchain_prompting/COT_LangChain/Notebooks/cot_langchain_aplicado.ipynb`
   - Evoluciona los ejemplos CoT de `02-prompting/COT` a LangChain.
@@ -79,6 +79,20 @@ No es "poner más contexto". Es diseñar **contexto útil, mínimo y trazable**.
 
 - `03_langchain_prompting/tools/execute_notebooks.py`
   - Ejecuta notebooks y guarda artefactos `.executed.ipynb`.
+
+### Orden recomendado para principiantes
+
+1. `COT_LangChain/Notebooks/cot_langchain_aplicado.ipynb`
+2. `ReAct_LangChain/Notebooks/react_langchain_aplicado.ipynb`
+3. `COT_LangChain/Notebooks/02_cot_langgraph.ipynb`
+4. `ReAct_LangChain/Notebooks/02_react_langgraph.ipynb`
+
+Cada notebook ahora sigue la misma secuencia pedagógica:
+- definición y cuándo usar la arquitectura,
+- demo base,
+- demo de coqueteo (segundo caso),
+- lectura del flujo/grafo,
+- checklist de abstracción para consolidar aprendizaje.
 
 ---
 
@@ -95,4 +109,3 @@ uv sync
 ```bash
 uv run python 03_langchain_prompting/tools/execute_notebooks.py
 ```
-

@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 @dataclass
 class Settings:
-    openai_api_key: str
+    openai_api_key: str | None
     openai_model: str
     project_root: Path
     intent_min_confidence: float
@@ -28,9 +28,7 @@ def load_settings(project_root: Path | None = None) -> Settings:
     root = project_root or Path(__file__).resolve().parents[2]
     load_dotenv(root / ".env")
 
-    api_key = os.getenv("OPENAI_API_KEY", "")
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY is missing. Configure it in 05_project/.env")
+    api_key = os.getenv("OPENAI_API_KEY", "").strip() or None
 
     model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
     raw_threshold = os.getenv("INTENT_MIN_CONFIDENCE", "0.60")

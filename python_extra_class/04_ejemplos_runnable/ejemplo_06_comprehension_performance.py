@@ -182,7 +182,7 @@ def run_all_benchmarks():
         iterations = 100000 if size <= 100 else 10000 if size <= 1000 else 1000
 
         # Test 1: Map simple
-        print("\n1️⃣  MAP SIMPLE (multiplicar por 2)")
+        print("\n1⃣  MAP SIMPLE (multiplicar por 2)")
         print("-" * 40)
         resultados = benchmark_simple_map(size, iterations)
         baseline = resultados["loop"]
@@ -193,7 +193,7 @@ def run_all_benchmarks():
             print(f"  {nombre:15s}: {tiempo:8.5f}s  ({speedup:.2f}x)  [{porcentaje:5.1f}% del loop]")
 
         # Test 2: Filter
-        print("\n2️⃣  FILTER (solo pares)")
+        print("\n2⃣  FILTER (solo pares)")
         print("-" * 40)
         resultados = benchmark_filter(size, iterations)
         baseline = resultados["loop"]
@@ -204,7 +204,7 @@ def run_all_benchmarks():
             print(f"  {nombre:15s}: {tiempo:8.5f}s  ({speedup:.2f}x)  [{porcentaje:5.1f}% del loop]")
 
         # Test 3: Map + Filter
-        print("\n3️⃣  MAP + FILTER (cuadrados de pares)")
+        print("\n3⃣  MAP + FILTER (cuadrados de pares)")
         print("-" * 40)
         resultados = benchmark_map_filter(size, iterations)
         baseline = resultados["loop"]
@@ -215,7 +215,7 @@ def run_all_benchmarks():
             print(f"  {nombre:15s}: {tiempo:8.5f}s  ({speedup:.2f}x)  [{porcentaje:5.1f}% del loop]")
 
         # Test 4: Dict creation
-        print("\n4️⃣  DICT CREATION (índice -> cuadrado)")
+        print("\n4⃣  DICT CREATION (índice -> cuadrado)")
         print("-" * 40)
         resultados = benchmark_dict_creation(size, iterations)
         baseline = resultados["loop"]
@@ -246,7 +246,7 @@ def analyze_bytecode():
     print("ANÁLISIS DE BYTECODE")
     print("=" * 80)
 
-    print("\n1️⃣  LOOP TRADICIONAL CON APPEND")
+    print("\n1⃣  LOOP TRADICIONAL CON APPEND")
     print("-" * 80)
 
     def loop_version():
@@ -258,7 +258,7 @@ def analyze_bytecode():
 
     dis.dis(loop_version)
 
-    print("\n2️⃣  LIST COMPREHENSION")
+    print("\n2⃣  LIST COMPREHENSION")
     print("-" * 80)
 
     def comp_version():
@@ -301,7 +301,7 @@ def analyze_memory():
     size = 1000000  # 1 millón de elementos
 
     # List comprehension - carga todo en memoria
-    print(f"\n1️⃣  LIST COMPREHENSION ({size:,} elementos)")
+    print(f"\n1⃣  LIST COMPREHENSION ({size:,} elementos)")
     print("-" * 80)
 
     import tracemalloc
@@ -324,7 +324,7 @@ def analyze_memory():
     del lista
 
     # Generator expression - lazy evaluation
-    print(f"\n2️⃣  GENERATOR EXPRESSION ({size:,} elementos)")
+    print(f"\n2⃣  GENERATOR EXPRESSION ({size:,} elementos)")
     print("-" * 80)
 
     tracemalloc.start()
@@ -400,17 +400,17 @@ def demonstrate_readability():
     usuarios = create_sample_users()
 
     # Ejemplo 1: Simple y legible
-    print("\n1️⃣  EJEMPLO BUENO: Filtro simple")
+    print("\n1⃣  EJEMPLO BUENO: Filtro simple")
     print("-" * 80)
     print("Código:")
     print('  adultos = [u.nombre for u in usuarios if u.edad >= 18]')
     print("\nResultado:")
     adultos = [u.nombre for u in usuarios if u.edad >= 18]
     print(f"  {adultos}")
-    print("\n✅ Veredicto: LEGIBLE - Una línea, lógica clara, fácil de leer en voz alta")
+    print("\n Veredicto: LEGIBLE - Una línea, lógica clara, fácil de leer en voz alta")
 
     # Ejemplo 2: Comprehension compleja e ilegible
-    print("\n2️⃣  EJEMPLO MALO: Comprehension compleja")
+    print("\n2⃣  EJEMPLO MALO: Comprehension compleja")
     print("-" * 80)
     print("Código:")
     codigo_malo = '''  usuarios_procesados = [
@@ -435,10 +435,10 @@ def demonstrate_readability():
     for up in usuarios_procesados[:2]:
         print(f"  {up}")
 
-    print("\n❌ Veredicto: ILEGIBLE - Múltiples líneas, lógica compleja, difícil de mantener")
+    print("\n Veredicto: ILEGIBLE - Múltiples líneas, lógica compleja, difícil de mantener")
 
     # Ejemplo 3: Versión refactorizada
-    print("\n3️⃣  EJEMPLO BUENO: Refactorizado con función helper")
+    print("\n3⃣  EJEMPLO BUENO: Refactorizado con función helper")
     print("-" * 80)
     print("Código:")
     codigo_bueno = '''  def procesar_usuario(u: Usuario) -> Dict[str, Any]:
@@ -498,13 +498,13 @@ def demonstrate_readability():
     for up in usuarios_procesados_v2[:2]:
         print(f"  {up}")
 
-    print("\n✅ Veredicto: EXCELENTE")
+    print("\n Veredicto: EXCELENTE")
     print("  - Función helper es testeable y reusable")
     print("  - Comprehension es simple (solo filter)")
     print("  - Lógica de negocio separada de la construcción de la lista")
 
     # Ejemplo 4: Nested comprehension - MALO
-    print("\n4️⃣  EJEMPLO MALO: Nested comprehension")
+    print("\n4⃣  EJEMPLO MALO: Nested comprehension")
     print("-" * 80)
     print("Código:")
     print('  matriz = [[1, -2, 3], [4, -5, 6], [7, -8, 9]]')
@@ -514,10 +514,10 @@ def demonstrate_readability():
     positivos = [[n for n in fila if n > 0] for fila in matriz if sum(fila) > 5]
 
     print(f"\nResultado: {positivos}")
-    print("\n❌ Veredicto: ILEGIBLE - Demasiado anidado, difícil de seguir")
+    print("\n Veredicto: ILEGIBLE - Demasiado anidado, difícil de seguir")
 
     # Ejemplo 5: Versión con loop - BUENO
-    print("\n5️⃣  EJEMPLO BUENO: Mismo código con loop")
+    print("\n5⃣  EJEMPLO BUENO: Mismo código con loop")
     print("-" * 80)
     print("Código:")
     codigo_loop = '''  matriz = [[1, -2, 3], [4, -5, 6], [7, -8, 9]]
@@ -544,33 +544,33 @@ def demonstrate_readability():
             positivos_v2.append(fila_positivos)
 
     print(f"\nResultado: {positivos_v2}")
-    print("\n✅ Veredicto: LEGIBLE - Variables con nombres descriptivos, lógica clara")
+    print("\n Veredicto: LEGIBLE - Variables con nombres descriptivos, lógica clara")
 
     # Ejemplo 6: Side effects - NUNCA uses comprehension
-    print("\n6️⃣  EJEMPLO MALO: Side effects en comprehension")
+    print("\n6⃣  EJEMPLO MALO: Side effects en comprehension")
     print("-" * 80)
     print("Código:")
     print('  _ = [print(f"Procesando: {u.nombre}") for u in usuarios]')
-    print("\n❌ Veredicto: ANTI-PATRÓN - Comprehensions NO son para side effects")
+    print("\n Veredicto: ANTI-PATRÓN - Comprehensions NO son para side effects")
 
-    print("\n7️⃣  EJEMPLO BUENO: Side effects con loop")
+    print("\n7⃣  EJEMPLO BUENO: Side effects con loop")
     print("-" * 80)
     print("Código:")
     print('  for u in usuarios:')
     print('      print(f"Procesando: {u.nombre}")')
-    print("\n✅ Veredicto: CORRECTO - Loops son para side effects")
+    print("\n Veredicto: CORRECTO - Loops son para side effects")
 
     print("\n" + "=" * 80)
     print("RESUMEN DE LEGIBILIDAD")
     print("=" * 80)
     print("""
-  ✅ USA COMPREHENSION cuando:
+   USA COMPREHENSION cuando:
     - Es una operación simple (map o filter)
     - Cabe en una línea
     - Se puede leer en voz alta sin pausar
     - No tiene side effects
 
-  ❌ USA LOOP cuando:
+   USA LOOP cuando:
     - La lógica es compleja
     - Tiene múltiples niveles de nesting
     - Necesitas debuggear con prints
@@ -593,7 +593,7 @@ def demonstrate_antipatterns():
     print("=" * 80)
 
     # Anti-patrón 1: Iterar múltiples veces
-    print("\n❌ ANTI-PATRÓN #1: Iterar múltiples veces")
+    print("\n ANTI-PATRÓN #1: Iterar múltiples veces")
     print("-" * 80)
     print("Código malo:")
     codigo_malo = '''  nums = list(range(10000))
@@ -639,7 +639,7 @@ for n in nums:
     print(f"Mejora: {tiempo_malo / tiempo_bueno:.2f}x más rápido")
 
     # Anti-patrón 2: Comprehension no utilizada
-    print("\n❌ ANTI-PATRÓN #2: Comprehension para side effects")
+    print("\n ANTI-PATRÓN #2: Comprehension para side effects")
     print("-" * 80)
     print("Código malo:")
     print('  _ = [print(x) for x in items]')
@@ -648,7 +648,7 @@ for n in nums:
     print('      print(x)')
 
     # Anti-patrón 3: Comprehension cuando necesitas break
-    print("\n❌ ANTI-PATRÓN #3: Buscar con comprehension (procesa todo)")
+    print("\n ANTI-PATRÓN #3: Buscar con comprehension (procesa todo)")
     print("-" * 80)
     print("Código malo:")
     malo_buscar = '''  nums = list(range(1000000))
@@ -753,7 +753,7 @@ def main():
   │  CUÁNDO USAR CADA UNO                                              │
   ├────────────────────────────────────────────────────────────────────┤
   │                                                                    │
-  │  ✅ USA COMPREHENSION cuando:                                      │
+  │   USA COMPREHENSION cuando:                                      │
   │     • Operación simple (map, filter, o ambos)                     │
   │     • Cabe en una línea (<80 caracteres)                          │
   │     • Legible en voz alta sin pausar                              │
@@ -761,7 +761,7 @@ def main():
   │     • No necesitas break/continue                                 │
   │     → Resultado: Código más rápido (2-3x) y legible               │
   │                                                                    │
-  │  ✅ USA LOOP cuando:                                               │
+  │   USA LOOP cuando:                                               │
   │     • Lógica compleja o múltiples pasos                           │
   │     • Necesitas debuggear con prints                              │
   │     • Hay side effects (print, log, write)                        │
@@ -770,7 +770,7 @@ def main():
   │     • Nested operations (>1 nivel)                                │
   │     → Resultado: Código mantenible y debuggeable                  │
   │                                                                    │
-  │  ✅ USA GENERATOR cuando:                                          │
+  │   USA GENERATOR cuando:                                          │
   │     • Dataset muy grande (>1M elementos)                          │
   │     • Solo iteras una vez                                         │
   │     • Pasas a funciones como sum(), max(), any()                  │
@@ -779,16 +779,16 @@ def main():
   │                                                                    │
   └────────────────────────────────────────────────────────────────────┘
 
-  📊 DATOS CLAVE DE LOS TESTS:
+   DATOS CLAVE DE LOS TESTS:
      - Comprehensions son 2-3x más rápidas que loops para operaciones simples
      - Generators usan ~99.9% menos memoria que listas para datasets grandes
      - Legibilidad > Performance (salvo que sea cuello de botella)
 
-  💡 REGLA DE ORO:
+   REGLA DE ORO:
      Si pasas más de 5 segundos entendiendo una comprehension,
      reescríbela como loop. La claridad siempre gana.
 
-  📚 MÁS INFO:
+   MÁS INFO:
      - Guía completa: 10_comprension_vs_loops.md
      - PEP 202: https://www.python.org/dev/peps/pep-0202/
      - Python Performance Tips: https://wiki.python.org/moin/PythonSpeed

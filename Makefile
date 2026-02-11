@@ -1,7 +1,7 @@
 UV ?= uv
 PYTHON ?= python3
 
-.PHONY: check-uv install install-prompting run-ai run-ai-context run-ai-model run-se test-se test-ai test-ai-cov test-all lint format check run-cot run-react run-cot-pydantic run-react-pydantic run-all-prompting run-notebooks verify-notebooks run-cot-langchain run-react-langchain run-notebooks-langchain verify-notebooks-langchain run-langgraph-architectures run-notebooks-langgraph verify-notebooks-langgraph clean
+.PHONY: check-uv install install-prompting run-ai run-ai-context run-ai-model run-se test-se test-ai test-ai-cov test-project test-all lint format check run-cot run-react run-cot-pydantic run-react-pydantic run-all-prompting run-notebooks verify-notebooks run-cot-langchain run-react-langchain run-notebooks-langchain verify-notebooks-langchain run-langgraph-architectures run-notebooks-langgraph verify-notebooks-langgraph run-project clean
 
 check-uv:
 	@command -v $(UV) >/dev/null 2>&1 || (echo "uv no esta instalado. Instala uv y vuelve a ejecutar."; exit 1)
@@ -13,16 +13,16 @@ install-prompting: check-uv
 	$(UV) sync
 
 run-ai: check-uv
-	$(UV) run python 01_class/ai_engineering/brief_builder/main.py
+	$(UV) run python 01-introduction/ai_engineering/brief_builder/main.py
 
 run-ai-context: check-uv
-	$(UV) run python 01_class/ai_engineering/brief_builder/main.py --context "$(CONTEXT)"
+	$(UV) run python 01-introduction/ai_engineering/brief_builder/main.py --context "$(CONTEXT)"
 
 run-ai-model: check-uv
-	OPENAI_MODEL="$(MODEL)" $(UV) run python 01_class/ai_engineering/brief_builder/main.py
+	OPENAI_MODEL="$(MODEL)" $(UV) run python 01-introduction/ai_engineering/brief_builder/main.py
 
 run-se: check-uv
-	$(UV) run python 01_class/python_software_engineering/src/app.py
+	$(UV) run python 01-introduction/python_software_engineering/src/app.py
 
 run-cot: check-uv
 	@echo " Running CoT examples (JSON-based)..."
@@ -99,13 +99,16 @@ run-notebooks-langgraph: check-uv
 verify-notebooks-langgraph: run-notebooks-langgraph
 
 test-se: check-uv
-	$(UV) run pytest 01_class/python_software_engineering/tests -q
+	$(UV) run pytest 01-introduction/python_software_engineering/tests -q
 
 test-ai: check-uv
-	$(UV) run pytest 01_class/ai_engineering/tests -v
+	$(UV) run pytest 01-introduction/ai_engineering/tests -v
 
 test-ai-cov: check-uv
-	$(UV) run pytest 01_class/ai_engineering/tests --cov=01_class/ai_engineering --cov-report=html
+	$(UV) run pytest 01-introduction/ai_engineering/tests --cov=01-introduction/ai_engineering --cov-report=html
+
+test-project: check-uv
+	$(UV) run pytest 05_project/tests -q
 
 test-all: check-uv
 	$(UV) run pytest -v
@@ -117,7 +120,10 @@ format: check-uv
 	$(UV) run ruff format .
 
 check:
-	$(PYTHON) -m compileall 01_class
+	$(PYTHON) -m compileall 01-introduction 05_project/src
+
+run-project: check-uv
+	PYTHONPATH=05_project/src $(UV) run python -m multi_agent_system.main --query "$(QUERY)"
 
 clean:
 	find . -type d -name "__pycache__" -prune -exec rm -rf {} +

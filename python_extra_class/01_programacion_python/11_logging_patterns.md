@@ -11,7 +11,7 @@
 ### El problema con print()
 
 ```python
-# ❌ Código con prints (amateur)
+#  Código con prints (amateur)
 def procesar_pedido(pedido_id: int) -> bool:
     print(f"Procesando pedido {pedido_id}")
 
@@ -24,17 +24,17 @@ def procesar_pedido(pedido_id: int) -> bool:
 ```
 
 **Problemas:**
-- ❌ No puedes desactivar prints sin eliminar código
-- ❌ No puedes guardar en archivo
-- ❌ No puedes filtrar por severidad
-- ❌ No incluye timestamp automático
-- ❌ No puedes enviar a sistemas de monitoreo
-- ❌ Se mezcla con output real del programa
+-  No puedes desactivar prints sin eliminar código
+-  No puedes guardar en archivo
+-  No puedes filtrar por severidad
+-  No incluye timestamp automático
+-  No puedes enviar a sistemas de monitoreo
+-  Se mezcla con output real del programa
 
 ### La solución: logging
 
 ```python
-# ✅ Código con logging (profesional)
+#  Código con logging (profesional)
 import logging
 
 logger = logging.getLogger(__name__)
@@ -51,11 +51,11 @@ def procesar_pedido(pedido_id: int) -> bool:
 ```
 
 **Ventajas:**
-- ✅ Controlas nivel de detalle (DEBUG, INFO, ERROR)
-- ✅ Guardas automáticamente en archivos
-- ✅ Incluye timestamp, módulo, línea
-- ✅ Puedes enviar a Sentry, CloudWatch, etc.
-- ✅ No interfiere con output del programa
+-  Controlas nivel de detalle (DEBUG, INFO, ERROR)
+-  Guardas automáticamente en archivos
+-  Incluye timestamp, módulo, línea
+-  Puedes enviar a Sentry, CloudWatch, etc.
+-  No interfiere con output del programa
 
 ### Decisión: ¿Cuándo usar qué?
 
@@ -83,8 +83,8 @@ logging.basicConfig(
 )
 
 # Usa el root logger
-logging.info("Aplicación iniciada")  # ✅ Funciona
-logging.debug("Cargando config")     # ❌ No se muestra (nivel = INFO)
+logging.info("Aplicación iniciada")  #  Funciona
+logging.debug("Cargando config")     #  No se muestra (nivel = INFO)
 ```
 
 **Cuándo usar:**
@@ -131,7 +131,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 def funcion():
-    logger.info("Haciendo algo")  # ✅ Usa el logger del módulo
+    logger.info("Haciendo algo")  #  Usa el logger del módulo
 ```
 
 **Regla de oro:** Usa `getLogger(__name__)` en TODAS tus aplicaciones serias. Es el estándar de la industria.
@@ -144,11 +144,11 @@ def funcion():
 
 | Nivel | Valor numérico | Cuándo usar | Visible en producción |
 |-------|----------------|-------------|----------------------|
-| `DEBUG` | 10 | Información detallada para debugging | ❌ NO |
-| `INFO` | 20 | Confirmación de que todo funciona | ✅ SÍ |
-| `WARNING` | 30 | Algo inesperado pero no crítico | ✅ SÍ |
-| `ERROR` | 40 | Error que impide una operación | ✅ SÍ |
-| `CRITICAL` | 50 | Error que puede detener la aplicación | ✅ SÍ |
+| `DEBUG` | 10 | Información detallada para debugging |  NO |
+| `INFO` | 20 | Confirmación de que todo funciona |  SÍ |
+| `WARNING` | 30 | Algo inesperado pero no crítico |  SÍ |
+| `ERROR` | 40 | Error que impide una operación |  SÍ |
+| `CRITICAL` | 50 | Error que puede detener la aplicación |  SÍ |
 
 ### Tabla de decisión: ¿Qué nivel usar?
 
@@ -685,10 +685,10 @@ logger.info("Configuración aplicada")
 ```
 
 **Pros:**
-- ✅ Estructura clara (Python dict)
-- ✅ Fácil de versionar (código)
-- ✅ Puedes cargar desde JSON/YAML
-- ✅ Flexible y potente
+-  Estructura clara (Python dict)
+-  Fácil de versionar (código)
+-  Puedes cargar desde JSON/YAML
+-  Flexible y potente
 
 ### Opción 4: YAML Config (MEJOR para producción)
 
@@ -742,12 +742,12 @@ logger = logging.getLogger(__name__)
 ```
 
 **Pros:**
-- ✅ Más legible que INI
-- ✅ Puedes cambiar sin tocar código
-- ✅ Fácil de mantener
+-  Más legible que INI
+-  Puedes cambiar sin tocar código
+-  Fácil de mantener
 
 **Contras:**
-- ❌ Requiere PyYAML (`pip install pyyaml`)
+-  Requiere PyYAML (`pip install pyyaml`)
 
 ### Patrón recomendado: Config por entorno
 
@@ -959,11 +959,11 @@ def handle_request(request):
 
 | Contexto | JSON? | Por qué |
 |----------|-------|---------|
-| Desarrollo local | ❌ NO | Texto es más fácil de leer |
-| Scripts simples | ❌ NO | Overhead innecesario |
-| Producción con ELK/Splunk | ✅ SÍ | Permite búsquedas y agregaciones |
-| Microservicios | ✅ SÍ | Permite tracing distribuido |
-| Aplicaciones con métricas | ✅ SÍ | Fácil extraer datos |
+| Desarrollo local |  NO | Texto es más fácil de leer |
+| Scripts simples |  NO | Overhead innecesario |
+| Producción con ELK/Splunk |  SÍ | Permite búsquedas y agregaciones |
+| Microservicios |  SÍ | Permite tracing distribuido |
+| Aplicaciones con métricas |  SÍ | Fácil extraer datos |
 
 ---
 
@@ -977,11 +977,11 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-# ❌ MAL: Se ejecuta incluso si DEBUG está desactivado
+#  MAL: Se ejecuta incluso si DEBUG está desactivado
 logger.debug(f"Datos: {expensive_function()}")
 # expensive_function() SE EJECUTA SIEMPRE, aunque el log no se muestre
 
-# ❌ MAL: Se construye el string siempre
+#  MAL: Se construye el string siempre
 logger.debug(f"Usuario: {user.to_dict()}")
 # user.to_dict() se ejecuta incluso si DEBUG está off
 ```
@@ -991,11 +991,11 @@ logger.debug(f"Usuario: {user.to_dict()}")
 ### La solución: Lazy evaluation con %
 
 ```python
-# ✅ BIEN: Solo se evalúa si el log va a mostrarse
+#  BIEN: Solo se evalúa si el log va a mostrarse
 logger.debug("Datos: %s", expensive_function())
 # expensive_function() SOLO se ejecuta si DEBUG está activo
 
-# ✅ BIEN: Lazy evaluation
+#  BIEN: Lazy evaluation
 logger.debug("Usuario: %s", user.to_dict())
 # user.to_dict() solo se llama si DEBUG está activo
 ```
@@ -1022,13 +1022,13 @@ def slow_operation():
 # Test 1: f-string (MALO)
 start = time.time()
 for _ in range(100):
-    logger.debug(f"Resultado: {slow_operation()}")  # ❌ 10 segundos
+    logger.debug(f"Resultado: {slow_operation()}")  #  10 segundos
 print(f"f-string: {time.time() - start:.2f}s")
 
 # Test 2: lazy % (BUENO)
 start = time.time()
 for _ in range(100):
-    logger.debug("Resultado: %s", slow_operation())  # ✅ ~0 segundos
+    logger.debug("Resultado: %s", slow_operation())  #  ~0 segundos
 print(f"lazy %: {time.time() - start:.2f}s")
 ```
 
@@ -1062,15 +1062,15 @@ if logger.isEnabledFor(logging.DEBUG):
 
 ## 9. Anti-patterns - Qué evitar
 
-### ❌ Anti-pattern 1: Logging dentro de loops
+###  Anti-pattern 1: Logging dentro de loops
 
 ```python
-# ❌ MAL: 10,000 logs
+#  MAL: 10,000 logs
 for i in range(10000):
     logger.debug(f"Procesando item {i}")
     process_item(i)
 
-# ✅ BIEN: Log por batch
+#  BIEN: Log por batch
 logger.info(f"Procesando {len(items)} items...")
 for i, item in enumerate(items):
     process_item(item)
@@ -1079,31 +1079,31 @@ for i, item in enumerate(items):
 logger.info("Procesamiento completado")
 ```
 
-### ❌ Anti-pattern 2: Logging información sensible
+###  Anti-pattern 2: Logging información sensible
 
 ```python
-# ❌ MAL: Expone credenciales
+#  MAL: Expone credenciales
 logger.info(f"Conectando con user={user}, password={password}")
 
-# ❌ MAL: Expone PII (Personally Identifiable Information)
+#  MAL: Expone PII (Personally Identifiable Information)
 logger.info(f"Usuario: {user.email}, SSN: {user.ssn}")
 
-# ✅ BIEN: Sanitiza datos sensibles
+#  BIEN: Sanitiza datos sensibles
 logger.info(f"Conectando con user={user}")
 logger.info(f"Usuario: {user.id}, email={mask_email(user.email)}")
 ```
 
-### ❌ Anti-pattern 3: Exception swallowing
+###  Anti-pattern 3: Exception swallowing
 
 ```python
-# ❌ MAL: Captura y solo logguea
+#  MAL: Captura y solo logguea
 try:
     critical_operation()
 except Exception as e:
     logger.error(f"Error: {e}")
     # ¡No hace nada más!
 
-# ✅ BIEN: Logguea Y re-raise si es crítico
+#  BIEN: Logguea Y re-raise si es crítico
 try:
     critical_operation()
 except ValueError as e:
@@ -1116,67 +1116,67 @@ except Exception as e:
 
 **Nota:** `exc_info=True` incluye el traceback completo en el log.
 
-### ❌ Anti-pattern 4: Logging sin contexto
+###  Anti-pattern 4: Logging sin contexto
 
 ```python
-# ❌ MAL: ¿Qué falló?
+#  MAL: ¿Qué falló?
 logger.error("Error en validación")
 
-# ✅ BIEN: Contexto completo
+#  BIEN: Contexto completo
 logger.error(
     f"Validación falló para usuario {user_id}: {validation_errors}",
     extra={'user_id': user_id, 'errors': validation_errors}
 )
 ```
 
-### ❌ Anti-pattern 5: Level incorrecto
+###  Anti-pattern 5: Level incorrecto
 
 ```python
-# ❌ MAL: Usar ERROR para algo que no es error
+#  MAL: Usar ERROR para algo que no es error
 if cache_miss:
     logger.error("Cache miss")  # No es error, es normal
 
-# ✅ BIEN: Usa el nivel apropiado
+#  BIEN: Usa el nivel apropiado
 if cache_miss:
     logger.debug("Cache miss, consultando BD")
 ```
 
-### ❌ Anti-pattern 6: Logging + print
+###  Anti-pattern 6: Logging + print
 
 ```python
-# ❌ MAL: Mezcla logging y print
+#  MAL: Mezcla logging y print
 logger.info("Iniciando proceso")
 print("Procesando...")  # ¿Por qué?
 logger.info("Proceso completado")
 
-# ✅ BIEN: Solo logging
+#  BIEN: Solo logging
 logger.info("Iniciando proceso")
 logger.info("Procesando...")
 logger.info("Proceso completado")
 ```
 
-### ❌ Anti-pattern 7: No configurar nivel
+###  Anti-pattern 7: No configurar nivel
 
 ```python
-# ❌ MAL: No configuras nivel, defaults a WARNING
+#  MAL: No configuras nivel, defaults a WARNING
 logger = logging.getLogger(__name__)
 logger.info("Esto no se muestra")  # ¡No verás nada!
 
-# ✅ BIEN: Siempre configura nivel
+#  BIEN: Siempre configura nivel
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)  # O usa logging.basicConfig()
 logger.info("Esto sí se muestra")
 ```
 
-### ❌ Anti-pattern 8: Logging en hot path
+###  Anti-pattern 8: Logging en hot path
 
 ```python
-# ❌ MAL: Logging en función llamada millones de veces
+#  MAL: Logging en función llamada millones de veces
 def calculate_distance(x1, y1, x2, y2):
     logger.debug(f"Calculando distancia: ({x1},{y1}) -> ({x2},{y2})")
     return ((x2-x1)**2 + (y2-y1)**2)**0.5
 
-# ✅ BIEN: Solo loggea resumen
+#  BIEN: Solo loggea resumen
 def process_points(points):
     logger.info(f"Calculando distancias para {len(points)} puntos")
     distances = [calculate_distance(*p) for p in points]
@@ -1236,7 +1236,7 @@ START: Quiero comunicar algo
 #### Caso 1: Script que calcula estadísticas
 
 ```python
-# ✅ CORRECTO
+#  CORRECTO
 def main():
     logger.info("Cargando datos...")  # Logging (diagnóstico)
     data = load_data()
@@ -1254,7 +1254,7 @@ def main():
 #### Caso 2: Validación de input
 
 ```python
-# ✅ CORRECTO
+#  CORRECTO
 def procesar_pedido(pedido_id: int) -> Optional[dict]:
     logger.info(f"Procesando pedido {pedido_id}")  # Logging (monitoreo)
 
@@ -1268,7 +1268,7 @@ def procesar_pedido(pedido_id: int) -> Optional[dict]:
 #### Caso 3: Error fatal
 
 ```python
-# ✅ CORRECTO
+#  CORRECTO
 def conectar_bd(config: dict) -> Connection:
     logger.info("Conectando a BD...")  # Logging
 

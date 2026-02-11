@@ -108,9 +108,9 @@ class ConexionDB:
         try:
             self._conn = self._establecer_conexion()
             self.conectada = True
-            logger.info(f"✓ Conectado a {self.host}:{self.port}")
+            logger.info(f"[OK] Conectado a {self.host}:{self.port}")
         except ConnectionError as e:
-            logger.error(f"✗ Falló conexión a {self.host}:{self.port}: {e}")
+            logger.error(f"[X] Falló conexión a {self.host}:{self.port}: {e}")
             raise
 
     def desconectar(self) -> None:
@@ -165,7 +165,7 @@ class ConexionDB:
 
 ### Ejemplos
 
-#### ✅ BIEN: Log + raise para errores no recuperables
+####  BIEN: Log + raise para errores no recuperables
 
 ```python
 class Validador:
@@ -183,7 +183,7 @@ class Validador:
         return True
 ```
 
-#### ✅ BIEN: Log warning + recupera (NO raise)
+####  BIEN: Log warning + recupera (NO raise)
 
 ```python
 class Cache:
@@ -202,17 +202,17 @@ class Cache:
             return None  # No raise, esto es esperado
 ```
 
-#### ❌ MAL: Log + raise para errores esperados
+####  MAL: Log + raise para errores esperados
 
 ```python
 class Calculadora:
     def dividir(self, a: float, b: float) -> float:
         if b == 0:
-            # ❌ MAL: No loggees + raises para errores esperados
+            #  MAL: No loggees + raises para errores esperados
             logger.error(f"División por cero: {a}/{b}")
             raise ValueError("División por cero")
 
-        # ✅ BIEN: Solo raise, el caller decide si loggear
+        #  BIEN: Solo raise, el caller decide si loggear
         if b == 0:
             raise ValueError("División por cero")
 
@@ -253,8 +253,8 @@ class Gato(Animal):
         self.logger.info(f"{self.nombre} está maullando")
 
 # Logs:
-# Animal - Creando Animal: Max  (❌ no queremos esto)
-# Perro - Creando Perro: Max    (✅ queremos esto)
+# Animal - Creando Animal: Max  ( no queremos esto)
+# Perro - Creando Perro: Max    ( queremos esto)
 # Perro - Max está ladrando
 
 perro = Perro("Max")

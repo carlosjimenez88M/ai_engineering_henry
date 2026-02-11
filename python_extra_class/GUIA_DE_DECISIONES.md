@@ -17,7 +17,8 @@
 7. [Logging Levels - ¿Qué nivel de log usar?](#7-logging-levels)
 8. [Context Managers - ¿Cuándo crear uno?](#8-context-managers)
 9. [Dataclass vs Regular Class - ¿Cómo definir clases?](#9-dataclass-vs-regular-class)
-10. [Resumen Visual](#10-resumen-visual)
+10. [Pydantic vs Dataclass - ¿Cuándo validar contratos?](#10-pydantic-vs-dataclass)
+11. [Resumen Visual](#11-resumen-visual)
 
 ---
 
@@ -49,7 +50,7 @@
 
 ### Ejemplos
 
-#### ✅ BIEN: Error esperado y recuperable
+####  BIEN: Error esperado y recuperable
 
 ```python
 def cargar_config(filepath):
@@ -64,7 +65,7 @@ def cargar_config(filepath):
         raise ConfigError(f"JSON inválido: {e}") from e
 ```
 
-#### ❌ MAL: Catch demasiado amplio
+####  MAL: Catch demasiado amplio
 
 ```python
 def procesar_datos(datos):
@@ -112,14 +113,14 @@ def procesar_datos(datos):
 #### Escenario 1: Procesando archivo
 
 ```python
-# ✅ BIEN: Desarrollo local
+#  BIEN: Desarrollo local
 def procesar_archivo_dev(filepath):
     print(f"Procesando {filepath}")
     data = leer_archivo(filepath)
     print(f"Leídos {len(data)} bytes")
     return data
 
-# ✅ BIEN: Producción
+#  BIEN: Producción
 def procesar_archivo_prod(filepath):
     logger.info(f"Iniciando procesamiento de {filepath}")
     try:
@@ -134,7 +135,7 @@ def procesar_archivo_prod(filepath):
 #### Escenario 2: API rate limit
 
 ```python
-# ✅ BIEN: Warning, no raise (no es fatal)
+#  BIEN: Warning, no raise (no es fatal)
 def llamar_api(endpoint):
     response = requests.get(endpoint)
     if response.status_code == 429:
@@ -146,7 +147,7 @@ def llamar_api(endpoint):
         return llamar_api(endpoint)
     return response.json()
 
-# ❌ MAL: Print en producción
+#  MAL: Print en producción
 def llamar_api_mal(endpoint):
     response = requests.get(endpoint)
     if response.status_code == 429:
@@ -163,7 +164,7 @@ def llamar_api_mal(endpoint):
 ```
 ¿La lógica cabe en UNA línea clara y legible?
 ├─ SÍ → ¿Es una transformación simple (map) o filtro?
-│   ├─ SÍ → List comprehension ✓
+│   ├─ SÍ → List comprehension [OK]
 │   │   Ejemplo: [x*2 for x in nums]
 │   │   Ejemplo: [x for x in nums if x > 0]
 │   └─ NO → ¿Tiene lógica compleja con múltiples if?
@@ -191,17 +192,17 @@ def llamar_api_mal(endpoint):
 | Feature | List Comprehension | For Loop |
 |---------|-------------------|----------|
 | Performance | ~30-50% más rápido | Más lento |
-| Legibilidad (simple) | ✅ Excelente | ❌ Verbose |
-| Legibilidad (complejo) | ❌ Ilegible | ✅ Clara |
-| break/continue | ❌ No soportado | ✅ Soportado |
-| try/except | ❌ No soportado | ✅ Soportado |
-| Debugging | ❌ Difícil | ✅ Fácil (prints) |
-| Memoria (grande) | ❌ Toda en RAM | ❌ Toda en RAM |
-| Memoria (generator) | ✅ `()` en vez de `[]` | N/A |
+| Legibilidad (simple) |  Excelente |  Verbose |
+| Legibilidad (complejo) |  Ilegible |  Clara |
+| break/continue |  No soportado |  Soportado |
+| try/except |  No soportado |  Soportado |
+| Debugging |  Difícil |  Fácil (prints) |
+| Memoria (grande) |  Toda en RAM |  Toda en RAM |
+| Memoria (generator) |  `()` en vez de `[]` | N/A |
 
 ### Ejemplos lado a lado
 
-#### ✅ BIEN: Comprehension (simple, claro)
+####  BIEN: Comprehension (simple, claro)
 
 ```python
 # Transformación simple
@@ -217,7 +218,7 @@ positive_doubles = [x*2 for x in nums if x > 0]
 names = [user['name'] for user in users]
 ```
 
-#### ✅ BIEN: For loop (lógica compleja)
+####  BIEN: For loop (lógica compleja)
 
 ```python
 # Múltiples condiciones y validaciones
@@ -246,7 +247,7 @@ for x in nums:
     result.append(x*2)
 ```
 
-#### ❌ MAL: Comprehension ilegible
+####  MAL: Comprehension ilegible
 
 ```python
 # NO HAGAS ESTO - muy complejo para una línea
@@ -277,7 +278,7 @@ for i in range(10):
 └─ NO → ¿Cuál es el tamaño del dataset?
     ├─ Pequeño (< 1000 items) → List (más simple)
     └─ Grande (> 1000 items) → ¿Solo iteras una vez?
-        ├─ SÍ → Generator ✓
+        ├─ SÍ → Generator [OK]
         └─ NO → ¿Cabe en RAM?
             ├─ SÍ → List
             └─ NO → Generator (obligatorio)
@@ -290,14 +291,14 @@ for i in range(10):
 | Memoria | O(n) - toda en RAM | O(1) - item a la vez |
 | Velocidad (crear) | Lenta (crea todo) | Rápida (lazy) |
 | Velocidad (iterar) | Rápida | Similar |
-| Acceso aleatorio | ✅ `list[i]` | ❌ No soportado |
-| Múltiples iteraciones | ✅ Reutilizable | ❌ Una sola vez |
-| len() | ✅ Soportado | ❌ No soportado |
+| Acceso aleatorio |  `list[i]` |  No soportado |
+| Múltiples iteraciones |  Reutilizable |  Una sola vez |
+| len() |  Soportado |  No soportado |
 | Sintaxis | `[x for x in ...]` | `(x for x in ...)` |
 
 ### Ejemplos
 
-#### ✅ BIEN: List (necesitas acceso aleatorio)
+####  BIEN: List (necesitas acceso aleatorio)
 
 ```python
 # Necesitas índices
@@ -311,7 +312,7 @@ suma = sum(numeros)
 promedio = sum(numeros) / len(numeros)  # Iteras 2 veces
 ```
 
-#### ✅ BIEN: Generator (dataset grande, una iteración)
+####  BIEN: Generator (dataset grande, una iteración)
 
 ```python
 # Archivo grande
@@ -390,11 +391,11 @@ Valor por defecto automático → defaultdict (collections)
 #### Escenario 1: Necesito buscar si un elemento existe
 
 ```python
-# ❌ MAL: List O(n)
+#  MAL: List O(n)
 usuarios_list = [u1, u2, u3, ...]
 if 'carlos' in usuarios_list:  # O(n) - lento
 
-# ✅ BIEN: Set O(1)
+#  BIEN: Set O(1)
 usuarios_set = {u1, u2, u3, ...}
 if 'carlos' in usuarios_set:  # O(1) - rápido
 ```
@@ -402,13 +403,13 @@ if 'carlos' in usuarios_set:  # O(1) - rápido
 #### Escenario 2: Necesito acceso por clave
 
 ```python
-# ❌ MAL: List de listas
+#  MAL: List de listas
 usuarios = [['carlos', 25], ['ana', 30]]
 for nombre, edad in usuarios:
     if nombre == 'carlos':  # O(n)
         print(edad)
 
-# ✅ BIEN: Dict
+#  BIEN: Dict
 usuarios = {'carlos': 25, 'ana': 30}
 print(usuarios['carlos'])  # O(1)
 ```
@@ -418,13 +419,13 @@ print(usuarios['carlos'])  # O(1)
 ```python
 from collections import Counter
 
-# ❌ MAL: Dict manual
+#  MAL: Dict manual
 palabras = ['a', 'b', 'a', 'c', 'b', 'a']
 conteo = {}
 for p in palabras:
     conteo[p] = conteo.get(p, 0) + 1
 
-# ✅ BIEN: Counter
+#  BIEN: Counter
 conteo = Counter(palabras)
 print(conteo['a'])  # 3
 print(conteo.most_common(2))  # [('a', 3), ('b', 2)]
@@ -455,18 +456,18 @@ print(conteo.most_common(2))  # [('a', 3), ('b', 2)]
 
 | Situación | Usa built-in | Crea custom |
 |-----------|--------------|-------------|
-| Argumento inválido (tipo/valor) | `ValueError`, `TypeError` | ❌ |
-| Archivo no existe | `FileNotFoundError` | ❌ |
-| Operación no soportada | `NotImplementedError` | ❌ |
-| Error específico de tu API/dominio | ❌ | ✅ |
-| Necesitas campos adicionales | ❌ | ✅ |
-| Quieres catch granular | ❌ | ✅ |
-| Error de autenticación | ❌ | ✅ `AuthError` |
-| Error de negocio | ❌ | ✅ `BusinessRuleError` |
+| Argumento inválido (tipo/valor) | `ValueError`, `TypeError` |  |
+| Archivo no existe | `FileNotFoundError` |  |
+| Operación no soportada | `NotImplementedError` |  |
+| Error específico de tu API/dominio |  |  |
+| Necesitas campos adicionales |  |  |
+| Quieres catch granular |  |  |
+| Error de autenticación |  |  `AuthError` |
+| Error de negocio |  |  `BusinessRuleError` |
 
 ### Ejemplos
 
-#### ✅ BIEN: Usa built-in cuando encaja
+####  BIEN: Usa built-in cuando encaja
 
 ```python
 def dividir(a, b):
@@ -477,7 +478,7 @@ def dividir(a, b):
     return a / b
 ```
 
-#### ✅ BIEN: Custom cuando es específico de dominio
+####  BIEN: Custom cuando es específico de dominio
 
 ```python
 class PaymentError(Exception):
@@ -513,11 +514,11 @@ except PaymentGatewayError as e:
 
 | Nivel | Cuándo usarlo | Ejemplo | En producción |
 |-------|---------------|---------|---------------|
-| `DEBUG` | Información detallada para debugging | `logger.debug("user_id=%s, params=%s", uid, params)` | ❌ Desactivado |
-| `INFO` | Eventos normales del flujo | `logger.info("User %s logged in", username)` | ✅ Activado |
-| `WARNING` | Algo inesperado pero no crítico | `logger.warning("Cache miss para key=%s", key)` | ✅ Activado |
-| `ERROR` | Error que afecta operación actual | `logger.error("Failed to save: %s", error)` | ✅ Activado |
-| `CRITICAL` | Error que puede detener la app | `logger.critical("DB pool exhausted")` | ✅ Activado + alerta |
+| `DEBUG` | Información detallada para debugging | `logger.debug("user_id=%s, params=%s", uid, params)` |  Desactivado |
+| `INFO` | Eventos normales del flujo | `logger.info("User %s logged in", username)` |  Activado |
+| `WARNING` | Algo inesperado pero no crítico | `logger.warning("Cache miss para key=%s", key)` |  Activado |
+| `ERROR` | Error que afecta operación actual | `logger.error("Failed to save: %s", error)` |  Activado |
+| `CRITICAL` | Error que puede detener la app | `logger.critical("DB pool exhausted")` |  Activado + alerta |
 
 ### Flowchart de decisión
 
@@ -604,17 +605,17 @@ def procesar_pedido(pedido_id):
 #### Usa built-in cuando existe
 
 ```python
-# ✅ Archivo
+#  Archivo
 with open('data.txt') as f:
     data = f.read()
 
-# ✅ Lock
+#  Lock
 import threading
 lock = threading.Lock()
 with lock:
     critical_section()
 
-# ✅ Suprimir errores
+#  Suprimir errores
 from contextlib import suppress
 with suppress(FileNotFoundError):
     os.remove('archivo_opcional.txt')
@@ -649,7 +650,7 @@ with timer("Procesamiento"):
 ```
 ¿La clase es principalmente datos (attributes)?
 ├─ SÍ → ¿Necesitas métodos complejos?
-│   ├─ NO → Dataclass ✓
+│   ├─ NO → Dataclass [OK]
 │   └─ SÍ → ¿Los métodos son complejos?
 │       ├─ SÍ → Regular class
 │       └─ NO → Dataclass (puedes agregar métodos)
@@ -660,18 +661,18 @@ with timer("Procesamiento"):
 
 | Feature | Dataclass | Regular Class |
 |---------|-----------|---------------|
-| __init__ automático | ✅ | ❌ Manual |
-| __repr__ automático | ✅ | ❌ Manual |
-| __eq__ automático | ✅ | ❌ Manual |
-| Type hints requeridos | ✅ | ❌ Opcional |
-| Inmutabilidad | ✅ `frozen=True` | ❌ Manual con properties |
-| Herencia | ✅ | ✅ |
-| Métodos personalizados | ✅ | ✅ |
-| Boilerplate | ❌ Mínimo | ✅ Mucho |
+| __init__ automático |  |  Manual |
+| __repr__ automático |  |  Manual |
+| __eq__ automático |  |  Manual |
+| Type hints requeridos |  |  Opcional |
+| Inmutabilidad |  `frozen=True` |  Manual con properties |
+| Herencia |  |  |
+| Métodos personalizados |  |  |
+| Boilerplate |  Mínimo |  Mucho |
 
 ### Ejemplos
 
-#### ✅ BIEN: Dataclass (principalmente datos)
+####  BIEN: Dataclass (principalmente datos)
 
 ```python
 from dataclasses import dataclass
@@ -689,7 +690,7 @@ class Usuario:
 # Sin dataclass necesitarías ~15 líneas de __init__, __repr__, __eq__
 ```
 
-#### ✅ BIEN: Regular class (lógica compleja)
+####  BIEN: Regular class (lógica compleja)
 
 ```python
 class DatabaseConnection:
@@ -716,7 +717,50 @@ class DatabaseConnection:
 
 ---
 
-## 10. Resumen Visual
+## 10. Pydantic vs Dataclass
+
+### Árbol de decisión
+
+```
+¿Tu dato cruza frontera de sistema (API, archivo, cola, input externo)?
+├─ SÍ → ¿Necesitas validación estricta y errores estructurados?
+│   ├─ SÍ → Pydantic
+│   └─ NO → Dataclass + validación manual (solo si caso simple)
+└─ NO → ¿Es solo representación interna de datos?
+    ├─ SÍ → Dataclass
+    └─ NO → Pydantic si quieres contratos fuertes igual
+```
+
+### Regla práctica para AI/ML
+
+- Request de inferencia, feature payloads y output de modelo: `Pydantic`.
+- Objetos internos livianos de dominio: `Dataclass`.
+
+### Ejemplo rápido
+
+```python
+from dataclasses import dataclass
+from pydantic import BaseModel, Field
+
+
+@dataclass
+class PromptTemplate:
+    task: str
+    language: str = "es"
+
+
+class InferenceRequest(BaseModel):
+    prompt: str = Field(min_length=5, max_length=2000)
+    max_tokens: int = Field(ge=1, le=4096)
+```
+
+Interpretación:
+- `PromptTemplate` modela estructura interna.
+- `InferenceRequest` protege la frontera externa del sistema.
+
+---
+
+## 11. Resumen Visual
 
 ### Mapa mental de decisiones rápidas
 
@@ -760,6 +804,7 @@ Antes de escribir código, pregúntate:
 - [ ] ¿Necesito lookup rápido? → Debería usar dict/set?
 - [ ] ¿Necesito cleanup? → Debería usar context manager?
 - [ ] ¿Es solo datos? → Debería usar dataclass?
+- [ ] ¿Cruzo frontera externa? → Debería usar pydantic?
 
 ---
 
@@ -769,6 +814,7 @@ Antes de escribir código, pregúntate:
 - **Logging:** `01_programacion_python/11_logging_patterns.md`
 - **Generators:** `01_programacion_python/09_generadores_e_iteradores.md`
 - **Comprehensions:** `01_programacion_python/10_comprension_vs_loops.md`
+- **Pydantic:** `01_programacion_python/12_pydantic.md`
 - **Ejemplos ejecutables:** `04_ejemplos_runnable/`
 
 ---

@@ -104,12 +104,12 @@ for num in numeros_generador(5):
 ### Ejemplo práctico: Leer archivo grande
 
 ```python
-# ❌ MAL: Lee todo el archivo a memoria
+#  MAL: Lee todo el archivo a memoria
 def leer_archivo(filepath):
     with open(filepath) as f:
         return f.readlines()  # Todo en RAM
 
-# ✅ BIEN: Lee línea por línea
+#  BIEN: Lee línea por línea
 def leer_archivo_generador(filepath):
     with open(filepath) as f:
         for line in f:
@@ -122,10 +122,10 @@ for linea in leer_archivo_generador('archivo_enorme.txt'):
 
 ### Cuándo usar generadores
 
-- ✅ Datasets grandes (no caben en RAM)
-- ✅ Solo iteras una vez
-- ✅ Pipelines de datos (filtrar → transformar → procesar)
-- ❌ Necesitas acceso aleatorio (lista[5])
-- ❌ Necesitas iterar múltiples veces
+-  Datasets grandes (no caben en RAM)
+-  Solo iteras una vez
+-  Pipelines de datos (filtrar → transformar → procesar)
+-  Necesitas acceso aleatorio (lista[5])
+-  Necesitas iterar múltiples veces
 
 **Ver guía completa:** `09_generadores_e_iteradores.md` y `04_ejemplos_runnable/ejemplo_03_generadores.py`

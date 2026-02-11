@@ -10,6 +10,7 @@ Ejecuta: pytest test_ejemplos.py -v
 import pytest
 import sys
 from pathlib import Path
+from pydantic import ValidationError
 
 
 # ============================================================================
@@ -42,6 +43,14 @@ class TestImports:
             assert ejemplo_03_generadores is not None
         except ImportError as e:
             pytest.fail(f"No se pudo importar ejemplo_03_generadores: {e}")
+
+    def test_import_ejemplo_07_pydantic_ai(self):
+        """Ejemplo 7: Pydantic AI puede importarse."""
+        try:
+            import ejemplo_07_pydantic_ai
+            assert ejemplo_07_pydantic_ai is not None
+        except ImportError as e:
+            pytest.fail(f"No se pudo importar ejemplo_07_pydantic_ai: {e}")
 
 
 # ============================================================================
@@ -163,6 +172,31 @@ class TestGenerators:
 
 
 # ============================================================================
+# TEST: Pydantic AI
+# ============================================================================
+
+class TestPydanticAI:
+    """Tests para el ejemplo de pydantic aplicado a AI/ML."""
+
+    def test_inference_request_valid_payload(self):
+        from ejemplo_07_pydantic_ai import InferenceRequest
+
+        request = InferenceRequest(
+            prompt="Explica por que validar input en sistemas de inferencia.",
+            max_tokens=250,
+            temperature=0.4,
+        )
+        assert request.max_tokens == 250
+        assert 0.0 <= request.temperature <= 2.0
+
+    def test_feature_row_rejects_unrealistic_income(self):
+        from ejemplo_07_pydantic_ai import FeatureRow
+
+        with pytest.raises(ValidationError):
+            FeatureRow(age=30, monthly_income_usd=2_000_000, tenure_months=12)
+
+
+# ============================================================================
 # TEST: File Existence
 # ============================================================================
 
@@ -201,6 +235,12 @@ class TestFileExistence:
         path = Path("04_ejemplos_runnable/ejemplo_06_comprehension_performance.py")
         if not path.exists():
             pytest.skip("ejemplo_06_comprehension_performance.py aún no disponible")
+
+    def test_ejemplo_07_exists(self):
+        """Ejemplo 7 existe (si disponible)."""
+        path = Path("04_ejemplos_runnable/ejemplo_07_pydantic_ai.py")
+        if not path.exists():
+            pytest.skip("ejemplo_07_pydantic_ai.py aún no disponible")
 
 
 # ============================================================================

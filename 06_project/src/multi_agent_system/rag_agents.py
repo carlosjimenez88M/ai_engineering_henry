@@ -75,6 +75,42 @@ def _build_domain_rag_agent(
     )
 
 
+def _build_local_rag_agent(retriever: BaseRetriever, domain: str):
+    """Fallback RAG without LLM dependency (useful for local demos/tests)."""
+
+    def answer(payload: dict) -> RAGAnswer:
+        query = payload["query"]
+        docs = retriever.invoke(query)
+        _, citations = _format_docs_with_sources(docs)
+
+        if docs:
+            top_snippets = [doc.page_content.strip().split("\n")[0] for doc in docs[:2]]
+            answer_text = (
+                f"[Modo local sin LLM] Hallazgos de {domain}: " + " | ".join(top_snippets)
+            )
+            follow_up = "Quieres que lo convierta en un checklist accionable?"
+            confidence = 0.62
+            evidence_notes = [f"{len(docs)} context chunks retrieved for {domain} (local mode)."]
+        else:
+            answer_text = (
+                f"[Modo local sin LLM] No encontre evidencia suficiente en {domain} para esta consulta."
+            )
+            follow_up = "Puedes agregar mas detalles o palabras clave?"
+            confidence = 0.35
+            evidence_notes = [f"0 context chunks retrieved for {domain} (local mode)."]
+
+        return RAGAnswer(
+            answer=answer_text,
+            citations=citations,
+            confidence=confidence,
+            follow_up_question=follow_up,
+            retrieval_hits=len(docs),
+            evidence_notes=evidence_notes,
+        )
+
+    return RunnableLambda(answer)
+
+
 
 def build_hr_rag_agent(llm: BaseChatModel, retriever: BaseRetriever):
     return _build_domain_rag_agent(llm, retriever, HR_AGENT_PROMPT, domain="HR")
@@ -83,3 +119,11 @@ def build_hr_rag_agent(llm: BaseChatModel, retriever: BaseRetriever):
 
 def build_tech_rag_agent(llm: BaseChatModel, retriever: BaseRetriever):
     return _build_domain_rag_agent(llm, retriever, TECH_AGENT_PROMPT, domain="TECH")
+
+
+def build_hr_local_rag_agent(retriever: BaseRetriever):
+    return _build_local_rag_agent(retriever, domain="HR")
+
+
+def build_tech_local_rag_agent(retriever: BaseRetriever):
+    return _build_local_rag_agent(retriever, domain="TECH")

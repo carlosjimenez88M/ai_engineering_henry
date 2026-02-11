@@ -74,7 +74,7 @@ def load_tickets(path: Path) -> list[Ticket]:
 
 
 def run() -> None:
-    base = Path("01_class/python_software_engineering")
+    base = Path("01-introduction/python_software_engineering")
     source = base / "sample_tickets.json"
     tickets = load_tickets(source)
     queue = plan_queue(tickets)

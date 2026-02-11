@@ -48,7 +48,7 @@ Chip Huyen (AI Engineering, Capítulo 5: "Resilient Systems"):
 
 1. **Sin retry** →  Descartado: Demasiado frágil
 2. **Retry simple (fixed delay)** →  Descartado: Puede empeorar rate limiting
-3. **Circuit breaker** → 🔮 Futuro: Útil cuando se escale a múltiples clientes
+3. **Circuit breaker** →  Futuro: Útil cuando se escale a múltiples clientes
 
 ### Referencias
 
@@ -188,7 +188,7 @@ Chip Huyen (AI Engineering, Capítulo 7: "Monitoring and Observability"):
 
 1. **Sin tracking** →  Descartado: Imposible gestionar costos
 2. **Solo loggear en consola** →  Insuficiente: Se pierde el historial
-3. **Enviar a servicio externo** → 🔮 Futuro: Útil para agregación multi-usuario
+3. **Enviar a servicio externo** →  Futuro: Útil para agregación multi-usuario
 
 ### Referencias
 
@@ -316,7 +316,7 @@ feat(prompts): agregar sección de anti-patrones
 
 ### Alternativas Consideradas
 
-1. **Prompts en base de datos** → 🔮 Futuro: Útil para A/B testing
+1. **Prompts en base de datos** →  Futuro: Útil para A/B testing
 2. **Hardcoded strings** →  Sin versionado, difícil de revisar
 3. **Archivos .txt separados** →  Posible, pero menos ergonómico
 

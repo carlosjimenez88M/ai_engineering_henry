@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass
+from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -30,7 +31,8 @@ def load_settings() -> Settings:
     """Loads and validates settings from environment variables.
 
     Reads configuration from .env file and environment. The .env file is loaded
-    automatically if present in the working directory or any parent directory.
+    only from the current working directory to keep behavior deterministic
+    across test and execution environments.
 
     Environment variables:
         OPENAI_API_KEY (required): OpenAI API key.
@@ -48,7 +50,7 @@ def load_settings() -> Settings:
         >>> settings.openai_model
         'gpt-4o-mini'
     """
-    load_dotenv()
+    load_dotenv(dotenv_path=Path.cwd() / ".env", override=False)
     api_key = os.getenv("OPENAI_API_KEY", "").strip()
     model = os.getenv("OPENAI_MODEL", "gpt-4o-mini").strip() or "gpt-4o-mini"
 

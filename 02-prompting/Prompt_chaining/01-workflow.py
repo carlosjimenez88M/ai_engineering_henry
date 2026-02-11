@@ -52,7 +52,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def call_api(system_prompt, 
              user_prompt, 
              temp , 
-             model="gpt-4.1-mini"):
+             model="gpt-4.1-mini"): # No la cambien , no no no!
     response = client.chat.completions.create(
         model=model,
         messages=[

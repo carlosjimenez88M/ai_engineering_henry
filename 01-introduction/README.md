@@ -302,7 +302,7 @@ make run-ai --context "Startup"
 # Regenerar con mismos parámetros
 make run-ai --context "Startup"
 # Las métricas (tokens, cost) deberían ser ~iguales
-cat 01_class/ai_engineering/briefs/brief.metrics.json
+cat 01-introduction/ai_engineering/briefs/brief.metrics.json
 ```
 
 ### Modularidad
@@ -318,9 +318,9 @@ cat 01_class/ai_engineering/briefs/brief.metrics.json
 **Verificar**:
 ```bash
 # Cambiar prompt sin tocar main.py
-nano 01_class/ai_engineering/brief_builder/prompts.py
+nano 01-introduction/ai_engineering/brief_builder/prompts.py
 # Cambiar retry logic sin tocar API call
-nano 01_class/ai_engineering/brief_builder/retry.py
+nano 01-introduction/ai_engineering/brief_builder/retry.py
 # Tests aún pasan
 make test-ai
 ```
@@ -358,7 +358,7 @@ make test-ai-cov  # Cobertura HTML
 # Simular rate limit (comentar en main.py, descomentar error)
 # make run-ai  # Verás reintentos en logs
 # Ver estructura de excepciones
-cat 01_class/ai_engineering/brief_builder/exceptions.py
+cat 01-introduction/ai_engineering/brief_builder/exceptions.py
 ```
 
 ### Observabilidad
@@ -374,7 +374,7 @@ cat 01_class/ai_engineering/brief_builder/exceptions.py
 **Verificar**:
 ```bash
 make run-ai  # Ver logs coloreados
-cat 01_class/ai_engineering/briefs/brief.metrics.json  # Ver métricas JSON
+cat 01-introduction/ai_engineering/briefs/brief.metrics.json  # Ver métricas JSON
 # Busca: "tokens", "cost_usd", "latency_seconds"
 ```
 
@@ -490,7 +490,7 @@ make test-ai  # Verificar que funcionan tests
 **Solución**:
 ```bash
 # Verificar que tests usan sys.path insert correctamente
-head -20 01_class/ai_engineering/tests/test_config.py
+head -20 01-introduction/ai_engineering/tests/test_config.py
 # Si falta, el conftest.py debería inyectarlo
 cd /Users/carlosdaniel/Desktop/ai_engineering_henry
 make test-ai -v  # Con verbose
@@ -505,7 +505,7 @@ make test-ai -v  # Con verbose
 Cada vez que ejecutas `make run-ai`, se guarda `brief.metrics.json`:
 
 ```bash
-cat 01_class/ai_engineering/briefs/brief.metrics.json | jq .
+cat 01-introduction/ai_engineering/briefs/brief.metrics.json | jq .
 ```
 
 Campos principales:
@@ -554,13 +554,13 @@ Costo = (1000 * 0.15 + 800 * 0.60) / 1,000,000
 2. **Monitorea tokens**:
    ```bash
    # Resumen rápido
-   grep "completion_tokens" 01_class/ai_engineering/briefs/brief.metrics.json
+   grep "completion_tokens" 01-introduction/ai_engineering/briefs/brief.metrics.json
    ```
 3. **Reduce contexto si es muy largo**:
    ```bash
-   # ✓ Bien: contexto específico
+   # [OK] Bien: contexto específico
    make run-ai-context CONTEXT="Startup B2B"
-   # ✗ Evitar: contexto de 5 páginas
+   # [X] Evitar: contexto de 5 páginas
    make run-ai-context CONTEXT="..."  # miles de tokens
    ```
 4. **Aumenta temperatura solo si necesitas creatividad**:
@@ -577,7 +577,7 @@ Si corres varios briefs, crea un pequeño script para agregar:
 
 ```bash
 # Ejemplo: suma de todos los costos
-find 01_class/ai_engineering/briefs -name "*.metrics.json" -exec \
+find 01-introduction/ai_engineering/briefs -name "*.metrics.json" -exec \
   jq '.estimated_cost_usd' {} \; | \
   awk '{sum+=$1} END {print "Total: $" sum}'
 ```
@@ -587,7 +587,7 @@ find 01_class/ai_engineering/briefs -name "*.metrics.json" -exec \
 ## Estructura del repositorio
 
 ```
-01_class/
+01-introduction/
 ├── README.md                          # Tú estás aquí
 ├── python_software_engineering/       # Enfoque clásico (determinista)
 │   ├── src/

@@ -75,6 +75,10 @@ INTENT_MIN_CONFIDENCE=0.60
 MAX_HISTORY_TURNS=4
 ```
 
+`OPENAI_API_KEY` es opcional:
+- Si existe, el sistema usa clasificador y generacion RAG con LLM.
+- Si no existe, entra en modo local reproducible (router heuristico + RAG local sin LLM).
+
 ## Ejecutar
 
 ```bash

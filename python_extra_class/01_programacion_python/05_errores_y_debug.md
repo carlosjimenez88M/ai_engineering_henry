@@ -13,15 +13,15 @@
 **Qué es:** Python no puede parsear tu código.
 
 ```python
-# ❌ Error: falta paréntesis de cierre
+#  Error: falta paréntesis de cierre
 def suma(a, b:
     return a + b
 
-# ❌ Error: falta dos puntos
+#  Error: falta dos puntos
 if x > 5
     print(x)
 
-# ✅ Correcto
+#  Correcto
 def suma(a, b):
     return a + b
 
@@ -36,10 +36,10 @@ if x > 5:
 **Qué es:** Usas una variable que no existe.
 
 ```python
-# ❌ Error: 'resultado' no está definido
+#  Error: 'resultado' no está definido
 print(resultado)
 
-# ✅ Correcto: define antes de usar
+#  Correcto: define antes de usar
 resultado = 42
 print(resultado)
 ```
@@ -51,10 +51,10 @@ print(resultado)
 **Qué es:** Operación inválida para ese tipo.
 
 ```python
-# ❌ Error: no puedes sumar string + int
+#  Error: no puedes sumar string + int
 x = "5" + 3
 
-# ✅ Correcto: convierte tipos
+#  Correcto: convierte tipos
 x = int("5") + 3  # → 8
 y = "5" + str(3)  # → "53"
 ```
@@ -68,10 +68,10 @@ y = "5" + str(3)  # → "53"
 ```python
 arr = [1, 2, 3]
 
-# ❌ Error: solo hay índices 0, 1, 2
+#  Error: solo hay índices 0, 1, 2
 print(arr[3])
 
-# ✅ Correcto: verifica longitud
+#  Correcto: verifica longitud
 if len(arr) > 3:
     print(arr[3])
 else:
@@ -85,10 +85,10 @@ else:
 ```python
 usuario = {"nombre": "Ana", "edad": 25}
 
-# ❌ Error: 'email' no existe
+#  Error: 'email' no existe
 print(usuario["email"])
 
-# ✅ Correcto: usa .get() con default
+#  Correcto: usa .get() con default
 print(usuario.get("email", "No especificado"))
 
 # O verifica antes
@@ -103,10 +103,10 @@ if "email" in usuario:
 ```python
 texto = "Hola"
 
-# ❌ Error: strings no tienen .append()
+#  Error: strings no tienen .append()
 texto.append("!")
 
-# ✅ Correcto: strings usan +
+#  Correcto: strings usan +
 texto = texto + "!"
 ```
 
@@ -115,11 +115,11 @@ texto = texto + "!"
 **Qué es:** La indentación (espacios/tabs) está mal.
 
 ```python
-# ❌ Error: el return no está indentado
+#  Error: el return no está indentado
 def suma(a, b):
 return a + b
 
-# ✅ Correcto: 4 espacios de indentación
+#  Correcto: 4 espacios de indentación
 def suma(a, b):
     return a + b
 ```
@@ -143,13 +143,13 @@ except ValueError:
 ### Regla de oro: Captura específico, nunca genérico
 
 ```python
-# ❌ MAL: Captura TODO, incluso errores que no esperas
+#  MAL: Captura TODO, incluso errores que no esperas
 try:
     resultado = operacion_compleja()
 except:
     print("Error")
 
-# ✅ BIEN: Captura solo el error que esperas
+#  BIEN: Captura solo el error que esperas
 try:
     resultado = int(user_input)
 except ValueError:
@@ -221,7 +221,7 @@ def procesar(datos: list[int]) -> int:
     return sum(datos)
 
 # Herramientas como mypy o pyright detectan:
-procesar("123")  # ❌ Error: espera list[int], recibe str
+procesar("123")  #  Error: espera list[int], recibe str
 ```
 
 ### 3.4 Estrategia de debugging paso a paso
@@ -373,7 +373,7 @@ def procesar(datos):
 
 ## 7. Consejos prácticos
 
-### ✅ DO: Haz esto
+###  DO: Haz esto
 
 1. **Lee el error completo** - No adivines, lee el mensaje
 2. **Reproduce el error** - Crea un caso mínimo
@@ -383,7 +383,7 @@ def procesar(datos):
 6. **Declara invariantes** - Escribe qué debe ser cierto
 7. **Lee código en voz alta** - Ayuda a encontrar errores lógicos
 
-### ❌ DON'T: Evita esto
+###  DON'T: Evita esto
 
 1. **No uses `except:` sin especificar** - Atrapa todo, incluso bugs
 2. **No ignores warnings** - Son errores esperando suceder

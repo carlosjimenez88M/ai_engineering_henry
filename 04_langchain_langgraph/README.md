@@ -53,6 +53,24 @@ Cada arquitectura incluye:
 - notebook `.ipynb`,
 - notebook `.executed.ipynb` generado por validacion.
 
+## Ruta guiada para estudiantes iniciales
+
+Sigue este orden para construir abstracción de menor a mayor complejidad:
+
+1. Prompt chaining
+2. Parallelization
+3. Routing
+4. Orchestrator-worker
+5. Evaluator-optimizer
+6. Agent con feedback
+
+Todas las notebooks quedaron alineadas con un mismo formato didáctico:
+- definición de arquitectura y criterio de uso,
+- ejecución caso base,
+- visualización del grafo real con `draw_mermaid_png()`,
+- segundo caso aplicado (coqueteo),
+- checklist para consolidar conceptos.
+
 ## Context engineering (criterio transversal)
 
 Todo ejemplo usa `context packet` con:

@@ -29,12 +29,12 @@ Sigue PEP8 para consistencia. La consistencia reduce errores.
 ### Usa logger, no print
 
 ```python
-# ❌ MAL: print en código de producción
+#  MAL: print en código de producción
 def procesar_pedido(pedido_id):
     print(f"Procesando pedido {pedido_id}")  # Nadie ve esto en producción
     # ...
 
-# ✅ BIEN: logger configurado
+#  BIEN: logger configurado
 import logging
 
 logger = logging.getLogger(__name__)
@@ -55,20 +55,20 @@ def procesar_pedido(pedido_id):
 ### No loggees información sensible
 
 ```python
-# ❌ MAL: Contraseñas en logs
+#  MAL: Contraseñas en logs
 logger.info(f"Usuario login: {username}, password: {password}")
 
-# ✅ BIEN: Solo info no sensible
+#  BIEN: Solo info no sensible
 logger.info(f"Usuario login exitoso: {username}")
 ```
 
 ### Lazy formatting con %
 
 ```python
-# ✅ BIEN: Lazy evaluation (mejor performance)
+#  BIEN: Lazy evaluation (mejor performance)
 logger.debug("Procesando usuario %s con items %s", user_id, items)
 
-# ❌ Menos eficiente: f-strings siempre evalúan, incluso si nivel desactivado
+#  Menos eficiente: f-strings siempre evalúan, incluso si nivel desactivado
 logger.debug(f"Procesando usuario {user_id} con items {items}")
 ```
 

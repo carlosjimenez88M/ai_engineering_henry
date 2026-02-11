@@ -62,3 +62,24 @@ print(isinstance(x, int))   # True
 ```
 
 La idea no es llenar el código de `isinstance`, sino entender qué espera tu función y fallar temprano si el input es inválido.
+
+## 7. Type hints como contrato mental
+
+```python
+def area_rectangulo(base: float, altura: float) -> float:
+    return base * altura
+```
+
+No cambia runtime por si solo, pero mejora:
+- lectura del codigo,
+- autocompletado del editor,
+- deteccion temprana de errores en revisiones y tests.
+
+En AI/ML esto ayuda a mantener claro que entra/sale de cada etapa del pipeline.
+
+## 8. Errores frecuentes en principiantes
+
+1. Reusar nombres ambiguos (`data`, `result`, `temp`) en todo el archivo.
+2. Mezclar tipos en una misma variable sin necesidad.
+3. Confiar en que `input()` devuelve numero (siempre devuelve `str`).
+4. No validar supuestos basicos antes de operar.

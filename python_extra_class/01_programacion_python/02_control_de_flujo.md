@@ -87,22 +87,22 @@ for x in range(5):
 
 | Usa comprehension | Usa for loop |
 |-------------------|--------------|
-| ✅ Transformación simple | ❌ Lógica compleja |
-| ✅ Una línea legible | ❌ Múltiples condiciones |
-| ✅ No necesitas print/debug | ❌ Necesitas debugging |
-| ✅ Sin break/continue | ❌ Necesitas break/continue |
+|  Transformación simple |  Lógica compleja |
+|  Una línea legible |  Múltiples condiciones |
+|  No necesitas print/debug |  Necesitas debugging |
+|  Sin break/continue |  Necesitas break/continue |
 
 ### Ejemplos
 
 ```python
-# ✅ BIEN: comprehension simple y clara
+#  BIEN: comprehension simple y clara
 nombres_mayusculas = [nombre.upper() for nombre in nombres]
 numeros_positivos = [n for n in numeros if n > 0]
 
-# ❌ MAL: comprehension muy compleja (usa for loop)
+#  MAL: comprehension muy compleja (usa for loop)
 resultado = [transform(x) for x in datos if x > 0 and validate(x) and check(x)]
 
-# ✅ BIEN: for loop para lógica compleja
+#  BIEN: for loop para lógica compleja
 resultado = []
 for x in datos:
     if x > 0 and validate(x):

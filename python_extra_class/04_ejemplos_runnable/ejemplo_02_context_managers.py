@@ -53,7 +53,7 @@ class Timer:
         with Timer() as t:
             # código aquí
         """
-        print(f"\n⏱️  [{self.nombre}] Iniciando...")
+        print(f"\n  [{self.nombre}] Iniciando...")
         self.inicio = time.perf_counter()
         return self  # Esto es lo que obtienes en la variable 'as'
 
@@ -79,10 +79,10 @@ class Timer:
 
         if exc_type is None:
             # No hubo error
-            print(f"✓ [{self.nombre}] Completado en {self.duracion:.4f} segundos")
+            print(f"[OK] [{self.nombre}] Completado en {self.duracion:.4f} segundos")
         else:
             # Hubo un error
-            print(f"✗ [{self.nombre}] Error después de {self.duracion:.4f} segundos")
+            print(f"[X] [{self.nombre}] Error después de {self.duracion:.4f} segundos")
             print(f"  Tipo de error: {exc_type.__name__}")
             print(f"  Mensaje: {exc_value}")
 
@@ -243,7 +243,7 @@ def ejemplo_temporary_state() -> None:
         # Aquí harías operaciones de debugging
 
     print(f"\n  Estado después del context manager: {config}")
-    print("  ✓ Estado restaurado automáticamente!")
+    print("  [OK] Estado restaurado automáticamente!")
 
     print("\nCaso 2: Múltiples modificaciones temporales")
     print("-" * 70)
@@ -291,7 +291,7 @@ def ejemplo_file_handling() -> None:
         print("    • Datos escritos")
 
     print(f"  → Después del 'with': ¿está cerrado? {f.closed}")
-    print("  ✓ El archivo se cerró automáticamente!")
+    print("  [OK] El archivo se cerró automáticamente!")
 
     print("\nCaso 2: Lectura de archivo")
     print("-" * 70)
@@ -315,9 +315,9 @@ def ejemplo_file_handling() -> None:
             raise RuntimeError("¡Error simulado!")
             f.write("Esto nunca se escribirá\n")
     except RuntimeError as e:
-        print(f"    ✗ Error: {e}")
+        print(f"    [X] Error: {e}")
         print(f"    • ¿Archivo cerrado después del error? {f.closed}")
-        print("    ✓ ¡El archivo se cerró a pesar del error!")
+        print("    [OK] ¡El archivo se cerró a pesar del error!")
 
     # Verificar contenido
     with open(archivo_path, "r", encoding="utf-8") as f:
@@ -346,7 +346,7 @@ def ejemplo_file_handling() -> None:
             salida.write(linea_modificada)
             print(f"      Procesada: {linea.strip()} → {linea_modificada.strip()}")
 
-    print("    ✓ Ambos archivos cerrados automáticamente")
+    print("    [OK] Ambos archivos cerrados automáticamente")
 
     # Limpiar archivos de ejemplo
     for archivo in [archivo_path, archivo_entrada, archivo_salida]:
@@ -401,18 +401,18 @@ class DatabaseConnection:
             # No hubo error: hacer commit
             print("  → [DB] Sin errores, haciendo COMMIT...")
             self._commit()
-            print("  ✓ [DB] Transacción completada exitosamente")
+            print("  [OK] [DB] Transacción completada exitosamente")
         else:
             # Hubo error: hacer rollback
             print(f"  → [DB] Error detectado: {exc_type.__name__}")
             print("  → [DB] Haciendo ROLLBACK...")
             self._rollback()
-            print("  ✗ [DB] Transacción revertida")
+            print("  [X] [DB] Transacción revertida")
 
         print("  → [DB] Cerrando conexión...")
         self.conectado = False
         self.en_transaccion = False
-        print("  ✓ [DB] Conexión cerrada")
+        print("  [OK] [DB] Conexión cerrada")
 
         return False  # No suprimir la excepción
 
@@ -459,7 +459,7 @@ def ejemplo_database_connection() -> None:
         db.insertar("usuarios", "user3", "Bob")
         print(f"\n  Estado actual: {db.datos}")
 
-    print("\n  ✓ Transacción completada y cerrada automáticamente")
+    print("\n  [OK] Transacción completada y cerrada automáticamente")
 
     print("\nCaso 2: Transacción con error (auto-rollback)")
     print("-" * 70)
@@ -479,7 +479,7 @@ def ejemplo_database_connection() -> None:
 
     except ValueError as e:
         print(f"\n  Excepción capturada: {e}")
-        print("  ✓ Rollback ejecutado automáticamente")
+        print("  [OK] Rollback ejecutado automáticamente")
 
     print("\nCaso 3: Múltiples transacciones")
     print("-" * 70)
@@ -501,7 +501,7 @@ def ejemplo_database_connection() -> None:
     with DatabaseConnection("almacen_db") as db:
         db.insertar("productos", "p4", "Escritorio")
 
-    print("\n  ✓ Cada transacción fue independiente")
+    print("\n  [OK] Cada transacción fue independiente")
 
 
 # ============================================================================
@@ -524,7 +524,7 @@ def timer_simple(nombre: str) -> Generator[Dict[str, Any], None, None]:
     Yields:
         Dict con información del timer
     """
-    print(f"\n⏱️  [{nombre}] Iniciando...")
+    print(f"\n  [{nombre}] Iniciando...")
     inicio = time.perf_counter()
     info = {"nombre": nombre, "inicio": inicio}
 
@@ -539,7 +539,7 @@ def timer_simple(nombre: str) -> Generator[Dict[str, Any], None, None]:
         fin = time.perf_counter()
         duracion = fin - inicio
         info["duracion"] = duracion
-        print(f"✓ [{nombre}] Completado en {duracion:.4f} segundos")
+        print(f"[OK] [{nombre}] Completado en {duracion:.4f} segundos")
 
 
 @contextmanager
@@ -627,7 +627,7 @@ def ejemplo_contextmanager_decorator() -> None:
         print("    → Causando ValueError...")
         raise ValueError("Este error NO se suprime")
     except ValueError as e:
-        print(f"    ✗ Excepción capturada: {e}")
+        print(f"    [X] Excepción capturada: {e}")
 
     print("\n  Con supresión:")
     with suprimir_excepciones(ValueError, TypeError):
@@ -635,7 +635,7 @@ def ejemplo_contextmanager_decorator() -> None:
         raise ValueError("Este error SÍ se suprime")
         print("    → Esta línea no se ejecutará")
 
-    print("    ✓ Código continúa después de la excepción suprimida")
+    print("    [OK] Código continúa después de la excepción suprimida")
 
     print("\n  Excepción no suprimida:")
     try:
@@ -643,7 +643,7 @@ def ejemplo_contextmanager_decorator() -> None:
             print("    → Causando RuntimeError...")
             raise RuntimeError("Este error NO está en la lista de supresión")
     except RuntimeError as e:
-        print(f"    ✗ Excepción capturada fuera: {e}")
+        print(f"    [X] Excepción capturada fuera: {e}")
 
 
 # ============================================================================
@@ -749,7 +749,7 @@ def ejemplo_comparacion_enfoques() -> None:
         print(f"    • Dentro: modo = '{config.modo}'")
     print(f"    • Fuera: modo = '{config.modo}'")
 
-    print("\n  ✓ Ambos enfoques funcionan igual!")
+    print("\n  [OK] Ambos enfoques funcionan igual!")
 
 
 # ============================================================================

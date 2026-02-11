@@ -350,9 +350,9 @@ def demo_performance_comparison():
     print(f"Diferencia:  {elapsed_fstring - elapsed_lazy:.3f}s ahorrados")
 
     print("\n>>> Conclusión:")
-    print("    ✅ Usa lazy % en DEBUG para evitar ejecutar código innecesario")
-    print("    ✅ En producción (INFO+), la diferencia es menor")
-    print("    ✅ Para operaciones costosas, SIEMPRE usa lazy %")
+    print("     Usa lazy % en DEBUG para evitar ejecutar código innecesario")
+    print("     En producción (INFO+), la diferencia es menor")
+    print("     Para operaciones costosas, SIEMPRE usa lazy %")
 
 
 # ============================================================================
@@ -657,7 +657,7 @@ def main():
     print("RESUMEN")
     print("="*70)
     print("""
-✅ Has aprendido:
+ Has aprendido:
    1. RotatingFileHandler - Evita archivos gigantes
    2. TimedRotatingFileHandler - Rotación por fecha
    3. JSON logging - Para ELK, Splunk, CloudWatch
@@ -666,24 +666,24 @@ def main():
    6. Dict config - Configuración profesional por entorno
    7. Ejemplo real - API handler completo
 
-📊 Benchmarks de performance:
+ Benchmarks de performance:
    - f-string con DEBUG off: 10,000 llamadas ejecutadas
    - lazy % con DEBUG off: 0 llamadas ejecutadas
    - Speedup: 10-1000x dependiendo del costo de la operación
 
-🏭 Patrones para producción:
+ Patrones para producción:
    - RotatingFileHandler con maxBytes=10_000_000, backupCount=5
    - JSON logging para sistemas de monitoreo
    - Context managers para medir duración
    - Dict config para configuración por entorno
 
-📚 Archivos generados:
+ Archivos generados:
    - ejemplo_05_rotating.log*     (RotatingFileHandler)
    - ejemplo_05_timed.log*        (TimedRotatingFileHandler)
    - ejemplo_05_json.log          (JSON logging)
    - ejemplo_05_production.log*   (Dict config)
 
-📖 Documentación:
+ Documentación:
    - Lee 11_logging_patterns.md para más patrones
    - Ver ejemplo_04_logging_basico.py para fundamentos
     """)

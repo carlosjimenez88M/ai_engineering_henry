@@ -11,7 +11,9 @@ from nbclient import NotebookClient
 ROOT = Path(__file__).resolve().parents[2]
 NOTEBOOKS = [
     ROOT / "03_langchain_prompting" / "COT_LangChain" / "Notebooks" / "cot_langchain_aplicado.ipynb",
+    ROOT / "03_langchain_prompting" / "COT_LangChain" / "Notebooks" / "02_cot_langgraph.ipynb",
     ROOT / "03_langchain_prompting" / "ReAct_LangChain" / "Notebooks" / "react_langchain_aplicado.ipynb",
+    ROOT / "03_langchain_prompting" / "ReAct_LangChain" / "Notebooks" / "02_react_langgraph.ipynb",
 ]
 
 

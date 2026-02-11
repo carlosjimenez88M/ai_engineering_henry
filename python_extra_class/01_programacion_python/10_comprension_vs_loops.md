@@ -86,7 +86,7 @@ adultos = [u["nombre"].upper() for u in usuarios if u["edad"] >= 18]
 
 **Golden Rule #2:** Si cabe en una línea (<80 caracteres) y es fácil de leer en voz alta, usa comprehension. Si no, usa loop.
 
-#### ✅ BUENAS comprensiones (una línea, fácil de leer)
+####  BUENAS comprensiones (una línea, fácil de leer)
 
 ```python
 # Map simple
@@ -102,14 +102,14 @@ adultos_mayores = [u["nombre"] for u in usuarios if u["edad"] >= 65]
 nombres_upper = [n.upper() for n in nombres]
 ```
 
-#### ❌ MALAS comprensiones (complejas, difíciles de leer)
+####  MALAS comprensiones (complejas, difíciles de leer)
 
 ```python
-# ❌ Múltiples condiciones (demasiado denso)
+#  Múltiples condiciones (demasiado denso)
 resultado = [x * y for x in range(10) for y in range(10)
              if x > 5 if y < 3 if x + y != 8]
 
-# ❌ Lógica compleja dentro del map
+#  Lógica compleja dentro del map
 usuarios_procesados = [
     {**u, "nombre_completo": f"{u['nombre']} {u['apellido']}",
      "es_mayor": u["edad"] >= 18, "categoria": "senior" if u["edad"] >= 65 else "adulto"}
@@ -117,7 +117,7 @@ usuarios_procesados = [
     if u.get("activo", True) and u["edad"] > 0
 ]
 
-# ❌ Comprensión anidada (imposible de leer)
+#  Comprensión anidada (imposible de leer)
 matriz_filtrada = [[y for y in fila if y > 0] for fila in matriz if sum(fila) > 10]
 ```
 
@@ -160,7 +160,7 @@ Pregúntate:
     │           ├─ SÍ → Usa loop explícito
     │           │        Razón: Si necesitas múltiples líneas, es muy compleja
     │           │
-    │           └─ NO → ✅ USA COMPREHENSION
+    │           └─ NO →  USA COMPREHENSION
     │                    Razón: Simple, legible, rápida
     │
     └─ SÍ → ¿Necesitas el resultado inmediatamente?
@@ -170,7 +170,7 @@ Pregúntate:
         │
         └─ SÍ → ¿Cabe en una línea (<80 chars)?
             │
-            ├─ SÍ → ✅ USA COMPREHENSION
+            ├─ SÍ →  USA COMPREHENSION
             │
             └─ NO → Usa loop explícito
 ```
@@ -193,11 +193,11 @@ Pregúntate:
 ### Ejemplo 1: Map simple - Duplicar valores
 
 ```python
-# ✅ BUENA comprehension
+#  BUENA comprehension
 nums = [1, 2, 3, 4, 5]
 dobles = [n * 2 for n in nums]
 
-# ✅ BUENA loop (más verbosa pero clara)
+#  BUENA loop (más verbosa pero clara)
 nums = [1, 2, 3, 4, 5]
 dobles = []
 for n in nums:
@@ -209,11 +209,11 @@ for n in nums:
 ### Ejemplo 2: Filter simple - Solo pares
 
 ```python
-# ✅ BUENA comprehension
+#  BUENA comprehension
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
 pares = [n for n in nums if n % 2 == 0]
 
-# ✅ BUENA loop
+#  BUENA loop
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
 pares = []
 for n in nums:
@@ -226,11 +226,11 @@ for n in nums:
 ### Ejemplo 3: Map + Filter - Cuadrados de pares
 
 ```python
-# ✅ BUENA comprehension
+#  BUENA comprehension
 nums = [1, 2, 3, 4, 5, 6]
 cuadrados_pares = [n**2 for n in nums if n % 2 == 0]
 
-# ✅ BUENA loop
+#  BUENA loop
 nums = [1, 2, 3, 4, 5, 6]
 cuadrados_pares = []
 for n in nums:
@@ -243,14 +243,14 @@ for n in nums:
 ### Ejemplo 4: Lógica compleja - Categorizar usuarios
 
 ```python
-# ❌ MALA comprehension (demasiado compleja)
+#  MALA comprehension (demasiado compleja)
 categorias = [
     "niño" if u["edad"] < 18 else "adulto" if u["edad"] < 65 else "senior"
     for u in usuarios
     if u.get("activo", True)
 ]
 
-# ✅ BUENO: Loop con función helper
+#  BUENO: Loop con función helper
 def categorizar_usuario(usuario):
     if not usuario.get("activo", True):
         return None
@@ -273,10 +273,10 @@ for u in usuarios:
 ### Ejemplo 5: Nested loops - Producto cartesiano
 
 ```python
-# ❌ MALA comprehension (difícil de leer)
+#  MALA comprehension (difícil de leer)
 pares = [(x, y) for x in range(5) for y in range(5) if x != y]
 
-# ✅ BUENO: Loop explícito
+#  BUENO: Loop explícito
 pares = []
 for x in range(5):
     for y in range(5):
@@ -289,11 +289,11 @@ for x in range(5):
 ### Ejemplo 6: Diccionarios - Invertir clave-valor
 
 ```python
-# ✅ BUENA dict comprehension
+#  BUENA dict comprehension
 original = {"a": 1, "b": 2, "c": 3}
 invertido = {v: k for k, v in original.items()}
 
-# ✅ BUENA loop
+#  BUENA loop
 original = {"a": 1, "b": 2, "c": 3}
 invertido = {}
 for k, v in original.items():
@@ -305,11 +305,11 @@ for k, v in original.items():
 ### Ejemplo 7: Sets - Valores únicos
 
 ```python
-# ✅ BUENA set comprehension
+#  BUENA set comprehension
 usuarios = [{"id": 1, "role": "admin"}, {"id": 2, "role": "user"}, {"id": 3, "role": "admin"}]
 roles_unicos = {u["role"] for u in usuarios}
 
-# ✅ BUENA loop
+#  BUENA loop
 usuarios = [{"id": 1, "role": "admin"}, {"id": 2, "role": "user"}, {"id": 3, "role": "admin"}]
 roles_unicos = set()
 for u in usuarios:
@@ -321,11 +321,11 @@ for u in usuarios:
 ### Ejemplo 8: Efectos secundarios - Logging
 
 ```python
-# ❌ MAL: NO uses comprehension para side effects
+#  MAL: NO uses comprehension para side effects
 # (funciona pero es un anti-patrón)
 _ = [print(f"Procesando {item}") for item in items]
 
-# ✅ BUENO: Loop para side effects
+#  BUENO: Loop para side effects
 for item in items:
     print(f"Procesando {item}")
 
@@ -335,17 +335,17 @@ for item in items:
 ### Ejemplo 9: Early exit - Buscar primero que cumple condición
 
 ```python
-# ❌ NO PUEDES: Comprehension no soporta break
+#  NO PUEDES: Comprehension no soporta break
 # resultado = [x for x in nums if x > 10]  # procesa TODO
 
-# ✅ BUENO: Loop con break
+#  BUENO: Loop con break
 resultado = None
 for x in nums:
     if x > 10:
         resultado = x
         break  # Sale temprano, no procesa el resto
 
-# ✅ MEJOR: Usa next() con generator
+#  MEJOR: Usa next() con generator
 resultado = next((x for x in nums if x > 10), None)
 
 # Veredicto: Loop con break o next() con generator
@@ -354,11 +354,11 @@ resultado = next((x for x in nums if x > 10), None)
 ### Ejemplo 10: Múltiples colecciones - Separar pares e impares
 
 ```python
-# ❌ NO PUEDES: Comprehension solo construye UNA estructura
+#  NO PUEDES: Comprehension solo construye UNA estructura
 # pares = [n for n in nums if n % 2 == 0]
 # impares = [n for n in nums if n % 2 != 0]  # ¡Itera DOS veces!
 
-# ✅ BUENO: Loop que construye ambas
+#  BUENO: Loop que construye ambas
 pares = []
 impares = []
 for n in nums:
@@ -384,10 +384,10 @@ nums_list = [x**2 for x in range(1000000)]  # ~8 MB en memoria
 nums_gen = (x**2 for x in range(1000000))   # ~200 bytes en memoria
 
 # Ejemplo práctico
-# ❌ MAL: Carga 10 GB en memoria
+#  MAL: Carga 10 GB en memoria
 grandes = [procesar_archivo(f) for f in archivos_10GB]
 
-# ✅ BUENO: Procesa uno a la vez
+#  BUENO: Procesa uno a la vez
 grandes = (procesar_archivo(f) for f in archivos_10GB)
 for resultado in grandes:
     hacer_algo(resultado)
@@ -406,18 +406,18 @@ for resultado in grandes:
 ### 5.3 Ejemplo real: Procesamiento de logs
 
 ```python
-# ❌ MAL: Carga 1 GB de logs en memoria
+#  MAL: Carga 1 GB de logs en memoria
 with open("app.log") as f:
     errores = [line for line in f if "ERROR" in line]
     print(f"Total errores: {len(errores)}")
 
-# ✅ BUENO: Procesa línea por línea
+#  BUENO: Procesa línea por línea
 with open("app.log") as f:
     errores = (line for line in f if "ERROR" in line)
     count = sum(1 for _ in errores)
     print(f"Total errores: {count}")
 
-# ✅ MEJOR: Si necesitas contar, no materialices
+#  MEJOR: Si necesitas contar, no materialices
 with open("app.log") as f:
     count = sum(1 for line in f if "ERROR" in line)
     print(f"Total errores: {count}")
@@ -464,10 +464,10 @@ usuarios_adultos = [u["nombre"] for u in usuarios if u["edad"] >= 18]
 
 ```python
 # Python 3.8+: Puedes usar := para "espiar" valores intermedios
-# ❌ Sin walrus: No puedes ver valores intermedios
+#  Sin walrus: No puedes ver valores intermedios
 resultado = [procesar(x) for x in data if validar(x)]
 
-# ✅ Con walrus: Puedes imprimir/guardar valores intermedios
+#  Con walrus: Puedes imprimir/guardar valores intermedios
 debug_values = []
 resultado = [
     procesado
@@ -487,10 +487,10 @@ resultado = [
 
 ### 7.1 Red Flags en comprehensions
 
-🚩 **Red Flag #1: Múltiples líneas**
+ **Red Flag #1: Múltiples líneas**
 
 ```python
-# ❌ MAL
+#  MAL
 resultado = [
     procesar(x, y, z)
     for x in range(10)
@@ -501,20 +501,20 @@ resultado = [
     if validar(x, y, z)
 ]
 
-# ✅ MEJOR: Si necesitas múltiples líneas, usa loop
+#  MEJOR: Si necesitas múltiples líneas, usa loop
 ```
 
-🚩 **Red Flag #2: Lógica compleja en el map**
+ **Red Flag #2: Lógica compleja en el map**
 
 ```python
-# ❌ MAL
+#  MAL
 resultado = [
     {"id": u["id"], "nombre": f"{u['first']} {u['last']}",
      "email": u["email"].lower(), "activo": u.get("status") == "active"}
     for u in usuarios
 ]
 
-# ✅ MEJOR: Función helper
+#  MEJOR: Función helper
 def transformar_usuario(u):
     return {
         "id": u["id"],
@@ -526,28 +526,28 @@ def transformar_usuario(u):
 resultado = [transformar_usuario(u) for u in usuarios]
 ```
 
-🚩 **Red Flag #3: Side effects en comprehensions**
+ **Red Flag #3: Side effects en comprehensions**
 
 ```python
-# ❌ MAL: Comprehension con side effects
+#  MAL: Comprehension con side effects
 _ = [log_procesamiento(x) for x in items]  # NO uses comprehension para side effects
 
-# ✅ MEJOR: Loop explícito
+#  MEJOR: Loop explícito
 for x in items:
     log_procesamiento(x)
 ```
 
-🚩 **Red Flag #4: Nested comprehensions**
+ **Red Flag #4: Nested comprehensions**
 
 ```python
-# ❌ MAL: Demasiado anidado
+#  MAL: Demasiado anidado
 matriz_procesada = [
     [procesar(y) for y in fila if y > 0]
     for fila in matriz
     if sum(fila) > 10
 ]
 
-# ✅ MEJOR: Loop con nombre de variables descriptivos
+#  MEJOR: Loop con nombre de variables descriptivos
 matriz_procesada = []
 for fila in matriz:
     if sum(fila) > 10:
@@ -558,52 +558,52 @@ for fila in matriz:
         matriz_procesada.append(fila_procesada)
 ```
 
-🚩 **Red Flag #5: Comprehension que nadie usa**
+ **Red Flag #5: Comprehension que nadie usa**
 
 ```python
-# ❌ MAL: Crea lista pero no la usa (solo quiere side effects)
+#  MAL: Crea lista pero no la usa (solo quiere side effects)
 [print(x) for x in items]
 
-# ✅ MEJOR: Loop explícito
+#  MEJOR: Loop explícito
 for x in items:
     print(x)
 ```
 
 ### 7.2 Red Flags en loops
 
-🚩 **Red Flag #1: Loop simple que debería ser comprehension**
+ **Red Flag #1: Loop simple que debería ser comprehension**
 
 ```python
-# ❌ SUBÓPTIMO: Loop para operación trivial
+#  SUBÓPTIMO: Loop para operación trivial
 cuadrados = []
 for x in range(10):
     cuadrados.append(x**2)
 
-# ✅ MEJOR: Comprehension
+#  MEJOR: Comprehension
 cuadrados = [x**2 for x in range(10)]
 ```
 
-🚩 **Red Flag #2: .append() en loop sin lógica adicional**
+ **Red Flag #2: .append() en loop sin lógica adicional**
 
 ```python
-# ❌ SUBÓPTIMO
+#  SUBÓPTIMO
 pares = []
 for n in nums:
     if n % 2 == 0:
         pares.append(n)
 
-# ✅ MEJOR
+#  MEJOR
 pares = [n for n in nums if n % 2 == 0]
 ```
 
-🚩 **Red Flag #3: Iterar múltiples veces cuando puedes hacerlo en una**
+ **Red Flag #3: Iterar múltiples veces cuando puedes hacerlo en una**
 
 ```python
-# ❌ SUBÓPTIMO: Dos iteraciones
+#  SUBÓPTIMO: Dos iteraciones
 pares = [n for n in nums if n % 2 == 0]
 impares = [n for n in nums if n % 2 != 0]
 
-# ✅ MEJOR: Una sola iteración
+#  MEJOR: Una sola iteración
 pares = []
 impares = []
 for n in nums:
@@ -651,18 +651,18 @@ for n in nums:
 ```python
 # ¿Tu operación es...?
 #
-# ✅ [n*2 for n in nums]                    → Simple map
-# ✅ [n for n in nums if n > 0]             → Simple filter
-# ✅ [n*2 for n in nums if n > 0]           → Simple map + filter
-# ✅ {k: v for k, v in items}               → Dict construction
-# ✅ {item for item in items}               → Set construction
+#  [n*2 for n in nums]                    → Simple map
+#  [n for n in nums if n > 0]             → Simple filter
+#  [n*2 for n in nums if n > 0]           → Simple map + filter
+#  {k: v for k, v in items}               → Dict construction
+#  {item for item in items}               → Set construction
 #
-# ❌ Múltiples líneas                        → Loop
-# ❌ Lógica compleja (if/elif/else)         → Loop
-# ❌ Nested loops                            → Loop
-# ❌ Side effects (print, log, write)       → Loop
-# ❌ Necesitas break/continue                → Loop
-# ❌ Construyes múltiples colecciones        → Loop
+#  Múltiples líneas                        → Loop
+#  Lógica compleja (if/elif/else)         → Loop
+#  Nested loops                            → Loop
+#  Side effects (print, log, write)       → Loop
+#  Necesitas break/continue                → Loop
+#  Construyes múltiples colecciones        → Loop
 ```
 
 ---

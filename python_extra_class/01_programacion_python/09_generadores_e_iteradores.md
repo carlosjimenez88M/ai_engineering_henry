@@ -352,7 +352,7 @@ for mensaje in mensajes:
 ### Cuándo NO Usar Generadores
 
 ```python
-# ❌ MAL: Necesitas acceso aleatorio
+#  MAL: Necesitas acceso aleatorio
 def obtener_usuarios() -> Generator[dict, None, None]:
     for usuario in usuarios_db:
         yield usuario
@@ -360,7 +360,7 @@ def obtener_usuarios() -> Generator[dict, None, None]:
 gen = obtener_usuarios()
 # No puedes hacer: gen[5]  # Error!
 
-# ✅ BIEN: Usa lista
+#  BIEN: Usa lista
 def obtener_usuarios() -> list[dict]:
     return list(usuarios_db)
 
@@ -368,21 +368,21 @@ usuarios = obtener_usuarios()
 print(usuarios[5])  # Funciona
 
 
-# ❌ MAL: Necesitas reutilizar los datos
+#  MAL: Necesitas reutilizar los datos
 gen = (x * 2 for x in range(10))
 lista1 = list(gen)  # Funciona
 lista2 = list(gen)  # ¡Vacío! El generador se agotó
 
-# ✅ BIEN: Usa lista si necesitas iterar múltiples veces
+#  BIEN: Usa lista si necesitas iterar múltiples veces
 datos = [x * 2 for x in range(10)]
 lista1 = list(datos)  # Funciona
 lista2 = list(datos)  # Funciona
 
 
-# ❌ MAL: Dataset pequeño
+#  MAL: Dataset pequeño
 gen = (x for x in range(10))  # Overhead innecesario
 
-# ✅ BIEN: Para datasets pequeños, las listas son más simples
+#  BIEN: Para datasets pequeños, las listas son más simples
 numeros = [x for x in range(10)]
 ```
 
@@ -390,14 +390,14 @@ numeros = [x for x in range(10)]
 
 | Situación | Usar Generador | Usar Lista |
 |-----------|---------------|------------|
-| Más de 10,000 elementos | ✅ | ❌ |
-| Streaming/datos en tiempo real | ✅ | ❌ |
-| Necesitas `len()` | ❌ | ✅ |
-| Necesitas indexación `[i]` | ❌ | ✅ |
-| Iterar múltiples veces | ❌ | ✅ |
-| Pipeline de transformaciones | ✅ | ❌ |
-| Secuencia infinita | ✅ | ❌ |
-| Menos de 100 elementos | ❌ | ✅ |
+| Más de 10,000 elementos |  |  |
+| Streaming/datos en tiempo real |  |  |
+| Necesitas `len()` |  |  |
+| Necesitas indexación `[i]` |  |  |
+| Iterar múltiples veces |  |  |
+| Pipeline de transformaciones |  |  |
+| Secuencia infinita |  |  |
+| Menos de 100 elementos |  |  |
 
 ## 5. yield from (Delegación)
 
@@ -1213,41 +1213,41 @@ for x in cacheado:
 MEJORES PRÁCTICAS CON GENERADORES:
 
 1. USA TYPE HINTS
-   ✅ def numeros() -> Generator[int, None, None]:
-   ❌ def numeros():
+    def numeros() -> Generator[int, None, None]:
+    def numeros():
 
 2. DOCUMENTA QUÉ GENERA
-   ✅ '''Genera números pares del 0 al n.'''
-   ❌ sin documentación
+    '''Genera números pares del 0 al n.'''
+    sin documentación
 
 3. CIERRA RECURSOS CORRECTAMENTE
-   ✅ with open(archivo) as f:
+    with open(archivo) as f:
         for linea in f:
             yield linea
-   ❌ f = open(archivo)
+    f = open(archivo)
       for linea in f:
           yield linea
 
 4. NO GENERES LISTAS COMPLETAS
-   ✅ yield item
-   ❌ yield lista_completa
+    yield item
+    yield lista_completa
 
 5. USA GENERADORES PARA PIPELINES
-   ✅ leer() -> filtrar() -> transformar() -> guardar()
-   ❌ lista1 = leer(); lista2 = filtrar(lista1); ...
+    leer() -> filtrar() -> transformar() -> guardar()
+    lista1 = leer(); lista2 = filtrar(lista1); ...
 
 6. PREFIERE EXPRESIONES PARA CASOS SIMPLES
-   ✅ (x * 2 for x in range(10))
-   ❌ def gen():
+    (x * 2 for x in range(10))
+    def gen():
          for x in range(10):
              yield x * 2
 
 7. USA yield from PARA DELEGAR
-   ✅ yield from otro_generador()
-   ❌ for x in otro_generador(): yield x
+    yield from otro_generador()
+    for x in otro_generador(): yield x
 
 8. MANEJA EXCEPCIONES APROPIADAMENTE
-   ✅ try:
+    try:
          yield procesar(item)
       except Error:
          log_error()

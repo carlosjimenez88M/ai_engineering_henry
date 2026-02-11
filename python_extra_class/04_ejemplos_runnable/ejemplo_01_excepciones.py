@@ -108,8 +108,8 @@ def ejemplo_try_except_else_finally() -> None:
 
         else:
             # Solo se ejecuta si NO hubo excepciones
-            print("  → [ELSE] ✓ Procesamiento exitoso, sin errores")
-            resultado = f"✓ {resultado}"
+            print("  → [ELSE] [OK] Procesamiento exitoso, sin errores")
+            resultado = f"[OK] {resultado}"
 
         finally:
             # SIEMPRE se ejecuta, haya o no error
@@ -170,7 +170,7 @@ def ejemplo_excepciones_personalizadas() -> None:
             print("  → Simulando recurso no encontrado...")
             raise ResourceNotFoundError(resource_id=endpoint)
 
-        print("  → ✓ Llamada exitosa")
+        print("  → [OK] Llamada exitosa")
         return {"status": "ok", "data": "Datos del endpoint"}
 
     # Caso 1: Captura específica de cada tipo de error
@@ -185,23 +185,23 @@ def ejemplo_excepciones_personalizadas() -> None:
                 token="abc123",
                 simular_error=tipo_error
             )
-            print(f"  ✓ Resultado: {resultado}")
+            print(f"  [OK] Resultado: {resultado}")
 
         except AuthenticationError as e:
-            print(f"  ✗ [AuthenticationError] {e}")
+            print(f"  [X] [AuthenticationError] {e}")
             print("  → Acción: Solicitar nuevas credenciales")
 
         except RateLimitError as e:
-            print(f"  ✗ [RateLimitError] {e}")
+            print(f"  [X] [RateLimitError] {e}")
             print(f"  → Acción: Esperar {e.retry_after} segundos")
 
         except ResourceNotFoundError as e:
-            print(f"  ✗ [ResourceNotFoundError] {e}")
+            print(f"  [X] [ResourceNotFoundError] {e}")
             print(f"  → Acción: Verificar ID '{e.resource_id}'")
 
         except APIError as e:
             # Captura cualquier otro error de API
-            print(f"  ✗ [APIError genérico] {e}")
+            print(f"  [X] [APIError genérico] {e}")
 
     # Caso 2: Captura genérica de todos los errores de API
     print("\nCaso 2: Captura genérica (todos los errores de API)")
@@ -210,7 +210,7 @@ def ejemplo_excepciones_personalizadas() -> None:
         simular_llamada_api("/api/datos", simular_error="auth")
     except APIError as e:
         # Captura CUALQUIER error que herede de APIError
-        print(f"  ✗ [APIError] {e}")
+        print(f"  [X] [APIError] {e}")
         print(f"  → Tipo específico: {type(e).__name__}")
         print(f"  → Código de estado: {e.status_code}")
 
@@ -245,7 +245,7 @@ def ejemplo_encadenamiento_excepciones() -> None:
 
         except json.JSONDecodeError as e:
             # Encadenamos el error original con uno más específico
-            print(f"  ✗ Error de JSON: {e}")
+            print(f"  [X] Error de JSON: {e}")
             print("  → Lanzando error personalizado con contexto...")
             raise APIError(
                 f"No se pudo cargar configuración desde {archivo}"
@@ -258,7 +258,7 @@ def ejemplo_encadenamiento_excepciones() -> None:
         try:
             config = leer_configuracion("config.json")
         except APIError as e:
-            print(f"\n  ✗ [APIError] {e}")
+            print(f"\n  [X] [APIError] {e}")
 
             # Con 'raise from', tenemos acceso a __cause__
             if e.__cause__:
@@ -285,14 +285,14 @@ def ejemplo_encadenamiento_excepciones() -> None:
             import json
             raise json.JSONDecodeError("Invalid JSON", "", 0)
         except json.JSONDecodeError as e:
-            print(f"  ✗ Error de JSON: {e}")
+            print(f"  [X] Error de JSON: {e}")
             # SIN 'from' - perdemos el contexto
             raise APIError(f"No se pudo cargar {archivo}")
 
     try:
         leer_config_sin_from("config.json")
     except APIError as e:
-        print(f"\n  ✗ [APIError] {e}")
+        print(f"\n  [X] [APIError] {e}")
         print(f"  → __cause__ es: {e.__cause__}")
         print("  → ¡Perdimos el contexto del error original!")
 
@@ -448,7 +448,7 @@ def ejemplo_captura_especifica_vs_generica() -> None:
         return sum(numeros) / len(numeros)
 
     # MALO: Captura genérica
-    print("\n❌ MAL EJEMPLO: Captura genérica (except Exception)")
+    print("\n MAL EJEMPLO: Captura genérica (except Exception)")
     print("-" * 70)
 
     def calcular_mal(x: str, y: str, lista: list) -> None:
@@ -464,9 +464,9 @@ def ejemplo_captura_especifica_vs_generica() -> None:
 
         except Exception as e:
             # ¡Esto captura TODO! Perdemos información específica
-            print(f"  ✗ Error genérico: {e}")
-            print(f"  ✗ Tipo: {type(e).__name__}")
-            print("  ✗ No sabemos QUÉ falló ni CÓMO manejarlo")
+            print(f"  [X] Error genérico: {e}")
+            print(f"  [X] Tipo: {type(e).__name__}")
+            print("  [X] No sabemos QUÉ falló ni CÓMO manejarlo")
 
     print("\n  Caso 1: División por cero")
     calcular_mal("10", "0", [1, 2, 3])
@@ -478,7 +478,7 @@ def ejemplo_captura_especifica_vs_generica() -> None:
     calcular_mal("abc", "5", [1, 2, 3])
 
     # BUENO: Captura específica
-    print("\n\n✓ BUEN EJEMPLO: Captura específica")
+    print("\n\n[OK] BUEN EJEMPLO: Captura específica")
     print("-" * 70)
 
     def calcular_bien(x: str, y: str, lista: list) -> None:
@@ -486,27 +486,27 @@ def ejemplo_captura_especifica_vs_generica() -> None:
         try:
             print(f"  → Intentando: dividir({x}, {y})")
             resultado_div = dividir_numeros(float(x), float(y))
-            print(f"  ✓ Resultado división: {resultado_div}")
+            print(f"  [OK] Resultado división: {resultado_div}")
 
         except ValueError as e:
-            print(f"  ✗ [ValueError] No se puede convertir a número: {e}")
+            print(f"  [X] [ValueError] No se puede convertir a número: {e}")
             print("  → Acción: Validar entrada del usuario")
 
         except ZeroDivisionError:
-            print(f"  ✗ [ZeroDivisionError] No se puede dividir por cero")
+            print(f"  [X] [ZeroDivisionError] No se puede dividir por cero")
             print("  → Acción: Pedir un divisor diferente")
 
         try:
             print(f"  → Intentando: promedio({lista})")
             resultado_prom = procesar_lista(lista)
-            print(f"  ✓ Resultado promedio: {resultado_prom}")
+            print(f"  [OK] Resultado promedio: {resultado_prom}")
 
         except ZeroDivisionError:
-            print(f"  ✗ [ZeroDivisionError] Lista vacía, no se puede promediar")
+            print(f"  [X] [ZeroDivisionError] Lista vacía, no se puede promediar")
             print("  → Acción: Usar valor por defecto o pedir más datos")
 
         except TypeError as e:
-            print(f"  ✗ [TypeError] Tipo incorrecto en lista: {e}")
+            print(f"  [X] [TypeError] Tipo incorrecto en lista: {e}")
             print("  → Acción: Filtrar valores no numéricos")
 
     print("\n  Caso 1: División por cero")
@@ -524,12 +524,12 @@ def ejemplo_captura_especifica_vs_generica() -> None:
     print("  Las excepciones se capturan de ARRIBA hacia ABAJO")
     print("  Debes poner las más ESPECÍFICAS primero:")
     print()
-    print("  ✓ CORRECTO:")
+    print("  [OK] CORRECTO:")
     print("    except ValueError:      # Específica")
     print("    except TypeError:       # Específica")
     print("    except Exception:       # Genérica")
     print()
-    print("  ✗ INCORRECTO:")
+    print("  [X] INCORRECTO:")
     print("    except Exception:       # Genérica primero")
     print("    except ValueError:      # Nunca se alcanzará!")
 

@@ -442,7 +442,7 @@ result = completion.choices[0].message.parsed  # Type-safe!
 - Type-safe: validación automática de tipos
 - Validación en definición: errores antes de ejecutar
 - IDE autocomplete funciona perfectamente
-- Serialización automática: JSON ↔ Python objects
+- Serialización automática: JSON  Python objects
 - Documentación automática: schema generation
 - Refactoring seguro
 

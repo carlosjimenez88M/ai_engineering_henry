@@ -45,3 +45,32 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+## 6. Estructura minima de proyecto real
+
+```text
+mi_proyecto/
+  src/
+    app.py
+    utils.py
+  tests/
+    test_app.py
+  pyproject.toml
+```
+
+Regla practica:
+- Codigo en `src/`
+- Tests en `tests/`
+- Dependencias en `pyproject.toml`
+
+## 7. Aplicacion a AI/ML
+
+Separar modulos reduce deuda tecnica.
+
+Ejemplo de separacion util:
+- `prompting.py`: plantillas y estrategias de prompt.
+- `inference.py`: llamadas a modelo.
+- `validation.py`: validacion de payloads (por ejemplo con pydantic).
+- `metrics.py`: costo, latencia, tokens.
+
+Cuando todo vive en un solo archivo, escalar y testear se vuelve fragil.

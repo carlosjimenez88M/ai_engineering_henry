@@ -8,19 +8,17 @@ This module provides reusable test fixtures including:
 
 from pathlib import Path
 from typing import Any
+from unittest.mock import Mock
 
 import pytest
 
 
 @pytest.fixture
-def mock_openai_client(mocker: Any) -> Any:
+def mock_openai_client() -> Any:
     """Provides a mock OpenAI client that simulates API responses.
 
     The mock returns a valid brief structure without making actual API calls.
     This allows testing the integration without incurring costs or rate limits.
-
-    Args:
-        mocker: pytest-mock fixture.
 
     Returns:
         Mock OpenAI client with pre-configured responses.
@@ -31,10 +29,10 @@ def mock_openai_client(mocker: Any) -> Any:
         ...     response = mock_openai_client.chat.completions.create(...)
         ...     assert response.choices[0].message.content
     """
-    mock_response = mocker.Mock()
-    mock_choice = mocker.Mock()
-    mock_message = mocker.Mock()
-    mock_usage = mocker.Mock()
+    mock_response = Mock()
+    mock_choice = Mock()
+    mock_message = Mock()
+    mock_usage = Mock()
 
     # Configure usage stats
     mock_usage.prompt_tokens = 1000
@@ -70,7 +68,7 @@ Análisis profundo de cada fase del ciclo de vida.
     mock_response.usage = mock_usage
     mock_response.model = "gpt-4o-mini"
 
-    mock_client = mocker.Mock()
+    mock_client = Mock()
     mock_client.chat.completions.create.return_value = mock_response
 
     return mock_client

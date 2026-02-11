@@ -211,9 +211,9 @@ with timer("Carga de datos"):
 ```
 
 **Cuándo crear un context manager:**
-- ✅ Necesitas setup + cleanup (abrir/cerrar, iniciar/detener)
-- ✅ Quieres garantizar que el cleanup ocurra
-- ✅ Tienes estado temporal que debe restaurarse
+-  Necesitas setup + cleanup (abrir/cerrar, iniciar/detener)
+-  Quieres garantizar que el cleanup ocurra
+-  Tienes estado temporal que debe restaurarse
 
 **Ver ejemplos completos:** `04_ejemplos_runnable/ejemplo_02_context_managers.py`
 
@@ -227,11 +227,11 @@ with timer("Carga de datos"):
 
 | Situación | Usa built-in | Crea custom |
 |-----------|--------------|-------------|
-| Argumento inválido (tipo/valor) | `ValueError`, `TypeError` | ❌ |
-| Archivo no existe | `FileNotFoundError` | ❌ |
-| Error específico de tu dominio | ❌ | ✅ |
-| Necesitas metadata adicional | ❌ | ✅ |
-| Quieres catch granular | ❌ | ✅ |
+| Argumento inválido (tipo/valor) | `ValueError`, `TypeError` |  |
+| Archivo no existe | `FileNotFoundError` |  |
+| Error específico de tu dominio |  |  |
+| Necesitas metadata adicional |  |  |
+| Quieres catch granular |  |  |
 
 ### Patrón: Jerarquía de excepciones
 
@@ -338,7 +338,7 @@ def process_payment(amount: float, account: Account):
 ### Antipatrón: Perder contexto
 
 ```python
-# ❌ MAL: Pierde el traceback original
+#  MAL: Pierde el traceback original
 try:
     result = int(user_input)
 except ValueError:
@@ -348,7 +348,7 @@ except ValueError:
 ### Patrón correcto: Preservar contexto
 
 ```python
-# ✅ BIEN: Preserva el traceback completo
+#  BIEN: Preserva el traceback completo
 try:
     result = int(user_input)
 except ValueError as e:
@@ -422,13 +422,13 @@ except ValueError:
 ### Antipatrón: Catch-all demasiado amplio
 
 ```python
-# ❌ MAL: Atrapa incluso Ctrl+C
+#  MAL: Atrapa incluso Ctrl+C
 try:
     process_data()
 except:  # Atrapa BaseException (incluso SystemExit!)
     logger.error("Error")
 
-# ❌ TAMBIÉN MAL: Atrapa exceptions que no puedes manejar
+#  TAMBIÉN MAL: Atrapa exceptions que no puedes manejar
 try:
     result = api.call()
 except Exception:
@@ -438,7 +438,7 @@ except Exception:
 ### Patrón correcto: Específico a genérico
 
 ```python
-# ✅ BIEN: Específico primero, genérico después
+#  BIEN: Específico primero, genérico después
 try:
     result = api.call()
 except requests.ConnectionError:
@@ -461,13 +461,13 @@ except Exception as e:
 ### Excepciones que NO debes atrapar
 
 ```python
-# ❌ Casi nunca atra pas estas:
+#  Casi nunca atra pas estas:
 - BaseException  # Demasiado amplio
 - SystemExit     # Permite que el programa termine
 - KeyboardInterrupt  # Usuario quiere cancelar
 - GeneratorExit  # Control interno de generators
 
-# ✅ Atrapa estas si aplican:
+#  Atrapa estas si aplican:
 - Exception (y sus subclases)
 - Específicas: ValueError, FileNotFoundError, etc.
 ```
@@ -518,10 +518,10 @@ except FileNotFoundError:
 
 | Situación | Usa LBYL | Usa EAFP |
 |-----------|----------|----------|
-| Performance crítico | ❌ | ✅ |
-| Operación esperada que falle | ❌ | ✅ |
-| Chequeo simple de existencia | ✅ | ❌ |
-| Evitar race conditions | ❌ | ✅ |
+| Performance crítico |  |  |
+| Operación esperada que falle |  |  |
+| Chequeo simple de existencia |  |  |
+| Evitar race conditions |  |  |
 | Código más legible | Depende | Depende |
 
 ### Ejemplo: Dictionary access
@@ -547,7 +547,7 @@ email = users.get(user_id, {}).get('email', 'no-email@example.com')
 
 ## 7. Anti-Patterns - Qué NO Hacer
 
-### ❌ 1. Silent failures
+###  1. Silent failures
 
 ```python
 # MAL: Silencia todos los errores
@@ -564,7 +564,7 @@ except Exception as e:
     raise
 ```
 
-### ❌ 2. Usar exceptions para control de flujo
+###  2. Usar exceptions para control de flujo
 
 ```python
 # MAL: Exceptions no son if/else
@@ -579,7 +579,7 @@ if user is None:
     user = create_new_user()
 ```
 
-### ❌ 3. Catch demasiado amplio sin re-raise
+###  3. Catch demasiado amplio sin re-raise
 
 ```python
 # MAL: Atrapa pero no maneja
@@ -599,7 +599,7 @@ except Exception as e:
     raise  # Re-lanza para debugging
 ```
 
-### ❌ 4. No usar context managers
+###  4. No usar context managers
 
 ```python
 # MAL: Propenso a resource leaks

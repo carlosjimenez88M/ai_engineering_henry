@@ -165,7 +165,7 @@ def print_metrics_summary(metrics: BriefMetrics) -> None:
         # Outputs formatted summary to console
     """
     print("\n" + "=" * 60)
-    print("📊 BRIEF GENERATION METRICS")
+    print(" BRIEF GENERATION METRICS")
     print("=" * 60)
     print(f"Model:              {metrics.model}")
     print(f"Temperature:        {metrics.temperature}")

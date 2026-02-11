@@ -11,7 +11,7 @@ DIAGRAMA: Flujo Chain of Thought
          │
          ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Paso 1:         │───▶│ Paso 2:         │───▶│ Paso 3:         │───▶│ Paso 4:         │
+│ Paso 1:         │───│ Paso 2:         │───│ Paso 3:         │───│ Paso 4:         │
 │ Señales clave   │    │ Estrategia      │    │ Riesgos a       │    │ Recomendación   │
 │ del perfil      │    │ de apertura     │    │ evitar          │    │ final           │
 └─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘

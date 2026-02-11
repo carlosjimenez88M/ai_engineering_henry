@@ -47,3 +47,25 @@ def maximo(nums):
 ```
 
 Invariante: `best` es el mayor valor visto hasta ahora.
+
+## 4. Validar un request de inferencia con pydantic
+
+Enunciado: define un modelo que valide:
+
+- `prompt`: string de 5 a 500 caracteres.
+- `temperature`: float entre 0 y 2.
+- `max_tokens`: entero entre 1 y 2048.
+
+Código:
+
+```python
+from pydantic import BaseModel, Field
+
+
+class InferenceRequest(BaseModel):
+    prompt: str = Field(min_length=5, max_length=500)
+    temperature: float = Field(ge=0.0, le=2.0)
+    max_tokens: int = Field(ge=1, le=2048)
+```
+
+Por que importa: en AI/ML, validar input evita inferencias basura y errores silenciosos.

@@ -395,7 +395,7 @@ def run_tests():
     assert two_sum([3, 2, 4], 6) == [1, 2], "Orden diferente"
     assert two_sum([3, 3], 6) == [0, 1], "Duplicados"
     assert two_sum([1, 2], 10) is None, "Sin solución"
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 2: Valid Palindrome
     print("\n[2] Valid Palindrome")
@@ -403,7 +403,7 @@ def run_tests():
     assert is_palindrome("race a car") == False
     assert is_palindrome(" ") == True
     assert is_palindrome("a") == True
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 3: Reverse Linked List
     print("\n[3] Reverse Linked List")
@@ -418,7 +418,7 @@ def run_tests():
     head = list_to_linked_list([])
     reversed_head = reverse_list(head)
     assert linked_list_to_list(reversed_head) == []
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 4: Climbing Stairs
     print("\n[4] Climbing Stairs")
@@ -426,14 +426,14 @@ def run_tests():
     assert climb_stairs(3) == 3
     assert climb_stairs(4) == 5
     assert climb_stairs(5) == 8
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 5: Majority Element
     print("\n[5] Majority Element")
     assert majority_element([3, 2, 3]) == 3
     assert majority_element([2, 2, 1, 1, 1, 2, 2]) == 2
     assert majority_element([1]) == 1
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 6: Intersection of Two Arrays II
     print("\n[6] Intersection of Two Arrays II")
@@ -445,14 +445,14 @@ def run_tests():
 
     result = intersect([1, 2], [3, 4])
     assert result == []
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 7: Single Number
     print("\n[7] Single Number")
     assert single_number([2, 2, 1]) == 1
     assert single_number([4, 1, 2, 1, 2]) == 4
     assert single_number([1]) == 1
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 8: Move Zeroes
     print("\n[8] Move Zeroes")
@@ -467,7 +467,7 @@ def run_tests():
     nums = [1, 2, 3]
     move_zeroes(nums)
     assert nums == [1, 2, 3]
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 9: Roman to Integer
     print("\n[9] Roman to Integer")
@@ -476,7 +476,7 @@ def run_tests():
     assert roman_to_int("MCMXCIV") == 1994
     assert roman_to_int("IV") == 4
     assert roman_to_int("IX") == 9
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 10: Binary Search
     print("\n[10] Binary Search")
@@ -484,7 +484,7 @@ def run_tests():
     assert binary_search([-1, 0, 3, 5, 9, 12], 2) == -1
     assert binary_search([5], 5) == 0
     assert binary_search([], 1) == -1
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 11: Group Anagrams
     print("\n[11] Group Anagrams")
@@ -500,7 +500,7 @@ def run_tests():
 
     result = group_anagrams(["a"])
     assert result == [["a"]]
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     # Test 12: Longest Substring Without Repeating Characters
     print("\n[12] Longest Substring Without Repeating Characters")
@@ -509,10 +509,10 @@ def run_tests():
     assert length_of_longest_substring("pwwkew") == 3    # "wke"
     assert length_of_longest_substring("") == 0
     assert length_of_longest_substring(" ") == 1
-    print("✓ Todos los casos pasaron")
+    print("[OK] Todos los casos pasaron")
 
     print("\n" + "=" * 70)
-    print("✓ TODOS LOS 12 PROBLEMAS PASARON")
+    print("[OK] TODOS LOS 12 PROBLEMAS PASARON")
     print("=" * 70)
 
 

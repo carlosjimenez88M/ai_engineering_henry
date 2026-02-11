@@ -596,7 +596,7 @@ def main() -> None:
         improved = critique_and_improve(client, model, profile, raw)
 
         report.append({"profile": profile, "react": raw, "feedback_loop": improved})
-        print("  ✓ Completado")
+        print("  [OK] Completado")
 
     # OUTPUT FINAL
     print("\n" + "=" * 80)

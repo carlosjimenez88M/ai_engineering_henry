@@ -70,7 +70,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("01_class/ai_engineering/briefs/software_vs_ai_engineering.md"),
+        default=Path(
+            "01-introduction/ai_engineering/briefs/software_vs_ai_engineering.md"
+        ),
         help="Ruta de salida para el markdown.",
     )
     parser.add_argument(

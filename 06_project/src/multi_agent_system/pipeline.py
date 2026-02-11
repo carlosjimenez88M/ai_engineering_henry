@@ -11,7 +11,12 @@ from .config import Settings
 from .intent_classifier import heuristic_intent_router
 from .memory import InMemoryConversationStore
 from .orchestrator import build_orchestrator
-from .rag_agents import build_hr_rag_agent, build_tech_rag_agent
+from .rag_agents import (
+    build_hr_local_rag_agent,
+    build_hr_rag_agent,
+    build_tech_local_rag_agent,
+    build_tech_rag_agent,
+)
 from .retrievers import build_hr_retriever, build_tech_retriever
 from .schemas import RoutedResponse
 
@@ -49,17 +54,26 @@ def build_multi_agent_service(
         settings: Environment/model settings.
         use_heuristic_router: Skip LLM intent classification and use keyword heuristic.
     """
-    llm = ChatOpenAI(model=settings.openai_model, api_key=settings.openai_api_key, temperature=0.2)
-
     hr_retriever = build_hr_retriever(settings.project_root)
     tech_retriever = build_tech_retriever(settings.project_root)
 
-    hr_agent = build_hr_rag_agent(llm, hr_retriever)
-    tech_agent = build_tech_rag_agent(llm, tech_retriever)
-
     classifier = None
-    if use_heuristic_router:
+    if settings.openai_api_key:
+        llm = ChatOpenAI(
+            model=settings.openai_model,
+            api_key=settings.openai_api_key,
+            temperature=0.2,
+        )
+        hr_agent = build_hr_rag_agent(llm, hr_retriever)
+        tech_agent = build_tech_rag_agent(llm, tech_retriever)
+        if use_heuristic_router:
+            classifier = RunnableLambda(lambda x: heuristic_intent_router(x["query"]))
+    else:
+        # Offline mode: deterministic router + local RAG generation without OpenAI key.
+        llm = object()
         classifier = RunnableLambda(lambda x: heuristic_intent_router(x["query"]))
+        hr_agent = build_hr_local_rag_agent(hr_retriever)
+        tech_agent = build_tech_local_rag_agent(tech_retriever)
 
     orchestrator = build_orchestrator(
         llm,
