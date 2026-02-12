@@ -30,7 +30,7 @@ def circunferencia(radio):
         pi = math.pi
         area = pi * radio**2
         return print(area)
-    except:
+    except TypeError as e:
         print(f"{radio} No es un valor que pueda ejecutar!!!! 😅")
         pass
 
@@ -90,13 +90,13 @@ quehaypahacer(day)
 
 
 # -----------------------------
-n = int(input("Hey dame un numero del 1 al 10!!! "))
+# n = int(input("Hey dame un numero del 1 al 10!!! "))
 
-seq = [0, 1]
+# seq = [0, 1]
 
-for i in range(2, n):
-    seq.append(seq[i - 1] + seq[i - 2])
-print(seq)
+# for i in range(2, n):
+#    seq.append(seq[i - 1] + seq[i - 2])
+# print(seq)
 
 
 # -------------------
@@ -121,5 +121,32 @@ print(fib(10))
 
 
 # -----------------
+# ===========================
+# Tuplas
+# =========================
 
-print("1" == 1)
+lista_de_estudiantes = {"Pato": 20, "Adri": 15}
+
+print(len(lista_de_estudiantes))
+
+
+# -------------
+
+import numpy as np
+import scipy as sp
+
+array = np.array([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]])
+print(array * 2)
+
+print(np.zeros((3, 3)))
+
+
+df = np.linspace(0, 2)
+print(np.sin(df))
+
+import matplotlib.pyplot as plt
+
+
+plt.plot(df, np.sin(df))
+plt.title("El grafico de sin")
+plt.show()
