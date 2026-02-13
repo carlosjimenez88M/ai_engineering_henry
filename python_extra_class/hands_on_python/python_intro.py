@@ -136,17 +136,34 @@ import numpy as np
 import scipy as sp
 
 array = np.array([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]])
-print(array * 2)
+# print(array * 2)
 
 print(np.zeros((3, 3)))
 
 
 df = np.linspace(0, 2)
-print(np.sin(df))
+# print(np.sin(df))
 
 import matplotlib.pyplot as plt
 
 
-plt.plot(df, np.sin(df))
-plt.title("El grafico de sin")
-plt.show()
+# plt.plot(df, np.sin(df))
+# plt.title("El grafico de sin")
+# plt.show()
+
+print()
+print()
+print("==" * 64)
+# ----------------------
+import pandas as pd
+
+
+df = pd.read_csv(
+    "https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-01-13/africa.csv"
+)
+print(df.head())
+
+print(df.isnull().sum())
+
+
+print(df["country"].value_counts(ascending=False))
