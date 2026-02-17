@@ -55,13 +55,17 @@
    * Autoregresive Language model: Predice el siguiente token en una secuencia de texto , ejemplo: Mi mascota es un ___ -> Mi mascota es un _Dinosaurio_
  * Context Embeddings: Se usa Rag ya que al condensar todo un documento en un único corpus o embedding se pierde información
  * Attention (2014) : Representa que entradas son más relevantes dentro de un texto y dado un momento.
- * __Self Attention__ : es un mécanismo que permite que cada palabra mire todas las demás para entender su importancia relativa
+ * __Self Attention__ : es un mécanismo que permite que cada palabra mire todas las demás para entender su importancia relativa.
+   * El self Attention combina dos cosas, el scoring que tiene una palabra en representación de un contexto + la combinación del contexto.
+   * __Attention Head__ : Calcula su propio conjunto de relevance scores , el modelo combina las "opiniones" de todos los cabezales para tener una comprensión profunda y multidimensional del texto.
+  
  * Token CLS: La "Etiqueta", En modelos de representación (Encoders), se usa un token especial llamado CLS (Classification). Este token actúa como un resumen numérico de toda la entrada, por ejemplo Si quieres que tu agente clasifique si un correo es SPAM o no, el modelo analiza el token CLS para tomar la decisión.
  * Context Window : El límite de tokens incluye tanto lo que se le envías (instrucciones + documentos) como lo que el modelo está generando en ese momento. Si se pasas de este límite, el agente "olvida" el inicio de la conversación.
 </details>
 
 ### Bibliografia para este curso
 
+* [Intelligent AI Delegation](https://arxiv.org/pdf/2602.11865)
 * [Hands-On Large Language Models](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models)
 * [Hands-On Machine Learning with Scikit-Learnand PyTorch](https://github.com/ageron/handson-mlp)
 * [AI Engineering](https://github.com/chiphuyen/aie-book)

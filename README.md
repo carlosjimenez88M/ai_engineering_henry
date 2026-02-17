@@ -12,44 +12,96 @@ Basado en los principios de **Chip Huyen** (*AI Engineering* y *Designing Machin
 - Prompting aplicado: CoT, ReAct, feedback loops
 - Orquestacion con LangChain y LangGraph
 - RAG: darle memoria y conocimiento externo a un LLM
+- Bases de datos vectoriales: embeddings, similitud, ChromaDB, FAISS
+- RAG avanzado: multi-query, ensemble retrieval, compresion contextual, RAG conversacional
 - Proyecto integrador: sistema multi-agente con routing y RAG
 
 ## Estructura del Curso
 
-### Clase 1: Software vs AI Engineering
+El curso se organiza en dos modulos principales mas material complementario:
+
+### Modulo 1: Fundamentos de AI Engineering (`01-Introduction_AI_Engineering/`)
+
+#### Clase 1: Software vs AI Engineering
 Comparacion critica entre desarrollo tradicional y AI Engineering. Ejemplo practico: sistema de brief generation con OpenAI, testing, metricas y observabilidad.
 
-**Ubicacion:** `01-introduction/`
+**Ubicacion:** `01-Introduction_AI_Engineering/01-introduction/`
 
-### Clase 2: Prompting Aplicado (CoT + ReAct)
+#### Clase 2: Prompting Aplicado (CoT + ReAct)
 Estrategias Chain of Thought (zero-shot y few-shot), ReAct con herramientas, feedback loops con rubrica. Notebooks ejecutables con OpenAI API.
 
-**Ubicacion:** `02-prompting/`
+**Ubicacion:** `01-Introduction_AI_Engineering/02-prompting/`
 
-### Clase 3: LangChain Prompting Avanzado
+#### Clase 3: LangChain Prompting Avanzado
 Migracion de tecnicas de Clase 2 a LangChain: `ChatPromptTemplate`, `FewShot`, salida estructurada. ReAct con tools, guardrails y context engineering aplicado.
 
-**Ubicacion:** `03_langchain_prompting/`
+**Ubicacion:** `01-Introduction_AI_Engineering/03_langchain_prompting/`
 
-### Clase 4: LangGraph Workflows y Agents
+#### Clase 4: LangGraph Workflows y Agents
 Workflows de LangGraph: prompt chaining, parallelization, routing, orchestrator-worker, evaluator-optimizer. Agent con tools y feedback loop de calidad.
 
-**Ubicacion:** `04_langchain_langgraph/`
+**Ubicacion:** `01-Introduction_AI_Engineering/04_langchain_langgraph/`
 
-### Clase 5: RAG y Bases de Datos Vectoriales
+#### Clase 5: RAG y Bases de Datos Vectoriales
 Retrieval-Augmented Generation: chunking, embeddings, vector stores, retrieval hibrido, re-ranking. RAG con agentes usando prompt chaining y routing.
 
-**Ubicacion:** `05_Rags/`
+**Ubicacion:** `01-Introduction_AI_Engineering/05_Rags/`
 
-### Proyecto: Multi-Agent Router + Domain RAG
+#### Proyecto: Multi-Agent Router + Domain RAG
 Sistema multi-agente con clasificacion de intencion, routing condicional por dominio (HR/Tech), agentes RAG especializados, memoria de conversacion y trazabilidad.
 
-**Ubicacion:** `06_project/`
+**Ubicacion:** `01-Introduction_AI_Engineering/06_project/`
 
-### Material Complementario: Python Extra Class
+#### Material Complementario: Python Extra Class
 Curso intensivo de Python desde base, con foco en uso profesional para AI/ML. Incluye fundamentos, OOP, ejercicios tipo LeetCode, Pydantic y ejemplos ejecutables.
 
-**Ubicacion:** `python_extra_class/`
+**Ubicacion:** `01-Introduction_AI_Engineering/python_extra_class/`
+
+---
+
+### Modulo 2: Bases de Datos Vectoriales y RAG (`02-vector_data_bases/`)
+
+Modulo dedicado a profundizar en representacion vectorial de texto, bases de datos vectoriales y patrones avanzados de RAG. Entorno independiente con su propio `pyproject.toml` y dependencias.
+
+#### Introduccion (`intro/`)
+
+| Notebook | Tema |
+|----------|------|
+| `01-tokens.ipynb` | Tokenizacion: BERT vs GPT, como los modelos ven el texto |
+| `02-transformers.ipynb` | Arquitectura transformer y atencion |
+| `03-text_classification.ipynb` | Clasificacion de texto con embeddings |
+| `04-Rags-vectorial_databases.ipynb` | Introduccion a RAG y bases vectoriales |
+| `01_rag_tfidf.ipynb` | TF-IDF vs embeddings densos, Simple RAG vs Agentic RAG con LangGraph sobre Don Quijote |
+
+#### Bases de Datos Vectoriales (`databases/`)
+
+| Notebook | Tema |
+|----------|------|
+| `01-bases-vectoriales-fundamentos.ipynb` | Vectores 2D/3D, embeddings (OpenAI + HuggingFace), similitud coseno y euclidiana desde cero, ChromaDB, filtrado por metadata, visualizacion PCA/t-SNE |
+| `02-bases-vectoriales-produccion.ipynb` | FAISS vs ChromaDB, estrategias de chunking (200/500/1000), efecto del chunk size en retrieval, persistencia, comparacion de modelos de embeddings, benchmarks de rendimiento |
+
+#### RAG (`RAG/`)
+
+| Notebook | Tema |
+|----------|------|
+| `01-rag-fundamentos.ipynb` | Pipeline RAG completo con NovaTech Solutions (empresa ficticia). Chunking, embeddings, ChromaDB, LCEL chains. Comparacion sistematica sin RAG vs con RAG (5 preguntas). Visualizacion t-SNE. Experimentacion con k |
+| `02-rag-avanzado.ipynb` | Multi-Query RAG, Ensemble Retriever (semantica + BM25 con Reciprocal Rank Fusion), Contextual Compression, RAG Conversacional con memoria de sesion. Evaluacion cuantitativa de los 4 patrones |
+
+**Setup del modulo:**
+
+```bash
+cd 02-vector_data_bases
+uv sync                    # instala dependencias en .venv/
+cp ../.env .env            # o configurar OPENAI_API_KEY directamente
+```
+
+---
+
+### Modulo 3: Agentes (`03-agents/`)
+
+Modulo en desarrollo. Cubrira agentes con LangGraph, sistemas multi-agente y patrones de produccion.
+
+---
 
 ## Comenzando
 
@@ -65,20 +117,23 @@ Curso intensivo de Python desde base, con foco en uso profesional para AI/ML. In
 git clone https://github.com/yourusername/ai_engineering_henry.git
 cd ai_engineering_henry
 
-# Instalar dependencias
+# Modulo 1: AI Engineering
+cd 01-Introduction_AI_Engineering
 make install
-
-# Configurar API key
 cp .env.example .env
 # Edita .env y agrega tu OPENAI_API_KEY
-
-# Verificar que todo funciona
 make test-se
+
+# Modulo 2: Bases Vectoriales y RAG
+cd ../02-vector_data_bases
+uv sync
+cp ../.env .env
 ```
 
 ### Primer comando
 
 ```bash
+cd 01-Introduction_AI_Engineering
 make run-ai
 ```
 
@@ -100,70 +155,85 @@ make run-ai-context CONTEXT="Startup de fintech B2B"
 
 ```
 ai_engineering_henry/
-├── 01-introduction/                        # Clase 1: Software vs AI Engineering
-│   ├── ai_engineering/                     # Ejemplo AI Engineering
-│   │   ├── brief_builder/                  # Sistema de generacion de briefs
-│   │   ├── tests/                          # Tests del sistema AI
-│   │   └── briefs/                         # Briefs generados
-│   ├── python_software_engineering/        # Ejemplo Software tradicional
-│   │   ├── src/                            # Logica de negocio determinista
-│   │   └── tests/                          # Tests unitarios
-│   └── sildes/                             # Slides de la clase
+├── 01-Introduction_AI_Engineering/            # Modulo 1: Fundamentos AI Engineering
+│   ├── 01-introduction/                       # Clase 1: Software vs AI Engineering
+│   │   ├── ai_engineering/                    # Ejemplo AI Engineering
+│   │   │   ├── brief_builder/                 # Sistema de generacion de briefs
+│   │   │   ├── tests/                         # Tests del sistema AI
+│   │   │   └── briefs/                        # Briefs generados
+│   │   └── python_software_engineering/       # Ejemplo Software tradicional
+│   │
+│   ├── 02-prompting/                          # Clase 2: CoT + ReAct
+│   │   ├── COT/Notebooks/                     # Notebooks Chain of Thought
+│   │   ├── ReAct/Notebooks/                   # Notebooks ReAct
+│   │   ├── Prompt_Introduction/               # Introduccion a prompting
+│   │   ├── Prompt_chaining/                   # Prompt chaining
+│   │   └── Routing/                           # Routing basico
+│   │
+│   ├── 03_langchain_prompting/                # Clase 3: LangChain avanzado
+│   │   ├── COT_LangChain/Notebooks/           # CoT con LangChain
+│   │   └── ReAct_LangChain/Notebooks/         # ReAct con LangChain
+│   │
+│   ├── 04_langchain_langgraph/                # Clase 4: LangGraph
+│   │   ├── 01_prompt_chaining/                # Prompt chaining
+│   │   ├── 02_parallelization/                # Parallelization
+│   │   ├── 03_orchestrator_worker/            # Orchestrator-worker
+│   │   ├── 04_evaluator_optimizer/            # Evaluator-optimizer
+│   │   ├── 05_routing/                        # Routing
+│   │   └── 06_agent_feedback/                 # Agent feedback loop
+│   │
+│   ├── 05_Rags/                               # Clase 5: RAG
+│   │   ├── data/                              # Bases de conocimiento
+│   │   └── Notebooks/                         # 4 notebooks progresivas
+│   │
+│   ├── 06_project/                            # Proyecto: Multi-Agent Router
+│   │   ├── data/                              # Documentos HR y Tech
+│   │   ├── src/multi_agent_system/            # Codigo fuente del sistema
+│   │   └── tests/                             # Tests de routing
+│   │
+│   ├── python_extra_class/                    # Material complementario: Python
+│   │   ├── 01_programacion_python/            # Fundamentos hasta Pydantic
+│   │   ├── 02_oop_python/                     # OOP para AI/ML
+│   │   ├── 03_ejercicios_leetcode/            # Pensamiento algoritmico
+│   │   └── 04_ejemplos_runnable/              # Ejemplos ejecutables
+│   │
+│   ├── Makefile                               # Comandos de ejecucion y testing
+│   └── pyproject.toml                         # Dependencias del modulo 1
 │
-├── 02-prompting/                           # Clase 2: CoT + ReAct
-│   ├── COT/Notebooks/                      # Notebooks Chain of Thought
-│   ├── ReAct/Notebooks/                    # Notebooks ReAct
-│   ├── Prompt_Introduction/                # Introduccion a prompting
-│   ├── Prompt_chaining/                    # Prompt chaining
-│   ├── Routing/                            # Routing basico
-│   ├── common/                             # Utilidades compartidas
-│   └── tools/                              # Herramientas de ejecucion
+├── 02-vector_data_bases/                      # Modulo 2: Vectores y RAG
+│   ├── intro/                                 # Tokens, transformers, TF-IDF, clasificacion
+│   │   ├── 01-tokens.ipynb                    # Tokenizacion
+│   │   ├── 02-transformers.ipynb              # Arquitectura transformer
+│   │   ├── 03-text_classification.ipynb       # Clasificacion de texto
+│   │   ├── 04-Rags-vectorial_databases.ipynb  # Intro a RAG
+│   │   └── 01_rag_tfidf.ipynb                # TF-IDF vs embeddings, Agentic RAG
+│   │
+│   ├── databases/                             # Bases de datos vectoriales
+│   │   ├── 01-bases-vectoriales-fundamentos.ipynb   # Fundamentos
+│   │   └── 02-bases-vectoriales-produccion.ipynb    # Produccion
+│   │
+│   ├── RAG/                                   # Retrieval Augmented Generation
+│   │   ├── 01-rag-fundamentos.ipynb           # Pipeline RAG completo
+│   │   └── 02-rag-avanzado.ipynb              # Multi-Query, Ensemble, Compression
+│   │
+│   └── pyproject.toml                         # Dependencias del modulo 2
 │
-├── 03_langchain_prompting/                 # Clase 3: LangChain avanzado
-│   ├── COT_LangChain/Notebooks/            # CoT con LangChain
-│   ├── ReAct_LangChain/Notebooks/          # ReAct con LangChain
-│   ├── common/                             # Utilidades compartidas
-│   └── tools/                              # Herramientas de ejecucion
+├── 03-agents/                                 # Modulo 3: Agentes (en desarrollo)
+│   ├── intro/
+│   ├── langchain/
+│   ├── multi-agent/
+│   └── production/
 │
-├── 04_langchain_langgraph/                 # Clase 4: LangGraph
-│   ├── 01_prompt_chaining/Notebooks/       # Prompt chaining
-│   ├── 02_parallelization/Notebooks/       # Parallelization
-│   ├── 03_orchestrator_worker/Notebooks/   # Orchestrator-worker
-│   ├── 04_evaluator_optimizer/Notebooks/   # Evaluator-optimizer
-│   ├── 05_routing/Notebooks/               # Routing
-│   ├── 06_agent_feedback/Notebooks/        # Agent feedback loop
-│   ├── common/                             # Utilidades compartidas
-│   └── tools/                              # Herramientas de ejecucion
-│
-├── 05_Rags/                                # Clase 5: RAG
-│   ├── data/                               # Bases de conocimiento de ejemplo
-│   └── Notebooks/                          # Notebooks RAG
-│
-├── 06_project/                             # Proyecto: Multi-Agent Router
-│   ├── data/                               # Documentos HR y Tech
-│   │   ├── hr/                             # Manual RRHH
-│   │   └── tech/                           # Runbook tecnico
-│   ├── src/multi_agent_system/             # Codigo fuente del sistema
-│   └── tests/                              # Tests de routing
-│
-├── python_extra_class/                     # Material complementario: Python
-│   ├── 00_setup/                           # Entorno reproducible
-│   ├── 01_programacion_python/             # Fundamentos hasta Pydantic
-│   ├── 02_oop_python/                      # OOP para AI/ML
-│   ├── 03_ejercicios_leetcode/             # Pensamiento algoritmico
-│   └── 04_ejemplos_runnable/               # Ejemplos ejecutables
-│
-├── Makefile                                # Comandos de desarrollo
-├── pyproject.toml                          # Dependencias y configuracion
-├── .env.example                            # Template de variables de entorno
-└── README.md                               # Este archivo
+└── README.md                                  # Este archivo
 ```
 
-## Comandos Disponibles
+## Comandos Disponibles (Modulo 1)
 
 ### Ejecucion
 
 ```bash
+cd 01-Introduction_AI_Engineering
+
 # Clase 1
 make run-ai                                 # Generar brief basico
 make run-ai-context CONTEXT="texto"         # Brief con contexto personalizado
@@ -210,6 +280,22 @@ make check                                  # Verificar sintaxis Python
 make clean                                  # Limpiar artefactos
 ```
 
+## Notebooks del Curso
+
+33 notebooks ejecutables en total:
+
+| Modulo | Tema | Notebooks |
+|--------|------|-----------|
+| Clase 2 | Prompting | 2 (intro, ReAct) |
+| Clase 3 | LangChain | 4 (CoT, ReAct) |
+| Clase 4 | LangGraph | 6 (una por arquitectura) |
+| Clase 5 | RAG intro | 4 (vectores, pipeline, chaining, routing) |
+| Python Extra | Fundamentos | 7 (tipos, funciones, OOP, Pydantic, algoritmos) |
+| Vectores | Intro | 5 (tokens, transformers, clasificacion, TF-IDF) |
+| Vectores | Databases | 2 (fundamentos, produccion) |
+| Vectores | RAG | 2 (fundamentos, avanzado) |
+| **Total** | | **33** |
+
 ## Recursos
 
 ### Libros
@@ -221,6 +307,8 @@ make clean                                  # Limpiar artefactos
 - [LangChain Documentation](https://python.langchain.com/docs/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) - Google
+- [ChromaDB Documentation](https://docs.trychroma.com/)
+- [FAISS Documentation](https://faiss.ai/)
 
 ## Notas de Seguridad
 
@@ -241,5 +329,3 @@ Si encuentras bugs, documentacion poco clara, o ideas para mejorar: abre un issu
 ## Licencia
 
 Material propiedad de Henry Academy. Disponible para estudiantes del programa. No redistribuir sin autorizacion.
-
-
