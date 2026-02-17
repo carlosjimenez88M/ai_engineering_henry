@@ -1,0 +1,52 @@
+[project]
+name = "vector-data-bases"
+version = "0.1.0"
+description = "Entorno para RAG, LangChain/LangGraph, HF embeddings y visualización básica."
+requires-python = ">=3.10"
+dependencies = [
+  "langchain==1.2.10",
+  "langchain-core>=1.2.10",
+  "langchain-openai>=1.0.0",
+  "langchain-community>=0.4.0",
+  "langchain-text-splitters>=0.2.0",
+  "langgraph>=1.0.0",
+  "langgraph-checkpoint>=4.0.0",
+  "openai>=1.60.0",
+  "tiktoken>=0.7.0",
+  "chromadb>=0.5.0",
+  "faiss-cpu>=1.7.4",
+  "huggingface-hub>=0.25.0",
+  "transformers>=4.43.0",
+  "sentence-transformers>=3.0.0",
+  "pydantic>=2.0.0",
+  "python-dotenv>=1.0.1",
+  "pandas>=2.1.0",
+  "numpy>=1.26.0",
+  "matplotlib>=3.8.0",
+  "seaborn>=0.13.0",
+  "scikit-learn>=1.3.0",
+  "ipykernel>=6.29.5",
+  "nbclient>=0.10.2",
+  "nbconvert>=7.16.0",
+  "datasets>=4.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.8.0",
+  "pytest>=8.3.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "W"]
+
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"

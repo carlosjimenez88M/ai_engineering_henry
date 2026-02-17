@@ -1,0 +1,4 @@
+query,baseline_precision,agentic_precision,baseline_latency_ms,agentic_latency_ms,k_baseline,k_agentic
+Que comia el hidalgo los sabados?,0.5,0.5,0.6850839999970049,0.4566669958876446,2,4
+Que menciona sobre los viernes?,0.5,0.5,0.29204100428614765,0.5369590071495622,2,2
+Describe la vida del hidalgo con detalle,1.0,0.75,0.2479170070728287,0.22983300732448697,2,4
