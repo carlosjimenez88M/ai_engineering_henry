@@ -65,10 +65,11 @@
 
 ### Bibliografia para este curso
 
+* [Attention Is All You Need](https://arxiv.org/pdf/1706.03762) 
+
 * [Intelligent AI Delegation](https://arxiv.org/pdf/2602.11865)
 * [Hands-On Large Language Models](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models)
 * [Hands-On Machine Learning with Scikit-Learnand PyTorch](https://github.com/ageron/handson-mlp)
 * [AI Engineering](https://github.com/chiphuyen/aie-book)
 * [Designing Machine Learning Systems: An Iterative Process for Production-Ready Applications ](https://stanford-cs329s.github.io/)
 * [Linear Algebra and Optimization for Machine Learning](https://turan-edu.uz/media/books/2024/05/28/1660642748.pdf)
-* [Attention Is All You Need](https://arxiv.org/pdf/1706.03762) 
