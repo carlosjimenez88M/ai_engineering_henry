@@ -28,7 +28,8 @@ dependencies = [
   "ipykernel>=6.29.5",
   "nbclient>=0.10.2",
   "nbconvert>=7.16.0",
-  "datasets>=4.5.0"
+  "datasets>=4.5.0",
+  "rank-bm25>=0.2.2"
 ]
 
 [project.optional-dependencies]

@@ -55,7 +55,7 @@ Curso intensivo de Python desde base, con foco en uso profesional para AI/ML. In
 
 ### Requisitos
 
-- **Python 3.10+**
+- **Python 3.12+**
 - **uv** ([instalacion](https://github.com/astral-sh/uv))
 - **API key de OpenAI** ([obtener aqui](https://platform.openai.com/api-keys))
 

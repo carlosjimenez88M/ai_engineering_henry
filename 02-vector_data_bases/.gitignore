@@ -284,6 +284,12 @@ NOTEBOOKS_STATUS.txt
 .openai
 openai_key*
 
+# Vector DB persistence directories
+chroma_persist_demo/
+faiss_persist_demo/
+chroma_db/
+faiss_index/
+
 # ML / experiment tracking artifacts
 mlruns/
 mlartifacts/
