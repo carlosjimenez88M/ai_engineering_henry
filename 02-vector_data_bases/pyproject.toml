@@ -2,7 +2,7 @@
 name = "vector-data-bases"
 version = "0.1.0"
 description = "Entorno para RAG, LangChain/LangGraph, HF embeddings y visualización básica."
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
   "langchain==1.2.10",
   "langchain-core>=1.2.10",
@@ -28,7 +28,7 @@ dependencies = [
   "ipykernel>=6.29.5",
   "nbclient>=0.10.2",
   "nbconvert>=7.16.0",
-  "datasets>=4.5.0",
+  "datasets>=4.5.0"
 ]
 
 [project.optional-dependencies]
