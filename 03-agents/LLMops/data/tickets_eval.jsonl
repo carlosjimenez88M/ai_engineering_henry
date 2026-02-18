@@ -1,0 +1,8 @@
+{"id":"T-001","customer_message":"Me cobraron dos veces la suscripcion premium este mes y nadie responde.","expected_route":"billing","expected_priority":"P1"}
+{"id":"T-002","customer_message":"No puedo iniciar sesion porque el codigo 2FA nunca llega a mi correo.","expected_route":"account","expected_priority":"P1"}
+{"id":"T-003","customer_message":"La API responde 500 cuando intento crear un invoice desde ayer.","expected_route":"technical","expected_priority":"P1"}
+{"id":"T-004","customer_message":"Quiero saber si tienen plan enterprise con SSO y contrato anual.","expected_route":"sales","expected_priority":"P3"}
+{"id":"T-005","customer_message":"Necesito cambiar la tarjeta de pago porque expiro la anterior.","expected_route":"billing","expected_priority":"P2"}
+{"id":"T-006","customer_message":"La app movil se congela al subir archivos de mas de 20MB.","expected_route":"technical","expected_priority":"P2"}
+{"id":"T-007","customer_message":"Necesito actualizar el email de mi cuenta porque me robaron el acceso al correo anterior.","expected_route":"account","expected_priority":"P1"}
+{"id":"T-008","customer_message":"Estamos evaluando migrar 200 usuarios, me pueden compartir demo y pricing?","expected_route":"sales","expected_priority":"P3"}

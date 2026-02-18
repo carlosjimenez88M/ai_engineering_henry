@@ -298,3 +298,4 @@ dvc.lock.local
 .dvc/tmp/
 .dvc/cache/
 .vscode*
+.gitkeep

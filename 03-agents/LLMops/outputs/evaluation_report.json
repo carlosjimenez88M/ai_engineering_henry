@@ -1,0 +1,100 @@
+{
+  "generated_at_utc": "2026-02-18T15:54:57.966830+00:00",
+  "model": "gpt-5-mini",
+  "summary": {
+    "total_tickets": 8,
+    "route_accuracy": 0.875,
+    "priority_accuracy": 0.875,
+    "avg_judge_score": 4.875
+  },
+  "per_ticket": [
+    {
+      "ticket_id": "T-001",
+      "route_expected": "billing",
+      "route_predicted": "billing",
+      "priority_expected": "P1",
+      "priority_predicted": "P1",
+      "route_correct": true,
+      "priority_correct": true,
+      "judge_score": 5,
+      "judge_rationale": "Respuesta clara y profesional: ofrece disculpa, ticket y acciones concretas (qué enviar y siguientes pasos), pide información útil y establece un plazo razonable; no contiene promesas irreales. Podría mejorarse indicando el canal seguro para enviar el recibo."
+    },
+    {
+      "ticket_id": "T-002",
+      "route_expected": "account",
+      "route_predicted": "account",
+      "priority_expected": "P1",
+      "priority_predicted": "P1",
+      "route_correct": true,
+      "priority_correct": true,
+      "judge_score": 4,
+      "judge_rationale": "Clara, útil y con pasos concretos y tono profesional; sin embargo incluye una promesa de resolución en \"menos de 4 horas\" (potencial promesa falsa) y solicita datos sensibles sin indicar un canal seguro."
+    },
+    {
+      "ticket_id": "T-003",
+      "route_expected": "technical",
+      "route_predicted": "billing",
+      "priority_expected": "P1",
+      "priority_predicted": "P1",
+      "route_correct": false,
+      "priority_correct": true,
+      "judge_score": 5,
+      "judge_rationale": "Respuesta clara y profesional; solicita información precisa y reproducible, ofrece acciones concretas para mitigar y diagnosticar, y escaló el incidente. La promesa de actualización en 1 hora es razonable y no induce expectativas irreales."
+    },
+    {
+      "ticket_id": "T-004",
+      "route_expected": "sales",
+      "route_predicted": "sales",
+      "priority_expected": "P3",
+      "priority_predicted": "P3",
+      "route_correct": true,
+      "priority_correct": true,
+      "judge_score": 5,
+      "judge_rationale": "Respuesta clara y profesional: confirma SSO y contrato anual, detalla protocolos soportados y servicios incluidos, pide información concreta para preparar propuesta y ofrece pasos siguientes; no contiene promesas infundadas."
+    },
+    {
+      "ticket_id": "T-005",
+      "route_expected": "billing",
+      "route_predicted": "billing",
+      "priority_expected": "P2",
+      "priority_predicted": "P2",
+      "route_correct": true,
+      "priority_correct": true,
+      "judge_score": 5,
+      "judge_rationale": "Respuesta clara y profesional: proporciona pasos concretos para actualizar la tarjeta, advierte sobre seguridad y ofrece asistencia si hay problemas; no contiene promesas falsas."
+    },
+    {
+      "ticket_id": "T-006",
+      "route_expected": "technical",
+      "route_predicted": "technical",
+      "priority_expected": "P2",
+      "priority_predicted": "P1",
+      "route_correct": true,
+      "priority_correct": false,
+      "judge_score": 5,
+      "judge_rationale": "Respuesta clara y profesional: solicita la información necesaria, ofrece pasos concretos de diagnóstico y soluciones temporales, y comunica escalado sin hacer promesas irreales."
+    },
+    {
+      "ticket_id": "T-007",
+      "route_expected": "account",
+      "route_predicted": "account",
+      "priority_expected": "P1",
+      "priority_predicted": "P1",
+      "route_correct": true,
+      "priority_correct": true,
+      "judge_score": 5,
+      "judge_rationale": "Clara y útil: solicita información concreta para verificar identidad, ofrece alternativa de canal seguro, da acciones inmediatas y tono profesional. No contiene promesas problemáticas."
+    },
+    {
+      "ticket_id": "T-008",
+      "route_expected": "sales",
+      "route_predicted": "sales",
+      "priority_expected": "P3",
+      "priority_predicted": "P3",
+      "route_correct": true,
+      "priority_correct": true,
+      "judge_score": 5,
+      "judge_rationale": "Respuesta clara y profesional: solicita la información necesaria, propone pasos concretos (demo, presupuesto, trial/PoC), pide disponibilidad para agendar y no incluye promesas falsas."
+    }
+  ]
+}
