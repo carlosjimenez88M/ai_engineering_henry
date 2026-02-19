@@ -3,7 +3,7 @@ PYTHON ?= python3
 VENV ?= .venv
 VENV_PY ?= $(VENV)/bin/python
 
-.PHONY: install sync sync-pip lint format test run-notebook
+.PHONY: install sync sync-pip lint format test run-notebook run-batman-module
 
 install: sync
 
@@ -28,6 +28,9 @@ test:
 	$(VENV_PY) -m pytest
 
 run-notebook:
+	$(MAKE) run-batman-module
+
+run-batman-module:
 	@test -x $(VENV_PY) || $(MAKE) sync
 	mkdir -p .cache/matplotlib
-	MPLCONFIGDIR=$$(pwd)/.cache/matplotlib XDG_CACHE_HOME=$$(pwd)/.cache $(VENV_PY) intro/run_notebook.py intro/01_rag_tfidf.ipynb
+	MPLCONFIGDIR=$$(pwd)/.cache/matplotlib XDG_CACHE_HOME=$$(pwd)/.cache $(VENV_PY) tools/execute_notebooks.py

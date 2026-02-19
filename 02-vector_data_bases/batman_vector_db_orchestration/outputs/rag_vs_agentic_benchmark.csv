@@ -1,0 +1,17 @@
+pipeline,query,latency_seconds,retrieved_docs,route,groundedness_proxy,groundedness_internal,llm_provider,retrieval_provider,steps
+vanilla_rag,Explica como evoluciona Batman desde Year One hasta The Dark Knight Returns.,0.0008,4,n/a,0.8667,0.8667,local:fallback-summary,local:hash-embedding,retrieve -> generate
+agentic_rag,Explica como evoluciona Batman desde Year One hasta The Dark Knight Returns.,0.0008,6,chronology,0.8519,0.8519,local:fallback-summary,local:hash-embedding,route -> rewrite_query -> retrieve -> generate
+vanilla_rag,Cual es la tesis filosofica central de The Killing Joke y como la refuta Gordon?,0.0005,4,n/a,0.9194,0.9194,local:fallback-summary,local:hash-embedding,retrieve -> generate
+agentic_rag,Cual es la tesis filosofica central de The Killing Joke y como la refuta Gordon?,0.0007,6,lore,0.9194,0.9194,local:fallback-summary,local:hash-embedding,route -> rewrite_query -> retrieve -> generate
+vanilla_rag,Compara la estrategia de Bane en Knightfall con el enfoque de Hush.,0.0005,4,n/a,0.9079,0.9079,local:fallback-summary,local:hash-embedding,retrieve -> generate
+agentic_rag,Compara la estrategia de Bane en Knightfall con el enfoque de Hush.,0.0007,6,villains,0.9079,0.9079,local:fallback-summary,local:hash-embedding,route -> rewrite_query -> retrieve -> generate
+vanilla_rag,Que revela Court of Owls sobre puntos ciegos de Batman como detective?,0.0006,4,n/a,0.8816,0.8816,local:fallback-summary,local:hash-embedding,retrieve -> generate
+agentic_rag,Que revela Court of Owls sobre puntos ciegos de Batman como detective?,0.0009,6,villains,0.8615,0.8615,local:fallback-summary,local:hash-embedding,route -> rewrite_query -> retrieve -> generate
+vanilla_rag,Por que Batman es clave en la Liga de la Justicia aun sin superpoderes?,0.0006,4,n/a,0.8929,0.8929,local:fallback-summary,local:hash-embedding,retrieve -> generate
+agentic_rag,Por que Batman es clave en la Liga de la Justicia aun sin superpoderes?,0.0007,6,strategy,0.8929,0.8929,local:fallback-summary,local:hash-embedding,route -> rewrite_query -> retrieve -> generate
+vanilla_rag,Resume el rol de los Robins y el aprendizaje de Bruce como mentor.,0.0005,4,n/a,0.8857,0.8857,local:fallback-summary,local:hash-embedding,retrieve -> generate
+agentic_rag,Resume el rol de los Robins y el aprendizaje de Bruce como mentor.,0.0007,6,lore,0.9077,0.9077,local:fallback-summary,local:hash-embedding,route -> rewrite_query -> retrieve -> generate
+vanilla_rag,Que principios morales definen a Batman y que trade-offs implican?,0.0007,4,n/a,0.8889,0.8889,local:fallback-summary,local:hash-embedding,retrieve -> generate
+agentic_rag,Que principios morales definen a Batman y que trade-offs implican?,0.0008,6,lore,0.8889,0.8889,local:fallback-summary,local:hash-embedding,route -> rewrite_query -> retrieve -> generate
+vanilla_rag,Explica como Gotham influye en el diseno tactico de Batman.,0.0005,4,n/a,0.7576,0.7576,local:fallback-summary,local:hash-embedding,retrieve -> generate
+agentic_rag,Explica como Gotham influye en el diseno tactico de Batman.,0.0007,6,lore,0.7879,0.7879,local:fallback-summary,local:hash-embedding,route -> rewrite_query -> retrieve -> generate
