@@ -1,0 +1,6 @@
+query,selected_route,final_groundedness,retrieved_docs,second_opinion_used,latency_seconds,llm_provider,retrieval_provider
+Ordena cronologicamente los hitos clave de Batman entre Year One y Dark Knight Returns.,timeline,0.8852,6,False,0.0009,local:fallback-summary,local:hash-embedding
+Que diferencia hay entre la metodologia de Bane y la del Joker para quebrar a Batman?,villains,0.8906,6,False,0.0007,local:fallback-summary,local:hash-embedding
+Por que Batman diseña planes de contingencia contra la Liga de la Justicia?,strategy,0.8929,6,False,0.0007,local:fallback-summary,local:hash-embedding
+Que revela Court of Owls sobre los puntos ciegos de Bruce Wayne?,villains,0.9048,6,False,0.0006,local:fallback-summary,local:hash-embedding
+Resume el rol de Robin en la evolucion del enfoque de Batman.,timeline,0.8689,6,False,0.0006,local:fallback-summary,local:hash-embedding

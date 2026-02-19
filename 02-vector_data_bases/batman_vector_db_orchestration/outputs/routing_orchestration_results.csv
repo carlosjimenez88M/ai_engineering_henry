@@ -2,20 +2,20 @@ selected_hero,query,answer,route,pipeline,latency_seconds,groundedness,steps
 batman,Como se transforma Bruce Wayne en Batman durante Year One?,"Respuesta local fallback (sin llamada a OpenAI):
 - La boda, esperada por millones de lectores, no se concreto: Selina lo dejo en el altar porque creyo que Batman necesita su dolor para funcionar, que un Bruce Wayne feliz dejaria de ser Batman, y que el mundo necesita a Batman mas de lo que ellos se necesitan mutuamente [D3]
 - En los anos 90, Frank Miller los presento como aliados en Year One [D1]
-- Bruce Wayne tiene 55 anos y lleva diez retirado como Batman [D5]",lore,agentic_rag,0.0022,0.8871,"['route', 'rewrite_query', 'retrieve', 'generate']"
+- Bruce Wayne tiene 55 anos y lleva diez retirado como Batman [D5]",lore,agentic_rag,0.0076,0.8871,"['route', 'rewrite_query', 'retrieve', 'generate']"
 spiderman,Explica la filosofia de responsabilidad de Peter Parker.,"Respuesta local fallback (sin llamada a OpenAI):
 - La saga reune a todos los Spider-Man de todos los universos: Peter Parker de la Tierra-616 (el principal), Miles Morales de la Tierra-1610 (el Spider-Man afrolatino de Brooklyn), Spider-Gwen de la Tierra-65 (donde Gwen Stacy fue mordida por la arana en lugar de Peter), Spider-Man 2099 (Miguel O'Hara, un genetista en el ano 2099 que accidentalmente reescribio su ADN), Spider-Man Noir (Peter Parker en los anos 1930, un detective duro que lucha contra el crimen organizado), Peni Parker (una nina japonesa que pilotea un mecha aracnido), y Spider-Ham (Peter Porker, un cerdo arana de un universo de dibujos animados) [D1]
 - Peter Parker tenia 15 anos cuando una arana radiactiva lo mordio durante una excursion escolar al laboratorio de ciencias de la Universidad Empire State [D2]
-- Todo comienza cuando Miles Warren, profesor de bioquimica de Peter Parker en la Universidad Empire State, se obsesiona con Gwen Stacy despues de su muerte [D3]",lore,agentic_rag,0.002,0.91,"['route', 'rewrite_query', 'retrieve', 'generate']"
+- Todo comienza cuando Miles Warren, profesor de bioquimica de Peter Parker en la Universidad Empire State, se obsesiona con Gwen Stacy despues de su muerte [D3]",lore,agentic_rag,0.0022,0.91,"['route', 'rewrite_query', 'retrieve', 'generate']"
 batman,Compara a Joker con Green Goblin en terminos de dano psicologico.,"Respuesta local fallback (sin llamada a OpenAI):
 - Bruce usa un exoesqueleto de combate, una flecha de kriptonita disparada por Green Arrow, y la red electrica de Gotham para pelear de igual a igual con un dios [D1]
 - Bruce lo adopto porque vio en Dick a si mismo, pero a diferencia de Bruce, Dick tenia alegria natural, carisma y la capacidad de conectar con otros [D5]
-- Para probarlo, el Joker dispara a Barbara Gordon (Batgirl) en la columna vertebral, la fotografa mientras sufre, y secuestra al comisionado Gordon para someterlo a una noche de tortura psicologica en un parque de diversiones abandonado [D6]",villains,agentic_rag,0.0009,0.875,"['route', 'rewrite_query', 'retrieve', 'generate']"
+- Para probarlo, el Joker dispara a Barbara Gordon (Batgirl) en la columna vertebral, la fotografa mientras sufre, y secuestra al comisionado Gordon para someterlo a una noche de tortura psicologica en un parque de diversiones abandonado [D6]",villains,agentic_rag,0.0008,0.875,"['route', 'rewrite_query', 'retrieve', 'generate']"
 batman,Que rol estrategico cumple Batman en la Liga de la Justicia?,"Respuesta local fallback (sin llamada a OpenAI):
 - ' Esta respuesta resume la funcion de Batman en la Liga: es la red de seguridad, el esceptico necesario, el que piensa en los peores escenarios para que los demas no tengan que hacerlo [D1]
 - En Tower of Babel, Ra's al Ghul roba los archivos secretos de Batman y descubre que Bruce ha desarrollado planes de contingencia para neutralizar a cada miembro de la Liga [D2]
-- Batman es el unico miembro de la Liga de la Justicia sin superpoderes [D2]",strategy,agentic_rag,0.0009,0.8929,"['route', 'rewrite_query', 'retrieve', 'generate']"
+- Batman es el unico miembro de la Liga de la Justicia sin superpoderes [D2]",strategy,agentic_rag,0.0008,0.8929,"['route', 'rewrite_query', 'retrieve', 'generate']"
 batman,Que aprendizaje deja la Saga del Clon para identidad y autenticidad?,"Respuesta local fallback (sin llamada a OpenAI):
 - En la saga War of Jokes and Riddles, Selina descubre que Bruce casi mato al Riddler durante una guerra entre el Joker y Nygma, y que Selina fue quien detuvo su mano [D1]
 - A pesar del horror, mantiene su humanidad intacta y le dice a Batman: 'Quiero que lo atrapes conforme a la ley [D2]
-- A pesar del horror, mantiene su humanidad intacta y le dice a Batman: 'Quiero que lo atrapes conforme a la ley [D4]",lore,agentic_rag,0.0008,0.8491,"['route', 'rewrite_query', 'retrieve', 'generate']"
+- A pesar del horror, mantiene su humanidad intacta y le dice a Batman: 'Quiero que lo atrapes conforme a la ley [D4]",lore,agentic_rag,0.0009,0.8491,"['route', 'rewrite_query', 'retrieve', 'generate']"

@@ -299,3 +299,4 @@ dvc.lock.local
 .dvc/cache/
 .vscode*
 .gitkeep
+.bin

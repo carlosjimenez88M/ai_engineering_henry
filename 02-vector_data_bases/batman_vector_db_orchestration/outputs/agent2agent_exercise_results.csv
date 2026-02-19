@@ -1,0 +1,4 @@
+question,groundedness,retrieved_docs,latency_seconds,llm_provider,retrieval_provider
+Que leccion deja Knightfall sobre delegacion y resiliencia?,0.9118,5,0.0008,local:fallback-summary,local:hash-embedding
+Como se relaciona la filosofia de no matar con decisiones tacticas en Gotham?,0.8987,5,0.0007,local:fallback-summary,local:hash-embedding
+Por que Batman es efectivo en la Liga de la Justicia sin superpoderes?,0.8929,5,0.0006,local:fallback-summary,local:hash-embedding
