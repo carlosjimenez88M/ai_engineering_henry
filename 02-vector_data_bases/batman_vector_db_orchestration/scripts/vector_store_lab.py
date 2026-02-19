@@ -79,7 +79,7 @@ class ComicsVectorDB:
         distances = raw.get("distances", [[]])[0]
 
         output: list[dict[str, Any]] = []
-        for idx, (doc, metadata, distance) in enumerate(zip(documents, metadatas, distances), start=1):
+        for idx, (doc, metadata, distance) in enumerate(zip(documents, metadatas, distances, strict=True), start=1):
             output.append(
                 {
                     "rank": idx,

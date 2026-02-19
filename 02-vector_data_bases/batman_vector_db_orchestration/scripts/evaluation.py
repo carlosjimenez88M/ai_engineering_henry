@@ -92,7 +92,7 @@ def plot_pipeline_comparison(df: pd.DataFrame, output_path: Path | str) -> pd.Da
     titles = ["Latencia promedio", "Groundedness promedio", "Docs recuperados promedio"]
     colors = {"vanilla_rag": "#1f77b4", "agentic_rag": "#ff7f0e"}
 
-    for ax, metric, title in zip(axes, metrics, titles):
+    for ax, metric, title in zip(axes, metrics, titles, strict=True):
         x = summary["pipeline"].tolist()
         y = summary[metric].tolist()
         bars = ax.bar(x, y, color=[colors.get(item, "#888888") for item in x])
@@ -139,7 +139,7 @@ def plot_architecture_difference(output_path: Path | str) -> None:
         ax.axis("off")
 
         y_positions = [0.9 - idx * (0.78 / max(len(steps) - 1, 1)) for idx in range(len(steps))]
-        for idx, (step, y) in enumerate(zip(steps, y_positions)):
+        for idx, (step, y) in enumerate(zip(steps, y_positions, strict=True)):
             ax.text(
                 0.5,
                 y,
