@@ -25,12 +25,12 @@ El curso se organiza en dos modulos principales mas material complementario:
 #### Clase 1: Software vs AI Engineering
 Comparacion critica entre desarrollo tradicional y AI Engineering. Ejemplo practico: sistema de brief generation con OpenAI, testing, metricas y observabilidad.
 
-**Ubicacion:** `01-Introduction_AI_Engineering/01-introduction/`
+**Ubicacion:** `01-Introduction_AI_Engineering/01_introduction/`
 
 #### Clase 2: Prompting Aplicado (CoT + ReAct)
 Estrategias Chain of Thought (zero-shot y few-shot), ReAct con herramientas, feedback loops con rubrica. Notebooks ejecutables con OpenAI API.
 
-**Ubicacion:** `01-Introduction_AI_Engineering/02-prompting/`
+**Ubicacion:** `01-Introduction_AI_Engineering/02_prompting/`
 
 #### Clase 3: LangChain Prompting Avanzado
 Migracion de tecnicas de Clase 2 a LangChain: `ChatPromptTemplate`, `FewShot`, salida estructurada. ReAct con tools, guardrails y context engineering aplicado.
@@ -45,7 +45,7 @@ Workflows de LangGraph: prompt chaining, parallelization, routing, orchestrator-
 #### Clase 5: RAG y Bases de Datos Vectoriales
 Retrieval-Augmented Generation: chunking, embeddings, vector stores, retrieval hibrido, re-ranking. RAG con agentes usando prompt chaining y routing.
 
-**Ubicacion:** `01-Introduction_AI_Engineering/05_Rags/`
+**Ubicacion:** `01-Introduction_AI_Engineering/05_rags/`
 
 #### Proyecto: Multi-Agent Router + Domain RAG
 Sistema multi-agente con clasificacion de intencion, routing condicional por dominio (HR/Tech), agentes RAG especializados, memoria de conversacion y trazabilidad.
@@ -55,7 +55,7 @@ Sistema multi-agente con clasificacion de intencion, routing condicional por dom
 #### Material Complementario: Python Extra Class
 Curso intensivo de Python desde base, con foco en uso profesional para AI/ML. Incluye fundamentos, OOP, ejercicios tipo LeetCode, Pydantic y ejemplos ejecutables.
 
-**Ubicacion:** `01-Introduction_AI_Engineering/python_extra_class/`
+**Ubicacion:** `01-Introduction_AI_Engineering/00_python_extra_class/`
 
 ---
 
@@ -63,24 +63,24 @@ Curso intensivo de Python desde base, con foco en uso profesional para AI/ML. In
 
 Modulo dedicado a profundizar en representacion vectorial de texto, bases de datos vectoriales y patrones avanzados de RAG. Entorno independiente con su propio `pyproject.toml` y dependencias.
 
-#### Introduccion (`intro/`)
+#### Introduccion (`01_intro/`)
 
 | Notebook | Tema |
 |----------|------|
-| `01-tokens.ipynb` | Tokenizacion: BERT vs GPT, como los modelos ven el texto |
-| `02-transformers.ipynb` | Arquitectura transformer y atencion |
-| `03-text_classification.ipynb` | Clasificacion de texto con embeddings |
-| `04-Rags-vectorial_databases.ipynb` | Introduccion a RAG y bases vectoriales |
-| `01_rag_tfidf.ipynb` | TF-IDF vs embeddings densos, Simple RAG vs Agentic RAG con LangGraph sobre Don Quijote |
+| `01_tokens.ipynb` | Tokenizacion: BERT vs GPT, como los modelos ven el texto |
+| `03_transformers.ipynb` | Arquitectura transformer y atencion |
+| `04_text_classification.ipynb` | Clasificacion de texto con embeddings |
+| `05_rags_vectorial_databases.ipynb` | Introduccion a RAG y bases vectoriales |
+| `02_rag_tfidf.ipynb` | TF-IDF vs embeddings densos, Simple RAG vs Agentic RAG con LangGraph sobre Don Quijote |
 
-#### Bases de Datos Vectoriales (`databases/`)
+#### Bases de Datos Vectoriales (`02_databases/`)
 
 | Notebook | Tema |
 |----------|------|
 | `01-bases-vectoriales-fundamentos.ipynb` | Vectores 2D/3D, embeddings (OpenAI + HuggingFace), similitud coseno y euclidiana desde cero, ChromaDB, filtrado por metadata, visualizacion PCA/t-SNE |
 | `02-bases-vectoriales-produccion.ipynb` | FAISS vs ChromaDB, estrategias de chunking (200/500/1000), efecto del chunk size en retrieval, persistencia, comparacion de modelos de embeddings, benchmarks de rendimiento |
 
-#### RAG (`RAG/`)
+#### RAG (`03_rag/`)
 
 | Notebook | Tema |
 |----------|------|
@@ -137,7 +137,7 @@ cd 01-Introduction_AI_Engineering
 make run-ai
 ```
 
-Genera un brief comparativo en `01-introduction/ai_engineering/briefs/`. Con contexto personalizado:
+Genera un brief comparativo en `01_introduction/02_ai_engineering/briefs/`. Con contexto personalizado:
 
 ```bash
 make run-ai-context CONTEXT="Startup de fintech B2B"
@@ -156,19 +156,19 @@ make run-ai-context CONTEXT="Startup de fintech B2B"
 ```
 ai_engineering_henry/
 ├── 01-Introduction_AI_Engineering/            # Modulo 1: Fundamentos AI Engineering
-│   ├── 01-introduction/                       # Clase 1: Software vs AI Engineering
+│   ├── 01_introduction/                       # Clase 1: Software vs AI Engineering
 │   │   ├── ai_engineering/                    # Ejemplo AI Engineering
 │   │   │   ├── brief_builder/                 # Sistema de generacion de briefs
-│   │   │   ├── tests/                         # Tests del sistema AI
+│   │   │   ├── 99_tests/                         # Tests del sistema AI
 │   │   │   └── briefs/                        # Briefs generados
 │   │   └── python_software_engineering/       # Ejemplo Software tradicional
 │   │
-│   ├── 02-prompting/                          # Clase 2: CoT + ReAct
-│   │   ├── COT/Notebooks/                     # Notebooks Chain of Thought
-│   │   ├── ReAct/Notebooks/                   # Notebooks ReAct
-│   │   ├── Prompt_Introduction/               # Introduccion a prompting
-│   │   ├── Prompt_chaining/                   # Prompt chaining
-│   │   └── Routing/                           # Routing basico
+│   ├── 02_prompting/                          # Clase 2: CoT + ReAct
+│   │   ├── 04_cot/Notebooks/                     # Notebooks Chain of Thought
+│   │   ├── 05_react/Notebooks/                   # Notebooks ReAct
+│   │   ├── 01_prompt_introduction/               # Introduccion a prompting
+│   │   ├── 02_prompt_chaining/                   # Prompt chaining
+│   │   └── 03_routing/                           # 03_routing basico
 │   │
 │   ├── 03_langchain_prompting/                # Clase 3: LangChain avanzado
 │   │   ├── COT_LangChain/Notebooks/           # CoT con LangChain
@@ -179,19 +179,19 @@ ai_engineering_henry/
 │   │   ├── 02_parallelization/                # Parallelization
 │   │   ├── 03_orchestrator_worker/            # Orchestrator-worker
 │   │   ├── 04_evaluator_optimizer/            # Evaluator-optimizer
-│   │   ├── 05_routing/                        # Routing
+│   │   ├── 05_routing/                        # 03_routing
 │   │   └── 06_agent_feedback/                 # Agent feedback loop
 │   │
-│   ├── 05_Rags/                               # Clase 5: RAG
-│   │   ├── data/                              # Bases de conocimiento
+│   ├── 05_rags/                               # Clase 5: RAG
+│   │   ├── 00_data/                              # Bases de conocimiento
 │   │   └── Notebooks/                         # 4 notebooks progresivas
 │   │
 │   ├── 06_project/                            # Proyecto: Multi-Agent Router
-│   │   ├── data/                              # Documentos HR y Tech
+│   │   ├── 00_data/                              # Documentos HR y Tech
 │   │   ├── src/multi_agent_system/            # Codigo fuente del sistema
-│   │   └── tests/                             # Tests de routing
+│   │   └── 99_tests/                             # Tests de routing
 │   │
-│   ├── python_extra_class/                    # Material complementario: Python
+│   ├── 00_python_extra_class/                    # Material complementario: Python
 │   │   ├── 01_programacion_python/            # Fundamentos hasta Pydantic
 │   │   ├── 02_oop_python/                     # OOP para AI/ML
 │   │   ├── 03_ejercicios_leetcode/            # Pensamiento algoritmico
@@ -201,28 +201,28 @@ ai_engineering_henry/
 │   └── pyproject.toml                         # Dependencias del modulo 1
 │
 ├── 02-vector_data_bases/                      # Modulo 2: Vectores y RAG
-│   ├── intro/                                 # Tokens, transformers, TF-IDF, clasificacion
-│   │   ├── 01-tokens.ipynb                    # Tokenizacion
-│   │   ├── 02-transformers.ipynb              # Arquitectura transformer
-│   │   ├── 03-text_classification.ipynb       # Clasificacion de texto
-│   │   ├── 04-Rags-vectorial_databases.ipynb  # Intro a RAG
-│   │   └── 01_rag_tfidf.ipynb                # TF-IDF vs embeddings, Agentic RAG
+│   ├── 01_intro/                                 # Tokens, transformers, TF-IDF, clasificacion
+│   │   ├── 01_tokens.ipynb                    # Tokenizacion
+│   │   ├── 03_transformers.ipynb              # Arquitectura transformer
+│   │   ├── 04_text_classification.ipynb       # Clasificacion de texto
+│   │   ├── 05_rags_vectorial_databases.ipynb  # Intro a RAG
+│   │   └── 02_rag_tfidf.ipynb                # TF-IDF vs embeddings, Agentic RAG
 │   │
-│   ├── databases/                             # Bases de datos vectoriales
+│   ├── 02_databases/                             # Bases de datos vectoriales
 │   │   ├── 01-bases-vectoriales-fundamentos.ipynb   # Fundamentos
 │   │   └── 02-bases-vectoriales-produccion.ipynb    # Produccion
 │   │
-│   ├── RAG/                                   # Retrieval Augmented Generation
+│   ├── 03_rag/                                   # Retrieval Augmented Generation
 │   │   ├── 01-rag-fundamentos.ipynb           # Pipeline RAG completo
 │   │   └── 02-rag-avanzado.ipynb              # Multi-Query, Ensemble, Compression
 │   │
 │   └── pyproject.toml                         # Dependencias del modulo 2
 │
 ├── 03-agents/                                 # Modulo 3: Agentes (en desarrollo)
-│   ├── intro/
-│   ├── langchain/
-│   ├── multi-agent/
-│   └── production/
+│   ├── 01_intro/
+│   ├── 02_langchain/
+│   ├── 03_multi_agent/
+│   └── 04_production/
 │
 └── README.md                                  # Este archivo
 ```

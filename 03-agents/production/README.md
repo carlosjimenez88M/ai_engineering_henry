@@ -6,10 +6,10 @@ Este modulo cubre los patrones esenciales para llevar agentes de IA a produccion
 
 | Notebook | Tema | Descripcion |
 |----------|------|-------------|
-| `01-timeouts-retries.ipynb` | Resiliencia | Timeouts, retries con backoff, circuit breaker |
-| `02-fallback-guardrails.ipynb` | Guardrails | Fallback chains, input/output guardrails |
-| `03-presupuesto-costos.ipynb` | Costos | TokenBudget, limites por sesion, optimizacion |
-| `04-alertas-calidad.ipynb` | Monitoreo | Quality signals, alertas, tests canary |
+| `01_timeouts_retries.ipynb` | Resiliencia | Timeouts, retries con backoff, circuit breaker |
+| `02_fallback_guardrails.ipynb` | Guardrails | Fallback chains, input/output guardrails |
+| `03_presupuesto_costos.ipynb` | Costos | TokenBudget, limites por sesion, optimizacion |
+| `04_alertas_calidad.ipynb` | Monitoreo | Quality signals, alertas, tests canary |
 
 ## Scripts
 
@@ -18,5 +18,5 @@ Este modulo cubre los patrones esenciales para llevar agentes de IA a produccion
 
 ## Prerequisitos
 
-- Notebooks de `langchain/` completados
-- Familiaridad con patrones de `LLMops/`
+- Notebooks de `02_langchain/` completados
+- Familiaridad con patrones de `05_llmops/`

@@ -166,7 +166,7 @@ CUÁNDO USAR REACT (vs CoT simple):
 
 COMPARACIÓN: CoT vs ReAct
 ==========================
-Ver ReAct/README.md tabla completa (lines 45-60)
+Ver 05_react/README.md tabla completa (lines 45-60)
 
 Resumen:
 - CoT: Razonamiento visible, sin herramientas, 1-2 API calls
@@ -200,7 +200,7 @@ FAILURE MODES (y cómo diagnosticarlos):
    - Diagnóstico: trace muestra action pero state no cambia
    - Fix: revisar lógica de actualización de state (lines 123-158)
 
-Ver ReAct/README.md (lines 95-130) para análisis completo de failure modes.
+Ver 05_react/README.md (lines 95-130) para análisis completo de failure modes.
 
 LIMITACIONES CRÍTICAS:
 ======================

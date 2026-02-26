@@ -210,12 +210,12 @@ Total:  900 tokens/request
 
 **Scripts:**
 ```bash
-uv run python 02-prompting/COT/Notebooks/01_zero_shot_cot_recomendador.py
-uv run python 02-prompting/COT/Notebooks/02_few_shot_cot_feedback_loop.py
+uv run python 02_prompting/04_cot/Notebooks/01_zero_shot_cot_recomendador.py
+uv run python 02_prompting/04_cot/Notebooks/02_few_shot_cot_feedback_loop.py
 ```
 
 **Notebooks:**
-- `02-prompting/COT/Notebooks/cot_recomendador_aplicado.ipynb`
+- `02_prompting/04_cot/Notebooks/cot_recomendador_aplicado.ipynb`
 
 ---
 
@@ -269,7 +269,7 @@ Diagrama ReAct:
 **Usa Chain of Thought (CoT) cuando:**
 - El problema requiere razonamiento secuencial SIN acciones intermedias
 - Puedes resolver con un solo prompt (entrada → razonamiento → salida)
-- No necesitas tools/herramientas externas
+- No necesitas 00_tools/herramientas externas
 - Ejemplo: "Diseña un mensaje personalizado basado en un perfil"
 
 **Usa ReAct cuando:**
@@ -352,12 +352,12 @@ if action != expected_action:
 
 **Scripts:**
 ```bash
-uv run python 02-prompting/ReAct/Notebooks/01_react_agente_coqueto.py
-uv run python 02-prompting/ReAct/Notebooks/02_react_personas_feedback_loop.py
+uv run python 02_prompting/05_react/Notebooks/01_react_agente_coqueto.py
+uv run python 02_prompting/05_react/Notebooks/02_react_personas_feedback_loop.py
 ```
 
 **Notebooks:**
-- `02-prompting/ReAct/Notebooks/react_agente_aplicado.ipynb`
+- `02_prompting/05_react/Notebooks/react_agente_aplicado.ipynb`
 
 ---
 
@@ -617,8 +617,8 @@ make run-notebooks
 ```
 
 **Artefactos generados:**
-- `02-prompting/COT/Notebooks/cot_recomendador_aplicado.executed.ipynb`
-- `02-prompting/ReAct/Notebooks/react_agente_aplicado.executed.ipynb`
+- `02_prompting/04_cot/Notebooks/cot_recomendador_aplicado.executed.ipynb`
+- `02_prompting/05_react/Notebooks/react_agente_aplicado.executed.ipynb`
 
 ---
 

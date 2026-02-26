@@ -25,7 +25,7 @@ class TestParseArgs:
         args = parse_args()
 
         assert args.output == Path(
-            "01-introduction/ai_engineering/briefs/software_vs_ai_engineering.md"
+            "01_introduction/02_ai_engineering/briefs/software_vs_ai_engineering.md"
         )
         assert args.context == ""
         assert args.temperature == 0.2

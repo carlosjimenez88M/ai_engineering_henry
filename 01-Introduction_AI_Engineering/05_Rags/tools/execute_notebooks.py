@@ -10,10 +10,10 @@ from nbclient import NotebookClient
 
 ROOT = Path(__file__).resolve().parents[2]
 NOTEBOOKS = [
-    ROOT / "05_Rags" / "Notebooks" / "01_bases_datos_vectoriales.ipynb",
-    ROOT / "05_Rags" / "Notebooks" / "02_rag_pipeline.ipynb",
-    ROOT / "05_Rags" / "Notebooks" / "03_rag_prompt_chaining.ipynb",
-    ROOT / "05_Rags" / "Notebooks" / "04_rag_routing.ipynb",
+    ROOT / "05_rags" / "Notebooks" / "01_bases_datos_vectoriales.ipynb",
+    ROOT / "05_rags" / "Notebooks" / "02_rag_pipeline.ipynb",
+    ROOT / "05_rags" / "Notebooks" / "03_rag_prompt_chaining.ipynb",
+    ROOT / "05_rags" / "Notebooks" / "04_rag_routing.ipynb",
 ]
 
 

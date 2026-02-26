@@ -1,4 +1,4 @@
-"""Tests for multi-agent/scripts/orchestrator_workers.py"""
+"""Tests for 03_multi_agent/scripts/orchestrator_workers.py"""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 
 from conftest import load_module
 
-mod = load_module("multi-agent/scripts/orchestrator_workers.py")
+mod = load_module("03_multi_agent/scripts/orchestrator_workers.py")
 SubtaskPlan = mod.SubtaskPlan
 WorkerResult = mod.WorkerResult
 Orchestrator = mod.Orchestrator

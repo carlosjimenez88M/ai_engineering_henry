@@ -3,7 +3,7 @@ UV ?= uv
 .PHONY: help check-uv venv sync sync-legacy test test-cov run-examples run-pydantic clean
 
 help:
-	@echo "Targets disponibles en python_extra_class:"
+	@echo "Targets disponibles en 00_python_extra_class:"
 	@echo "  make venv         - Crea .venv con uv"
 	@echo "  make sync         - Instala dependencias desde pyproject.toml"
 	@echo "  make sync-legacy  - Instala dependencias desde requirements.txt"

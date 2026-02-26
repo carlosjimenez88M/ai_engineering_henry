@@ -19,7 +19,7 @@ El tono y la estructura estan pensados para clase avanzada de AI Engineering apl
 - `04_ejercicio_agent2agent_batman_rag.ipynb`: ejercicio guiado agent2agent con retriever agent + synthesizer agent.
 - `05_agent2agent_roles_router_batman.ipynb`: agent2agent con router semantico y agentes especializados (`timeline`, `villains`, `strategy`, `general`).
 - `scripts/`: utilidades reutilizables para DB, pipelines y evaluacion.
-- `data/`: datasets de comics (Batman y Spider-Man).
+- `00_data/`: datasets de comics (Batman y Spider-Man).
 - `outputs/`: artefactos generados por notebooks (graficas y tablas).
 
 ## Modelos usados

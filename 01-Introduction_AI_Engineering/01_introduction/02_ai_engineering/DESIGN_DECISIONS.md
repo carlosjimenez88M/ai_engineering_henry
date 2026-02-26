@@ -53,7 +53,7 @@ Chip Huyen (AI Engineering, Capítulo 5: "Resilient Systems"):
 ### Referencias
 
 - Implementación: `01_class/ai_engineering/brief_builder/retry.py:29`
-- Tests: `01_class/ai_engineering/tests/test_main.py` (mocked)
+- Tests: `01_class/ai_engineering/99_tests/test_main.py` (mocked)
 - Chip Huyen: AI Engineering, Chapter 5
 
 ---
@@ -125,7 +125,7 @@ if not structure_checks["is_complete"]:
 ### Referencias
 
 - Implementación: `01_class/ai_engineering/brief_builder/validator.py`
-- Tests: `01_class/ai_engineering/tests/test_validator.py` (29 tests)
+- Tests: `01_class/ai_engineering/99_tests/test_validator.py` (29 tests)
 - Chip Huyen: Designing ML Systems, Chapter 8
 
 ---
@@ -331,7 +331,7 @@ feat(prompts): agregar sección de anti-patrones
 ## ADR-006: Testing con Mocks vs Llamadas Reales
 
 **Fecha:** 2026-02-03
-**Estado:** Implementado en `tests/conftest.py`
+**Estado:** Implementado en `99_tests/conftest.py`
 
 ### Contexto
 
@@ -378,7 +378,7 @@ def mock_openai_client(mocker):
 
 ### Referencias
 
-- Implementación: `01_class/ai_engineering/tests/conftest.py:14`
+- Implementación: `01_class/ai_engineering/99_tests/conftest.py:14`
 - Tests: Todos los tests en `test_main.py` usan mocks
 - Coverage: 88% con solo mocks
 
@@ -456,7 +456,7 @@ def mock_openai_client(mocker):
 ### Código
 - Repository: `ai_engineering_henry`
 - Módulo: `01_class/ai_engineering/brief_builder/`
-- Tests: `01_class/ai_engineering/tests/`
+- Tests: `01_class/ai_engineering/99_tests/`
 
 ---
 

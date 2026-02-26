@@ -53,7 +53,7 @@ def build_intent_classifier(llm: BaseChatModel):
 
 
 def heuristic_intent_router(query: str) -> IntentClassification:
-    """Cheap heuristic fallback for tests/local development."""
+    """Cheap heuristic fallback for 99_tests/local development."""
     text = query.lower()
 
     hr_terms = ["vacaciones", "beneficios", "onboarding", "rrhh", "desempeno", "reclutamiento"]

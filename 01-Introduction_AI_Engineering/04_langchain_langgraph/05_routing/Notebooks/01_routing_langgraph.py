@@ -1,4 +1,4 @@
-"""Routing architecture with LangGraph for profile-specific conversational strategy."""
+"""03_routing architecture with LangGraph for profile-specific conversational strategy."""
 
 from __future__ import annotations
 
@@ -43,7 +43,7 @@ class FinalMessage(BaseModel):
     style_used: str
 
 
-class RoutingState(TypedDict):
+class 03_routingState(TypedDict):
     context_packet: dict
     route: str
     route_rationale: str
@@ -70,7 +70,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         }
     context_packet = build_context_packet(profile=profile, architecture="routing")
 
-    def route_profile(state: RoutingState) -> dict:
+    def route_profile(state: 03_routingState) -> dict:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", "Elige la mejor estrategia: intelectual, creativo o aventura."),
@@ -81,7 +81,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         result = chain.invoke({"context_packet": json.dumps(state["context_packet"], ensure_ascii=False, indent=2)})
         return {"route": result.route, "route_rationale": result.rationale}
 
-    def intellectual_node(state: RoutingState) -> dict:
+    def intellectual_node(state: 03_routingState) -> dict:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", "Estrategia intelectual: profundidad, evidencia y curiosidad."),
@@ -96,7 +96,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         res = chain.invoke({"context_packet": json.dumps(state["context_packet"], ensure_ascii=False, indent=2)})
         return {"final": res.model_dump()}
 
-    def creative_node(state: RoutingState) -> dict:
+    def creative_node(state: 03_routingState) -> dict:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", "Estrategia creativa: imagenes, referencias culturales y tono ligero."),
@@ -111,7 +111,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         res = chain.invoke({"context_packet": json.dumps(state["context_packet"], ensure_ascii=False, indent=2)})
         return {"final": res.model_dump()}
 
-    def adventure_node(state: RoutingState) -> dict:
+    def adventure_node(state: 03_routingState) -> dict:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", "Estrategia aventura: energia, accion y experiencias de campo."),
@@ -126,14 +126,14 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         res = chain.invoke({"context_packet": json.dumps(state["context_packet"], ensure_ascii=False, indent=2)})
         return {"final": res.model_dump()}
 
-    def route_selector(state: RoutingState) -> Literal["intelectual_node", "creative_node", "adventure_node"]:
+    def route_selector(state: 03_routingState) -> Literal["intelectual_node", "creative_node", "adventure_node"]:
         if state["route"] == "intelectual":
             return "intelectual_node"
         if state["route"] == "creativo":
             return "creative_node"
         return "adventure_node"
 
-    graph = StateGraph(RoutingState)
+    graph = StateGraph(03_routingState)
     graph.add_node("route_profile", route_profile)
     graph.add_node("intelectual_node", intellectual_node)
     graph.add_node("creative_node", creative_node)
@@ -163,7 +163,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
 
     if verbose:
         print("=" * 88)
-        print("ARQUITECTURA: Routing")
+        print("ARQUITECTURA: 03_routing")
         print(f"Modelo: {model}")
         print("Context hash:", context_packet["context_hash"])
         print("\nRoute decision:")
@@ -171,7 +171,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         print("\nFinal output:")
         print(json.dumps(result["final"], ensure_ascii=False, indent=2))
         print("\n[Autocritica]")
-        print("- Routing reduce ruido cuando hay subtipos claros de input.")
+        print("- 03_routing reduce ruido cuando hay subtipos claros de input.")
         print("- Si el router clasifica mal, toda la rama posterior pierde calidad.")
 
     return result

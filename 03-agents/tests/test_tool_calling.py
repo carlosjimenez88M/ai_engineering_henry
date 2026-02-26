@@ -1,4 +1,4 @@
-"""Tests for langchain/scripts/tool_calling_agent.py"""
+"""Tests for 02_langchain/scripts/tool_calling_agent.py"""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 
 from conftest import load_module
 
-mod = load_module("langchain/scripts/tool_calling_agent.py")
+mod = load_module("02_langchain/scripts/tool_calling_agent.py")
 ToolCallingAgent = mod.ToolCallingAgent
 
 

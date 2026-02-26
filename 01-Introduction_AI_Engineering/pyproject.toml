@@ -34,8 +34,8 @@ package = false
 
 [tool.pytest.ini_options]
 testpaths = [
-    "01-introduction/ai_engineering/tests",
-    "01-introduction/python_software_engineering/tests",
+    "01_introduction/02_ai_engineering/tests",
+    "01_introduction/01_python_software_engineering/tests",
     "06_project/tests",
 ]
 python_files = ["test_*.py"]

@@ -2,7 +2,7 @@
 Router con especialistas.
 
 Uso:
-    from langchain.scripts.routing_agent import RoutingAgent
+    from langchain.scripts.routing_agent import 03_routingAgent
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ class RouterState(TypedDict):
     ruta: str
 
 
-class RoutingAgent:
+class 03_routingAgent:
     """Agente con routing a especialistas."""
 
     def __init__(

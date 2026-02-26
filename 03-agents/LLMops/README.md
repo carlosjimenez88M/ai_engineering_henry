@@ -30,10 +30,10 @@ make run-llmops-nojudge
 
 ## Artefactos
 
-- `LLMops/outputs/predictions.jsonl`
-- `LLMops/outputs/monitoring_events.jsonl`
-- `LLMops/outputs/evaluation_report.json`
-- `LLMops/outputs/evaluation_report.md`
+- `05_llmops/outputs/predictions.jsonl`
+- `05_llmops/outputs/monitoring_events.jsonl`
+- `05_llmops/outputs/evaluation_report.json`
+- `05_llmops/outputs/evaluation_report.md`
 
 ## Criterio tecnico
 

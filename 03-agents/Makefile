@@ -2,8 +2,8 @@ UV ?= uv
 PYTHON ?= python3
 VENV ?= .venv
 VENV_PY ?= $(VENV)/bin/python
-DATASET ?= LLMops/data/tickets_eval.jsonl
-OUTPUT_DIR ?= LLMops/outputs
+DATASET ?= 05_llmops/00_data/tickets_eval.jsonl
+OUTPUT_DIR ?= 05_llmops/outputs
 
 .PHONY: install sync sync-pip lint format test doctor run-llmops run-llmops-nojudge \
         notebooks-intro notebooks-langchain notebooks-multi notebooks-prod notebooks-all
@@ -54,29 +54,29 @@ run-llmops-nojudge:
 
 notebooks-intro:
 	@test -x $(VENV_PY) || $(MAKE) sync
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook intro/01-que-es-un-agente.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook intro/02-workflows-vs-agentes.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook intro/03-costo-latencia-alucinacion.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 01_intro/01_que_es_un_agente.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 01_intro/02_workflows_vs_agentes.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 01_intro/03_costo_latencia_alucinacion.ipynb
 
 notebooks-langchain:
 	@test -x $(VENV_PY) || $(MAKE) sync
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook langchain/01-tool-calling.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook langchain/02-routing-condicional.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook langchain/03-validacion-salida.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook langchain/04-rag-agentico.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook langchain/05-flujo-agentico-completo.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 02_langchain/01_tool_calling.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 02_langchain/02_routing_condicional.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 02_langchain/03_validacion_salida.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 02_langchain/04_rag_agentico.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 02_langchain/05_flujo_agentico_completo.ipynb
 
 notebooks-multi:
 	@test -x $(VENV_PY) || $(MAKE) sync
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook multi-agent/01-orquestador-workers.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook multi-agent/02-handoffs.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook multi-agent/03-resolucion-conflictos.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 03_multi_agent/01_orquestador_workers.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 03_multi_agent/02_handoffs.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 03_multi_agent/03_resolucion_conflictos.ipynb
 
 notebooks-prod:
 	@test -x $(VENV_PY) || $(MAKE) sync
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook production/01-timeouts-retries.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook production/02-fallback-guardrails.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook production/03-presupuesto-costos.ipynb
-	$(VENV_PY) -m jupyter nbconvert --execute --to notebook production/04-alertas-calidad.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 04_production/01_timeouts_retries.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 04_production/02_fallback_guardrails.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 04_production/03_presupuesto_costos.ipynb
+	$(VENV_PY) -m jupyter nbconvert --execute --to notebook 04_production/04_alertas_calidad.ipynb
 
 notebooks-all: notebooks-intro notebooks-langchain notebooks-multi notebooks-prod

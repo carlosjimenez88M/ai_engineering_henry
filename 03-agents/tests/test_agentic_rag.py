@@ -1,11 +1,11 @@
-"""Tests for langchain/scripts/agentic_rag.py"""
+"""Tests for 02_langchain/scripts/agentic_rag.py"""
 
 from __future__ import annotations
 
 from conftest import load_module
 from pydantic import ValidationError
 
-mod = load_module("langchain/scripts/agentic_rag.py")
+mod = load_module("02_langchain/scripts/agentic_rag.py")
 GradeDocument = mod.GradeDocument
 HallucinationCheck = mod.HallucinationCheck
 

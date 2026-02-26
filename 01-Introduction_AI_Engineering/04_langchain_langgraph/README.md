@@ -21,7 +21,7 @@ Este modulo implementa 6 arquitecturas del material oficial y las aterriza al ca
 
 1. Prompt chaining
 2. Parallelization
-3. Routing
+3. 03_routing
 4. Orchestrator-worker
 5. Evaluator-optimizer
 6. Agent con feedback
@@ -32,7 +32,7 @@ Este modulo implementa 6 arquitecturas del material oficial y las aterriza al ca
 |---|---|---|
 | Prompt chaining | Tarea secuencial donde cada paso depende del anterior (analizar -> generar -> refinar). | Si todo se resuelve bien en una sola llamada estable. |
 | Parallelization | Subtareas independientes que se pueden ejecutar en paralelo y luego agregar. | Si las subtareas dependen fuertemente una de otra. |
-| Routing | Tienes tipos de input claramente distintos que requieren estrategias especializadas. | Si las ramas no son distinguibles o el router no agrega valor. |
+| 03_routing | Tienes tipos de input claramente distintos que requieren estrategias especializadas. | Si las ramas no son distinguibles o el router no agrega valor. |
 | Orchestrator-worker | Necesitas descomponer dinamicamente en N subtareas (N variable) y sintetizar resultados. | Si N siempre es 1 o 2 fijo y la complejidad extra no compensa. |
 | Evaluator-optimizer | La calidad importa mas que latencia y necesitas ciclo de mejora guiado por criterios. | Si tu SLA de latencia es estricto o costo es prioridad absoluta. |
 | Agent con feedback | Necesitas herramientas + razonamiento iterativo + control de calidad en loop. | Si no hay tools reales o el problema es deterministico de bajo riesgo. |
@@ -45,8 +45,8 @@ Este modulo implementa 6 arquitecturas del material oficial y las aterriza al ca
 - `04_langchain_langgraph/04_evaluator_optimizer/Notebooks`
 - `04_langchain_langgraph/05_routing/Notebooks`
 - `04_langchain_langgraph/06_agent_feedback/Notebooks`
-- `04_langchain_langgraph/common/context_engineering.py`
-- `04_langchain_langgraph/tools/execute_notebooks.py`
+- `04_langchain_langgraph/00_common/context_engineering.py`
+- `04_langchain_langgraph/00_tools/execute_notebooks.py`
 
 Cada arquitectura incluye:
 - script `.py` ejecutable,
@@ -59,7 +59,7 @@ Sigue este orden para construir abstracción de menor a mayor complejidad:
 
 1. Prompt chaining
 2. Parallelization
-3. Routing
+3. 03_routing
 4. Orchestrator-worker
 5. Evaluator-optimizer
 6. Agent con feedback
@@ -85,7 +85,7 @@ Esto permite comparar salidas entre arquitecturas sin contaminar por ruido de co
 
 ```bash
 uv sync
-uv run python 04_langchain_langgraph/tools/execute_notebooks.py
+uv run python 04_langchain_langgraph/00_tools/execute_notebooks.py
 ```
 
 ## Critica tecnica (honesta)

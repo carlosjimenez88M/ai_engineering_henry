@@ -25,7 +25,7 @@ DATABASE_NOTEBOOKS = [
 ]
 
 INTRO_NOTEBOOKS = [
-    ROOT / "intro" / "01_rag_tfidf.ipynb",
+    ROOT / "intro" / "02_rag_tfidf.ipynb",
 ]
 
 ALL_NOTEBOOKS = DATABASE_NOTEBOOKS + INTRO_NOTEBOOKS + BATMAN_NOTEBOOKS

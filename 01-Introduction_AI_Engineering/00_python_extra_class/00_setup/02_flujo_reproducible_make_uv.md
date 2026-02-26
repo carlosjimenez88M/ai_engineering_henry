@@ -1,11 +1,11 @@
 # Flujo reproducible con Makefile + uv
 
-Este proyecto incluye un `Makefile` en `python_extra_class/`.
+Este proyecto incluye un `Makefile` en `00_python_extra_class/`.
 
 ## 1. Comandos disponibles
 
 ```bash
-cd python_extra_class
+cd 00_python_extra_class
 make help
 ```
 

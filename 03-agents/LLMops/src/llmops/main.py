@@ -25,11 +25,11 @@ def run(
     dataset: Annotated[
         Path,
         typer.Option(help="Path to JSONL evaluation dataset."),
-    ] = Path("LLMops/data/tickets_eval.jsonl"),
+    ] = Path("05_llmops/00_data/tickets_eval.jsonl"),
     output_dir: Annotated[
         Path,
         typer.Option(help="Directory where predictions and reports are stored."),
-    ] = Path("LLMops/outputs"),
+    ] = Path("05_llmops/outputs"),
     model: Annotated[
         str,
         typer.Option(envvar="OPENAI_MODEL", help="OpenAI model name."),

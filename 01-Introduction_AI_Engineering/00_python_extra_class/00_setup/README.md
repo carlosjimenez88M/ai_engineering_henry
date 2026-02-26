@@ -1,13 +1,13 @@
 # 00 - Setup de Entorno (Windows, Linux, macOS)
 
-Objetivo de este modulo: dejar un entorno reproducible para ejecutar todo `python_extra_class` con `make` y `uv`.
+Objetivo de este modulo: dejar un entorno reproducible para ejecutar todo `00_python_extra_class` con `make` y `uv`.
 
 ## Resultado esperado
 
 Al finalizar este modulo deberias poder correr:
 
 ```bash
-cd python_extra_class
+cd 00_python_extra_class
 make test
 make run-pydantic
 ```

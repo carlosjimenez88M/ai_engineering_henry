@@ -1,6 +1,6 @@
 # Clase 03: LangChain Prompting Avanzado (CoT + ReAct + Context Engineering)
 
-Esta clase toma la lógica de `02-prompting` y la evoluciona a un patrón de ingeniería más cercano a producción con **LangChain**.
+Esta clase toma la lógica de `02_prompting` y la evoluciona a un patrón de ingeniería más cercano a producción con **LangChain**.
 
 ## Qué vas a dominar en esta clase
 
@@ -67,17 +67,17 @@ No es "poner más contexto". Es diseñar **contexto útil, mínimo y trazable**.
 ## Estructura del módulo (versión guiada)
 
 - `03_langchain_prompting/COT_LangChain/Notebooks/cot_langchain_aplicado.ipynb`
-  - Evoluciona los ejemplos CoT de `02-prompting/COT` a LangChain.
+  - Evoluciona los ejemplos CoT de `02_prompting/COT` a LangChain.
   - Incluye zero-shot, few-shot y feedback loop con rúbrica.
 
 - `03_langchain_prompting/ReAct_LangChain/Notebooks/react_langchain_aplicado.ipynb`
-  - Evoluciona los ejemplos ReAct de `02-prompting/ReAct` a LangChain.
+  - Evoluciona los ejemplos ReAct de `02_prompting/ReAct` a LangChain.
   - Incluye tools, loop ReAct, guardrails y context engineering explícito.
 
-- `03_langchain_prompting/common/context_engineering.py`
+- `03_langchain_prompting/00_common/context_engineering.py`
   - Utilidades para construir `context packets` limpios y trazables.
 
-- `03_langchain_prompting/tools/execute_notebooks.py`
+- `03_langchain_prompting/00_tools/execute_notebooks.py`
   - Ejecuta notebooks y guarda artefactos `.executed.ipynb`.
 
 ### Orden recomendado para principiantes
@@ -107,5 +107,5 @@ uv sync
 2. Ejecuta notebooks de la clase:
 
 ```bash
-uv run python 03_langchain_prompting/tools/execute_notebooks.py
+uv run python 03_langchain_prompting/00_tools/execute_notebooks.py
 ```

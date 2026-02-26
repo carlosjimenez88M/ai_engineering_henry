@@ -6,9 +6,9 @@ Este modulo explora patrones de coordinacion entre multiples agentes especializa
 
 | Notebook | Tema | Descripcion |
 |----------|------|-------------|
-| `01-orquestador-workers.ipynb` | Orquestacion | Un agente descompone tareas y despacha a workers |
-| `02-handoffs.ipynb` | Hand-offs | Transferencia de control entre agentes |
-| `03-resolucion-conflictos.ipynb` | Conflictos | Votacion, debate y juez para resolver discrepancias |
+| `01_orquestador_workers.ipynb` | Orquestacion | Un agente descompone tareas y despacha a workers |
+| `02_handoffs.ipynb` | Hand-offs | Transferencia de control entre agentes |
+| `03_resolucion_conflictos.ipynb` | Conflictos | Votacion, debate y juez para resolver discrepancias |
 
 ## Scripts
 
@@ -17,5 +17,5 @@ Este modulo explora patrones de coordinacion entre multiples agentes especializa
 
 ## Prerequisitos
 
-- Notebooks de `langchain/` completados
+- Notebooks de `02_langchain/` completados
 - ChromaDB con datos de comics indexados

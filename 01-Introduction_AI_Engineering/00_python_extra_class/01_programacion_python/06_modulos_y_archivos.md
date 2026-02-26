@@ -53,14 +53,14 @@ mi_proyecto/
   src/
     app.py
     utils.py
-  tests/
+  99_tests/
     test_app.py
   pyproject.toml
 ```
 
 Regla practica:
 - Codigo en `src/`
-- Tests en `tests/`
+- Tests en `99_tests/`
 - Dependencias en `pyproject.toml`
 
 ## 7. Aplicacion a AI/ML

@@ -45,13 +45,13 @@ llmops-run = "llmops.main:app"
 package = true
 
 [tool.setuptools]
-package-dir = {"" = "LLMops/src"}
+package-dir = {"" = "05_llmops/src"}
 
 [tool.setuptools.packages.find]
-where = ["LLMops/src"]
+where = ["05_llmops/src"]
 
 [tool.pytest.ini_options]
-testpaths = ["LLMops/tests", "tests"]
+testpaths = ["05_llmops/tests", "tests"]
 python_files = ["test_*.py"]
 addopts = [
   "-v",

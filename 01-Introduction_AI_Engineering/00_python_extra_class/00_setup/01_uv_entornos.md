@@ -24,7 +24,7 @@ uv --version
 
 ## 3. Crear entorno virtual del modulo
 
-Desde `python_extra_class/`:
+Desde `00_python_extra_class/`:
 
 ```bash
 uv venv

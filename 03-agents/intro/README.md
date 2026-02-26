@@ -6,9 +6,9 @@ Este modulo introduce los conceptos fundamentales de agentes de IA, desde la ana
 
 | Notebook | Tema | Descripcion |
 |----------|------|-------------|
-| `01-que-es-un-agente.ipynb` | Agente minimo | Loop ReAct con OpenAI API pura, tool calls, anatomia |
-| `02-workflows-vs-agentes.ipynb` | Patrones | Workflow lineal vs agente dinamico, taxonomia Anthropic |
-| `03-costo-latencia-alucinacion.ipynb` | Metricas | Token economics, latencia, alucinacion, LLM-as-judge |
+| `01_que_es_un_agente.ipynb` | Agente minimo | Loop ReAct con OpenAI API pura, tool calls, anatomia |
+| `02_workflows_vs_agentes.ipynb` | Patrones | Workflow lineal vs agente dinamico, taxonomia Anthropic |
+| `03_costo_latencia_alucinacion.ipynb` | Metricas | Token economics, latencia, alucinacion, LLM-as-judge |
 
 ## Script
 

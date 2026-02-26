@@ -15,13 +15,13 @@ Un agente en produccion no se evalua por "demo bonita", sino por:
 
 ```
 03-agents/
-├── intro/              # Fundamentos: agente minimo, workflows vs agentes, metricas
-├── langchain/          # LangChain/LangGraph: tools, routing, RAG agentico, agente completo
-├── multi-agent/        # Coordinacion: orquestador-workers, handoffs, resolucion de conflictos
-├── production/         # Hardening: retries, guardrails, presupuestos, alertas de calidad
-├── LLMops/             # Ejemplo aplicado completo (triage de tickets)
-├── data/               # Corpus de comics Batman y Spider-Man
-└── tests/              # Tests unitarios para scripts
+├── 01_intro/              # Fundamentos: agente minimo, workflows vs agentes, metricas
+├── 02_langchain/          # LangChain/LangGraph: tools, routing, RAG agentico, agente completo
+├── 03_multi_agent/        # Coordinacion: orquestador-workers, handoffs, resolucion de conflictos
+├── 04_production/         # Hardening: retries, guardrails, presupuestos, alertas de calidad
+├── 05_llmops/             # Ejemplo aplicado completo (triage de tickets)
+├── 00_data/               # Corpus de comics Batman y Spider-Man
+└── 99_tests/              # Tests unitarios para scripts
 ```
 
 ## Setup
@@ -48,17 +48,17 @@ make notebooks-langchain  # Solo notebooks de langchain
 
 El corpus usa narrativas originales de comics:
 
-- `data/batman_comics.json` — 12 narrativas (~12,000 palabras)
-- `data/spiderman_comics.json` — 12 narrativas (~12,000 palabras)
-- `data/comics_eval.jsonl` — 10 preguntas de evaluacion con keywords
+- `00_data/batman_comics.json` — 12 narrativas (~12,000 palabras)
+- `00_data/spiderman_comics.json` — 12 narrativas (~12,000 palabras)
+- `00_data/comics_eval.jsonl` — 10 preguntas de evaluacion con keywords
 
 ## Recorrido sugerido
 
-1. **intro/** — Entender que es un agente, cuando usarlo, cuanto cuesta
-2. **langchain/** — Implementar agentes con framework, culminando en RAG agentico
-3. **multi-agent/** — Coordinar multiples agentes
-4. **production/** — Preparar agentes para produccion
-5. **LLMops/** — Ver un pipeline completo en accion
+1. **01_intro/** — Entender que es un agente, cuando usarlo, cuanto cuesta
+2. **02_langchain/** — Implementar agentes con framework, culminando en RAG agentico
+3. **03_multi_agent/** — Coordinar multiples agentes
+4. **04_production/** — Preparar agentes para produccion
+5. **05_llmops/** — Ver un pipeline completo en accion
 
 ## Modelo
 

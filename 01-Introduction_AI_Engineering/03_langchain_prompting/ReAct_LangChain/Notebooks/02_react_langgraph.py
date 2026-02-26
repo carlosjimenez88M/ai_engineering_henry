@@ -4,7 +4,7 @@ Este modulo migra la implementacion manual de ReAct a LangGraph, habilitando:
 - Visualizacion de grafos con draw_mermaid_png()
 - ToolNode integrado para ejecucion de herramientas
 - Gestion de estado con mensajes (LangChain pattern)
-- Routing automatico entre agent y tools
+- 03_routing automatico entre agent y tools
 - Mejor debugging y trazabilidad
 """
 

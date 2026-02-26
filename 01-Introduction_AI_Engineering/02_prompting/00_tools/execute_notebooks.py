@@ -11,7 +11,7 @@ from nbclient import NotebookClient
 ROOT = Path(__file__).resolve().parents[2]
 NOTEBOOKS = sorted(
     p
-    for p in (ROOT / "02-prompting").rglob("*.ipynb")
+    for p in (ROOT / "02_prompting").rglob("*.ipynb")
     if not p.name.endswith(".executed.ipynb")
 )
 

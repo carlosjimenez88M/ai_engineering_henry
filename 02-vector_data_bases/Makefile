@@ -33,4 +33,4 @@ run-notebook:
 run-batman-module:
 	@test -x $(VENV_PY) || $(MAKE) sync
 	mkdir -p .cache/matplotlib
-	MPLCONFIGDIR=$$(pwd)/.cache/matplotlib XDG_CACHE_HOME=$$(pwd)/.cache $(VENV_PY) tools/execute_notebooks.py
+	MPLCONFIGDIR=$$(pwd)/.cache/matplotlib XDG_CACHE_HOME=$$(pwd)/.cache $(VENV_PY) 00_tools/execute_notebooks.py

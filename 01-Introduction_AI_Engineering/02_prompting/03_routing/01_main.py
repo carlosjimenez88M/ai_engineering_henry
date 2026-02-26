@@ -1,5 +1,5 @@
 '''
-Workflow with Routing Pattern for AI Engineering.
+Workflow with 03_routing Pattern for AI Engineering.
 Objetivo: Implementar un 'Router' que decide dinámicamente qué flujo de trabajo
           ejecutar según la intención del usuario (Seducción, Disculpa, Casual).
 Release Date: 2026-02-10
@@ -160,7 +160,7 @@ def main(topic):
     }
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="AI Message Generator con Routing Pattern")
+    parser = argparse.ArgumentParser(description="AI Message Generator con 03_routing Pattern")
     
     parser.add_argument(
         '-t', '--topic', 

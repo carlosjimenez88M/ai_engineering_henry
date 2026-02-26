@@ -1,4 +1,4 @@
-"""Tests for production/scripts/resilient_agent.py"""
+"""Tests for 04_production/scripts/resilient_agent.py"""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 
 from conftest import load_module
 
-mod = load_module("production/scripts/resilient_agent.py")
+mod = load_module("04_production/scripts/resilient_agent.py")
 CircuitBreaker = mod.CircuitBreaker
 TokenBudget = mod.TokenBudget
 CallResult = mod.CallResult

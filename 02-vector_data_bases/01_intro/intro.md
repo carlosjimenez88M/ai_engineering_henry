@@ -12,7 +12,7 @@ Las **bases de datos vectoriales** resuelven esto: convierten texto en vectores 
 
 ## Contenido de la notebook
 
-La notebook `01_rag_tfidf.ipynb` implementa y compara 3 enfoques progresivos sobre un corpus real (~15K palabras de Don Quijote, capitulos I-VIII):
+La notebook `02_rag_tfidf.ipynb` implementa y compara 3 enfoques progresivos sobre un corpus real (~15K palabras de Don Quijote, capitulos I-VIII):
 
 ### Seccion 1: Context Stuffing
 
@@ -89,7 +89,7 @@ Ejecucion:
 
 ```bash
 # Interactiva (VS Code apunta al venv via .vscode/settings.json)
-# Abrir intro/01_rag_tfidf.ipynb y ejecutar todas las celdas
+# Abrir 01_intro/02_rag_tfidf.ipynb y ejecutar todas las celdas
 
 # Headless
 make run-notebook

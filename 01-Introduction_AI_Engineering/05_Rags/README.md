@@ -605,7 +605,7 @@ El sistema evalua la calidad de su propio retrieval y generacion:
 
 Esta arquitectura la implementaremos con **prompt chaining** en la Notebook 03.
 
-### 8.3 RAG con Routing Multi-Dominio
+### 8.3 RAG con 03_routing Multi-Dominio
 
 Cuando tienes multiples bases de conocimiento (RRHH, Tech, Legal), un router clasifica la intencion y dirige al retriever especializado:
 
@@ -663,7 +663,7 @@ Query Analysis → Retrieval → Context Grading → Generation → Answer Valid
 - Latencia es critica (< 2s)
 - El costo de tokens es prioridad absoluta
 
-### Enfoque 2: Routing
+### Enfoque 2: 03_routing
 
 Decision condicional que dirige al agente especializado:
 
@@ -680,7 +680,7 @@ Decision condicional que dirige al agente especializado:
 
 ### Comparacion directa
 
-| Aspecto | Prompt Chaining | Routing |
+| Aspecto | Prompt Chaining | 03_routing |
 |---------|----------------|---------|
 | **Estructura** | Secuencial (A→B→C→D) | Condicional (A→{B\|C\|D}) |
 | **Foco** | Calidad de una respuesta | Especializacion por dominio |
@@ -689,7 +689,7 @@ Decision condicional que dirige al agente especializado:
 | **Complejidad** | Media-alta | Media |
 | **Mejor para** | RAG critico con autocorreccion | RAG multi-dominio |
 
-**En la practica, se combinan**: Routing selecciona el dominio, y dentro de cada dominio el agente usa prompt chaining para asegurar calidad.
+**En la practica, se combinan**: 03_routing selecciona el dominio, y dentro de cada dominio el agente usa prompt chaining para asegurar calidad.
 
 ---
 
@@ -740,9 +740,9 @@ RAG no es la solucion universal. No lo uses cuando:
 ## 12. Estructura del Modulo
 
 ```text
-05_Rags/
+05_rags/
   README.md                                          ← Este documento
-  data/
+  00_data/
     base_conocimiento_productos.md                   ← KB de productos (para demos)
     base_conocimiento_tecnica.md                     ← KB tecnica (para demos)
   Notebooks/
@@ -807,13 +807,13 @@ OPENAI_MODEL=gpt-4o-mini
 
 ```bash
 # Desde la raiz del proyecto
-cd 05_Rags
+cd 05_rags
 
 # Opcion 1: Ejecutar notebooks interactivamente
 jupyter notebook Notebooks/01_bases_datos_vectoriales.ipynb
 
 # Opcion 2: Ejecutar todas las notebooks (validacion)
-uv run python ../tools/execute_notebooks.py 05_Rags/Notebooks/
+uv run python ../00_tools/execute_notebooks.py 05_rags/Notebooks/
 ```
 
 ---

@@ -1,4 +1,4 @@
-"""Tests for intro/scripts/agent_anatomy.py"""
+"""Tests for 01_intro/scripts/agent_anatomy.py"""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from unittest.mock import MagicMock
 
 from conftest import load_module
 
-mod = load_module("intro/scripts/agent_anatomy.py")
+mod = load_module("01_intro/scripts/agent_anatomy.py")
 CostTracker = mod.CostTracker
 AgentResult = mod.AgentResult
 AgentMetrics = mod.AgentMetrics

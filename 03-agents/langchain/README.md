@@ -6,11 +6,11 @@ Este modulo implementa agentes progresivamente mas complejos usando LangChain y 
 
 | Notebook | Tema | Descripcion |
 |----------|------|-------------|
-| `01-tool-calling.ipynb` | Tools | `@tool` decorator, binding, ToolNode, structured output |
-| `02-routing-condicional.ipynb` | Routing | Router LLM, especialistas, conditional edges |
-| `03-validacion-salida.ipynb` | Validacion | Pydantic schemas, retry loops, guardrails |
-| `04-rag-agentico.ipynb` | **RAG** | RAG basico → grading → hallucination check (ChromaDB) |
-| `05-flujo-agentico-completo.ipynb` | **Agente** | Agente completo con 4 tools, multi-step reasoning |
+| `01_tool_calling.ipynb` | Tools | `@tool` decorator, binding, ToolNode, structured output |
+| `02_routing_condicional.ipynb` | 03_routing | Router LLM, especialistas, conditional edges |
+| `03_validacion_salida.ipynb` | Validacion | Pydantic schemas, retry loops, guardrails |
+| `04_rag_agentico.ipynb` | **RAG** | RAG basico → grading → hallucination check (ChromaDB) |
+| `05_flujo_agentico_completo.ipynb` | **Agente** | Agente completo con 4 tools, multi-step reasoning |
 
 ## Scripts
 
@@ -21,13 +21,13 @@ Este modulo implementa agentes progresivamente mas complejos usando LangChain y 
 
 ## Datos
 
-Los notebooks usan los datos de `../data/`:
+Los notebooks usan los datos de `../00_data/`:
 - `batman_comics.json` — 12 narrativas de Batman
 - `spiderman_comics.json` — 12 narrativas de Spider-Man
 - `comics_eval.jsonl` — 10 preguntas de evaluacion
 
 ## Prerequisitos
 
-- Notebooks de `intro/` completados
+- Notebooks de `01_intro/` completados
 - `make sync` ejecutado desde `03-agents/`
 - ChromaDB se inicializa in-memory en cada notebook

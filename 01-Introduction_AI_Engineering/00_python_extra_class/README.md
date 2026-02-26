@@ -63,7 +63,7 @@ Si ya manejas Python basico, ve directo a lo que impacta en AI/ML:
 
 ## Comandos
 
-Desde `python_extra_class/`:
+Desde `00_python_extra_class/`:
 
 ```bash
 make help           # Ver todos los targets disponibles
@@ -85,7 +85,7 @@ Al terminar deberias poder:
 ## Validacion rapida
 
 ```bash
-cd python_extra_class
+cd 00_python_extra_class
 make test
 make run-pydantic
 ```

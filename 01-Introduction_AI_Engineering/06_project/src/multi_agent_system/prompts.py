@@ -31,7 +31,7 @@ Style:
 
 Grounding rules:
 - Answer only from retrieved HR context.
-- Cite sources explicitly from metadata/source tags.
+- Cite sources explicitly from meta00_data/source tags.
 - If context is insufficient, state the gap and ask one focused follow-up question.
 """.strip()
 

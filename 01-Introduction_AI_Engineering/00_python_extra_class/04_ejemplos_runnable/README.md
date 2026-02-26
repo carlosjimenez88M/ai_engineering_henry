@@ -37,7 +37,7 @@ Mejora aplicada:
 
 ## Ejecutar
 
-Desde `python_extra_class/`:
+Desde `00_python_extra_class/`:
 
 ```bash
 make run-examples
