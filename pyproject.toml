@@ -57,18 +57,18 @@ llmops-run = "llmops.main:app"
 package = true
 
 [tool.setuptools]
-package-dir = {"" = "03_agents/05_llmops/src"}
+package-dir = {"" = "03-agents/LLMops/src"}
 
 [tool.setuptools.packages.find]
-where = ["03_agents/05_llmops/src"]
+where = ["03-agents/LLMops/src"]
 
 [tool.pytest.ini_options]
 testpaths = [
     "01_introduction/02_ai_engineering/tests",
     "01_introduction/01_python_software_engineering/tests",
     "06_project/tests",
-    "03_agents/05_llmops/tests",
-    "03_agents/99_tests"
+    "03-agents/LLMops/tests",
+    "03-agents/tests"
 ]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]

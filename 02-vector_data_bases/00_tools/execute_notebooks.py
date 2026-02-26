@@ -11,21 +11,21 @@ from nbclient import NotebookClient
 ROOT = Path(__file__).resolve().parents[1]
 
 BATMAN_NOTEBOOKS = [
-    ROOT / "batman_vector_db_orchestration" / "01_diseno_vector_db_batman.ipynb",
-    ROOT / "batman_vector_db_orchestration" / "02_rag_vs_agentic_rag_batman.ipynb",
-    ROOT / "batman_vector_db_orchestration" / "03_routing_orquestacion_simple.ipynb",
-    ROOT / "batman_vector_db_orchestration" / "04_ejercicio_agent2agent_batman_rag.ipynb",
-    ROOT / "batman_vector_db_orchestration" / "05_agent2agent_roles_router_batman.ipynb",
+    ROOT / "04_batman_vector_db_orchestration" / "01_diseno_vector_db_batman.ipynb",
+    ROOT / "04_batman_vector_db_orchestration" / "02_rag_vs_agentic_rag_batman.ipynb",
+    ROOT / "04_batman_vector_db_orchestration" / "03_routing_orquestacion_simple.ipynb",
+    ROOT / "04_batman_vector_db_orchestration" / "04_ejercicio_agent2agent_batman_rag.ipynb",
+    ROOT / "04_batman_vector_db_orchestration" / "05_agent2agent_roles_router_batman.ipynb",
 ]
 
 DATABASE_NOTEBOOKS = [
-    ROOT / "databases" / "01-bases-vectoriales-fundamentos.ipynb",
-    ROOT / "databases" / "02-bases-vectoriales-produccion.ipynb",
-    ROOT / "databases" / "03-comparacion-modelos-embeddings-rayuela.ipynb",
+    ROOT / "02_databases" / "01-bases-vectoriales-fundamentos.ipynb",
+    ROOT / "02_databases" / "02-bases-vectoriales-produccion.ipynb",
+    ROOT / "02_databases" / "03-comparacion-modelos-embeddings-rayuela.ipynb",
 ]
 
 INTRO_NOTEBOOKS = [
-    ROOT / "intro" / "02_rag_tfidf.ipynb",
+    ROOT / "01_intro" / "02_rag_tfidf.ipynb",
 ]
 
 ALL_NOTEBOOKS = DATABASE_NOTEBOOKS + INTRO_NOTEBOOKS + BATMAN_NOTEBOOKS
