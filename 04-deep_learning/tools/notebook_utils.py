@@ -5,12 +5,9 @@ import random
 from dataclasses import dataclass
 from typing import Iterable
 
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-
-matplotlib.use("Agg")
 
 SMOKE_ENV_VAR = "HENRY_DL_SMOKE"
 ONLINE_ENV_VAR = "HENRY_DL_ONLINE_MODE"

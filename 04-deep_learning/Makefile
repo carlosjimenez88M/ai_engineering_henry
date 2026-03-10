@@ -2,11 +2,12 @@ UV ?= uv
 VENV ?= .venv
 VENV_PY ?= $(VENV)/bin/python
 
-.PHONY: help sync test lint format doctor corpus-check notebooks-smoke notebooks-all clean
+.PHONY: help sync kernel test lint format doctor corpus-check notebooks-smoke notebooks-all clean
 
 help:
 	@echo "Comandos disponibles en 04-deep_learning:"
-	@echo "  make sync            - Instala dependencias del modulo"
+	@echo "  make sync            - Instala dependencias y registra el kernel de Jupyter"
+	@echo "  make kernel          - Re-registra el kernel sin reinstalar dependencias"
 	@echo "  make test            - Ejecuta la suite de tests del modulo"
 	@echo "  make doctor          - Reporta entorno, hardware y variables utiles"
 	@echo "  make corpus-check    - Valida el corpus local de Las mil y una noches"
@@ -18,6 +19,11 @@ help:
 
 sync:
 	$(UV) sync --extra dev
+	$(VENV_PY) -m ipykernel install --user --name henry-deep-learning --display-name "Henry Deep Learning"
+
+kernel:
+	@test -x $(VENV_PY) || $(MAKE) sync
+	$(VENV_PY) -m ipykernel install --user --name henry-deep-learning --display-name "Henry Deep Learning"
 
 test:
 	@test -x $(VENV_PY) || $(MAKE) sync

@@ -2,10 +2,10 @@
 name = "henry-deep-learning"
 version = "0.2.0"
 description = "Modulo de Deep Learning ejecutable y reproducible en Henry"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.11"
 dependencies = [
-  "torch>=2.4.0",
-  "torchvision>=0.19.0",
+  "torch>=2.5.0",
+  "torchvision>=0.20.0",
   "transformers>=4.45.0",
   "sentencepiece>=0.2.0",
   "numpy>=1.26.0",
@@ -29,17 +29,18 @@ dev = [
 ]
 
 [tool.uv]
-package = false
+package = true
 
-[tool.setuptools]
-py-modules = []
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tools*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
+target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "W"]

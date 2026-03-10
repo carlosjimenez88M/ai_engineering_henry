@@ -4,7 +4,7 @@ Material base recomendado: [09_artificial_neural_networks.ipynb](https://github.
 
 ## Que estudia esta clase
 
-El paso desde modelos lineales hacia redes neuronales multicapa. Aqui aparece la idea central de todo el modulo: una red profunda no es magia, es una composicion de funciones parametrizadas que aprende representaciones utiles.
+El paso desde modelos clásicos de machine learning hacia redes neuronales multicapa. Aquí aparece la idea central de todo el modulo: una red profunda no es magia, es una composicion de funciones parametrizadas que aprende representaciones utiles.
 
 ## Por que existe esta clase
 
