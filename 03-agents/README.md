@@ -1,65 +1,61 @@
-# Modulo 3: Agents
+# Modulo 3: Agentes
 
-Este modulo cubre el ciclo completo de agentes de IA: desde fundamentos teoricos hasta produccion, pasando por frameworks (LangChain/LangGraph), RAG agentico con ChromaDB, coordinacion multi-agente, y hardening operativo.
+Este modulo organiza el contenido de agentes de menor a mayor complejidad: primero fundamentos, luego frameworks, despues coordinacion multi-agente y finalmente hardening y LLMops.
 
-## Objetivo academico
+## Estructura por tema
 
-Un agente en produccion no se evalua por "demo bonita", sino por:
+| Orden | Bloque | Ruta |
+|---|---|---|
+| 01 | Fundamentos | `01_intro/` |
+| 02 | Agentes con LangChain/LangGraph | `02_langchain/` |
+| 03 | Coordinacion multi-agente | `03_multi_agent/` |
+| 04 | Produccion | `04_production/` |
+| 05 | LLMops aplicado | `05_llmops/` |
 
-1. **Calidad** de salida bajo distribucion real
-2. **Trazabilidad** — que hizo, cuando, con que costo
-3. **Evaluacion** reproducible
-4. **Resiliencia** — fallo controlado, fallback, presupuestos
+## Recorrido recomendado
 
-## Estructura
+1. `01_intro/` para entender que es un agente y cuando no usarlo.
+2. `01_intro/04_panorama_agentes_modernos.ipynb` como notebook puente antes de entrar a frameworks.
+3. `02_langchain/` para tool calling, routing, validacion y RAG agentico.
+4. `03_multi_agent/` para orquestacion y handoffs.
+5. `04_production/` para resiliencia, guardrails y control de costos.
+6. `05_llmops/` para ver un pipeline completo con evaluacion y monitoreo.
 
-```
-03-agents/
-├── 01_intro/              # Fundamentos: agente minimo, workflows vs agentes, metricas
-├── 02_langchain/          # LangChain/LangGraph: tools, routing, RAG agentico, agente completo
-├── 03_multi_agent/        # Coordinacion: orquestador-workers, handoffs, resolucion de conflictos
-├── 04_production/         # Hardening: retries, guardrails, presupuestos, alertas de calidad
-├── 05_llmops/             # Ejemplo aplicado completo (triage de tickets)
-├── 00_data/               # Corpus de comics Batman y Spider-Man
-└── 99_tests/              # Tests unitarios para scripts
-```
+## Datos y soporte
 
-## Setup
+- `00_data/`: corpus de Batman y Spider-Man para notebooks y scripts.
+- `99_tests/`: tests unitarios del modulo de agentes.
+- `05_llmops/00_data/`: dataset del caso de triage de tickets.
+- `05_llmops/outputs/`: artefactos generados al correr el pipeline.
+
+## Comandos utiles
 
 ```bash
 cd 03-agents
 uv sync --extra dev
-cp ../.env .env  # Debe contener OPENAI_API_KEY
+make test
+make doctor
+make run-llmops
+make notebooks-intro
+make notebooks-langchain
+make notebooks-multi
+make notebooks-prod
 ```
 
-## Comandos
+## Modelos por defecto
 
-```bash
-make test              # Ejecutar tests
-make lint              # Linting con ruff
-make doctor            # Verificar .env + DNS + conectividad OpenAI
-make run-llmops        # Pipeline LLMops completo
-make notebooks-all     # Ejecutar todos los notebooks
-make notebooks-intro   # Solo notebooks de intro
-make notebooks-langchain  # Solo notebooks de langchain
-```
+- `gpt-5-mini` en el caso `05_llmops/`
+- OpenAI API key requerida para ejemplos que llaman al modelo real
 
-## Datos
+## Instalacion del modulo
 
-El corpus usa narrativas originales de comics:
+- `pyproject.toml` en la raiz del modulo permite instalar todo `03-agents/` con `uv sync --extra dev`.
+- `05_llmops/` sigue expuesto como paquete instalable dentro del modulo.
 
-- `00_data/batman_comics.json` — 12 narrativas (~12,000 palabras)
-- `00_data/spiderman_comics.json` — 12 narrativas (~12,000 palabras)
-- `00_data/comics_eval.jsonl` — 10 preguntas de evaluacion con keywords
+## Readmes por bloque
 
-## Recorrido sugerido
-
-1. **01_intro/** — Entender que es un agente, cuando usarlo, cuanto cuesta
-2. **02_langchain/** — Implementar agentes con framework, culminando en RAG agentico
-3. **03_multi_agent/** — Coordinar multiples agentes
-4. **04_production/** — Preparar agentes para produccion
-5. **05_llmops/** — Ver un pipeline completo en accion
-
-## Modelo
-
-Todos los notebooks usan `gpt-5-mini` por defecto. Configurar en `.env`.
+- [01_intro/README.md](./01_intro/README.md)
+- [02_langchain/README.md](./02_langchain/README.md)
+- [03_multi_agent/README.md](./03_multi_agent/README.md)
+- [04_production/README.md](./04_production/README.md)
+- [05_llmops/README.md](./05_llmops/README.md)

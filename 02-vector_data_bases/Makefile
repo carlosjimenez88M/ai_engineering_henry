@@ -8,7 +8,7 @@ VENV_PY ?= $(VENV)/bin/python
 install: sync
 
 sync:
-	$(UV) sync || $(MAKE) sync-pip
+	$(UV) sync --extra dev || $(MAKE) sync-pip
 
 sync-pip:
 	@test -d $(VENV) || $(PYTHON) -m venv $(VENV)
@@ -25,7 +25,11 @@ format:
 
 test:
 	@test -x $(VENV_PY) || $(MAKE) sync
-	$(VENV_PY) -m pytest
+	@if find . -path '*/.venv' -prune -o -name 'test*.py' -print -quit | grep -q .; then \
+		$(VENV_PY) -m pytest; \
+	else \
+		echo "No hay tests automatizados en 02-vector_data_bases. Usa 'make run-batman-module' para validacion funcional."; \
+	fi
 
 run-notebook:
 	$(MAKE) run-batman-module

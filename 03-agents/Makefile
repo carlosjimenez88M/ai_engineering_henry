@@ -33,10 +33,10 @@ test:
 doctor:
 	@test -x $(VENV_PY) || $(MAKE) sync
 	@echo "== Doctor: entorno y conectividad OpenAI =="
-	@set -a; [ -f .env ] && . ./.env || true; set +a; \
+	@set -a; if [ -f .env ]; then . ./.env; elif [ -f ../.env ]; then . ../.env; fi; set +a; \
 	$(VENV_PY) -c 'from dotenv import load_dotenv; import os,sys; load_dotenv(); k=os.getenv("OPENAI_API_KEY"); print("OPENAI_API_KEY:", "OK" if k else "MISSING", f"(len={len(k) if k else 0})"); sys.exit(0 if k else 1)'
 	@nslookup api.openai.com >/dev/null
-	@set -a; [ -f .env ] && . ./.env || true; set +a; \
+	@set -a; if [ -f .env ]; then . ./.env; elif [ -f ../.env ]; then . ../.env; fi; set +a; \
 	code=$$(curl -sS -o /tmp/openai_models_doctor.json -w "%{http_code}" https://api.openai.com/v1/models -H "Authorization: Bearer $$OPENAI_API_KEY"); \
 	echo "OpenAI /v1/models HTTP $$code"; \
 	test "$$code" = "200"

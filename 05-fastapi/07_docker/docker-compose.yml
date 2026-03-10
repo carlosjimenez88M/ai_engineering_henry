@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    container_name: henry-dc-comics-api
+    ports:
+      - "8007:8007"
+    environment:
+      PYTHONPATH: /src
+
+  test:
+    build: .
+    container_name: henry-dc-comics-test
+    environment:
+      PYTHONPATH: /src
+    command: pytest tests/ -v --tb=short

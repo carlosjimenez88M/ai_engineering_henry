@@ -1,111 +1,39 @@
-# Clase 03: LangChain Prompting Avanzado (CoT + ReAct + Context Engineering)
+# Clase 03: LangChain Prompting
 
-Esta clase toma la lógica de `02_prompting` y la evoluciona a un patrón de ingeniería más cercano a producción con **LangChain**.
+Esta clase toma los ejercicios de `02_prompting/` y los transforma en componentes mas reutilizables usando LangChain.
 
-## Qué vas a dominar en esta clase
+## Objetivo
 
-1. Qué es LangChain y cuándo sí vale la pena usarlo (y cuándo no).
-2. Cómo traducir la estructura de 5 capas (ROLE, TASK, OUTPUT, EXAMPLES, CONTEXT) a componentes de LangChain.
-3. Cómo llevar **CoT** y **ReAct** desde prompts directos a pipelines trazables y validados.
-4. Cómo diseñar **context engineering** para reducir alucinaciones, costo y deriva de comportamiento.
-5. Cómo auditar y refinar respuestas con feedback loop medible.
+- estructurar prompts con templates,
+- tipar salidas,
+- reutilizar contexto,
+- pasar de demos aisladas a piezas mas mantenibles.
 
----
+## Orden recomendado
 
-## ¿Qué es LangChain ?
-
-LangChain es una librería para construir sistemas LLM con piezas componibles: prompts, modelos, parsers, herramientas y memoria/contexto.
-
-En vez de tener un string gigante con prompt + llamada API, LangChain te permite:
-
-- Definir prompts estructurados (`ChatPromptTemplate`).
-- Encadenar pasos (`prompt | model | parser`).
-- Forzar formato de salida tipado (`with_structured_output`).
-- Conectar herramientas (tools) para agentes ReAct.
-- Inspeccionar trazas de ejecución para debugging.
-
-### Regla pragmática
-
-- Si tu problema se resuelve en 1 llamada simple y estable, `openai` directo suele bastar.
-- Si necesitas orquestación multi-paso, tools, validación de output y reusabilidad, LangChain te da ventaja de ingeniería.
-
----
-
-## Mapeo de Clase 02 -> Clase 03
-
-| Capa de Prompting | Clase 02 (direct API) | Clase 03 (LangChain) |
+| Orden | Recurso | Objetivo |
 |---|---|---|
-| ROLE | `system_prompt` string | `ChatPromptTemplate.from_messages` |
-| TASK | instrucciones dentro del user prompt | template parametrizable + subcadenas |
-| OUTPUT FORMAT | `response_format={"type":"json_object"}` | `with_structured_output(PydanticModel)` |
-| EXAMPLES | few-shot en texto | `FewShotChatMessagePromptTemplate` |
-| CONTEXT | dict serializado manualmente | `context packet` diseñado y validado |
+| 1 | `COT_LangChain/Notebooks/cot_langchain_aplicado.ipynb` | Llevar CoT a LangChain |
+| 2 | `ReAct_LangChain/Notebooks/react_langchain_aplicado.ipynb` | Llevar ReAct a LangChain |
+| 3 | `COT_LangChain/Notebooks/02_cot_langgraph.ipynb` | Ver el puente hacia grafos |
+| 4 | `ReAct_LangChain/Notebooks/02_react_langgraph.ipynb` | Integrar ReAct con flujos mas complejos |
 
----
+## Estructura
 
-## Context Engineering (la capa que más impacta calidad)
+- `COT_LangChain/`: ejemplos de chain-of-thought con LangChain.
+- `ReAct_LangChain/`: agentes ReAct con tools y salida estructurada.
+- `common/context_engineering.py`: utilidades para construir contexto reusable.
+- `tools/execute_notebooks.py`: ejecuta y valida las notebooks de la clase.
 
-No es "poner más contexto". Es diseñar **contexto útil, mínimo y trazable**.
-
-### Patrón recomendado
-
-1. **Context contract**: define campos obligatorios del contexto.
-2. **Filtrado**: elimina ruido que no cambia la decisión.
-3. **Priorización**: ordena señales por impacto en la tarea.
-4. **Budget de tokens**: impón límites para evitar latencia/costo descontrolado.
-5. **Traceabilidad**: conserva `context_hash` para reproducibilidad.
-
-### Errores comunes
-
-- Contexto narrativo largo sin estructura.
-- Mezclar hechos, inferencias y suposiciones sin etiquetado.
-- No versionar el contexto ni su esquema.
-- Usar ReAct con tools pobres y esperar milagros.
-
----
-
-## Estructura del módulo (versión guiada)
-
-- `03_langchain_prompting/COT_LangChain/Notebooks/cot_langchain_aplicado.ipynb`
-  - Evoluciona los ejemplos CoT de `02_prompting/COT` a LangChain.
-  - Incluye zero-shot, few-shot y feedback loop con rúbrica.
-
-- `03_langchain_prompting/ReAct_LangChain/Notebooks/react_langchain_aplicado.ipynb`
-  - Evoluciona los ejemplos ReAct de `02_prompting/ReAct` a LangChain.
-  - Incluye tools, loop ReAct, guardrails y context engineering explícito.
-
-- `03_langchain_prompting/00_common/context_engineering.py`
-  - Utilidades para construir `context packets` limpios y trazables.
-
-- `03_langchain_prompting/00_tools/execute_notebooks.py`
-  - Ejecuta notebooks y guarda artefactos `.executed.ipynb`.
-
-### Orden recomendado para principiantes
-
-1. `COT_LangChain/Notebooks/cot_langchain_aplicado.ipynb`
-2. `ReAct_LangChain/Notebooks/react_langchain_aplicado.ipynb`
-3. `COT_LangChain/Notebooks/02_cot_langgraph.ipynb`
-4. `ReAct_LangChain/Notebooks/02_react_langgraph.ipynb`
-
-Cada notebook ahora sigue la misma secuencia pedagógica:
-- definición y cuándo usar la arquitectura,
-- demo base,
-- demo de coqueteo (segundo caso),
-- lectura del flujo/grafo,
-- checklist de abstracción para consolidar aprendizaje.
-
----
-
-## Ejecución
-
-1. Instala dependencias:
+## Ejecucion
 
 ```bash
+cd 01-Introduction_AI_Engineering
 uv sync
+uv run python 03_langchain_prompting/tools/execute_notebooks.py
 ```
 
-2. Ejecuta notebooks de la clase:
+## Prerrequisitos
 
-```bash
-uv run python 03_langchain_prompting/00_tools/execute_notebooks.py
-```
+- Haber trabajado `02_prompting/`.
+- Tener `OPENAI_API_KEY` configurada.

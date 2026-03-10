@@ -18,10 +18,14 @@ secrets.*
 credentials.*
 
 # Project artifacts
-01-introduction/ai_engineering/briefs/*.md
-!01-introduction/ai_engineering/briefs/.gitkeep
-01-introduction/python_software_engineering/queue_report.json
-06_project/.env
+01-Introduction_AI_Engineering/01_introduction/02_ai_engineering/briefs/*.md
+!01-Introduction_AI_Engineering/01_introduction/02_ai_engineering/briefs/.gitkeep
+01-Introduction_AI_Engineering/01_introduction/01_python_software_engineering/queue_report.json
+01-Introduction_AI_Engineering/06_project/.env
+03-agents/05_llmops/outputs/*.json
+03-agents/05_llmops/outputs/*.jsonl
+03-agents/05_llmops/outputs/*.md
+!03-agents/05_llmops/outputs/.gitkeep
 **/*.executed.ipynb
 **/*_executed.ipynb
 **/.ipynb_checkpoints/
@@ -29,6 +33,7 @@ credentials.*
 **/__pycache__/
 **/.coverage
 **/.coverage.*
+**/.cache/
 **/htmlcov/
 **/.mypy_cache/
 **/.ruff_cache/
@@ -290,3 +295,8 @@ ray_results/
 dvc.lock.local
 .dvc/tmp/
 .dvc/cache/
+*.json
+*.jsonl
+*.lock
+*.ini
+*.mako

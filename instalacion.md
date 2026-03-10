@@ -1,85 +1,156 @@
-# Guía de Instalación del Entorno (Mac y Windows)
+# Instalacion y prerequisitos
 
-Para solucionar problemas de compatibilidad y dependencias cruzadas, hemos unificado todas las configuraciones en un solo archivo `pyproject.toml` en la raíz del proyecto. Este archivo funciona de la misma manera que antes pero maneja la instalación centralizada para todos los módulos de clases (Introduction, Vector Databases y Agents).
+## 1. Requisitos minimos
 
-A continuación se explican los pasos de instalación utilizando [`uv`](https://github.com/astral-sh/uv), el cual es el manejador de paquetes de Python recomendado en este repositorio.
+- Python `3.10+`
+- `uv`
+- `git`
+- API key de OpenAI para notebooks con llamadas reales
+- `make` recomendado en macOS/Linux
 
----
+## 2. Instalar `uv`
 
-## 🍎 Instalación en macOS
-
-### 1. Instalar `uv`
-Si aún no tienes `uv` instalado, abre tu terminal y ejecuta:
+### macOS / Linux
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
-Cierra la terminal y vuelve a abrirla (o reinicia tu sesión de zsh/bash usando `source ~/.zshrc`) para que reconozca el comando.
 
-### 2. Sincronizar el entorno (Root del repo)
-Navega a la carpeta principal (`ai_engineering_henry`) donde se encuentra el nuevo `pyproject.toml` usando tu terminal:
-
-```bash
-cd /ruta/hacia/ai_engineering_henry
-```
-
-Ejecuta el siguiente comando para crear el entorno virtual (`.venv`) e instalar absolutamente todas las dependencias del curso:
-
-```bash
-uv sync --extra dev
-```
-
-Esto generará automáticamente la carpeta `.venv` y un archivo `uv.lock`.
-
-### 3. Activar el entorno virtual (opcional)
-Con `uv` puedes correr directamente los scripts pasando `uv run python script.py` (lo cual es lo recomendado), pero si prefieres activar el entorno virtual puedes hacerlo con:
-
-```bash
-source .venv/bin/activate
-```
-
----
-
-## 🪟 Instalación en Windows
-
-### 1. Requisitos previos
-Ten instalada al menos una versión de Python (se recomienda >= 3.10) y el intérprete integrado de Power Shell o Git Bash.
-
-### 2. Instalar `uv`
-Abre PowerShell y corre el siguiente comando:
+### Windows (PowerShell)
 
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
-*(Si ya lo ejecutaste y no se reconoce uv, reinicia tu terminal PowerShell o tu computadora).*
 
-### 3. Sincronizar el entorno (Root del repo)
-Abre PowerShell y muévete a la raíz del repositorio (`ai_engineering_henry`):
+## 3. Clonar el repo y crear entorno
 
-```powershell
-cd C:\ruta\hacia\ai_engineering_henry
-```
-
-Instala todas dependencias de manera unificada ejecutando:
-
-```powershell
+```bash
+git clone <tu-fork-o-este-repo>
+cd ai_engineering_henry
+cp .env.example .env
 uv sync --extra dev
 ```
 
-### 4. Activar el entorno virtual (opcional)
-`uv` no te exige tener activo el entorno si prefijos tus comandos con `uv run` como `uv run python script.py`. Pero si necesitas activar el `.venv` tradicional, usa:
-
-```powershell
-.venv\Scripts\activate
-```
-
----
-
-## 🛠 Comprobación Final
-
-Para verificar que el entorno virtual ha sido creado exitosamente tanto en Mac como Windows, puedes correr los tests de toda la estructura escribiendo:
+Si usas `make`:
 
 ```bash
-uv run pytest
+make sync
 ```
-**(Nota sobre variables de estado):** Recordar configurar correctamente tu archivo `.env` en la raíz (donde pusiste el token de `OPENAI_API_KEY`) ya que varios ejemplos o tests podrían depender de esto.
+
+## 4. Configurar variables de entorno
+
+Edita `.env` en la raiz:
+
+```bash
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-4o-mini
+```
+
+Variables opcionales:
+
+```bash
+TVLY_API_KEY=
+LANGCHAIN_API_KEY=
+LANGCHAIN_TRACING_V2=
+LANGCHAIN_PROJECT=henry-ai-engineering
+INTENT_MIN_CONFIDENCE=0.60
+MAX_HISTORY_TURNS=4
+```
+
+Si vas a usar `make doctor` dentro de `03-agents/`, copia tambien el archivo:
+
+```bash
+cp .env 03-agents/.env
+```
+
+## 5. Verificar que todo quedo bien
+
+Desde la raiz:
+
+```bash
+make test
+make lint
+```
+
+Validaciones por modulo:
+
+```bash
+make module-01
+make module-02
+make module-03
+```
+
+## 5.1 Instalacion por modulo
+
+Si quieres trabajar por partes, cada modulo principal ya tiene su propio `pyproject.toml`:
+
+```bash
+cd 01-Introduction_AI_Engineering
+uv sync --extra dev
+
+cd ../02-vector_data_bases
+uv sync --extra dev
+
+cd ../03-agents
+uv sync --extra dev
+
+cd ../04-deep_learning
+uv sync --extra dev
+```
+
+## 6. Comandos utiles por modulo
+
+### Fundamentos
+
+```bash
+cd 01-Introduction_AI_Engineering
+make run-ai
+make test-all
+```
+
+### Vector databases
+
+```bash
+cd 02-vector_data_bases
+make run-batman-module
+```
+
+### Agentes
+
+```bash
+cd 03-agents
+make doctor
+make run-llmops
+```
+
+### Deep Learning
+
+```bash
+cd 04-deep_learning
+make doctor
+make test
+```
+
+## 7. Problemas comunes
+
+### `uv: command not found`
+
+Abre una terminal nueva despues de instalar `uv`.
+
+### `OPENAI_API_KEY no esta configurado`
+
+Verifica que `.env` exista y contenga una clave valida.
+
+### `make: command not found`
+
+Usa los comandos equivalentes con `uv`:
+
+```bash
+uv sync --extra dev
+uv run python -m pytest
+uv run ruff check .
+```
+
+### Un notebook no encuentra archivos relativos
+
+Ejecutalo desde el directorio del modulo o usa los scripts en `tools/` / `00_tools/`, que ya estan preparados para resolver rutas del curso.

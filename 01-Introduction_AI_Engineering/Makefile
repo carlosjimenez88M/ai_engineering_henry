@@ -7,10 +7,10 @@ check-uv:
 	@command -v $(UV) >/dev/null 2>&1 || (echo "uv no esta instalado. Instala uv y vuelve a ejecutar."; exit 1)
 
 install: check-uv
-	$(UV) sync
+	$(UV) sync --extra dev
 
 install-prompting: check-uv
-	$(UV) sync
+	$(UV) sync --extra dev
 
 run-ai: check-uv
 	$(UV) run python 01_introduction/02_ai_engineering/brief_builder/main.py
@@ -79,7 +79,7 @@ run-react-langchain: check-uv
 
 run-notebooks-langchain: check-uv
 	@echo " Executing Class 03 notebooks..."
-	$(UV) run python 03_langchain_prompting/00_tools/execute_notebooks.py
+	$(UV) run python 03_langchain_prompting/tools/execute_notebooks.py
 
 verify-notebooks-langchain: run-notebooks-langchain
 
@@ -94,30 +94,30 @@ run-langgraph-architectures: check-uv
 
 run-notebooks-langgraph: check-uv
 	@echo " Executing Class 04 notebooks..."
-	$(UV) run python 04_langchain_langgraph/00_tools/execute_notebooks.py
+	$(UV) run python 04_langchain_langgraph/tools/execute_notebooks.py
 
 verify-notebooks-langgraph: run-notebooks-langgraph
 
 run-notebooks-rag: check-uv
 	@echo " Executing Class 05 notebooks..."
-	$(UV) run python 05_rags/00_tools/execute_notebooks.py
+	$(UV) run python 05_rags/tools/execute_notebooks.py
 
 verify-notebooks-rag: run-notebooks-rag
 
 test-se: check-uv
-	$(UV) run pytest 01_introduction/01_python_software_engineering/tests -q
+	$(UV) run python -m pytest 01_introduction/01_python_software_engineering/tests -q
 
 test-ai: check-uv
-	$(UV) run pytest 01_introduction/02_ai_engineering/tests -v
+	$(UV) run python -m pytest 01_introduction/02_ai_engineering/tests -v
 
 test-ai-cov: check-uv
-	$(UV) run pytest 01_introduction/02_ai_engineering/tests --cov=01_introduction/02_ai_engineering --cov-report=html
+	$(UV) run python -m pytest 01_introduction/02_ai_engineering/tests --cov=01_introduction/02_ai_engineering --cov-report=html
 
 test-project: check-uv
-	$(UV) run pytest 06_project/tests -q
+	$(UV) run python -m pytest 06_project/tests -q
 
 test-all: check-uv
-	$(UV) run pytest -v
+	$(UV) run python -m pytest -v
 
 lint: check-uv
 	$(UV) run ruff check .

@@ -153,7 +153,7 @@ ai_engineering/
 │   ├── retry.py             # Reintentos con backoff exponencial
 │   ├── metrics.py           # Tracking de tokens/costo/latencia
 │   └── logger.py            # Logs coloreados para debugging
-└── 99_tests/
+└── tests/
     ├── test_config.py       # Valida carga de config
     ├── test_validator.py    # Valida inputs/outputs
     └── test_main.py         # Integración end-to-end (con mocks)
@@ -490,7 +490,7 @@ make test-ai  # Verificar que funcionan tests
 **Solución**:
 ```bash
 # Verificar que tests usan sys.path insert correctamente
-head -20 01_introduction/02_ai_engineering/99_tests/test_config.py
+head -20 01_introduction/02_ai_engineering/tests/test_config.py
 # Si falta, el conftest.py debería inyectarlo
 cd /Users/carlosdaniel/Desktop/ai_engineering_henry
 make test-ai -v  # Con verbose
@@ -592,7 +592,7 @@ find 01_introduction/02_ai_engineering/briefs -name "*.metrics.json" -exec \
 ├── python_software_engineering/       # Enfoque clásico (determinista)
 │   ├── src/
 │   │   └── app.py                    # Ejemplo simple: generador de briefs determinista
-│   └── 99_tests/
+│   └── tests/
 │       └── test_app.py
 ├── ai_engineering/                    # Enfoque AI (probabilístico, observable)
 │   ├── brief_builder/                 # Caso de estudio principal
@@ -608,7 +608,7 @@ find 01_introduction/02_ai_engineering/briefs -name "*.metrics.json" -exec \
 │   ├── briefs/                        # Output de ejecuciones
 │   │   ├── software_vs_ai_engineering.md
 │   │   └── brief.metrics.json
-│   ├── 99_tests/                         # Suite de tests
+│   ├── tests/                            # Suite de tests
 │   │   ├── test_config.py            # 13 tests de configuración
 │   │   ├── test_validator.py         # 18 tests de validación
 │   │   ├── test_main.py              # 9 tests de integración

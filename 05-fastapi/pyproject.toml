@@ -1,0 +1,37 @@
+[project]
+name = "henry-fastapi-module"
+version = "0.1.0"
+description = "Módulo 5 de FastAPI del curso de AI Engineering de Henry"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi[standard]>=0.115.0",
+  "sqlalchemy>=2.0.0",
+  "alembic>=1.13.0",
+  "python-jose[cryptography]>=3.3.0",
+  "passlib[bcrypt]>=1.7.4",
+  "bcrypt>=3.2.0,<4.0.0",
+  "aiofiles>=23.0.0",
+  "jinja2>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "pytest-asyncio>=0.23.0",
+  "httpx>=0.27.0",
+  "ruff>=0.8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["05_testing/TodoApp/test"]
+pythonpath = ["05_testing"]
+asyncio_mode = "auto"
+addopts = "--import-mode=importlib"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"

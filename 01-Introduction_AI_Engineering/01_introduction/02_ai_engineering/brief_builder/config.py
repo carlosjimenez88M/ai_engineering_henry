@@ -30,9 +30,10 @@ class Settings:
 def load_settings() -> Settings:
     """Loads and validates settings from environment variables.
 
-    Reads configuration from .env file and environment. The .env file is loaded
-    only from the current working directory to keep behavior deterministic
-    across test and execution environments.
+    Reads configuration from .env file and environment. It first loads the
+    `.env` located in the current working directory. If the command is being
+    executed from somewhere inside this repository and no local `.env` is found,
+    it falls back to the repository root `.env`.
 
     Environment variables:
         OPENAI_API_KEY (required): OpenAI API key.
@@ -50,7 +51,18 @@ def load_settings() -> Settings:
         >>> settings.openai_model
         'gpt-4o-mini'
     """
-    load_dotenv(dotenv_path=Path.cwd() / ".env", override=False)
+    cwd = Path.cwd().resolve()
+    repo_root = Path(__file__).resolve().parents[4]
+    env_candidates = [cwd / ".env"]
+
+    if cwd == repo_root or cwd.is_relative_to(repo_root):
+        env_candidates.append(repo_root / ".env")
+
+    for env_path in env_candidates:
+        if env_path.exists():
+            load_dotenv(dotenv_path=env_path, override=False)
+            break
+
     api_key = os.getenv("OPENAI_API_KEY", "").strip()
     model = os.getenv("OPENAI_MODEL", "gpt-4o-mini").strip() or "gpt-4o-mini"
 

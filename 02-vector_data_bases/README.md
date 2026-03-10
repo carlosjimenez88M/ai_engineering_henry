@@ -1,75 +1,69 @@
-### Bases de datos Vectoriales 
+# Modulo 2: Vector Databases y RAG avanzado
 
+Este modulo profundiza en representacion vectorial, retrieval y patrones de RAG con un recorrido mas tecnico que el bloque `05_rags/` del modulo principal.
 
-### Conceptos claves 
+## Estructura por tema
 
-<details>
-  <summary> Lenguaje en Forma Númerica </summary>
+| Bloque | Enfoque | Ruta |
+|---|---|---|
+| 01 | Fundamentos de representacion y retrieval | `01_intro/` |
+| 02 | Bases de datos vectoriales | `02_databases/` |
+| 03 | Patrones de RAG | `03_rag/` |
+| 04 | Caso aplicado Batman | `04_batman_vector_db_orchestration/` |
 
-    
-  * __Bag of Words__: Es un algoritmo que representa palabras en vectores dispersos que registran la presencia de una palabra
+## Ruta sugerida de notebooks
 
-  * __Word2Vec__ Representación de la palabra desde su significado dentro de un contexto de algunas palabras vecinas 
+### 01. Intro
 
-    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Skip-gram.svg/1280px-Skip-gram.svg.png)
-  
-  * __Transformers__: Capturan el significado de las palabras dentro de un contexto dado.
-  
-  * __Tokenización__: Convertir texto en entrada o piezas que son el Input de algun modelo 
-  * Al reunir los tokens únicos de varios documentos, se crea un vocabulario, cuyo tamaño determina la dimensión de nuestras representaciones.
-  * __Representación Vectorial__: Es la frecuencia de tokens que aparece en un input o documentación especifica
+| Orden sugerido | Notebook | Idea central |
+|---|---|---|
+| 1 | `01_intro/01_tokens.ipynb` | Como los modelos ven texto |
+| 2 | `01_intro/03_transformers.ipynb` | Fundamentos de transformers |
+| 3 | `01_intro/04_text_classification.ipynb` | Embeddings como representacion util |
+| 4 | `01_intro/02_rag_tfidf.ipynb` | Retrieval sparse como baseline |
+| 5 | `01_intro/05_rags_vectorial_databases.ipynb` | Puente entre retrieval y RAG |
+| 6 | `01_intro/06_agent2agent_literario.ipynb` | Caso aplicado de cierre del bloque |
 
-</details>
+### 02. Databases
 
+| Orden | Notebook | Idea central |
+|---|---|---|
+| 1 | `02_databases/01-bases-vectoriales-fundamentos.ipynb` | Embeddings, similitud y primeros stores |
+| 2 | `02_databases/02-bases-vectoriales-produccion.ipynb` | Persistencia, chunking y trade-offs |
+| 3 | `02_databases/03-comparacion-modelos-embeddings-rayuela.ipynb` | Comparativa aplicada de embeddings |
 
-<details>
-  <summary> Embeddings </summary>
+### 03. RAG
 
-  * __Bag of words__ tiene un problema , ignora el significado semántica de las palabras dentro de un texto.
-  *  __Word2Vec__: Se acerco a la premisa de capturar el significado de los textos dentro de embeddings.
-     
-     * Para lograr caputrar la atención de las palabras y el sentido de las mismas toco moverse al mundo del deep learning  donde a través de nodos interconectados , se generan arquitecturas del modelo que permiten que este procesamiento matematico permite ajustar el lenguaje con base al texto.
-  
-  * Un embedding intenta capturar el significado representando las propiedades de una palabra a través de valores (normalmente entre -1 y 1).
-    * Ejemplo de dimensiones: La palabra "Pizza" podría tener un puntaje bajo en propiedades como "Robots" o "Darwinismo", pero alto en "Cómida" e "Italia". 
- * Esto es la base de la Búsqueda Semántica en sistemas RAG. UN agente encontrará información no por coincidencia de palabras exactas, sino porque los vectores están "cerca". 
- * __Modelos de representación__ : Son los modelos que convierten los textos en valores númericos.
-   * Token Embeddings: División minuscula de palabras
-   * Word Embeddings: Promedio de tokens de una palabra
-   * Document Embeddings: Oraciones o documentos representados en Embeddings.
-</details>
+| Orden | Notebook | Idea central |
+|---|---|---|
+| 1 | `03_rag/01-rag-fundamentos.ipynb` | Pipeline completo |
+| 2 | `03_rag/02-rag-avanzado.ipynb` | Multi-query, ensemble y compression |
 
+### 04. Caso aplicado
 
+| Orden | Notebook | Idea central |
+|---|---|---|
+| 1 | `04_batman_vector_db_orchestration/00_clase_de_repaso.ipynb` | Contexto y repaso |
+| 2 | `04_batman_vector_db_orchestration/01_diseno_vector_db_batman.ipynb` | Diseño de vector store |
+| 3 | `04_batman_vector_db_orchestration/02_rag_vs_agentic_rag_batman.ipynb` | Comparativa de enfoques |
+| 4 | `04_batman_vector_db_orchestration/03_routing_orquestacion_simple.ipynb` | Routing entre dominios |
+| 5 | `04_batman_vector_db_orchestration/04_ejercicio_agent2agent_batman_rag.ipynb` | Ejercicio guiado |
+| 6 | `04_batman_vector_db_orchestration/05_agent2agent_roles_router_batman.ipynb` | Orquestacion especializada |
 
-<details>
-  <summary> Cómo funciona la arquitectura transformer LLMS ? </summary>
+## Comandos utiles
 
-  ![](https://media.geeksforgeeks.org/wp-content/uploads/20251210153206327851/transformers.webp)
+```bash
+cd 02-vector_data_bases
+uv sync --extra dev
+make test
+make run-batman-module
+```
 
- * __Word2Vec__: Genera embeddings estáticos, lo cual es un pecado , a la hora de trabajar con busqueda semántica.
- * RNN (Redes Neuronales Recurrentes): Introdujeron la capcidad de modelar secuencias :
-   * Encoder : Codifica secuencias de entrada y busca representarla en un formato númerico, ejemplo (dos brujas vigilan dos relojes , cuál bruja vigila cuál reloj ?)
-   * Decoder: Decodifica  la salida del paso anterior y genera una salida 
- * Recordemos que existen dos tipos de modelos en GenAI :
-   * Masked Lenguage model  : Predice el token perdido en una secuencia de texto , ejemplo : Mi ___ es Carlos  -> Mi _nombre_ es Carlos
-   * Autoregresive Language model: Predice el siguiente token en una secuencia de texto , ejemplo: Mi mascota es un ___ -> Mi mascota es un _Dinosaurio_
- * Context Embeddings: Se usa Rag ya que al condensar todo un documento en un único corpus o embedding se pierde información
- * Attention (2014) : Representa que entradas son más relevantes dentro de un texto y dado un momento.
- * __Self Attention__ : es un mécanismo que permite que cada palabra mire todas las demás para entender su importancia relativa.
-   * El self Attention combina dos cosas, el scoring que tiene una palabra en representación de un contexto + la combinación del contexto.
-   * __Attention Head__ : Calcula su propio conjunto de relevance scores , el modelo combina las "opiniones" de todos los cabezales para tener una comprensión profunda y multidimensional del texto.
-  
- * Token CLS: La "Etiqueta", En modelos de representación (Encoders), se usa un token especial llamado CLS (Classification). Este token actúa como un resumen numérico de toda la entrada, por ejemplo Si quieres que tu agente clasifique si un correo es SPAM o no, el modelo analiza el token CLS para tomar la decisión.
- * Context Window : El límite de tokens incluye tanto lo que se le envías (instrucciones + documentos) como lo que el modelo está generando en ese momento. Si se pasas de este límite, el agente "olvida" el inicio de la conversación.
-</details>
+Hoy `make test` actua como chequeo de presencia de tests. La validacion funcional principal del modulo sigue siendo ejecutar los notebooks y casos aplicados.
 
-### Bibliografia para este curso
+## Archivos de apoyo
 
-* [Attention Is All You Need](https://arxiv.org/pdf/1706.03762) 
-
-* [Intelligent AI Delegation](https://arxiv.org/pdf/2602.11865)
-* [Hands-On Large Language Models](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models)
-* [Hands-On Machine Learning with Scikit-Learnand PyTorch](https://github.com/ageron/handson-mlp)
-* [AI Engineering](https://github.com/chiphuyen/aie-book)
-* [Designing Machine Learning Systems: An Iterative Process for Production-Ready Applications ](https://stanford-cs329s.github.io/)
-* [Linear Algebra and Optimization for Machine Learning](https://turan-edu.uz/media/books/2024/05/28/1660642748.pdf)
+- `pyproject.toml`: dependencias propias del modulo 2.
+- `00_tools/execute_notebooks.py`: ejecuta notebooks del modulo.
+- `build_review.py`: apoyo para revisiones automatizadas del material.
+- `04_batman_vector_db_orchestration/scripts/`: utilidades reutilizables del caso aplicado.

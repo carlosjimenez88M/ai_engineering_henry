@@ -27,10 +27,10 @@ sync-legacy: check-uv
 	$(UV) pip install -r requirements.txt
 
 test: check-uv
-	$(UV) run pytest -q
+	$(UV) run python -m pytest -q
 
 test-cov: check-uv
-	$(UV) run pytest --cov=03_ejercicios_leetcode --cov=04_ejemplos_runnable --cov-report=term-missing
+	$(UV) run python -m pytest --cov=03_ejercicios_leetcode --cov=04_ejemplos_runnable --cov-report=term-missing
 
 run-examples: check-uv
 	$(UV) run python 04_ejemplos_runnable/ejemplo_01_excepciones.py

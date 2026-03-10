@@ -1,98 +1,32 @@
-# Clase 04: LangChain + LangGraph Workflows y Agents (aplicado)
+# Clase 04: LangGraph Workflows
 
-Esta clase evoluciona `03_langchain_prompting` hacia arquitecturas de orquestacion con **LangGraph**, usando el enfoque oficial de workflows/agents de LangChain.
+Esta clase organiza los patrones de orquestacion mas utiles para sistemas LLM: cadenas, paralelizacion, routers, orchestrator-worker, evaluator-optimizer y loops de feedback.
 
-Referencia base (fuente primaria):
-- [LangGraph Workflows and Agents](https://docs.langchain.com/oss/python/langgraph/workflows-agents)
+## Orden recomendado
 
-## Objetivo pedagogico
-
-Pasar de "un buen prompt" a "un sistema de decision". En produccion, el valor no esta en un prompt aislado, sino en:
-
-- flujo de estados reproducible,
-- control de rutas,
-- paralelizacion cuando aplica,
-- ciclos de mejora con criterio,
-- agentes con herramientas y feedback.
-
-## Arquitecturas cubiertas
-
-Este modulo implementa 6 arquitecturas del material oficial y las aterriza al caso que ya venimos trabajando (recomendaciones conversacionales personalizadas):
-
-1. Prompt chaining
-2. Parallelization
-3. 03_routing
-4. Orchestrator-worker
-5. Evaluator-optimizer
-6. Agent con feedback
-
-## Cuando usar cada arquitectura
-
-| Arquitectura | Cuando usarla | Señal de que **no** debes usarla |
+| Orden | Notebook | Tema |
 |---|---|---|
-| Prompt chaining | Tarea secuencial donde cada paso depende del anterior (analizar -> generar -> refinar). | Si todo se resuelve bien en una sola llamada estable. |
-| Parallelization | Subtareas independientes que se pueden ejecutar en paralelo y luego agregar. | Si las subtareas dependen fuertemente una de otra. |
-| 03_routing | Tienes tipos de input claramente distintos que requieren estrategias especializadas. | Si las ramas no son distinguibles o el router no agrega valor. |
-| Orchestrator-worker | Necesitas descomponer dinamicamente en N subtareas (N variable) y sintetizar resultados. | Si N siempre es 1 o 2 fijo y la complejidad extra no compensa. |
-| Evaluator-optimizer | La calidad importa mas que latencia y necesitas ciclo de mejora guiado por criterios. | Si tu SLA de latencia es estricto o costo es prioridad absoluta. |
-| Agent con feedback | Necesitas herramientas + razonamiento iterativo + control de calidad en loop. | Si no hay tools reales o el problema es deterministico de bajo riesgo. |
+| 1 | `01_prompt_chaining/Notebooks/prompt_chaining_langgraph.ipynb` | Secuencias simples |
+| 2 | `02_parallelization/Notebooks/parallelization_langgraph.ipynb` | Subtareas independientes |
+| 3 | `05_routing/Notebooks/routing_langgraph.ipynb` | Decisiones por rama |
+| 4 | `03_orchestrator_worker/Notebooks/orchestrator_worker_langgraph.ipynb` | Descomposicion dinamica |
+| 5 | `04_evaluator_optimizer/Notebooks/evaluator_optimizer_langgraph.ipynb` | Mejora iterativa |
+| 6 | `06_agent_feedback/Notebooks/agent_feedback_langgraph.ipynb` | Agente con control de calidad |
 
-## Estructura del modulo
+## Estructura
 
-- `04_langchain_langgraph/01_prompt_chaining/Notebooks`
-- `04_langchain_langgraph/02_parallelization/Notebooks`
-- `04_langchain_langgraph/03_orchestrator_worker/Notebooks`
-- `04_langchain_langgraph/04_evaluator_optimizer/Notebooks`
-- `04_langchain_langgraph/05_routing/Notebooks`
-- `04_langchain_langgraph/06_agent_feedback/Notebooks`
-- `04_langchain_langgraph/00_common/context_engineering.py`
-- `04_langchain_langgraph/00_tools/execute_notebooks.py`
-
-Cada arquitectura incluye:
-- script `.py` ejecutable,
-- notebook `.ipynb`,
-- notebook `.executed.ipynb` generado por validacion.
-
-## Ruta guiada para estudiantes iniciales
-
-Sigue este orden para construir abstracción de menor a mayor complejidad:
-
-1. Prompt chaining
-2. Parallelization
-3. 03_routing
-4. Orchestrator-worker
-5. Evaluator-optimizer
-6. Agent con feedback
-
-Todas las notebooks quedaron alineadas con un mismo formato didáctico:
-- definición de arquitectura y criterio de uso,
-- ejecución caso base,
-- visualización del grafo real con `draw_mermaid_png()`,
-- segundo caso aplicado (coqueteo),
-- checklist para consolidar conceptos.
-
-## Context engineering (criterio transversal)
-
-Todo ejemplo usa `context packet` con:
-- campos estructurados,
-- deduplicacion de senales,
-- budget de contexto,
-- hash de trazabilidad (`context_hash`).
-
-Esto permite comparar salidas entre arquitecturas sin contaminar por ruido de contexto.
+- `common/context_engineering.py`: helpers de contexto compartido.
+- `tools/execute_notebooks.py`: ejecutor de notebooks del modulo.
+- `01_prompt_chaining/` a `06_agent_feedback/`: una arquitectura por carpeta.
 
 ## Ejecucion
 
 ```bash
+cd 01-Introduction_AI_Engineering
 uv sync
-uv run python 04_langchain_langgraph/00_tools/execute_notebooks.py
+uv run python 04_langchain_langgraph/tools/execute_notebooks.py
 ```
 
-## Critica tecnica (honesta)
+## Criterio pedagogico
 
-- Estas arquitecturas no son gratis: agregan costo cognitivo, tokens y mantenimiento.
-- LangGraph no reemplaza evaluacion offline; solo organiza mejor el flujo.
-- Sin contratos de estado bien definidos, el grafo se vuelve fragil.
-- Si no mides calidad/costo/latencia, estas sobre-ingenierizando.
-
-La regla de oro: **elige la arquitectura minima que cubra tu riesgo principal**.
+No todas las arquitecturas deben usarse siempre. La clase esta ordenada desde el patron mas liviano al mas costoso de mantener, para que el estudiante aprenda a elegir la minima arquitectura que resuelve el problema.
