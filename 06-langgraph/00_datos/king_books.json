@@ -1,0 +1,184 @@
+[
+  {
+    "id": "king_01",
+    "titulo": "It",
+    "año_publicacion": 1986,
+    "genero": ["horror", "coming-of-age", "ficción sobrenatural"],
+    "temas": ["infancia y trauma", "memoria colectiva", "amistad", "el mal que regresa", "enfrentar los miedos"],
+    "protagonistas": ["Bill Denbrough", "Richie Tozier", "Beverly Marsh", "Ben Hanscom", "Eddie Kaspbrak", "Stan Uris", "Mike Hanlon"],
+    "antagonista": "Pennywise el Payaso Bailarín / It",
+    "escenario": "Derry, Maine",
+    "sinopsis": "En la ciudad de Derry, Maine, una entidad maligna conocida como It, que toma la forma del payaso Pennywise, despierta cada 27 años para alimentarse del miedo y la carne de los niños. Un grupo de siete niños marginados llamados el Club de los Perdedores se une para enfrentar a It en 1958. De adultos, en 1984, deben regresar a Derry cuando It despierta nuevamente. La novela alterna entre el pasado y el presente, explorando cómo el trauma infantil moldea la identidad adulta. King usa la estructura dual para mostrar que los miedos de la infancia son superables pero dejan cicatrices permanentes. It representa el mal absoluto pero también la pérdida inevitable de la inocencia.",
+    "citas_memorables": [
+      "We all float down here.",
+      "You'll float too!",
+      "Beep beep, Richie.",
+      "They all float down here."
+    ],
+    "adaptaciones": ["It (miniserie TV, 1990)", "It (película, 2017)", "It Chapter Two (película, 2019)"],
+    "longitud_paginas": 1138
+  },
+  {
+    "id": "king_02",
+    "titulo": "The Shining",
+    "año_publicacion": 1977,
+    "genero": ["horror psicológico", "ficción sobrenatural", "thriller"],
+    "temas": ["alcoholismo y violencia familiar", "aislamiento", "locura progresiva", "el Resplandor (psíquico)", "hoteles como entidades"],
+    "protagonistas": ["Jack Torrance", "Wendy Torrance", "Danny Torrance"],
+    "antagonista": "El Hotel Overlook / Jack Torrance",
+    "escenario": "Hotel Overlook, Colorado",
+    "sinopsis": "Jack Torrance, escritor alcohólico con historia de violencia familiar, acepta el trabajo de guardián de invierno del Hotel Overlook. Con su esposa Wendy y su hijo Danny, que posee un don psíquico llamado el Resplandor, se aíslan en el hotel durante el invierno. El hotel, impregnado de las energías malévolas de sus anteriores huéspedes, comienza a influir en la mente de Jack, quien gradualmente pierde la razón. Danny ve visiones terroríficas a través de su don y se conecta con el cocinero del hotel, Halloran, también poseedor del Resplandor. La novela culmina con Jack completamente poseído intentando matar a su familia, pero Danny usa su ingenio para vencerlo.",
+    "citas_memorables": [
+      "All work and no play makes Jack a dull boy.",
+      "Redrum. Redrum. REDRUM.",
+      "Wendy? Darling? Light, of my life. I'm not gonna hurt ya.",
+      "Come and play with us, Danny. Forever and ever and ever."
+    ],
+    "adaptaciones": ["El resplandor (Kubrick, 1980)", "Doctor Sleep (película, 2019)", "The Shining (miniserie TV, 1997)"],
+    "longitud_paginas": 447
+  },
+  {
+    "id": "king_03",
+    "titulo": "Carrie",
+    "año_publicacion": 1974,
+    "genero": ["horror sobrenatural", "coming-of-age", "drama social"],
+    "temas": ["bullying", "represión religiosa", "poderes psíquicos", "venganza", "exclusión social"],
+    "protagonistas": ["Carrie White"],
+    "antagonista": "Margaret White (madre), Chris Hargensen",
+    "escenario": "Chamberlain, Maine",
+    "sinopsis": "Carrie White es una adolescente marginada que vive bajo el terror religioso fanático de su madre. Descubre tardíamente la menstruación en los vestuarios de la escuela, lo que provoca una humillación colectiva de sus compañeras. Al mismo tiempo, desarrolla poderes de telequinesis. Sue Snell, una chica popular con remordimiento, convence a su novio de invitar a Carrie al baile de graduación como acto de reconciliación. La noche del baile, una cruel broma de Chris Hargensen desencadena la catástrofe: Carrie usa sus poderes para masacrar a sus compañeros y destruir la ciudad. La primera novela publicada de King fue originalmente descartada por él mismo antes de que su esposa Tabitha lo persuadiera de completarla.",
+    "citas_memorables": [
+      "They're all going to laugh at you.",
+      "I can make them stop laughing.",
+      "Blood Sisters... you're a blood sister."
+    ],
+    "adaptaciones": ["Carrie (De Palma, 1976)", "Carrie (TV movie, 2002)", "Carrie (remake, 2013)"],
+    "longitud_paginas": 199
+  },
+  {
+    "id": "king_04",
+    "titulo": "Misery",
+    "año_publicacion": 1987,
+    "genero": ["thriller psicológico", "horror"],
+    "temas": ["obsesión fan", "creatividad bajo coerción", "cautiverio", "la relación autor-personaje", "adicción"],
+    "protagonistas": ["Paul Sheldon"],
+    "antagonista": "Annie Wilkes",
+    "escenario": "Colorado rural",
+    "sinopsis": "Paul Sheldon, popular novelista de romances históricos protagonizados por Misery Chastain, tiene un accidente de coche durante una tormenta de nieve en Colorado. Annie Wilkes, su fan número uno y ex enfermera, lo rescata y lo lleva a su casa aislada. Cuando Annie descubre que Paul mató a Misery en su última novela, su adoración se convierte en furia. Lo mantiene cautivo, primero con drogas para su dolor y luego con violencia explícita, forzándolo a escribir una nueva novela resucitando a Misery. Paul debe usar toda su inteligencia y voluntad para sobrevivir a una mujer que es simultáneamente su mayor admiradora y su torturadora. King escribió la novela como metáfora de su propio cautiverio ante la adicción a las drogas.",
+    "citas_memorables": [
+      "I'm your number one fan.",
+      "He didn't get out of the cock-a-doodie car!",
+      "God came to me last night and told me your purpose for being here."
+    ],
+    "adaptaciones": ["Misery (Reiner, 1990 - Oscar a Kathy Bates)"],
+    "longitud_paginas": 310
+  },
+  {
+    "id": "king_05",
+    "titulo": "Pet Sematary",
+    "año_publicacion": 1983,
+    "genero": ["horror", "drama familiar", "ficción sobrenatural"],
+    "temas": ["muerte y negación", "pérdida infantil", "la naturaleza no perdona", "el duelo como locura", "consecuencias del deseo"],
+    "protagonistas": ["Louis Creed", "Rachel Creed"],
+    "antagonista": "El Wendigo / El Micmac Burial Ground",
+    "escenario": "Ludlow, Maine",
+    "sinopsis": "Louis Creed, médico, se muda con su familia a Ludlow, Maine. Su vecino anciano Jud Crandall le muestra un cementerio de mascotas en el bosque y, más allá, un antiguo cementerio indio Micmac con poderes de resurrección. Cuando el gato de la familia muere atropellado, Jud convence a Louis de enterrarlo en el cementerio Micmac. El gato regresa cambiado, más oscuro y violento. La tragedia mayor llega cuando el pequeño Gage Creed muere atropellado por un camión. Louis, destruido por el dolor, entierra a su hijo en el cementerio Micmac contra todos los consejos. Lo que regresa no es Gage. King consideró esta su novela más terrorífica y la tuvo guardada sin publicar. El horror central es que el amor de un padre puede llevar a la abominación.",
+    "citas_memorables": [
+      "Sometimes dead is better.",
+      "The soil of a man's heart is stonier.",
+      "NO FAIR. NO FAIR. YOU CHEATED."
+    ],
+    "adaptaciones": ["Pet Sematary (Lambert, 1989)", "Pet Sematary (remake, 2019)"],
+    "longitud_paginas": 374
+  },
+  {
+    "id": "king_06",
+    "titulo": "The Stand",
+    "año_publicacion": 1978,
+    "genero": ["post-apocalíptico", "horror épico", "fantasía oscura"],
+    "temas": ["bien vs mal absoluto", "reconstrucción social", "libertad vs seguridad", "profecía", "naturaleza humana"],
+    "protagonistas": ["Stu Redman", "Frannie Goldsmith", "Nick Andros", "Mother Abagail"],
+    "antagonista": "Randall Flagg / El Hombre Oscuro",
+    "escenario": "Estados Unidos post-pandemia",
+    "sinopsis": "Una cepa letal de influenza, accidentalmente liberada de un laboratorio militar, mata al 99.4% de la humanidad. Los supervivientes comienzan a tener sueños: algunos son atraídos por la anciana de 108 años Mother Abagail en Nebraska, guiada por Dios, y otros por Randall Flagg, el Hombre Oscuro, en Las Vegas. Se forman dos comunidades: la Free Zone en Boulder, Colorado, que intenta recrear una sociedad democrática, y la comunidad totalitaria de Flagg en Las Vegas. Un grupo de la Free Zone emprende una caminata hacia Las Vegas para enfrentarse directamente a Flagg. La novela es la más ambiciosa de King en escala, explorando cómo la humanidad organizaría (o no) una segunda oportunidad.",
+    "citas_memorables": [
+      "No great loss.",
+      "The place you go to when you dream.",
+      "M-O-O-N, that spells moon."
+    ],
+    "adaptaciones": ["The Stand (miniserie TV, 1994)", "The Stand (miniserie TV, 2020)"],
+    "longitud_paginas": 1153
+  },
+  {
+    "id": "king_07",
+    "titulo": "Needful Things",
+    "año_publicacion": 1991,
+    "genero": ["horror", "fantasy oscuro", "sátira"],
+    "temas": ["avaricia y deseo", "el diablo como comerciante", "tejido social frágil", "consecuencias de los deseos", "final de Castle Rock"],
+    "protagonistas": ["Alan Pangborn"],
+    "antagonista": "Leland Gaunt",
+    "escenario": "Castle Rock, Maine",
+    "sinopsis": "Un misterioso forastero llamado Leland Gaunt abre una tienda llamada Needful Things en Castle Rock, Maine. Cada objeto que vende es exactamente lo que el comprador más desea, a un precio mínimo en dinero y una pequeña 'broma' que hay que hacerle a algún vecino. Gradualmente, las bromas escalan de lo inocente a lo catastrófico, enfrentando a los ciudadanos entre sí mientras Gaunt recolecta sus almas metafóricamente. El sheriff Alan Pangborn debe descubrir la naturaleza de Gaunt y detenerlo antes de que Castle Rock se autodestruya. King presenta la novela como la última historia de Castle Rock, el epítome de su universe compartido de Maine.",
+    "citas_memorables": [
+      "Needful Things. Leland Gaunt, Proprietor.",
+      "Everything has a price.",
+      "The last of the great independents."
+    ],
+    "adaptaciones": ["Needful Things (película, 1993)"],
+    "longitud_paginas": 690
+  },
+  {
+    "id": "king_08",
+    "titulo": "Doctor Sleep",
+    "año_publicacion": 2013,
+    "genero": ["horror", "thriller sobrenatural", "secuela"],
+    "temas": ["redención del alcohólico", "el Resplandor adulto", "vampirismo psíquico", "comunidad de AA", "legado generacional"],
+    "protagonistas": ["Danny Torrance (adulto)", "Abra Stone"],
+    "antagonista": "Rose the Hat / Los Hombres Verdaderos",
+    "escenario": "New Hampshire, Iowa",
+    "sinopsis": "Danny Torrance, ahora adulto, ha seguido el camino de su padre hacia el alcoholismo, usando el alcohol para ahogar los ecos del Overlook y su don. Se recupera a través de AA y trabaja en un hospicio donde usa suavemente el Resplandor para consolar a los moribundos, ganándose el apodo de Doctor Sleep. Se conecta telepáticamente con Abra Stone, una adolescente con un Resplandor extraordinariamente poderoso. Un grupo nómada llamado los Hombres Verdaderos, liderados por Rose the Hat, se alimenta del 'vapor' psíquico que emiten niños con el Resplandor cuando mueren aterrorizados. Danny y Abra deben unirse para defender a Abra y destruir a los Hombres Verdaderos.",
+    "citas_memorables": [
+      "The world's a hungry place. A dark place.",
+      "He called on the hotel. It was still there, sleeping.",
+      "Abra was the Overlook's last trick."
+    ],
+    "adaptaciones": ["Doctor Sleep (película, 2019)"],
+    "longitud_paginas": 531
+  },
+  {
+    "id": "king_09",
+    "titulo": "The Gunslinger (La Torre Oscura I)",
+    "año_publicacion": 1982,
+    "genero": ["dark fantasy", "western", "ciencia ficción", "horror"],
+    "temas": ["obsesión y destino", "el bien y el mal cósmico", "mundos paralelos", "sacrificio inevitable", "ka (destino)"],
+    "protagonistas": ["Roland Deschain"],
+    "antagonista": "El Hombre de Negro / Walter",
+    "escenario": "El Mundo Medio (Mid-World)",
+    "sinopsis": "Roland Deschain, el último pistolero, persigue al Hombre de Negro a través de un desierto eterno en un mundo donde la magia y la tecnología se mezclaron y luego decayeron. Encuentra a Jake Chambers, un niño de Nueva York que apareció misteriosamente en el Mundo Medio tras morir. Roland y Jake viajan juntos mientras Roland persigue inexorablemente al Hombre de Negro. Cuando deben cruzar las Montañas del Oeste, Roland debe elegir entre salvar a Jake y continuar su búsqueda. La novela termina con Roland encontrando al Hombre de Negro para una conversación cósmica que revela la naturaleza del universo y la Torre Oscura. Es el inicio de la serie más ambiciosa de King, que integra todos sus universos.",
+    "citas_memorables": [
+      "The man in black fled across the desert, and the gunslinger followed.",
+      "Go then, there are other worlds than these.",
+      "All things serve the Beam."
+    ],
+    "adaptaciones": ["The Dark Tower (película, 2017)"],
+    "longitud_paginas": 224
+  },
+  {
+    "id": "king_10",
+    "titulo": "Salem's Lot",
+    "año_publicacion": 1975,
+    "genero": ["horror de vampiros", "ficción de pueblo", "terror gótico"],
+    "temas": ["vampirismo como corrupción social", "secretos de pueblo pequeño", "regreso a los orígenes", "el mal que se propaga", "fe y superstición"],
+    "protagonistas": ["Ben Mears", "Mark Petrie"],
+    "antagonista": "Kurt Barlow / Richard Straker",
+    "escenario": "Jerusalem's Lot ('Salem's Lot), Maine",
+    "sinopsis": "Ben Mears, novelista, regresa a Jerusalem's Lot, Maine, donde vivió de niño y tuvo una experiencia traumática en la siniestra Marsten House. Descubre que la casa ha sido comprada por el misterioso Richard Straker y su asociado Kurt Barlow. Gradualmente los habitantes del pueblo comienzan a desaparecer o cambiar. Ben y un grupo de supervivientes descubren que Barlow es un vampiro de la vieja escuela que está convirtiendo al pueblo entero. La novela es una actualización de Drácula en el América rural moderno, usando el vampirismo como metáfora de cómo el mal se propaga cuando la gente se niega a admitir su existencia. King dedica el libro a Bram Stoker.",
+    "citas_memorables": [
+      "A small town is a funny thing.",
+      "The town knew about darkness.",
+      "Look at me. Don't you dare look away."
+    ],
+    "adaptaciones": ["Salem's Lot (miniserie TV, 1979)", "Salem's Lot (película, 2022)", "A Return to Salem's Lot"],
+    "longitud_paginas": 439
+  }
+]

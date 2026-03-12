@@ -1,0 +1,216 @@
+[
+  {
+    "id": "davis_01",
+    "titulo": "Kind of Blue",
+    "año": 1959,
+    "sello": "Columbia Records",
+    "epocas": ["modal jazz"],
+    "musicos": [
+      "Miles Davis (trompeta)",
+      "John Coltrane (saxofón tenor)",
+      "Cannonball Adderley (saxofón alto)",
+      "Bill Evans (piano)",
+      "Paul Chambers (contrabajo)",
+      "Jimmy Cobb (batería)"
+    ],
+    "tecnicas": ["jazz modal", "improvisación sobre escalas en lugar de acordes", "grabación en una sola toma"],
+    "temas": ["So What", "Freddie Freeloader", "Blue in Green", "All Blues", "Flamenco Sketches"],
+    "influencias": ["George Russell (Lydian Chromatic Concept)", "Ahmad Jamal", "Lennie Tristano"],
+    "influenciados": ["Bill Evans", "Herbie Hancock", "toda la tradición del jazz modal posterior"],
+    "descripcion": "El álbum más vendido en la historia del jazz, Kind of Blue representó una ruptura radical con el bebop. Davis desarrolló el jazz modal, donde los músicos improvisan sobre escalas modales en lugar de seguir progresiones de acordes complejas. El resultado es una música más espaciosa, meditativa y atmosférica. Cada tema fue presentado a los músicos sin ensayo previo, capturando la frescura de la primera exploración. La colaboración entre Davis, Coltrane y Evans produjo una alquimia única que nunca volvería a repetirse.",
+    "importancia_historica": "Vendió más de 5 millones de copias. Definió el jazz modal y es estudiado en todos los conservatorios del mundo. Incluido en el Registro Nacional de Grabaciones de la Biblioteca del Congreso de Estados Unidos."
+  },
+  {
+    "id": "davis_02",
+    "titulo": "Bitches Brew",
+    "año": 1970,
+    "sello": "Columbia Records",
+    "epocas": ["jazz-rock", "fusion", "avant-garde"],
+    "musicos": [
+      "Miles Davis (trompeta)",
+      "Wayne Shorter (saxofón soprano)",
+      "Joe Zawinul (teclados)",
+      "Chick Corea (teclados eléctricos)",
+      "John McLaughlin (guitarra eléctrica)",
+      "Dave Holland (contrabajo)",
+      "Jack DeJohnette (batería)",
+      "Lenny White (batería)"
+    ],
+    "tecnicas": ["grabación en estudio como instrumento", "edición y collage de cintas", "múltiples percusionistas simultáneos", "producción de Teo Macero"],
+    "temas": ["Pharaoh's Dance", "Bitches Brew", "Spanish Key", "John McLaughlin", "Miles Runs the Voodoo Down"],
+    "influencias": ["Jimi Hendrix", "Sly Stone", "música africana", "Stockhausen"],
+    "influenciados": ["Weather Report", "Return to Forever", "Herbie Hancock Headhunters", "todo el jazz-fusion"],
+    "descripcion": "Bitches Brew es el álbum que creó el jazz-fusion. Davis combinó las improvisaciones del jazz con los ritmos, volúmenes y texturas del rock psicodélico, el funk y la música eléctrica de Jimi Hendrix. El productor Teo Macero usó el estudio de grabación como un instrumento más, editando, colapsando y reorganizando las grabaciones. El resultado es una música oscura, hipnótica y perturbadora que rompió radicalmente con el jazz acústico de Kind of Blue.",
+    "importancia_historica": "Grammy al Mejor Álbum de Jazz de Grupo Grande (1971). Definió el jazz-fusion como género. Es el álbum de jazz más importante de los años 70 y uno de los más influyentes del siglo XX."
+  },
+  {
+    "id": "davis_03",
+    "titulo": "Birth of the Cool",
+    "año": 1957,
+    "sello": "Capitol Records",
+    "epocas": ["cool jazz", "nonet sessions"],
+    "musicos": [
+      "Miles Davis (trompeta)",
+      "Lee Konitz (saxofón alto)",
+      "Gerry Mulligan (barítono y arreglos)",
+      "J.J. Johnson (trombón)",
+      "Gunther Schuller (trompa)",
+      "Bill Barber (tuba)",
+      "John Lewis (piano)",
+      "Al Haig (piano)",
+      "Kenny Clarke (batería)"
+    ],
+    "tecnicas": ["arreglos de nonet", "contrapunto", "sonidos medios y bajos enfatizados", "tempo moderado"],
+    "temas": ["Move", "Jeru", "Moon Dreams", "Venus de Milo", "Budo", "Deception", "Godchild", "Rocker", "Israel", "Rouge"],
+    "influencias": ["Claude Thornhill", "Gil Evans", "música contemporánea europea"],
+    "influenciados": ["West Coast Jazz", "Dave Brubeck", "Chet Baker", "Stan Getz"],
+    "descripcion": "Grabado en 1949-1950 pero compilado en álbum en 1957, Birth of the Cool nació de las sesiones del nonet de Davis en el Royal Roost. Davis reunió a arreglistas como Gerry Mulligan y Gil Evans para crear una música más cerebral, suave y sofisticada que el bebop frenético. Los arreglos enfatizaban los tonos medios y bajos, creando una textura orquestal inusual. El cool jazz que nació de estas sesiones dominaría la Costa Oeste americana durante los años 50.",
+    "importancia_historica": "Fundó el cool jazz como movimiento estético opuesto al bebop. Las sesiones son estudiadas como modelo de composición y arreglo para pequeños ensambles de jazz."
+  },
+  {
+    "id": "davis_04",
+    "titulo": "Milestones",
+    "año": 1958,
+    "sello": "Columbia Records",
+    "epocas": ["hard bop", "transición modal"],
+    "musicos": [
+      "Miles Davis (trompeta)",
+      "John Coltrane (saxofón tenor)",
+      "Cannonball Adderley (saxofón alto)",
+      "Red Garland (piano)",
+      "Paul Chambers (contrabajo)",
+      "Philly Joe Jones (batería)"
+    ],
+    "tecnicas": ["improvisación modal en el tema Milestones", "quinteto/sexteto clásico", "equilibrio entre bebop y modal"],
+    "temas": ["Dr. Jackie", "Sid's Ahead", "Two Bass Hit", "Miles", "Billy Boy", "Straight, No Chaser", "Milestones"],
+    "influencias": ["Charlie Parker", "Dizzy Gillespie", "George Russell"],
+    "influenciados": ["Kind of Blue", "todo el jazz post-1958"],
+    "descripcion": "Milestones es el álbum puente entre el hard bop de Davis y el jazz modal que alcanzaría su culminación en Kind of Blue. El tema titular Milestones ya utiliza una estructura modal experimental. Davis reunió aquí su sexteto más célebre, que incluía tanto a Coltrane como a Adderley. El álbum muestra la evolución de Davis desde el bebop hacia territorios más abiertos e improvisatorios.",
+    "importancia_historica": "Considerado el precursor directo de Kind of Blue. Muestra el proceso evolutivo de la mente musical de Miles Davis en tiempo real."
+  },
+  {
+    "id": "davis_05",
+    "titulo": "E.S.P.",
+    "año": 1965,
+    "sello": "Columbia Records",
+    "epocas": ["second great quintet", "post-bop"],
+    "musicos": [
+      "Miles Davis (trompeta)",
+      "Wayne Shorter (saxofón tenor)",
+      "Herbie Hancock (piano)",
+      "Ron Carter (contrabajo)",
+      "Tony Williams (batería)"
+    ],
+    "tecnicas": ["time no changes", "improvisación colectiva avanzada", "ritmo como variable libre", "armonía implícita"],
+    "temas": ["E.S.P.", "Eighty-One", "Little One", "R.J.", "Agitation", "Iris", "Mood"],
+    "influencias": ["free jazz (Ornette Coleman)", "música contemporánea", "John Coltrane"],
+    "influenciados": ["jazz contemporáneo", "Hancock", "Williams, Shorter en sus carreras solistas"],
+    "descripcion": "E.S.P. inaugura la era del Segundo Gran Quinteto de Davis, considerado por muchos el mejor grupo de jazz de la historia. Davis reunió a músicos más jóvenes que expandirían los límites del jazz post-bop. La música es más oscura, angulosa y experimental que Kind of Blue. Hancock, Williams y Carter crearon una sección rítmica que no marcaba el tiempo convencionalmente sino que era una entidad melódico-rítmica independiente.",
+    "importancia_historica": "Inauguró el período más creativamente avanzado de Davis. El Segundo Gran Quinteto es estudiado como el pico de la improvisación colectiva en el jazz."
+  },
+  {
+    "id": "davis_06",
+    "titulo": "In a Silent Way",
+    "año": 1969,
+    "sello": "Columbia Records",
+    "epocas": ["jazz-rock temprano", "ambient jazz", "transición fusion"],
+    "musicos": [
+      "Miles Davis (trompeta)",
+      "Wayne Shorter (saxofón soprano)",
+      "Joe Zawinul (órgano eléctrico)",
+      "Chick Corea (piano eléctrico)",
+      "Herbie Hancock (piano eléctrico)",
+      "John McLaughlin (guitarra eléctrica)",
+      "Dave Holland (contrabajo)",
+      "Tony Williams (batería)"
+    ],
+    "tecnicas": ["edición de Teo Macero", "loops y repetición", "texturas sonoras sobre armonía estática", "ambient avant la lettre"],
+    "temas": ["Shhh/Peaceful", "In a Silent Way/It's About That Time"],
+    "influencias": ["Sly Stone", "experimentación electrónica", "Stravinsky"],
+    "influenciados": ["música ambient (Brian Eno)", "Bitches Brew", "jazz eléctrico posterior"],
+    "descripcion": "In a Silent Way fue el experimento previo a Bitches Brew, más etéreo y meditativo. Davis reunió a nueve músicos con tres tecladistas y los instruyó para crear texturas más que melodías convencionales. Teo Macero editó las sesiones hasta crear dos largas piezas que fluyen como un río hipnótico. El álbum prefiguró la música ambient décadas antes de Brian Eno y estableció la estética del jazz eléctrico.",
+    "importancia_historica": "Precursor del ambient music y del jazz-fusion. Muestra la transición de Davis desde el acústico post-bop hacia territorios eléctricos."
+  },
+  {
+    "id": "davis_07",
+    "titulo": "On the Corner",
+    "año": 1972,
+    "sello": "Columbia Records",
+    "epocas": ["funk", "fusion experimental", "avant-garde"],
+    "musicos": [
+      "Miles Davis (trompeta)",
+      "Carlos Garnett (saxofón)",
+      "Herbie Hancock (teclados)",
+      "Michael Henderson (bajo eléctrico)",
+      "Jack DeJohnette (batería)",
+      "Billy Hart (batería)",
+      "Al Foster (batería)"
+    ],
+    "tecnicas": ["múltiples bateristas simultáneos", "ritmos africanos", "funkdificación", "collage de estudio", "groove continuo"],
+    "temas": ["On the Corner", "New York Girl", "Thinkin' One Thing and Doin' Another", "Vote for Miles"],
+    "influencias": ["James Brown", "Sly Stone", "música africana contemporánea", "Stockhausen"],
+    "influenciados": ["hip-hop", "drum machine music", "música electrónica de baile"],
+    "descripcion": "On the Corner fue el intento más radical de Davis de conectar con la audiencia joven y negra que escuchaba funk y soul. Fue incomprendido en su momento pero es ahora reconocido como precursor del hip-hop y la música electrónica de baile. La música es extremadamente rítmica, con capas de percusión y bajo que crean un groove hipnótico y perturbador. Davis quería que fuera música de club y de calle, no de sala de conciertos.",
+    "importancia_historica": "Precursor del hip-hop, el groove electrónico y el neo-soul. Fue redescubierto en los años 90 como influencia fundamental en la música contemporánea."
+  },
+  {
+    "id": "davis_08",
+    "titulo": "Round About Midnight",
+    "año": 1957,
+    "sello": "Columbia Records",
+    "epocas": ["hard bop", "primer gran quinteto"],
+    "musicos": [
+      "Miles Davis (trompeta)",
+      "John Coltrane (saxofón tenor)",
+      "Red Garland (piano)",
+      "Paul Chambers (contrabajo)",
+      "Philly Joe Jones (batería)"
+    ],
+    "tecnicas": ["hard bop clásico", "interpretación melódica de standards", "equilibrio estructura-improvisación"],
+    "temas": ["Round Midnight", "Ah-Leu-Cha", "All of You", "Bye Bye Blackbird", "Tadd's Delight", "Dear Old Stockholm"],
+    "influencias": ["Charlie Parker", "Thelonious Monk", "bebop"],
+    "influenciados": ["post-bop", "el desarrollo de Coltrane"],
+    "descripcion": "Round About Midnight es el primer álbum completo de Davis para Columbia Records y el debut del Primer Gran Quinteto. Muestra a Davis en plena madurez del hard bop, con un sonido de trompeta melancólico y lírico inconfundible. La interpretación de Round Midnight de Thelonious Monk es considerada una de las lecturas definitivas del estándar. El álbum también documenta las primeras grabaciones importantes de un joven John Coltrane.",
+    "importancia_historica": "Primer álbum de Davis en Columbia. Documento histórico del Primer Gran Quinteto y de las primeras grabaciones de Coltrane con Davis."
+  },
+  {
+    "id": "davis_09",
+    "titulo": "Sketches of Spain",
+    "año": 1960,
+    "sello": "Columbia Records",
+    "epocas": ["jazz orquestal", "spanish jazz", "colaboración con Gil Evans"],
+    "musicos": [
+      "Miles Davis (trompeta, flugelhorn)",
+      "Gil Evans (arreglos y dirección)",
+      "orquesta de estudio"
+    ],
+    "tecnicas": ["arreglos orquestales de Gil Evans", "fusión de flamenco y jazz", "improvisación sobre temas clásicos españoles"],
+    "temas": ["Concierto de Aranjuez (Rodrigo)", "Will o' the Wisp", "The Pan Piper", "Saeta", "Solea"],
+    "influencias": ["Joaquín Rodrigo", "flamenco", "música andaluza", "Claude Debussy"],
+    "influenciados": ["jazz latino", "jazz orquestal posterior", "Wynton Marsalis"],
+    "descripcion": "Sketches of Spain es el tercero y más ambicioso de los álbumes colaborativos de Davis con el arreglista Gil Evans. Evans adaptó música española tradicional y el Concierto de Aranjuez de Rodrigo para crear un paisaje sonoro que mezcla el jazz con la melancolía del flamenco y la música andaluza. La trompeta de Davis suena como una voz humana, lamentándose sobre arreglos orquestales de extraordinaria riqueza tímbrica. Es uno de los cruces de géneros más exitosos de la historia del jazz.",
+    "importancia_historica": "Grammy al Mejor Álbum de Jazz de Solista (1961). Considerado uno de los grandes álbumes de la historia de la música, independientemente del género."
+  },
+  {
+    "id": "davis_10",
+    "titulo": "Agharta",
+    "año": 1975,
+    "sello": "Columbia Records",
+    "epocas": ["jazz eléctrico", "funk experimental", "avant-fusion"],
+    "musicos": [
+      "Miles Davis (trompeta, órgano)",
+      "Sonny Fortune (saxofón alto y flauta)",
+      "Pete Cosey (guitarra)",
+      "Reggie Lucas (guitarra)",
+      "Michael Henderson (bajo eléctrico)",
+      "Al Foster (batería)",
+      "James Mtume (percusión)"
+    ],
+    "tecnicas": ["concierto en vivo editado", "guitarra distorsionada avant-garde", "ritmo como textura", "sonidos de percusión africana"],
+    "temas": ["Prelude", "Maiysha", "Interlude", "Theme from Jack Johnson"],
+    "influencias": ["Jimi Hendrix (distorsión)", "Sly Stone", "música africana contemporánea"],
+    "influenciados": ["punk jazz", "noise music", "avant-rock"],
+    "descripcion": "Agharta fue grabado en vivo en Osaka, Japón, en 1975, y se convertiría en uno de los últimos discos de Davis antes de su retiro de cinco años. La música es oscura, claustrofóbica y perturbadora, con Pete Cosey creando texturas de guitarra distorsionada que prefiguran el noise-rock. Davis aparece físicamente deteriorado pero musicalmente en un estado de trance hipnótico. El álbum marca el fin de la era de experimentación eléctrica y el ocaso de una fase crucial de Davis.",
+    "importancia_historica": "Último gran álbum del período eléctrico de Davis antes de su retiro. Influencia en el punk-jazz, el avant-rock y la música experimental posterior."
+  }
+]

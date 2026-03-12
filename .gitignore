@@ -295,7 +295,7 @@ ray_results/
 dvc.lock.local
 .dvc/tmp/
 .dvc/cache/
-*.json
+
 *.jsonl
 *.lock
 *.ini

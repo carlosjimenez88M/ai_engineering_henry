@@ -1,0 +1,182 @@
+[
+  {
+    "id": "nolan_01",
+    "titulo": "Memento",
+    "año": 2000,
+    "genero": ["thriller", "neo-noir", "misterio"],
+    "temas": ["memoria", "identidad", "verdad subjetiva", "venganza", "autoengaño"],
+    "tecnica_narrativa": "narración no lineal inversa en blanco y negro intercalada con secuencias a color",
+    "protagonista": "Leonard Shelby",
+    "sinopsis": "Leonard Shelby sufre de amnesia anterógrada que le impide formar nuevos recuerdos desde que su esposa fue asesinada. Para investigar el crimen, utiliza fotografías polaroid, notas escritas y tatuajes en su propio cuerpo como sistema de memoria externa. La película se desarrolla en orden cronológico inverso, revelando gradualmente que Leonard se ha convertido en un instrumento de manipulación de su propio guía, Teddy. La historia explora cómo la identidad depende de la narrativa que construimos sobre nosotros mismos, y cómo esa narrativa puede ser radicalmente falsa. El espectador experimenta la desorientación del protagonista al descubrir junto a él las contradicciones de su situación.",
+    "frases_clave": [
+      "¿Cómo se supone que debo sanar si no puedo sentir el tiempo que pasa?",
+      "Tienes que creer en la evidencia. Tienes que creer en los hechos.",
+      "Recuerda Sammy: su condición era mental, no física."
+    ],
+    "influencias_cinematograficas": ["Rashomon (Kurosawa)", "El año pasado en Marienbad", "Pulp Fiction"],
+    "premios": ["Oscar nomination Mejor Guión Original", "BAFTA Mejor Montaje"],
+    "conexiones_tematicas": ["nolan_05", "nolan_08"]
+  },
+  {
+    "id": "nolan_02",
+    "titulo": "The Dark Knight",
+    "año": 2008,
+    "genero": ["acción", "superhéroes", "crimen", "thriller"],
+    "temas": ["caos vs orden", "vigilantismo", "sacrificio moral", "demagogia", "el mal como espejo"],
+    "tecnica_narrativa": "estructura de tres actos clásica con giros que elevan el género de superhéroes al thriller policial",
+    "protagonista": "Bruce Wayne / Batman",
+    "sinopsis": "Batman, el comisionado Gordon y el fiscal Harvey Dent forman una alianza para desmantelar el crimen organizado de Gotham. Su plan se ve interrumpido por la aparición del Joker, un agente del caos que desafía las normas convencionales del crimen y la moral. El Joker somete a Batman a una serie de dilemas éticos imposibles, cuestionando si los héroes y los villanos son opuestos reales o reflejos el uno del otro. La película culmina con la caída de Harvey Dent, convertido en Dos Caras, y la decisión de Batman de cargar con la culpa para preservar el mito de Dent como símbolo de esperanza para Gotham.",
+    "frases_clave": [
+      "Why so serious?",
+      "Some men just want to watch the world burn.",
+      "You either die a hero or you live long enough to see yourself become the villain."
+    ],
+    "influencias_cinematograficas": ["Heat (Mann)", "The French Connection", "El Padrino"],
+    "premios": ["Oscar Mejor Actor de Reparto (Heath Ledger)", "Oscar Mejor Edición de Sonido"],
+    "conexiones_tematicas": ["nolan_06", "nolan_10"]
+  },
+  {
+    "id": "nolan_03",
+    "titulo": "Inception",
+    "año": 2010,
+    "genero": ["ciencia ficción", "acción", "thriller"],
+    "temas": ["sueños", "realidad vs ilusión", "culpa", "pérdida", "construcción de la realidad"],
+    "tecnica_narrativa": "estructura de capas anidadas con realidades simultáneas y manipulación del tiempo subjetivo",
+    "protagonista": "Dom Cobb",
+    "sinopsis": "Dom Cobb es un ladrón especializado en robar secretos del subconsciente durante el estado de sueño. Se le ofrece la oportunidad de borrar su pasado criminal realizando la incepción: plantar una idea en la mente de Robert Fischer para disolver el imperio de su padre. Cobb lidera un equipo de especialistas a través de múltiples niveles de sueño anidados, donde el tiempo se dilata exponencialmente. Paralelamente, Cobb lucha contra la proyección de su esposa fallecida Mal, que amenaza la misión desde su subconsciente. La película concluye con una ambigüedad deliberada sobre si Cobb finalmente regresa a la realidad o permanece atrapado en un sueño.",
+    "frases_clave": [
+      "An idea is like a virus. Resilient. Highly contagious.",
+      "You mustn't be afraid to dream a little bigger, darling.",
+      "What is the most resilient parasite? An idea."
+    ],
+    "influencias_cinematograficas": ["Matrix", "2001: Odisea del espacio", "El club de la pelea"],
+    "premios": ["Oscar Mejor Cinematografía", "Oscar Mejor Efectos Visuales", "Oscar Mejor Dirección de Arte"],
+    "conexiones_tematicas": ["nolan_01", "nolan_04"]
+  },
+  {
+    "id": "nolan_04",
+    "titulo": "Interstellar",
+    "año": 2014,
+    "genero": ["ciencia ficción", "aventura", "drama"],
+    "temas": ["amor como fuerza física", "relatividad temporal", "supervivencia humana", "paternidad", "sacrificio"],
+    "tecnica_narrativa": "hard science fiction con rigor científico asesorado por Kip Thorne, bookshelf como dispositivo de resolución",
+    "protagonista": "Cooper",
+    "sinopsis": "En un futuro donde la Tierra se vuelve inhabitable por una plaga de polvo, Cooper, ex piloto de la NASA convertido en agricultor, descubre las coordenadas de una instalación secreta de la NASA. Allí aprende sobre un agujero de gusano cerca de Saturno que podría llevar a la humanidad a un nuevo hogar. Cooper lidera una misión interestelar a través del agujero de gusano, visitando planetas cerca del agujero negro Gargantúa donde el tiempo pasa diferente. La película culmina cuando Cooper entra al agujero negro y descubre un tesseracto construido por futuros humanos donde puede comunicarse con su hija a través del tiempo usando la gravedad como lenguaje.",
+    "frases_clave": [
+      "We used to look up at the sky and wonder at our place in the stars.",
+      "Love is the one thing we're capable of perceiving that transcends dimensions of time and space.",
+      "Do not go gentle into that good night."
+    ],
+    "influencias_cinematograficas": ["2001: Odisea del espacio", "Contact", "Solaris"],
+    "premios": ["Oscar Mejor Efectos Visuales"],
+    "conexiones_tematicas": ["nolan_03", "nolan_07"]
+  },
+  {
+    "id": "nolan_05",
+    "titulo": "Dunkirk",
+    "año": 2017,
+    "genero": ["bélico", "thriller histórico", "drama"],
+    "temas": ["supervivencia", "heroísmo colectivo", "tiempo como presión", "perspectiva múltiple", "trauma de guerra"],
+    "tecnica_narrativa": "tres líneas temporales paralelas (tierra=semana, mar=día, aire=hora) que convergen en el clímax",
+    "protagonista": "Tommy (y múltiples perspectivas)",
+    "sinopsis": "Dunkirk narra la evacuación de 400.000 soldados aliados atrapados en las playas de Dunkerque en 1940, desde tres perspectivas temporales simultáneas: los soldados en tierra durante una semana, un civil con su bote durante un día, y pilotos de la RAF durante una hora. Nolan elimina deliberadamente los diálogos expositivos para crear una experiencia inmersiva de tensión pura. La película rechaza el heroísmo convencional mostrando en cambio la supervivencia como logro moral suficiente. La convergencia de las tres líneas temporales en el clímax revela cómo perspectivas radicalmente diferentes del mismo evento crean narrativas incompatibles de la misma realidad.",
+    "frases_clave": [
+      "We shall fight on the beaches.",
+      "Men my age dictate this war. Why should we be the ones to end it?",
+      "Survival is enough."
+    ],
+    "influencias_cinematograficas": ["La delgada línea roja", "Salvar al soldado Ryan", "Das Boot"],
+    "premios": ["Oscar Mejor Montaje", "Oscar Mejor Mezcla de Sonido", "Oscar Mejor Edición de Sonido"],
+    "conexiones_tematicas": ["nolan_01", "nolan_08"]
+  },
+  {
+    "id": "nolan_06",
+    "titulo": "The Prestige",
+    "año": 2006,
+    "genero": ["drama", "misterio", "thriller"],
+    "temas": ["obsesión", "rivalidad", "sacrificio", "ilusión vs realidad", "identidad duplicada"],
+    "tecnica_narrativa": "estructura de truco de magia (la promesa, el turno, el prestigio) aplicada a la narrativa completa",
+    "protagonista": "Robert Angier y Alfred Borden (dualidad)",
+    "sinopsis": "Dos magos rivales del Londres victoriano, Robert Angier y Alfred Borden, se destruyen mutuamente en una escalada de obsesión tras un accidente durante un truco. Cada uno roba los secretos del otro, con consecuencias cada vez más devastadoras. La película estructura su narrativa como un truco de magia en tres actos. La revelación final muestra que Borden tenía un gemelo que compartía toda su vida, mientras que Angier usó la máquina de Tesla para crear duplicados de sí mismo a los que ejecutaba en cada actuación. La obsesión los llevó a ambos a sacrificar su humanidad por el espectáculo.",
+    "frases_clave": [
+      "Every great magic trick consists of three parts: The Pledge, The Turn, The Prestige.",
+      "Are you watching closely?",
+      "The secret impresses no one. The trick you use it for is everything."
+    ],
+    "influencias_cinematograficas": ["El séptimo sello", "Amadeus", "Eyes Wide Shut"],
+    "premios": ["Oscar nomination Mejor Cinematografía", "Oscar nomination Mejor Dirección de Arte"],
+    "conexiones_tematicas": ["nolan_01", "nolan_02"]
+  },
+  {
+    "id": "nolan_07",
+    "titulo": "Tenet",
+    "año": 2020,
+    "genero": ["acción", "espionaje", "ciencia ficción"],
+    "temas": ["entropía invertida", "libre albedrío vs determinismo", "paradojas temporales", "sacrificio ignorado"],
+    "tecnica_narrativa": "inversión temporal física con coreografías de acción que se desarrollan simultáneamente hacia adelante y atrás",
+    "protagonista": "El Protagonista (sin nombre)",
+    "sinopsis": "Un agente de la CIA sin nombre es reclutado por la organización Tenet para prevenir la Tercera Guerra Mundial. Descubre que las futuras generaciones han aprendido a invertir la entropía de objetos y eventualmente de personas. Un oligarca ruso llamado Sator trabaja para provocar el Apocalipsis del pasado, destruyendo el presente a petición de su futuro moribundo. El Protagonista debe dominar el concepto de inversión temporal para combatir una amenaza que existe simultáneamente en el pasado y el presente. La película opera en dos niveles temporales simultáneos durante su climax, con el protagonista descubriendo al final que él mismo fundó Tenet.",
+    "frases_clave": [
+      "Don't try to understand it. Feel it.",
+      "What's happened, happened.",
+      "Ignorance is our ammunition."
+    ],
+    "influencias_cinematograficas": ["Vértigo", "James Bond", "Inception"],
+    "premios": ["Oscar Mejor Efectos Visuales"],
+    "conexiones_tematicas": ["nolan_03", "nolan_04"]
+  },
+  {
+    "id": "nolan_08",
+    "titulo": "Oppenheimer",
+    "año": 2023,
+    "genero": ["drama biográfico", "thriller histórico", "drama político"],
+    "temas": ["responsabilidad científica", "ambición moral", "macartismo", "dualidad destrucción-creación", "legado"],
+    "tecnica_narrativa": "perspectivas duales (color subjetivo de Oppenheimer, blanco y negro objetivo de Strauss) con estructura no cronológica",
+    "protagonista": "J. Robert Oppenheimer",
+    "sinopsis": "La película narra la vida de J. Robert Oppenheimer, el físico teórico que dirigió el Proyecto Manhattan para desarrollar la primera bomba atómica. Alterna entre el proceso de audiencia de seguridad de 1954 donde se le revocó la autorización de seguridad (perspectiva subjetiva a color) y las audiencias del Senado de 1959 donde Lewis Strauss busca confirmación (perspectiva objetiva en blanco y negro). La película explora cómo Oppenheimer navegó las complejidades morales de crear el arma de destrucción masiva, su relación con el Partido Comunista y su posterior persecución política. El Trinity Test se presenta como el momento de máxima tensión dramática, seguido por la conciencia gradual del horror que desencadenó en Hiroshima.",
+    "frases_clave": [
+      "Now I am become Death, the destroyer of worlds.",
+      "Theory will take you only so far.",
+      "We imagine a future and our imaginings horrify us."
+    ],
+    "influencias_cinematograficas": ["Citizen Kane", "Dr. Strangelove", "El proceso (Kafka)"],
+    "premios": ["Oscar Mejor Película", "Oscar Mejor Director", "Oscar Mejor Actor (Cillian Murphy)", "Oscar Mejor Actor de Reparto (Robert Downey Jr.)"],
+    "conexiones_tematicas": ["nolan_05", "nolan_01"]
+  },
+  {
+    "id": "nolan_09",
+    "titulo": "The Dark Knight Rises",
+    "año": 2012,
+    "genero": ["acción", "superhéroes", "thriller político"],
+    "temas": ["redención", "legado", "revolución vs orden", "sacrificio último", "renacimiento"],
+    "tecnica_narrativa": "conclusión épica de trilogía con ecos temáticos al primero, escala de producción masiva con locaciones reales",
+    "protagonista": "Bruce Wayne / Batman",
+    "sinopsis": "Ocho años después de los eventos de The Dark Knight, Bruce Wayne vive como recluso y Batman ha desaparecido de Gotham. La aparición de Bane, un mercenario con máscara que conoce los secretos de la Liga de las Sombras, obliga a Batman a regresar. Bane rompe física y espiritualmente a Batman, lo encierra en una prisión-pozo y toma Gotham rehén con una bomba nuclear. Wayne debe reconstruirse desde cero, escapar del pozo y enfrentarse a Bane, descubriendo que la verdadera amenaza es Talia al-Ghul, hija de Ra's al-Ghul. La película concluye con Batman aparentemente sacrificándose para salvar Gotham, pero sugiere que encontró paz como Bruce Wayne.",
+    "frases_clave": [
+      "A hero can be anyone, even a man doing something as simple as putting a coat around a young boy's shoulders.",
+      "Why do we fall? So we can learn to pick ourselves up.",
+      "The shadows betray you because they belong to me."
+    ],
+    "influencias_cinematograficas": ["A Tale of Two Cities (Dickens)", "El Padrino III", "Batman: Knightfall"],
+    "premios": ["BAFTA nomination Mejores Efectos Especiales"],
+    "conexiones_tematicas": ["nolan_02", "nolan_06"]
+  },
+  {
+    "id": "nolan_10",
+    "titulo": "Batman Begins",
+    "año": 2005,
+    "genero": ["acción", "superhéroes", "drama de origen"],
+    "temas": ["miedo como herramienta", "justicia vs venganza", "identidad construida", "mentoring", "corrupción sistémica"],
+    "tecnica_narrativa": "estructura de origen con flashbacks intercalados, enfoque en la psicología del héroe sobre el espectáculo",
+    "protagonista": "Bruce Wayne",
+    "sinopsis": "Bruce Wayne, traumatizado por el asesinato de sus padres, viaja por el mundo buscando entender la criminalidad desde adentro. Es reclutado por Henri Ducard y Ra's al-Ghul para unirse a la Liga de las Sombras, pero rechaza su nihilismo al descubrir sus planes para destruir Gotham. Regresa a Gotham, hereda Wayne Enterprises y con la ayuda de Lucius Fox construye el traje y las herramientas de Batman. Se enfrenta al Espantapájaros y finalmente a Ra's al-Ghul, quien quiere usar una toxina del miedo para provocar el colapso de Gotham. La película establece que Batman es un símbolo, no un hombre, una idea que puede sobrevivir al individuo.",
+    "frases_clave": [
+      "It's not who I am underneath, but what I do that defines me.",
+      "Why do we fall, sir? So that we can learn to pick ourselves up.",
+      "I seek the means to fight injustice. To turn fear against those who prey on the fearful."
+    ],
+    "influencias_cinematograficas": ["Zorro", "El Padrino", "Batman: Year One (Miller)"],
+    "premios": ["Saturn Award Mejor Película de Superhéroes"],
+    "conexiones_tematicas": ["nolan_02", "nolan_09"]
+  }
+]
