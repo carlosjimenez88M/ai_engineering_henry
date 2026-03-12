@@ -1,6 +1,6 @@
 UV ?= uv
 
-.PHONY: help sync test lint format check module-01 module-02 module-03 module-04 module-05
+.PHONY: help sync test lint format check module-01 module-02 module-03 module-04 module-05 module-06
 
 help:
 	@echo "Comandos disponibles:"
@@ -14,6 +14,7 @@ help:
 	@echo "  make module-03  - Ejecuta tests del modulo 03"
 	@echo "  make module-04  - Ejecuta tests del modulo 04"
 	@echo "  make module-05  - Ejecuta tests del modulo 05"
+	@echo "  make module-06  - Ejecuta tests del modulo 06"
 
 sync:
 	$(UV) sync --extra dev
@@ -44,3 +45,6 @@ module-04:
 
 module-05:
 	$(MAKE) -C 05-fastapi test
+
+module-06:
+	$(MAKE) -C 06-langgraph test

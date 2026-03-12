@@ -20,6 +20,7 @@ dependencies = [
   "nbconvert>=7.16.0",
   "pillow>=10.0.0",
   "rich>=13.7.1",
+  "keras>=3.13.2",
 ]
 
 [project.optional-dependencies]

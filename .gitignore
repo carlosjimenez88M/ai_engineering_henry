@@ -299,4 +299,5 @@ dvc.lock.local
 *.jsonl
 *.lock
 *.ini
-*.mako
+*.mako*.env copy
+.env copy

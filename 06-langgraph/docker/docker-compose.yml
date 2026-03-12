@@ -1,0 +1,45 @@
+version: "3.9"
+
+networks:
+  cultural_intelligence_net:
+    driver: bridge
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8006:8006"
+    env_file:
+      - ../.env
+    networks:
+      - cultural_intelligence_net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8006/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  jupyter:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    profiles:
+      - dev
+    command: >
+      jupyter lab
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+    ports:
+      - "8888:8888"
+    volumes:
+      - ..:/app
+    env_file:
+      - ../.env
+    networks:
+      - cultural_intelligence_net
