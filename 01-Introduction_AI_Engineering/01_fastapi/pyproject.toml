@@ -2,7 +2,7 @@
 name = "henry-fastapi-module"
 version = "0.1.0"
 description = "Módulo 5 de FastAPI del curso de AI Engineering de Henry"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
   "fastapi[standard]>=0.115.0",
   "sqlalchemy>=2.0.0",

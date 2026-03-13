@@ -2,7 +2,7 @@
 name = "henry-vector-databases"
 version = "0.1.0"
 description = "Modulo 2 del curso de AI Engineering de Henry"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
   "openai>=1.60.0",
   "langchain>=0.3.0",
@@ -56,3 +56,9 @@ select = ["E", "F", "I", "B", "W"]
 [build-system]
 requires = ["setuptools>=68.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".",
+  "01_intro/07_deep_learning_attention",
+]

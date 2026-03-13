@@ -2,7 +2,7 @@
 name = "python-extra-class"
 version = "0.1.0"
 description = "Material practico de Python para fundamentos y aplicacion en AI/ML"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
   "pytest>=8.0.0",
   "pytest-cov>=4.0.0",

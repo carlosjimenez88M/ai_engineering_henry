@@ -2,7 +2,7 @@
 name = "multi-agent-routing-rag"
 version = "0.1.0"
 description = "Skeleton for a LangChain multi-agent orchestrator routing queries to HR/TECH RAG specialists."
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
   "langchain==1.2.10",
   "langchain-openai>=1.0.0",

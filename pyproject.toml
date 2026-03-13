@@ -2,7 +2,7 @@
 name = "ai-engineering-henry"
 version = "0.1.0"
 description = "Entorno unificado para el curso de AI Engineering - Henry"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
   "openai>=1.60.0",
   "langchain>=0.3.0",

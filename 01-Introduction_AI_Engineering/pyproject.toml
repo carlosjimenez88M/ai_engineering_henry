@@ -2,7 +2,7 @@
 name = "henry-ai-engineering-foundations"
 version = "0.1.0"
 description = "Modulo 1 del curso de AI Engineering de Henry"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
   "openai>=1.60.0",
   "langchain>=0.3.0",
@@ -53,9 +53,9 @@ py-modules = []
 
 [tool.pytest.ini_options]
 testpaths = [
-  "01_introduction/02_ai_engineering/tests",
-  "01_introduction/01_python_software_engineering/tests",
-  "06_project/tests",
+  "02_introduction/02_ai_engineering/tests",
+  "02_introduction/01_python_software_engineering/tests",
+  "07_project/tests",
 ]
 
 [tool.ruff]
