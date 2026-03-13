@@ -1,4 +1,7 @@
 """
+ejemplo_02_context_managers.py
+
+Objetivo del script: 
 Ejemplos completos de Context Managers en Python.
 
 Este módulo muestra ejemplos prácticos y ejecutables de:
@@ -10,6 +13,13 @@ Este módulo muestra ejemplos prácticos y ejecutables de:
 - Decorador @contextmanager
 
 Filosofía: Código claro, ejemplos ejecutables, enfoque en el "por qué".
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 import time

@@ -1,8 +1,18 @@
 """
+routing_agent.py
+
+Objetivo del script: 
 Router con especialistas.
 
 Uso:
-    from langchain.scripts.routing_agent import 03_routingAgent
+    from langchain.scripts.routing_agent import RoutingAgent
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations
@@ -27,7 +37,7 @@ class RouterState(TypedDict):
     ruta: str
 
 
-class 03_routingAgent:
+class RoutingAgent:
     """Agente con routing a especialistas."""
 
     def __init__(

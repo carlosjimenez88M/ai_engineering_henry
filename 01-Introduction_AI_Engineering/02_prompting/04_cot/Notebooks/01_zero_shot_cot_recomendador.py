@@ -1,4 +1,7 @@
 """
+01_zero_shot_cot_recomendador.py
+
+Objetivo del script: 
 Zero-shot Chain of Thought (CoT) aplicado a recomendador de conversaciones.
 
 DIAGRAMA: Flujo Chain of Thought
@@ -62,6 +65,13 @@ MAPEO A ESTRUCTURA DE 5 CAPAS (ver README principal):
 
 Para versión tipo-segura con Pydantic, ver: 03_zero_shot_cot_pydantic.py
 Para comparison JSON vs Pydantic, lee README.md sección "Output Format Evolution"
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations

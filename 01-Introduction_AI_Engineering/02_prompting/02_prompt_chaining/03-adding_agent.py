@@ -1,9 +1,19 @@
-'''
+"""
+03-adding_agent.py
+
+Objetivo del script: 
 Workflow for prompt chaining in AI engineering (Interactive Version).
 Objetivo : Construir un marco referencial interactivo donde la IA 
            solicita contexto humano para refinar la estrategia.
 Release Date : 2026-02-10
-'''
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
 
 import os
 import argparse

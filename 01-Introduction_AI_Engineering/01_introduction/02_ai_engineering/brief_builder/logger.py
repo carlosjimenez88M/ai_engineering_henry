@@ -1,8 +1,19 @@
-"""Logging configuration with colored output for better readability.
+"""
+logger.py
+
+Objetivo del script: 
+Logging configuration with colored output for better readability.
 
 This module provides a colored formatter for console logging that makes
 it easier to scan logs during development and debugging. Colors are applied
 based on log level (DEBUG=cyan, INFO=green, WARNING=yellow, ERROR=red, etc.).
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations

@@ -1,10 +1,21 @@
-"""CoT con LangGraph: arquitectura de grafo con visualizacion PNG.
+"""
+02_cot_langgraph.py
+
+Objetivo del script: 
+CoT con LangGraph: arquitectura de grafo con visualizacion PNG.
 
 Este modulo migra la implementacion manual de CoT a LangGraph, habilitando:
 - Visualizacion de grafos con draw_mermaid_png()
 - Gestion de estado explicita con StateGraph
 - Mejor debugging y trazabilidad
 - Arquitectura componible y mantenible
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations

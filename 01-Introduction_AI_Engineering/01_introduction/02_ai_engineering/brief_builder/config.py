@@ -1,8 +1,19 @@
-"""Configuration management for brief builder.
+"""
+config.py
+
+Objetivo del script: 
+Configuration management for brief builder.
 
 This module handles loading and validating configuration from environment variables.
 Following the twelve-factor app methodology, all configuration is read from the
 environment, with sensible defaults where appropriate.
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations

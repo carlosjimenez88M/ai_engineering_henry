@@ -1,8 +1,18 @@
 """
+smoke_test.py
+
+Objetivo del script: 
 Smoke test real con LLM — verifica el grafo end-to-end.
 Requiere OPENAI_API_KEY válida en .env o entorno.
 
 Uso: uv run python scripts/smoke_test.py
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))

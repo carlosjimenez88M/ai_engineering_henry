@@ -1,4 +1,7 @@
 """
+02_few_shot_cot_feedback_loop.py
+
+Objetivo del script: 
 Few-shot Chain of Thought + Feedback Loop para recomendaciones de conversación.
 
 DIAGRAMA: Few-shot CoT con Feedback Loop
@@ -141,6 +144,13 @@ CUÁNDO NO USAR FEW-SHOT:
 Para versión tipo-segura con Pydantic, ver: 04_few_shot_cot_pydantic.py
 Para comparación JSON vs Pydantic, lee: ../PYDANTIC_GUIDE.md
 Ver rubrica.py (líneas 15-80) para implementación completa de evaluación
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations

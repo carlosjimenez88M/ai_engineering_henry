@@ -1,4 +1,8 @@
-"""Prompt templates for brief generation.
+"""
+prompts.py
+
+Objetivo del script: 
+Prompt templates for brief generation.
 
 This module contains the system and user prompts that define the structure
 and quality expectations for the generated briefs. Prompts are versioned
@@ -9,6 +13,13 @@ Following "AI Engineering" by Chip Huyen, we:
 2. Make requirements explicit and measurable
 3. Provide clear output format specifications
 4. Include quality criteria and anti-patterns to avoid
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations

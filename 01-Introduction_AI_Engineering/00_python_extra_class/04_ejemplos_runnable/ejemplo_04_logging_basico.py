@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """
+ejemplo_04_logging_basico.py
+
+Objetivo del script: 
 Ejemplo 04: Logging Básico
 ===========================
 
@@ -13,6 +16,13 @@ Demuestra:
 Prerrequisito: Lee 11_logging_patterns.md
 
 Ejecuta: python ejemplo_04_logging_basico.py
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 import logging

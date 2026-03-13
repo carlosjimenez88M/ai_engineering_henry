@@ -1,4 +1,16 @@
-"""LLMOps applied example for Module 3."""
+"""
+__init__.py
+
+Objetivo del script: 
+LLMOps applied example for Module 3.
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
 
 __all__ = [
     "config",

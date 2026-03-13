@@ -1,4 +1,16 @@
-"""03_routing architecture with LangGraph for profile-specific conversational strategy."""
+"""
+01_routing_langgraph.py
+
+Objetivo del script: 
+03_routing architecture with LangGraph for profile-specific conversational strategy.
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
 
 from __future__ import annotations
 
@@ -43,7 +55,7 @@ class FinalMessage(BaseModel):
     style_used: str
 
 
-class 03_routingState(TypedDict):
+class RoutingState(TypedDict):
     context_packet: dict
     route: str
     route_rationale: str
@@ -70,7 +82,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         }
     context_packet = build_context_packet(profile=profile, architecture="routing")
 
-    def route_profile(state: 03_routingState) -> dict:
+    def route_profile(state: RoutingState) -> dict:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", "Elige la mejor estrategia: intelectual, creativo o aventura."),
@@ -81,7 +93,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         result = chain.invoke({"context_packet": json.dumps(state["context_packet"], ensure_ascii=False, indent=2)})
         return {"route": result.route, "route_rationale": result.rationale}
 
-    def intellectual_node(state: 03_routingState) -> dict:
+    def intellectual_node(state: RoutingState) -> dict:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", "Estrategia intelectual: profundidad, evidencia y curiosidad."),
@@ -96,7 +108,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         res = chain.invoke({"context_packet": json.dumps(state["context_packet"], ensure_ascii=False, indent=2)})
         return {"final": res.model_dump()}
 
-    def creative_node(state: 03_routingState) -> dict:
+    def creative_node(state: RoutingState) -> dict:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", "Estrategia creativa: imagenes, referencias culturales y tono ligero."),
@@ -111,7 +123,7 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         res = chain.invoke({"context_packet": json.dumps(state["context_packet"], ensure_ascii=False, indent=2)})
         return {"final": res.model_dump()}
 
-    def adventure_node(state: 03_routingState) -> dict:
+    def adventure_node(state: RoutingState) -> dict:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", "Estrategia aventura: energia, accion y experiencias de campo."),
@@ -126,14 +138,14 @@ def run_routing(profile: dict | None = None, verbose: bool = True) -> dict:
         res = chain.invoke({"context_packet": json.dumps(state["context_packet"], ensure_ascii=False, indent=2)})
         return {"final": res.model_dump()}
 
-    def route_selector(state: 03_routingState) -> Literal["intelectual_node", "creative_node", "adventure_node"]:
+    def route_selector(state: RoutingState) -> Literal["intelectual_node", "creative_node", "adventure_node"]:
         if state["route"] == "intelectual":
             return "intelectual_node"
         if state["route"] == "creativo":
             return "creative_node"
         return "adventure_node"
 
-    graph = StateGraph(03_routingState)
+    graph = StateGraph(RoutingState)
     graph.add_node("route_profile", route_profile)
     graph.add_node("intelectual_node", intellectual_node)
     graph.add_node("creative_node", creative_node)

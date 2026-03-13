@@ -1,4 +1,8 @@
-"""Main entry point for brief generation.
+"""
+main.py
+
+Objetivo del script: 
+Main entry point for brief generation.
 
 This script generates a comprehensive comparative brief on Software Engineering
 vs AI Engineering using OpenAI's API. The output is structured markdown following
@@ -14,6 +18,13 @@ Following principles from "AI Engineering" by Chip Huyen:
 - Modularity: Separated concerns (config, prompts, validation, metrics)
 - Error handling: Specific exceptions and retry logic
 - Observability: Metrics tracking for cost/latency
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations

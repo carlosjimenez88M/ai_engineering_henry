@@ -1,4 +1,7 @@
 """
+coqueteo_personas.py
+
+Objetivo del script: 
 Personas Latino para ejemplos de coqueteo y matching.
 
 Este modulo define 3 arquetipos distintos de perfiles Latino para demostrar
@@ -13,6 +16,13 @@ Uso:
     )
 
     perfil = get_persona_romantico_clasico()
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from typing import TypedDict, List

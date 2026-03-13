@@ -1,4 +1,7 @@
 """
+01_react_agente_coqueto.py
+
+Objetivo del script: 
 Zero-shot ReAct: Agente conversacional con herramientas y razonamiento cíclico.
 
 DIAGRAMA: Ciclo ReAct con Tools y Guardrails
@@ -222,6 +225,13 @@ MAPEO A ESTRUCTURA DE 5 CAPAS (ver README principal):
 Para versión tipo-segura con Pydantic: 03_react_agente_pydantic.py
 Para few-shot con traces: 02_react_personas_feedback_loop.py
 Para guía completa de Pydantic: ../PYDANTIC_GUIDE.md
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations

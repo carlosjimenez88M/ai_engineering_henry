@@ -1,10 +1,20 @@
 """
+test_ejemplos.py
+
+Objetivo del script: 
 Test Suite para Ejemplos Ejecutables
 ======================================
 
 Tests para verificar que todos los ejemplos pueden importarse y ejecutarse.
 
 Ejecuta: pytest test_ejemplos.py -v
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 import pytest

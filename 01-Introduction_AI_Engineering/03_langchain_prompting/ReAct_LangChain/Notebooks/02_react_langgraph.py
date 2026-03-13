@@ -1,4 +1,8 @@
-"""ReAct con LangGraph: arquitectura con ToolNode y visualizacion PNG.
+"""
+02_react_langgraph.py
+
+Objetivo del script: 
+ReAct con LangGraph: arquitectura con ToolNode y visualizacion PNG.
 
 Este modulo migra la implementacion manual de ReAct a LangGraph, habilitando:
 - Visualizacion de grafos con draw_mermaid_png()
@@ -6,6 +10,13 @@ Este modulo migra la implementacion manual de ReAct a LangGraph, habilitando:
 - Gestion de estado con mensajes (LangChain pattern)
 - 03_routing automatico entre agent y tools
 - Mejor debugging y trazabilidad
+
+Copyright 2026 Henry Academy.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 
 from __future__ import annotations
