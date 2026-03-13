@@ -1,3 +1,4 @@
+![](https://www.soyhenry.com/_next/static/media/HenryLogo.bb57fd6f.svg)
 <div align="center">
 
 # AI Engineering Foundation
