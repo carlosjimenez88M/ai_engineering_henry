@@ -1,7 +1,7 @@
 <div align="center">
 
 # AI Engineering Foundation
-### Henry Academy — Advanced Agentic & Deep Learning Track
+### Henry Academy — AI Engineering and AI Software Engineering Track
 
 *Construye sistemas de inteligencia artificial desde los fundamentos hasta producción.*
 
