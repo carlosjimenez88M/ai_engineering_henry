@@ -20,8 +20,8 @@ from typing import Iterable
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from .common import tokenize
-from .rag_pipelines import AgenticRAG, RAGResult, VanillaRAG
+from scripts.common import tokenize
+from scripts.rag_pipelines import AgenticRAG, RAGResult, VanillaRAG
 
 
 def groundedness_score(answer: str, contexts: Iterable[str]) -> float:

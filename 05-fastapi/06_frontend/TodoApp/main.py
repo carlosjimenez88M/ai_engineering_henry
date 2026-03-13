@@ -20,9 +20,9 @@ from fastapi import FastAPI, Request, status
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
-from .database import engine
-from .models import Base
-from .routers import admin, auth, todos, users
+from TodoApp.database import engine
+from TodoApp.models import Base
+from TodoApp.routers import admin, auth, todos, users
 
 app = FastAPI()
 

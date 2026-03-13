@@ -12,6 +12,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from .context_engineering import build_context_packet
+from 03_langchain_prompting.common.context_engineering import build_context_packet
 
 __all__ = ["build_context_packet"]

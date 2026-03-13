@@ -24,9 +24,9 @@ from sqlalchemy.orm import Session
 from starlette import status
 from starlette.responses import RedirectResponse
 
-from ..database import SessionLocal
-from ..models import Todos
-from .auth import get_current_user
+from TodoApp.database import SessionLocal
+from TodoApp.models import Todos
+from TodoApp.routers.auth import get_current_user
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))

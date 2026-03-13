@@ -19,8 +19,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import RunnableLambda
 
-from .prompts import HR_AGENT_PROMPT, TECH_AGENT_PROMPT
-from .schemas import RAGAnswer
+from multi_agent_system.prompts import HR_AGENT_PROMPT, TECH_AGENT_PROMPT
+from multi_agent_system.schemas import RAGAnswer
 
 
 

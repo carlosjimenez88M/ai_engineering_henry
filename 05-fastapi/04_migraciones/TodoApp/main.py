@@ -16,9 +16,9 @@ limitations under the License.
 
 from fastapi import FastAPI
 
-from . import models
-from .database import engine
-from .routers import admin, auth, todos, users
+from TodoApp import models
+from TodoApp.database import engine
+from TodoApp.routers import admin, auth, todos, users
 
 app = FastAPI()
 

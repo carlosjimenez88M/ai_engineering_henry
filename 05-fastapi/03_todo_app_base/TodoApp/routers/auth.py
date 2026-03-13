@@ -24,8 +24,8 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from starlette import status
 
-from ..database import SessionLocal
-from ..models import Users
+from TodoApp.database import SessionLocal
+from TodoApp.models import Users
 
 router = APIRouter(
     prefix='/auth',

@@ -12,16 +12,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from .common import chunk_comic_records, load_comic_records
-from .evaluation import (
+from scripts.common import chunk_comic_records, load_comic_records
+from scripts.evaluation import (
     build_eval_questions,
     groundedness_score,
     plot_architecture_difference,
     plot_pipeline_comparison,
     run_benchmark,
 )
-from .rag_pipelines import AgenticRAG, HeroRouterOrchestrator, VanillaRAG
-from .vector_store_lab import ComicsVectorDB
+from scripts.rag_pipelines import AgenticRAG, HeroRouterOrchestrator, VanillaRAG
+from scripts.vector_store_lab import ComicsVectorDB
 
 __all__ = [
     "AgenticRAG",

@@ -21,9 +21,9 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
 
-from ..database import SessionLocal
-from ..models import Todos
-from .auth import get_current_user
+from TodoApp.database import SessionLocal
+from TodoApp.models import Todos
+from TodoApp.routers.auth import get_current_user
 
 router = APIRouter()
 

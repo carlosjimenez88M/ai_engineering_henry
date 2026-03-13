@@ -31,7 +31,7 @@ from openai import APIError as OpenAIAPIError
 from openai import RateLimitError
 
 try:
-    from .exceptions import APIError
+    from brief_builder.exceptions import APIError
 except ImportError:
     from exceptions import APIError
 

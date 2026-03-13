@@ -16,7 +16,7 @@ limitations under the License.
 
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 
-from .database import Base
+from TodoApp.database import Base
 
 
 class Users(Base):

@@ -20,7 +20,7 @@ from typing import Any
 
 import chromadb
 
-from .common import chunk_comic_records, embed_documents, embed_query, load_comic_records
+from scripts.common import chunk_comic_records, embed_documents, embed_query, load_comic_records
 
 
 class ComicsVectorDB:

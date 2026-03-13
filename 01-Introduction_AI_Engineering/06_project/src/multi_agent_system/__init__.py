@@ -12,6 +12,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from .pipeline import MultiAgentService, build_multi_agent_pipeline, build_multi_agent_service
+from multi_agent_system.pipeline import MultiAgentService, build_multi_agent_pipeline, build_multi_agent_service
 
 __all__ = ["MultiAgentService", "build_multi_agent_pipeline", "build_multi_agent_service"]

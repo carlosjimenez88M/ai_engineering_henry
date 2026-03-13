@@ -19,18 +19,18 @@ from dataclasses import dataclass
 from langchain_core.runnables import RunnableLambda
 from langchain_openai import ChatOpenAI
 
-from .config import Settings
-from .intent_classifier import heuristic_intent_router
-from .memory import InMemoryConversationStore
-from .orchestrator import build_orchestrator
-from .rag_agents import (
+from multi_agent_system.config import Settings
+from multi_agent_system.intent_classifier import heuristic_intent_router
+from multi_agent_system.memory import InMemoryConversationStore
+from multi_agent_system.orchestrator import build_orchestrator
+from multi_agent_system.rag_agents import (
     build_hr_local_rag_agent,
     build_hr_rag_agent,
     build_tech_local_rag_agent,
     build_tech_rag_agent,
 )
-from .retrievers import build_hr_retriever, build_tech_retriever
-from .schemas import RoutedResponse
+from multi_agent_system.retrievers import build_hr_retriever, build_tech_retriever
+from multi_agent_system.schemas import RoutedResponse
 
 
 @dataclass

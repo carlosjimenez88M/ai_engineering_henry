@@ -18,8 +18,8 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableLambda
 
-from .prompts import ORCHESTRATOR_INTENT_PROMPT
-from .schemas import IntentClassification, IntentLabel
+from multi_agent_system.prompts import ORCHESTRATOR_INTENT_PROMPT
+from multi_agent_system.schemas import IntentClassification, IntentLabel
 
 
 

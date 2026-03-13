@@ -16,9 +16,9 @@ limitations under the License.
 
 from fastapi import status
 
-from ..models import Todos
-from ..routers.todos import get_current_user, get_db
-from .utils import (
+from TodoApp.models import Todos
+from TodoApp.routers.todos import get_current_user, get_db
+from TodoApp.test.utils import (
     TestingSessionLocal,
     app,
     client,

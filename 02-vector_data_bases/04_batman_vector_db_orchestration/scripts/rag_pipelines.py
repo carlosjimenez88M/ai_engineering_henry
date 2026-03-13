@@ -18,8 +18,8 @@ import time
 from dataclasses import dataclass, field
 from typing import Any
 
-from .common import generate_answer, tokenize
-from .vector_store_lab import ComicsVectorDB
+from scripts.common import generate_answer, tokenize
+from scripts.vector_store_lab import ComicsVectorDB
 
 
 @dataclass

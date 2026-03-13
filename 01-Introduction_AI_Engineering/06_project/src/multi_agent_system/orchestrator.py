@@ -19,9 +19,9 @@ import time
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.runnables import Runnable, RunnableBranch, RunnableLambda, RunnableParallel
 
-from .intent_classifier import build_intent_classifier
-from .prompts import UNKNOWN_FALLBACK_TEXT
-from .schemas import IntentLabel, RoutedResponse
+from multi_agent_system.intent_classifier import build_intent_classifier
+from multi_agent_system.prompts import UNKNOWN_FALLBACK_TEXT
+from multi_agent_system.schemas import IntentLabel, RoutedResponse
 
 
 

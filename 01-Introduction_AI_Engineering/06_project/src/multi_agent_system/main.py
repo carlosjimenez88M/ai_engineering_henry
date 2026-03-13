@@ -17,8 +17,8 @@ from __future__ import annotations
 import argparse
 import json
 
-from .config import load_settings
-from .pipeline import build_multi_agent_service
+from multi_agent_system.config import load_settings
+from multi_agent_system.pipeline import build_multi_agent_service
 
 
 

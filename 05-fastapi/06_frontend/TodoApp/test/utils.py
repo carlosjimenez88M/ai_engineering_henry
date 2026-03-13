@@ -19,8 +19,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
-from ..database import Base
-from ..main import app
+from TodoApp.database import Base
+from TodoApp.main import app
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./testdb.db"
 

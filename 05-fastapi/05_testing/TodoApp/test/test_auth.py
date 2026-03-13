@@ -20,7 +20,7 @@ import pytest
 from fastapi import HTTPException
 from jose import jwt
 
-from ..routers.auth import (
+from TodoApp.routers.auth import (
     ALGORITHM,
     SECRET_KEY,
     authenticate_user,
@@ -28,7 +28,7 @@ from ..routers.auth import (
     get_current_user,
     get_db,
 )
-from .utils import TestingSessionLocal, app, override_get_db
+from TodoApp.test.utils import TestingSessionLocal, app, override_get_db
 
 app.dependency_overrides[get_db] = override_get_db
 
