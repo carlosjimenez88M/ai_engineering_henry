@@ -36,7 +36,7 @@ def find_repo_root(start: Path) -> Path:
 
 
 def load_context_builder(root: Path):
-    ctx_path = root / "03_langchain_prompting" / "common" / "context_engineering.py"
+    ctx_path = root / "04_langchain_prompting" / "common" / "context_engineering.py"
     spec = importlib.util.spec_from_file_location("context_engineering03", ctx_path)
     module = importlib.util.module_from_spec(spec)
     if spec is None or spec.loader is None:
@@ -135,7 +135,7 @@ def run_cot_langchain(profile: dict[str, Any] | None = None, verbose: bool = Tru
             ),
             (
                 "human",
-                "Disena una recomendacion personalizada usando este context packet:\n"
+                "Diseña una recomendacion personalizada usando este context packet:\n"
                 "{context_packet}\n\n"
                 "Usa Chain of Thought visible en 4 pasos breves:\n"
                 "1) Senales clave.\n"

@@ -166,7 +166,8 @@ def main(topic):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Ejecuta el workflow de Agentes de IA para generar mensajes románticos.")
+    parser = argparse.ArgumentParser(
+        description="Ejecuta el workflow de Agentes de IA para generar mensajes románticos.")
     parser.add_argument(
         '-t', '--topic', 
         type=str, 
@@ -185,3 +186,5 @@ if __name__ == "__main__":
     print("="*50)
     for k, v in resultado.items():
         print(f"\n--- {k.upper()} ---\n{v}")
+
+# python 02-workflow_like_a_program.py -t 'es una cosota hermosa !!! le gusta la pizza y el tango, es uuna abogada que trabaja peleando con el derecho cambiario y el del comercio internacional, habla como 3 idiomas , y le encanta las novelas, si algo es medianamente de suspenso se queda dormida'

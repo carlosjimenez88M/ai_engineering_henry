@@ -633,4 +633,16 @@ make run-notebooks
 **Principio fundamental:**
 Buen prompting no es agregar complejidad; es usar la **mínima complejidad que garantiza calidad medible**.
 
+---
+
+## Practica recomendada
+
+Para convertir estas estrategias en criterio de diseno, revisa la carpeta `practice/`:
+
+- `03_prompting/practice/README.md`
+- `03_prompting/practice/01_reto_ecommerce_resenas.md`
+- `03_prompting/practice/02_reto_salud_checklist.md`
+- `03_prompting/practice/03_reto_fintech_routing.md`
+- `03_prompting/practice/04_reto_manufactura_cot.md`
+- `03_prompting/practice/05_reto_logistica_react.md`
 

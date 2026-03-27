@@ -79,7 +79,7 @@ else:
 
 
 # Inicializamos el modelo
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7)
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.1)
 
 #========================================#
 # 1. Definir el Estado

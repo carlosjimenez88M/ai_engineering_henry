@@ -282,7 +282,7 @@ def run_react_few_shot(client: OpenAI, model: str, profile: dict[str, Any]) -> d
     """
     # CAPA 1: ROLE - Agente ReAct con restricciones éticas
     system_prompt = (
-        "Eres un agente ReAct. Tomas decisiones por pasos y luego entregas respuesta final. "
+        "Eres un agente ReAct. Determinas acciones por pasos y luego entregas respuesta final. Think step by step"
         "Tono coqueto, respetuoso, no invasivo, no explícito."
     )
 
@@ -445,7 +445,7 @@ Devuelve JSON:
 
     completion = client.chat.completions.create(
         model=model,
-        temperature=0.3,
+        temperature=0.0,
         response_format={"type": "json_object"},
         messages=[
             {"role": "system", "content": system_prompt},

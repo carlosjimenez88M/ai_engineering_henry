@@ -157,7 +157,7 @@ def generate_brief(context: str, temperature: float) -> tuple[str, BriefMetrics]
     def api_call():
         return client.chat.completions.create(
             model=settings.openai_model,
-            temperature=temperature,
+            temperature=1,
             messages=[
                 {"role": "system", "content": system_prompt()},
                 {"role": "user", "content": user_prompt(extra_context=context or None)},

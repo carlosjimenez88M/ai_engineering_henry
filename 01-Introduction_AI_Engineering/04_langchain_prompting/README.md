@@ -37,3 +37,14 @@ uv run python 03_langchain_prompting/tools/execute_notebooks.py
 
 - Haber trabajado `02_prompting/`.
 - Tener `OPENAI_API_KEY` configurada.
+
+## Practica recomendada
+
+La carpeta `practice/` propone 5 retos progresivos para llevar estas ideas a casos reales:
+
+- `04_langchain_prompting/practice/README.md`
+- `04_langchain_prompting/practice/01_reto_rrhh_scorecard.md`
+- `04_langchain_prompting/practice/02_reto_turismo_contexto.md`
+- `04_langchain_prompting/practice/03_reto_seguros_cot_langchain.md`
+- `04_langchain_prompting/practice/04_reto_media_factcheck_react.md`
+- `04_langchain_prompting/practice/05_reto_procurement_router_hibrido.md`

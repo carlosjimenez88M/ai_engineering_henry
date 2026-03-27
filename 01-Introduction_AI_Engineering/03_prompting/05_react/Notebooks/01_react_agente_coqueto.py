@@ -460,7 +460,7 @@ def run_react_agent(client: OpenAI, model: str, profile: dict[str, Any]) -> dict
                         "role": "system",
                         "content": (
                             "Genera un mensaje coqueto, respetuoso y breve. "
-                            "Evita presión y frases explícitas."
+                            "Evita presión y frases explícitas, tambien caer en frases comunes."
                         ),
                     },
                     {
@@ -553,9 +553,9 @@ def main() -> None:
     # - "valora profundidad y evidencia, humor sutil" → conversación intelectual con ligereza
     # Estilo esperado: Pregunta basada en curiosidad científica, tono respetuoso e inteligente
     profile_1 = {
-        "tipo_persona": "neurocientífica especializada en sueño",
-        "gustos": ["documentales BBC", "yoga aéreo", "cafés silenciosos para leer"],
-        "estilo": "curiosa, valora profundidad y evidencia, humor sutil",
+        "tipo_persona": "Es una mujer guerrera, le gusta el boxeo y le encanta la salsa",
+        "gustos": ["Peliculas de terror", "Bailar salsa", "comer pizza"],
+        "estilo": "curiosa, valora profundidad y evidencia, humor negro",
         "contexto": "match tras leer biografía completa, ella mencionó paper tuyo",
     }
 
@@ -585,7 +585,7 @@ def main() -> None:
     # - "analítico pero aventurero, aprecia desafíos y métricas" → balance mente/cuerpo
     # Estilo esperado: Pregunta que combine analítica + aventura, métricas/objetivos
     profile_3 = {
-        "tipo_persona": "data scientist en biotech con pasión por trail running",
+        "tipo_persona": "data scientist en biotech con pasión por running con peso",
         "gustos": ["kaggle competitions", "ultra maratones", "podcasts de Lex Fridman"],
         "estilo": "analítico pero aventurero, aprecia desafíos y métricas",
         "contexto": "ya se saludaron, buscando tema para profundizar",

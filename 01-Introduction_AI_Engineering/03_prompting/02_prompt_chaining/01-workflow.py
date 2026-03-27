@@ -104,7 +104,7 @@ def agente_poeta(topic):
     logger.info("Agente Poeta : Recibiendo información procesada por el agente coquetón")
     response = call_api(system_prompt, 
                         user_prompt, 
-                        temp=0.2)
+                        temp=0.0001)
     logger.info("Agente Poeta : Poema generado")
     return response
 
@@ -119,7 +119,7 @@ def quitale_cursileria(poema):
     logger.info("Agente Quitale Cursileria : Recibiendo poema generado por el agente poeta")
     response = call_api(system_prompt, 
                         user_prompt, 
-                        temp=0.5)
+                        temp=0.0001)
     logger.info("Agente Quitale Cursileria : Poema transformado")
     return response
 
@@ -178,7 +178,7 @@ def main(topic):
 
 
 if __name__ == "__main__":
-    topic = "Una ingeniera de software que le gusta estudiar AI y le gusta el café , su hobbie es la ingenieria de contexto"
+    topic = "Mi jefe se llama Carolina, y creo que me enamore de ella. No puedo dejar de pensarla; Sin embargo es una persona de temperamento fuerte, astuta, audaz e intuitiva, siempre con un paso adelante. Hemos cruzado algunas miradas en donde siento que puedo conquistarla, pero siento miedo. Sin embargo hay un problema mayor, y es que esta recien separada, y quedo con un niño de 4 años. En algun momento le escuhe quesu ex-esposo le era infiel con otra persona."
     resultado = main(topic)
     print(resultado)
 

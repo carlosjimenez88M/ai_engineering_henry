@@ -244,3 +244,5 @@ if __name__ == "__main__":
             
     except Exception as e:
         logger.error(f"Error en la ejecución principal: {e}")
+
+#  python 03-adding_agent.py -t "Es una persona que le gusta salir a conocer museos y teatros! critica al libro el fantasma de la opera, odia la comida vegetariana"

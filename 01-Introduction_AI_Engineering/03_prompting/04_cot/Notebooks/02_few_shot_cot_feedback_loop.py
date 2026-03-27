@@ -169,10 +169,10 @@ def get_client_and_model() -> tuple[OpenAI, str]:
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY no está definida en el archivo .env")
 
-    return OpenAI(api_key=api_key), os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    return OpenAI(api_key=api_key), os.getenv("OPENAI_MODEL", "gpt-5.4")
 
 
-def call_json(client: OpenAI, model: str, system_prompt: str, user_prompt: str, temperature: float = 0.6) -> dict[str, Any]:
+def call_json(client: OpenAI, model: str, system_prompt: str, user_prompt: str, temperature: float = 0.0) -> dict[str, Any]:
     completion = client.chat.completions.create(
         model=model,
         temperature=temperature,
@@ -284,7 +284,7 @@ Perfil:
 Genera salida en el mismo formato JSON.
 """.strip()
 
-    return call_json(client, model, system_prompt, user_prompt, temperature=0.7)
+    return call_json(client, model, system_prompt, user_prompt, temperature=0.0)
 
 
 def feedback_loop(client: OpenAI, model: str, profile: dict[str, Any], draft: dict[str, Any]) -> dict[str, Any]:

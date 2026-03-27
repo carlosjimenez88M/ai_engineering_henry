@@ -48,7 +48,7 @@ def search(query: str) -> str:
 ########################
 
 llm = ChatOpenAI(
-    model="gpt-5.2", temperature=0.00003  # Entre mas dificil sea la division
+    model="gpt-5.4", temperature=0.00003  # Entre mas dificil sea la division
 )
 
 tools = [search]

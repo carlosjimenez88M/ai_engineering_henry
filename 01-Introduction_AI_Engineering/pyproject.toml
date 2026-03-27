@@ -11,7 +11,6 @@ dependencies = [
   "langchain-community>=0.3.0",
   "langchain-text-splitters>=0.3.0",
   "langchain-tavily>=0.2.0",
-  "langgraph>=0.4.0",
   "langgraph-checkpoint>=4.0.0",
   "tavily-python>=0.5.0",
   "graphviz>=0.20.1",
@@ -35,6 +34,8 @@ dependencies = [
   "seaborn>=0.13.0",
   "numpy>=1.26.0",
   "pandas>=2.1.0",
+  "langgraph>=1.0.10",
+  "langgraph-prebuilt>=1.0.8",
 ]
 
 [project.optional-dependencies]
