@@ -57,3 +57,16 @@ Usala cuando el razonamiento importa, la salida debe ser tipada y ademas quieres
 ## Cuando no usarla
 
 No la uses si la tarea solo necesita una extraccion deterministica o si debes consultar herramientas externas en tiempo real.
+
+## Por que se parece a produccion
+
+La guia practica de OpenAI usa `home insurance claim` como ejemplo de workflow donde reglas fijas no bastan. Oscar describe un claims assistant real que navega trazas complejas y acelera la resolucion de escalaciones. Por eso este reto combina CoT, salida tipada y una cadena validadora: es mucho mas cercano a operations real que a una demo de notebook.
+
+## Senal de entrevista
+
+En una entrevista tecnica, este reto muestra si puedes:
+
+- separar hechos, dudas y recomendacion
+- validar contra poliza o evidencia, no solo por estilo
+- instrumentar reintentos con feedback concreto
+- medir parse rate, accuracy y ganancia del segundo paso

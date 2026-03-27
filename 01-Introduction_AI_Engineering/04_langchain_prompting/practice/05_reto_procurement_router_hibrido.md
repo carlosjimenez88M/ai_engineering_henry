@@ -69,3 +69,16 @@ No la uses si casi todos los casos pertenecen al mismo tipo de problema o si el 
 ## Extension opcional
 
 Agrega trazas por ruta y un dashboard simple para comparar costo, latencia y calidad entre estrategias.
+
+## Por que se parece a produccion
+
+OpenAI usa ejemplos como fraude, vendor security reviews y claims para mostrar que no todos los workflows merecen el mismo nivel de autonomia. Ironclad muestra casos donde se necesitan cambios minimos y controlados; Hebbia, en cambio, muestra tareas donde si compensa una investigacion multi-step. Este reto toma esa realidad y te obliga a elegir arquitectura por tipo de trabajo, no por moda.
+
+## Senal de entrevista
+
+En una entrevista tecnica, este suele ser el capstone ideal para ver si puedes:
+
+- justificar arquitectura con trade-offs reales
+- unificar salidas de rutas distintas
+- evaluar router, response quality y costo por camino
+- demostrar criterio para no usar siempre la opcion mas compleja

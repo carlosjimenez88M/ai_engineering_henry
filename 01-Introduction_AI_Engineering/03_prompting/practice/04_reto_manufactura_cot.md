@@ -62,3 +62,16 @@ No la uses si la respuesta puede salir de una regla fija, una consulta SQL o una
 ## Extension opcional
 
 Convierte tu CoT zero-shot en few-shot y compara consistencia, costo y latencia.
+
+## Por que se parece a produccion
+
+Este reto es una inferencia informada por dos familias de fuentes. Anthropic recomienda CoT para problemas donde un humano realmente tendria que pensar paso a paso y evaluator-optimizer cuando existen criterios claros y valor real en iterar. Por su lado, ASQ trata el root cause analysis como un proceso metodico con tecnicas como 5 Whys, FMEA y control charts. El resultado es un ejercicio muy cercano a analisis de calidad y operaciones en plantas reales.
+
+## Senal de entrevista
+
+En una entrevista tecnica, este reto revela si puedes:
+
+- separar evidencia observada de inferencia
+- construir una rubrica util, no solo subjetiva
+- cerrar el loop entre generacion, evaluacion y mejora
+- medir si la segunda iteracion realmente sube la calidad

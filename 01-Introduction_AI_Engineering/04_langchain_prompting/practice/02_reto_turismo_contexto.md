@@ -55,3 +55,16 @@ Usala cuando el mismo perfil o contexto base se reutiliza en multiples prompts o
 ## Cuando no usarla
 
 No la uses si el contexto cambia por completo en cada request y el costo de encapsularlo no compensa.
+
+## Por que se parece a produccion
+
+OpenAI recomienda usar prompt templates y variables antes de saltar a arquitecturas mas complejas. En casos reales como Lowe’s, la calidad depende mucho de entender intencion y contexto: el usuario no llega con un SKU exacto, sino con un problema o proyecto. Este reto entrena exactamente eso, pero en formato de contexto reusable.
+
+## Senal de entrevista
+
+En una entrevista tecnica, aqui suelen mirar si sabes:
+
+- separar contexto estable de contexto puntual
+- controlar presupuesto de tokens
+- deduplicar y normalizar informacion antes de pasarsela al modelo
+- dejar trazabilidad entre perfil, contexto generado y salida final

@@ -57,3 +57,16 @@ Usala cuando repites una misma tarea de extraccion o scoring y quieres outputs e
 ## Cuando no usarla
 
 No la uses si necesitas consultar herramientas, navegar varias fuentes o decidir el siguiente paso dinamicamente.
+
+## Por que se parece a produccion
+
+Aunque el dominio aqui sea RRHH, el patron es totalmente de produccion: tomar notas desordenadas y convertirlas en un objeto typed y validable. OpenAI y LangChain empujan este enfoque con Structured Outputs y `response_format`, porque automatizar decisiones encima de texto libre sin schema suele romperse rapido.
+
+## Senal de entrevista
+
+En una entrevista tecnica, este reto deja ver si puedes:
+
+- modelar bien un schema
+- sostener parse rate alto
+- evitar contradicciones entre scores, riesgos y recomendacion
+- mostrar por que una salida tipada es mejor que un bloque de texto libre

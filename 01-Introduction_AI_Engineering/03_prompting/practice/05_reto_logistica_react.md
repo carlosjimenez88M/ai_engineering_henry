@@ -60,3 +60,16 @@ No la uses si todo lo necesario ya viene en el prompt o si el problema puede res
 ## Extension opcional
 
 Implementa un verificador final que revise si las acciones recomendadas realmente se derivan de las observaciones recolectadas.
+
+## Por que se parece a produccion
+
+Anthropic describe a los agentes como loops de herramientas mas feedback del entorno y recomienda usarlos cuando no puedes predecir la secuencia exacta de pasos. Tambien insiste en que el tool design importa tanto como el prompt. Este reto replica justo eso: varias fuentes de verdad, acciones condicionadas por observaciones, manejo de error y criterio de parada.
+
+## Senal de entrevista
+
+En una entrevista tecnica, aqui suelen evaluar:
+
+- diseno de herramientas y sus contratos de entrada/salida
+- stopping conditions y manejo de loops
+- trazabilidad de cada afirmacion a una observacion
+- capacidad de depurar el camino del agente, no solo la respuesta final

@@ -57,3 +57,16 @@ Usala cuando resolver la tarea exige buscar o actuar sobre fuentes externas y el
 ## Cuando no usarla
 
 No la uses si todo el conocimiento ya esta en el contexto local o si un pipeline fijo resuelve mejor el problema.
+
+## Por que se parece a produccion
+
+Anthropic y OpenAI coinciden en que los agentes valen la pena cuando hay que buscar evidencia, observar resultados y decidir el siguiente paso. Hebbia muestra que esa investigacion multi-step ya se usa para trabajo financiero y legal de alto valor. Este reto aterriza ese patron en un fact-checker mas pequeno pero igual de util para practicar tools, traces y veredictos con evidencia.
+
+## Senal de entrevista
+
+En una entrevista tecnica, aqui suelen evaluar:
+
+- calidad del estado del agente
+- diseno de tools pequenos y bien definidos
+- consistencia entre evidencia, veredicto y confianza
+- capacidad de decir `INCIERTO` cuando no hay soporte suficiente

@@ -8,6 +8,7 @@ Esta carpeta convierte las estrategias de prompting del modulo anterior en compo
 - tipar salidas para volverlas validables
 - separar contexto reusable de contexto puntual
 - elegir entre cadena, agente o sistema hibrido segun el problema
+- entrenar patrones que aparecen tanto en produccion como en ejercicios de entrevista
 
 ## Orden recomendado
 
@@ -34,3 +35,15 @@ Esta carpeta convierte las estrategias de prompting del modulo anterior en compo
 - El contexto debe estar limpio, deduplicado y con presupuesto de tokens razonable.
 - Las herramientas deben aportar informacion real al resultado final.
 - Debe existir un fallback para baja confianza o falta de evidencia.
+
+## Afinado con fuentes externas
+
+Estos retos se ajustaron usando documentacion oficial y casos reales de OpenAI, Anthropic, LangChain y LangSmith. El objetivo fue que practiques patrones que hoy si aparecen en sistemas reales:
+
+- `response_format` y salidas tipadas
+- templates reutilizables en vez de prompts sueltos
+- herramientas bien definidas y faciles de testear
+- evaluacion offline por componentes, no solo demos manuales
+- decision explicita sobre cuando usar cadena, agente o router hibrido
+
+Revisa el detalle en `EXTERNAL_REFERENCES.md`.

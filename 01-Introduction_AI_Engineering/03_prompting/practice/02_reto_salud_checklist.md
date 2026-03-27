@@ -61,3 +61,16 @@ No la uses si solo necesitas clasificar o resumir algo corto y estable.
 ## Extension opcional
 
 Agrega un quinto paso que adapte el tono de la checklist segun edad o nivel de alfabetizacion del paciente.
+
+## Por que se parece a produccion
+
+OpenAI for Healthcare destaca templates reutilizables para tareas como instrucciones al paciente y discharge workflows. Summer Health describe un caso real en el que GPT convierte observaciones medicas en notas claras y sin jerga, con revision clinica antes de compartirlas. Este reto toma exactamente ese tipo de tension: claridad para el paciente sin inventar indicaciones nuevas.
+
+## Senal de entrevista
+
+En una entrevista tecnica, este reto deja ver si sabes:
+
+- preservar hechos clinicos al simplificar lenguaje
+- separar informacion confirmada de informacion dudosa
+- incorporar una capa de revision humana en un dominio sensible
+- validar contra la fuente original y no solo por estilo

@@ -62,3 +62,16 @@ No la uses si necesitas consultar fuentes externas, aplicar especialistas distin
 ## Extension opcional
 
 Agrega una segunda salida llamada `needs_human_review` y evalua si mejora la seguridad operacional.
+
+## Por que se parece a produccion
+
+Este reto fue afinado pensando en equipos reales de soporte y customer insights. OpenAI muestra casos como Zendesk, donde la atencion al cliente opera a escala enorme, y Viable, donde el valor no esta solo en resumir texto sino en convertir feedback libre en temas y acciones utiles para negocio.
+
+## Senal de entrevista
+
+En una entrevista tecnica, aqui suelen mirar si sabes:
+
+- disenar una taxonomia util y no arbitraria
+- exigir salida estructurada estable
+- crear un set de evaluacion con etiquetas esperadas
+- definir cuando escalar a humano en vez de responder con exceso de confianza

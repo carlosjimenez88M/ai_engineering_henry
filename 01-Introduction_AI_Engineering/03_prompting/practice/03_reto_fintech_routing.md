@@ -59,3 +59,16 @@ No la uses si las categorias son artificiales, se solapan demasiado o el costo d
 ## Extension opcional
 
 Agrega una categoria `UNKNOWN` y mide si reduce errores graves en tickets ambiguos.
+
+## Por que se parece a produccion
+
+Anthropic recomienda routing cuando hay categorias bien separadas con prompts especialistas. OpenAI pone el analisis de fraude como ejemplo de workflow donde los metodos deterministas puros se quedan cortos, y Nubank describe el uso de IA para responder incidentes de fraude con mas consistencia. Por eso este reto no se queda en clasificar: obliga a decidir, enrutar y escalar de forma segura.
+
+## Senal de entrevista
+
+En una entrevista tecnica, aqui normalmente buscan:
+
+- calidad del intent classifier
+- thresholds de confianza razonables
+- matriz de confusion y analisis de errores
+- criterio de fallback humano para evitar falsos positivos graves

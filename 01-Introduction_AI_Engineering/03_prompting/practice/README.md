@@ -8,6 +8,7 @@ Esta carpeta propone 5 retos progresivos para dominar las estrategias de `03_pro
 - pasar de demos sueltas a casos que se pueden medir
 - practicar validacion funcional, no solo "se ve bien"
 - entender cuando usar menos complejidad y cuando si vale la pena subirla
+- practicar problemas que tambien se parecen a take-homes y entrevistas de AI engineering
 
 ## Orden recomendado
 
@@ -34,6 +35,18 @@ Esta carpeta propone 5 retos progresivos para dominar las estrategias de `03_pro
 - Cada campo importante debe poder rastrearse al contexto de entrada.
 - Debe existir un criterio de fallback cuando la confianza sea baja.
 - La solucion debe minimizar alucinaciones y evitar inventar datos faltantes.
+
+## Afinado con fuentes externas
+
+Esta carpeta fue refinada usando documentacion y casos reales de OpenAI, Anthropic, LangChain y ASQ. El objetivo fue mover los retos desde "ejercicios interesantes" a "problemas plausibles de produccion", sobre todo en:
+
+- soporte y customer operations
+- salud y patient-ready outputs
+- fraude y decisioning
+- root cause analysis con criterios de calidad
+- agentes con tools, traces y evaluacion
+
+Revisa el mapeo completo en `EXTERNAL_REFERENCES.md`.
 
 ## Recurso util
 
