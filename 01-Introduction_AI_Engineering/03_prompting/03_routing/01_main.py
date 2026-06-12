@@ -42,13 +42,14 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 #===========================================
 
 def call_api(system_prompt, 
-             user_prompt, temp=0.2, 
+             user_prompt, 
+             temp=0.000002, 
              json_mode=False):
     try:
         response_format = {"type": "json_object"} if json_mode else {"type": "text"}
         
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4.1-mini",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},

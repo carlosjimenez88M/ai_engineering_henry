@@ -5,7 +5,7 @@ Objetivo del script:
 Workflow for prompt chaining in AI engineering (Interactive Version).
 Objetivo : Construir un marco referencial interactivo donde la IA 
            solicita contexto humano para refinar la estrategia.
-Release Date : 2026-02-10
+Release Date : 2026-06-11
 
 Copyright 2026 Henry Academy.
 Unless required by applicable law or agreed to in writing, software
@@ -14,6 +14,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+########################
+# ---- libraries ----- #
+########################
 
 import os
 import argparse

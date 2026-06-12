@@ -90,7 +90,8 @@ def get_client_and_model() -> tuple[OpenAI, str]:
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY no está definida en el archivo .env")
 
-    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    model = os.getenv("OPENAI_MODEL", 
+                      "gpt-4.1-mini")
     return OpenAI(api_key=api_key), model
 
 
@@ -192,7 +193,7 @@ Devuelve JSON con esta estructura exacta:
 
     completion = client.chat.completions.create(
         model=model,
-        temperature=0.7,
+        temperature=0.00001,
         response_format={"type": "json_object"},
         messages=[
             {"role": "system", "content": system_prompt},

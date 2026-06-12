@@ -5,7 +5,7 @@ Objetivo del script:
 Workflow for prompt chaining in AI engineering.
 Objetivo : Construir un marco referencial en el cual se pueda desplegar 
            este tipo de arquitectura modular
-Release Date : 2026-02-10
+Release Date : 2026-06-11
 
 Copyright 2026 Henry Academy.
 Unless required by applicable law or agreed to in writing, software
@@ -54,7 +54,7 @@ client = OpenAI(api_key=api_key)
 def call_api(system_prompt, 
              user_prompt, 
              temp, 
-             model="gpt-4o-mini"):
+             model="gpt-4.1-mini"):
     """
     Realiza la llamada a la API de OpenAI con manejo de errores.
     """

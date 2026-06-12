@@ -5,7 +5,7 @@ Objetivo del script:
 Workflow for prompt chaining in AI engineering.
 Objetivo : Construir un marco referencial en el cual se pueda desplegar 
            este tipo de arquitectura  modular
-Release Date : 2026-02-10
+Release Date : 2026-06-11
 
 Copyright 2026 Henry Academy.
 Unless required by applicable law or agreed to in writing, software
@@ -104,7 +104,7 @@ def agente_poeta(topic):
     logger.info("Agente Poeta : Recibiendo información procesada por el agente coquetón")
     response = call_api(system_prompt, 
                         user_prompt, 
-                        temp=0.0001)
+                        temp=0.000000002)
     logger.info("Agente Poeta : Poema generado")
     return response
 
@@ -155,9 +155,9 @@ def agente_verificador(mensaje):
 
 
 
-#=============================================================
-#            Workflow de los agentes especialistas.      
-#=============================================================
+#============================================================#
+#            Workflow de los agentes especialistas.          #
+#============================================================#
 
 def main(topic):
     logger.info("Workflow iniciado")

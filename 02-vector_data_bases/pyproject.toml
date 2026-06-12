@@ -32,6 +32,8 @@ dependencies = [
   "pandas>=2.1.0",
   "pillow>=10.0.0",
   "keras>=3.12.1",
+  "openai-agents>=0.0.9",
+  "nest-asyncio>=1.6.0",
 ]
 
 [project.optional-dependencies]
